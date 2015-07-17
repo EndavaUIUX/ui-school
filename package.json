@@ -1,0 +1,22 @@
+{
+    "name": "ui-school",
+    "version": "0.1.0",
+    "description": "UI School 2015",
+    "dependencies": {
+        "express": "~4.9.5",
+        "express-handlebars": "~1.1.0",
+        "glob": "~4.0.6",
+        "underscore": "~1.7.0",
+        "watchr": "~2.4.11",
+        "lorem-hipsum": "~0.1.2"
+    },
+    "devDependencies": {
+        "load-grunt-tasks": "~0.2.0",    
+        "time-grunt": "~0.2.3"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/EndavaUIUX/ui-school"
+    },
+    "engine": "node >=0.12.x"
+}

@@ -1,0 +1,28 @@
+{
+    "users": [
+        { 
+            "id": "1",
+            "firstname": "Bogdan",
+            "lastname": "Nastasa",
+            "avatar": ""
+        },
+        { 
+            "id": "2",
+            "firstname": "Istvan",
+            "lastname": "Trombitas",
+            "avatar": ""
+        },
+        {
+            "id": "3",
+            "firstname": "Claudia",
+            "lastname": "Mihu",
+            "avatar": ""
+        },
+        {
+            "id": "4",
+            "firstname": "Alina",
+            "lastname": "Cirja Ungur",
+            "avatar": ""
+        }
+    ]
+}
