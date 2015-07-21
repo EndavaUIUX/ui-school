@@ -1,6 +1,7 @@
 THUNDERSTORM = THUNDERSTORM || {};
 
-THUNDERSTORM.serverDataModule = (function() {
+THUNDERSTORM.modules.serverDataModule = (function() {
+	'use strict';
 
 	function ServerData() {}
 
@@ -19,4 +20,4 @@ THUNDERSTORM.serverDataModule = (function() {
 
 }());
 
-THUNDERSTORM.serverDataInstance = new THUNDERSTORM.serverDataModule();
+THUNDERSTORM.serverDataInstance = new THUNDERSTORM.modules.serverDataModule();
