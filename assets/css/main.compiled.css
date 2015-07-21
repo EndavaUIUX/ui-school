@@ -1,0 +1,36 @@
+body,
+p,
+h1,
+h2,
+h3,
+h4,
+ul {
+  margin: 0px;
+}
+p {
+  text-align: center;
+}
+.container {
+  width: 100%;
+}
+.main {
+  width: 1170px;
+  margin: 0px auto;
+  height: 500px;
+  background-color: lightgray;
+}
+header {
+  height: 67px;
+  width: 100%;
+  background-color: aliceblue;
+}
+.slider {
+  width: 100%;
+  background-color: lightblue;
+  height: 600px;
+}
+footer {
+  width: 100%;
+  height: 67px;
+  background-color: coral;
+}
