@@ -10,9 +10,9 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="assets/css/main.compiled.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 </head>
-<body>
-    <pre>SERVER_DATA.serverDataInstance.getServerData("http://localhost:3000/rest/articles/", "GET", "JSON")</pre>
+<body>    
     <!--[if lt IE 7]>
         <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -23,6 +23,29 @@
       <!--Aici va adaugati last article si article tot ca un partial. E doar de testat, nu o sa ramana asa atunci cand o sa fie generate.-->
       {{>partials/footer}}
     </div>
-    <script src="assets/js/API.js"></script>
+    <script src="assets/js/app-namespace.js"></script>
+    <script src="assets/js/server-data-module.js"></script>
+    <script>
+        debugger;
+        function errorHandler(){
+            console.log('error');
+        }
+        function test (response){
+            var returnData = "";
+            if(response){
+                for(var article = 0, len = response.articles.length; article < len; article++) {
+                    for(var property in response.articles[article]) {
+                        returnData = returnData + response.articles[article][property];
+                    }
+                } 
+                debugger;
+                $(".main")[0].innerHTML = returnData;              
+            }else{
+                throw new Error("REQUEST ERROR");
+            }
+        }
+        THUNDERSTORM.serverDataInstance.getServerData("http://localhost:3000/resft/articles/", "GET", "json", test, errorHandler);                
+    </script>   
+    <script src="assets/js/API.js"></script>    
 </body>
 </html>

@@ -1,20 +1,22 @@
-SERVER_DATA = SERVER_DATA || {};
+THUNDERSTORM = THUNDERSTORM || {};
 
-SERVER_DATA.serverDataModule = (function() {
+THUNDERSTORM.serverDataModule = (function() {
 
 	function ServerData() {}
 
-	ServerData.prototype.getServerData = function(url, method, dataType) {
+	ServerData.prototype.getServerData = function(url, method, dataType, callback, errCallback) {
+
 		$.ajax({  			
   			url: url,
   			method: method,
-  			dataType: dataType
+			dataType: dataType
 		})
-		.done(function( msg ) {
-		    console.log( "Data Saved: " + msg );
-		});
+		.done(callback)
+		.error(errCallback);				
 	};
+
+	return ServerData;
 
 }());
 
-SERVER_DATA.serverDataInstance = new SERVER_DATA.ServerData();
+THUNDERSTORM.serverDataInstance = new THUNDERSTORM.serverDataModule();
