@@ -86,7 +86,9 @@ header {
 }
 .btn.btn--more {
   margin: 0px 0px 20px 30px;
-  padding: 10px 20px 10px 20px;
+  height: 43px;
+  width: 133px;
+  text-align: center;
   color: #747474;
   font-size: 18px;
   font-family: "Lato";
