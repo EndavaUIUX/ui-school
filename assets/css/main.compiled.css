@@ -35,56 +35,55 @@ header {
   width: 1170px;
   border: 1px solid black;
 }
-.article__content {
+.latest__article .article__content {
   width: 600px;
   height: 377px;
   float: left;
   position: absolute;
 }
-.article__img {
-  background: url("../images/main/Layer%207.png") no-repeat;
-  height: 377px;
-  width: 570px;
-  float: right;
-}
-.article__title {
+.latest__article .article__content .article__title {
   font-family: "Lato";
   font-size: 21px;
   color: #515151;
   padding: 30px 0px 12px 30px;
 }
-.article__author.article_info {
-  font-size: 18px;
-  font-family: "Lato";
-  color: #b1b1b1;
-}
-.article__date.article_info {
-  font-size: 18px;
-  font-family: "Lato";
-  color: #b1b1b1;
-}
-.article_description {
-  font-size: 18px;
-  font-family: "Lato";
-  color: #828282;
-  padding: 19px 30px 25px 30px;
-}
-.article__informations {
+.latest__article .article__content .article__informations {
   padding: 0px 30px 30px 30px;
 }
-.article__author {
+.latest__article .article__content .article__informations .article__author.article_info {
+  font-size: 18px;
+  font-family: "Lato";
+  color: #b1b1b1;
+}
+.latest__article .article__content .article__informations .article_info {
+  padding-left: 20px;
+  padding-right: 15px;
+}
+.latest__article .article__content .article__informations .article__date.article_info {
+  font-size: 18px;
+  font-family: "Lato";
+  color: #b1b1b1;
+}
+.latest__article .article__content .article__informations .article__author {
   background: url("../images/ico/user%20-%20single.png") no-repeat;
 }
-.article__date {
+.latest__article .article__content .article__informations .article__date {
   background: url("../images/ico/calendar.png") no-repeat;
 }
-.article__gallery {
+.latest__article .article__content .article__informations .article__gallery {
   background: url("../images/ico/6.png") no-repeat;
   font-size: 18px;
   font-family: "Lato";
   color: #b1b1b1;
 }
-.btn.btn--more {
+.latest__article .article__content .article_description {
+  font-size: 18px;
+  font-family: "Lato";
+  color: #828282;
+  padding: 10px 30px 25px 30px;
+  line-height: 25px;
+}
+.latest__article .article__content .btn.btn--more {
   margin: 0px 0px 20px 30px;
   height: 43px;
   width: 133px;
@@ -93,10 +92,13 @@ header {
   font-size: 18px;
   font-family: "Lato";
   border: 1px solid #515151;
+  background-color: #ffffff;
 }
-.article_info {
-  padding-left: 20px;
-  padding-right: 15px;
+.latest__article .article__img {
+  background: url("../images/main/Layer%207.png") no-repeat;
+  height: 377px;
+  width: 570px;
+  float: right;
 }
 footer {
   width: 100%;
