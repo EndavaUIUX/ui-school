@@ -1,0 +1,28 @@
+.wrapper {
+	width: 1170px;
+	margin:0px auto;
+	font-size:0px;
+	font-family:'Lato', sans-serif;
+}
+.article-wrapper{
+  display:inline-block;
+  box-sizing:border-box;
+  padding-right: 30px;
+
+}
+article {   
+
+	width: 370px;
+	height: 505px;
+	background-color:white;
+	/*border:1px solid #cecece;*/
+	box-shadow: 0 1px 6px 0 rgba(0,0,0,.12),0 1px 6px 0 rgba(0,0,0,.12);
+	color:gray;
+}
+
+img {
+	width: 370px;
+}
+article:after {
+ 	clear:both;
+}
