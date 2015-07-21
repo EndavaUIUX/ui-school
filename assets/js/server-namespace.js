@@ -1,0 +1,2 @@
+var SERVER_DATA = {};
+SERVER_DATA = SERVER_DATA || {};
