@@ -1,10 +1,5 @@
 node_modules
-<<<<<<< HEAD
-/nbproject/private/
-=======
-
+nbproject
 .idea
-
 desktop.ini
 npm-debug.log
->>>>>>> dev
