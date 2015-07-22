@@ -7,6 +7,7 @@
     'use strict';
     var utility = THUNDERSTORM.modules.utility;
     var persistence = THUNDERSTORM.modules.persistence;
+    var articlesParent = $('.main');
 /* ==========================================================================
    Verifica daca exista cheia articles in local storage. Daca da, preia datele
    de acolo.
@@ -38,10 +39,13 @@
    moment dat(public).
    ========================================================================== */
     THUNDERSTORM.articleData.filter(function (item, index) {
-      //console.log(item);
-        utility.createArticle(THUNDERSTORM.articleData[index], index, 0);
+        //console.log(item);
+        var myArticle = utility.createArticle(THUNDERSTORM.articleData[index], index, 0);
+        articlesParent.append(myArticle);
+        myArticle.show('slow');
     });
-    console.log(utility.dateFormatter('30-03-2015'));
+    
+    //console.log(utility.dateFormatter('30-03-2015'));
    
    
 }(window, window.THUNDERSTORM));

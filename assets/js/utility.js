@@ -11,6 +11,7 @@
             default: return "th";
         }
     }
+
     utility.keyInLocalStorage = function (key) {
         if (window.localStorage.getItem(key) === null) {
             return false;
@@ -19,31 +20,39 @@
     };
 
     utility.createArticle = function (articleData, articleIndex, isFullContent) {
-        var base = $('<div></div>').addClass('article-wrapper'),
-            article = $('<article></article>'),
-            articleTitle = $('<h2></h2>').data('article-index', 3).html(articleData.title),
-            articleImage = $('<img>'),
-            articleContent = $('<div></div>').addClass('article-content'),
-            articleInfo = $('<div></div>').addClass('article-info'),
-            articleText = $('p'),
-            articleAction = $('button').addClass('btn btn--more').data('article-index', articleIndex),
-            articleAuthor = $('<span></span>').addClass('article-info__author').html(articleData.author),
-            articleDate = $('<span></span>').addClass('article-info__date').html(utility.dateFormatter(articleData.published)),
+        var base = $('<div></div>').addClass('article--wrapper'),
+            article = $('<article></article>').attr('data-article-index', articleIndex),
+            articleTitle = $('<h2></h2>').html(articleData.title),
+            articleImage = $('<img>').css('height', 182),
+            articleContent = $('<div></div>').addClass('article__content'),
+            articleInfo = $('<div></div>').addClass('article__info'),
+            articleText = $('<p>'),
+            articleAction = $('<button></button>').addClass('btn btn--more').html('Read More'),
+            articleAuthor = $('<span></span>').addClass('article__author article__pill').html(articleData.author),
+            articleDate = $('<span></span>').addClass('article__date article__pill').html(utility.dateFormatter(articleData.published)),
             articleGallery,
             imageGalleryObj;
+            
         imageGalleryObj = imageSourceGenerator(articleData);
-
         articleImage.attr('src', imageGalleryObj.sources[0]);
-        isFullContent ? articleContent.html(articleData.content) : articleContent.html(articleData.description);
+        isFullContent ? articleText.html(articleData.content) : articleText.html(articleData.description);
         /*append the elements*/
-        articleInfo.append(articleAuthor).append(articleDate);
+        articleInfo.append(articleAuthor);
+        articleInfo.append(articleDate);
         
         if (imageGalleryObj.hasGallery) {
-            articleGallery = $('<span></span>').addClass('article-info__gallery');
+            articleGallery = $('<span></span>').addClass('article-info__gallery').html('Photo Gallery');
             articleInfo.append(articleGallery);
         }
+
         articleInfo.append(articleImage);
-        articleContent.append(articleInfo).append(articleText).append(articleAction);
+        articleContent.append(articleInfo);
+        articleContent.append(articleText);
+        articleContent.append(articleAction);
+        article.append(articleTitle);
+        article.append(articleContent);
+        base.append(article);
+        return base;
     };
 
     utility.dateFormatter = function (date) {
