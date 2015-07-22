@@ -38,9 +38,10 @@
    moment dat(public).
    ========================================================================== */
     THUNDERSTORM.articleData.filter(function (item, index) {
-        utility.createArticle(THUNDERSTORM.articleData[index]);
+      //console.log(item);
+        utility.createArticle(THUNDERSTORM.articleData[index], index, 0);
     });
-   
+    console.log(utility.dateFormatter('30-03-2015'));
    
    
 }(window, window.THUNDERSTORM));
