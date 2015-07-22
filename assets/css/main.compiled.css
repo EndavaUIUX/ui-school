@@ -105,9 +105,6 @@ header .header__profile {
   font-size: 18px;
   color: #b1b1b1;
 }
-.latest__article .article__content .article__picture img {
-  display: none;
-}
 .latest__article .article__content .article_description {
   font-size: 18px;
   color: #828282;
@@ -132,18 +129,45 @@ header .header__profile {
   width: 570px;
   float: right;
 }
+.article__picture img {
+  display: none;
+}
 .clearfix {
   clear: both;
 }
 /* ----------- iPhone 5 and 5S ----------- */
 /* Portrait and Landscape */
 @media only screen and (min-device-width: 320px) and (max-device-width: 568px) {
-  .article__img {
+  .latest__article {
+    width: 100%;
+    height: 763px;
+  }
+  .latest__article .article__img {
     display: none;
   }
-  .article__picture img {
-    max-width: 100%;
-    height: auto;
+  .latest__article .article__picture img {
+    display: block;
+    width: 44%;
+    height: 186px;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  .latest__article .article__content {
+    position: absolute;
+    height: 0px;
+    width: 600px;
+  }
+  .latest__article .article__content .article__title {
+    font-size: 18px;
+  }
+  .latest__article .article__content .article_description,
+  .latest__article .article__content .article__info {
+    text-align: justify;
+    width: 44%;
+    font-size: 13px;
+  }
+  .main {
+    position: relative;
   }
 }
 /* Portrait */
