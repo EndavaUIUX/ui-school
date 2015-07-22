@@ -1,28 +1,109 @@
-.wrapper {
-	width: 1170px;
-	margin:0px auto;
-	font-size:0px;
-	font-family:'Lato', sans-serif;
-}
-.article-wrapper{
-  display:inline-block;
-  box-sizing:border-box;
-  padding-right: 30px;
+@white:#FFF;
+@lato:'Lato';
+@info-text: #B1B1B1;
+@border-color:#CECECE;
+@btn-color:#515151;
+
+
+.article--wrapper{
+	width:370px;
+	display:inline-block;
+	box-sizing:border-box; 
+	margin-right:26px;
 
 }
-article {   
 
-	width: 370px;
-	height: 505px;
+.article--wrapper:nth-last-child(3n+1){
+	width:370px;
+	display:inline-block;
+	box-sizing:border-box; 
+	margin-right:0px;
+}
+
+ 
+article{
+	margin-bottom:30px;
 	background-color:white;
-	/*border:1px solid #cecece;*/
+	border:1px solid @border-color;
 	box-shadow: 0 1px 6px 0 rgba(0,0,0,.12),0 1px 6px 0 rgba(0,0,0,.12);
 	color:gray;
 }
 
-img {
-	width: 370px;
+article:after{
+	clear:both;
 }
-article:after {
- 	clear:both;
+
+
+
+
+.article__content{
+	box-sizing:border-box;
+	font-size:18px;
+}
+
+article h2 {
+	font-size:21px;
+	color:#515151;
+	padding: 30px 0px 20px 30px;  
+	font-family: @lato;
+}
+
+ 
+.article__author{
+  background: url('../images/ico/user.png') no-repeat;
+  padding-left: 30px;
+  font-size: 18px;
+  font-family: @lato;
+  color: @info-text;
+}
+
+.article__date{
+	background: url('../images/ico/date.png') no-repeat;
+	font-size: 18px;
+	font-family: @lato;
+	color:@info-text;
+  }
+ 
+.article__pill{
+	display:inline-block;
+	padding-left:20px;
+	margin-left:20px;
+	line-height:100%;
+}
+
+.article__pill:first-child{
+	display: inline-block;
+	padding-left: 20px;
+	margin-left: 30px;
+
+}
+
+
+
+img{
+	margin-top: 30px; 
+	width: 368px;
+}
+
+p{
+	font-size: 18px;
+	color: gray;
+	padding: 30px;
+ 	font-family: @lato;
+	text-align: left;
+}
+
+.btn--more {
+	margin: 0px 0px 30px 35px;
+	font-family: @lato;
+	width: 133px;
+	height: 43px;
+	font-size: 18px;
+	text-align: center;
+	color: rgb(81, 81, 81); 
+	text-align: center;
+	border-style: solid;
+	border-width: 1px;
+	border-color: @btn-color;
+	background-color: @white;
 }
