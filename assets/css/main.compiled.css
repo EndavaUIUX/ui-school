@@ -179,7 +179,7 @@ header .header__profile {
   }
 }
 /* ----------- IPhone 6----------- */
-@media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
+@media all and (min-width: 375px) and (max-width: 667px) {
   .latest__article .article__content .article_description {
     width: 53%;
   }
