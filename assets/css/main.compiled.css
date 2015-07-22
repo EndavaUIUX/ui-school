@@ -16,7 +16,6 @@ p {
 .main {
   width: 1170px;
   margin: 0px auto;
-  height: 500px;
   background-color: lightgray;
 }
 header {
@@ -28,6 +27,159 @@ header {
   width: 100%;
   background-color: lightblue;
   height: 600px;
+}
+.latest__article {
+  margin: 0px auto;
+  width: 1170px;
+  height: 372px;
+  border: 1px solid #e7e7e7;
+  box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.08);
+}
+.latest__article .article__content {
+  width: 600px;
+  height: 377px;
+  float: left;
+  position: absolute;
+}
+.latest__article .article__content .article__title {
+  font-family: "Lato";
+  font-size: 21px;
+  color: #515151;
+  padding: 30px 0px 12px 30px;
+}
+.latest__article .article__content .article__informations {
+  padding: 0px 30px 30px 30px;
+  font-family: "Lato";
+}
+.latest__article .article__content .article__informations .article__author.article_info {
+  font-size: 18px;
+  color: #b1b1b1;
+}
+.latest__article .article__content .article__informations .article_info {
+  padding-left: 20px;
+  padding-right: 15px;
+}
+.latest__article .article__content .article__informations .article__date.article_info {
+  font-size: 18px;
+  color: #b1b1b1;
+}
+.latest__article .article__content .article__informations .article__author {
+  background: url("../images/ico/user%20-%20single.png") no-repeat;
+}
+.latest__article .article__content .article__informations .article__date {
+  background: url("../images/ico/calendar.png") no-repeat;
+}
+.latest__article .article__content .article__informations .article__gallery {
+  background: url("../images/ico/6.png") no-repeat;
+  font-size: 18px;
+  color: #b1b1b1;
+}
+.latest__article .article__content .article_description {
+  font-size: 18px;
+  color: #828282;
+  padding: 10px 30px 25px 30px;
+  line-height: 25px;
+  font-family: "Lato";
+}
+.latest__article .article__content .btn.btn--more {
+  margin: 0px 0px 20px 30px;
+  height: 43px;
+  width: 133px;
+  text-align: center;
+  color: #515151;
+  font-size: 18px;
+  border: 1px solid #515151;
+  background-color: #ffffff;
+  font-family: "Lato";
+}
+.latest__article .article__img {
+  background: url("../images/main/Layer%207.png") no-repeat;
+  height: 377px;
+  width: 570px;
+  float: right;
+}
+.clearfix {
+  clear: both;
+}
+.article--wrapper {
+  width: 370px;
+  display: inline-block;
+  box-sizing: border-box;
+  margin-right: 26px;
+}
+.article--wrapper article {
+  margin-bottom: 30px;
+  background-color: white;
+  border: 1px solid #cecece;
+  box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
+  color: gray;
+}
+.article--wrapper article img {
+  margin-top: 30px;
+  width: 368px;
+}
+.article--wrapper article p {
+  font-size: 18px;
+  color: gray;
+  padding: 30px;
+  font-family: 'Lato';
+  text-align: left;
+}
+.article--wrapper article .btn--more {
+  margin: 0px 0px 30px 35px;
+  font-family: 'Lato';
+  width: 133px;
+  height: 43px;
+  font-size: 18px;
+  color: #515151;
+  text-align: center;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #515151;
+  background-color: #ffffff;
+}
+.article--wrapper article:after {
+  clear: both;
+}
+.article--wrapper:nth-last-child(3n+1) {
+  width: 370px;
+  display: inline-block;
+  box-sizing: border-box;
+  margin-right: 0px;
+}
+.article__content {
+  box-sizing: border-box;
+  font-size: 18px;
+}
+.article__content .article__author {
+  background: url('../images/ico/user.png') no-repeat;
+  padding-left: 30px;
+  font-size: 18px;
+  font-family: 'Lato';
+  color: #b1b1b1;
+}
+.article__content .article__date {
+  background: url('../images/ico/date.png') no-repeat;
+  font-size: 18px;
+  font-family: 'Lato';
+  color: #b1b1b1;
+}
+article h2 {
+  font-size: 21px;
+  color: #515151;
+  padding: 30px 0px 20px 30px;
+  font-family: 'Lato';
+}
+.article__pill {
+  display: inline-block;
+  padding-left: 20px;
+  margin-left: 20px;
+  line-height: 100%;
+}
+.article__pill:first-child {
+  display: inline-block;
+  padding-left: 20px;
+  margin-left: 30px;
 }
 footer {
   width: 100%;
