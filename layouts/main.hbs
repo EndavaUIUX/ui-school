@@ -27,24 +27,8 @@
     <script src="assets/js/Thunderstorm.js"></script>
     <script src="assets/js/persistence.js"></script>
     <script src="assets/js/server-data-module.js"></script>
-    <script>
-        function errorHandler(){
-            console.log('error');
-        }
-        function test (response){
-            debugger;
-            var returnData = "";
-            
-            for(var article = 0, len = response.articles.length; article < len; article++) {
-                for(var property in response.articles[article]) {
-                    returnData = returnData + response.articles[article][property];
-                }
-            } 
-
-            $(".main")[0].innerHTML = returnData; 
-        }
-        THUNDERSTORM.serverDataInstance.getServerData("http://localhost:3000/restf/articles/", "GET", "json", test, errorHandler);                
-    </script>
+    <!-- TODO: de sters la un moment dat server-data-test.js-->
+    <script  src="assets/js/server-data-test.js"></script>
 
 </body>
 </html>

@@ -19,5 +19,3 @@ THUNDERSTORM.modules.serverDataModule = (function() {
 	return ServerData;
 
 }());
-
-THUNDERSTORM.serverDataInstance = new THUNDERSTORM.modules.serverDataModule();
