@@ -1,0 +1,31 @@
+//Variables
+@article-picture: url("../images/main/Layer%207.png");
+
+/* ----------- iPhone 5 and 5S ----------- */
+/* Portrait and Landscape */
+@media only screen
+and (min-device-width: 320px)
+and (max-device-width: 568px) {
+  .article__img{
+    display: none;
+  }
+  .article__picture img{
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* Portrait */
+@media only screen
+and (min-device-width: 320px)
+and (max-device-width: 568px)
+and (orientation: portrait) {
+}
+
+/* Landscape */
+@media only screen
+and (min-device-width: 320px)
+and (max-device-width: 568px)
+and (orientation: landscape) {
+
+}

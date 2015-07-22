@@ -74,6 +74,9 @@ header {
   font-size: 18px;
   color: #b1b1b1;
 }
+.latest__article .article__content .article__picture img {
+  display: none;
+}
 .latest__article .article__content .article_description {
   font-size: 18px;
   color: #828282;
@@ -101,6 +104,19 @@ header {
 .clearfix {
   clear: both;
 }
+/* ----------- iPhone 5 and 5S ----------- */
+/* Portrait and Landscape */
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) {
+  .article__img {
+    display: none;
+  }
+  .article__picture img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+/* Portrait */
+/* Landscape */
 .article--wrapper {
   width: 370px;
   display: inline-block;
