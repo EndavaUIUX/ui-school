@@ -30,10 +30,11 @@ header {
   height: 600px;
 }
 .latest__article {
-  height: 375px;
   margin: 0px auto;
   width: 1170px;
-  border: 1px solid black;
+  height: 372px;
+  border: 1px solid #e7e7e7;
+  box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.08);
 }
 .latest__article .article__content {
   width: 600px;
@@ -49,10 +50,10 @@ header {
 }
 .latest__article .article__content .article__informations {
   padding: 0px 30px 30px 30px;
+  font-family: "Lato";
 }
 .latest__article .article__content .article__informations .article__author.article_info {
   font-size: 18px;
-  font-family: "Lato";
   color: #b1b1b1;
 }
 .latest__article .article__content .article__informations .article_info {
@@ -61,7 +62,6 @@ header {
 }
 .latest__article .article__content .article__informations .article__date.article_info {
   font-size: 18px;
-  font-family: "Lato";
   color: #b1b1b1;
 }
 .latest__article .article__content .article__informations .article__author {
@@ -73,15 +73,14 @@ header {
 .latest__article .article__content .article__informations .article__gallery {
   background: url("../images/ico/6.png") no-repeat;
   font-size: 18px;
-  font-family: "Lato";
   color: #b1b1b1;
 }
 .latest__article .article__content .article_description {
   font-size: 18px;
-  font-family: "Lato";
   color: #828282;
   padding: 10px 30px 25px 30px;
   line-height: 25px;
+  font-family: "Lato";
 }
 .latest__article .article__content .btn.btn--more {
   margin: 0px 0px 20px 30px;
@@ -90,15 +89,18 @@ header {
   text-align: center;
   color: #747474;
   font-size: 18px;
-  font-family: "Lato";
   border: 1px solid #515151;
   background-color: #ffffff;
+  font-family: "Lato";
 }
 .latest__article .article__img {
   background: url("../images/main/Layer%207.png") no-repeat;
   height: 377px;
   width: 570px;
   float: right;
+}
+.clearfix {
+  clear: both;
 }
 footer {
   width: 100%;
