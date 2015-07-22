@@ -3,31 +3,35 @@
 @info-text: #B1B1B1;
 @border-color:#CECECE;
 @btn-color: #515151;
+@text-color: #828282;
+@text-size: 18px;
 @box-shadow:0 1px 6px 0 rgba(0,0,0,.12),0 1px 6px 0 rgba(0,0,0,.12);
 
 
-.article--wrapper {
-	width:370px;
+.article-wrapper {
+	width:31.6%;
 	display:inline-block;
 	box-sizing:border-box; 
 	margin-right:26px;
+
 
 	article {
 		margin-bottom:30px;
 		background-color:white;
 		border:1px solid @border-color;
 		box-shadow: @box-shadow ;
-		color:gray;
+		color:@text-color;
 
 		img{
 			margin-top: 30px; 
-			width: 368px;
+			max-width: 100%;
+    			height: auto;
 		}
 
 
 		p{
-			font-size: 18px;
-			color: gray;
+			font-size: @text-size;
+			color: @text-color;
 			padding: 30px;
 		 	font-family: @lato;
 			text-align: left;
@@ -38,7 +42,7 @@
 			font-family: @lato;
 			width: 133px;
 			height: 43px;
-			font-size: 18px;
+			font-size: @text-size;
 			text-align: center;
 			color: @btn-color; 
 			text-align: center;
@@ -55,33 +59,34 @@
 	}
 }
 
-.article--wrapper:nth-last-child(3n+1){
-	width:370px;
+.article-wrapper:nth-last-child(3n+1){
+	width:31.6%;
 	display:inline-block;
 	box-sizing:border-box; 
 	margin-right:0px;
 }
 
-.article__content{
+.article-content{
 	box-sizing:border-box;
-	font-size:18px;
+	font-size:@text-size;
 
-	.article__author{
-		background: url('../images/ico/user.png') no-repeat;
-		padding-left: 30px;
-		font-size: 18px;
-		font-family: @lato;
-		color: @info-text;
-	}
+	
 
-	.article__date{
+	.article-info__date{
 		background: url('../images/ico/date.png') no-repeat;
-		font-size: 18px;
+		font-size: @text-size;
 		font-family: @lato;
 		color:@info-text;
 	  }
 }
 
+.article-info__author{
+		background: url('../images/ico/user.png') no-repeat;
+		padding-left: 30px;
+		font-size: @text-size;
+		font-family: @lato;
+		color: @info-text;
+	}
 article h2 {
 	font-size:21px;
 	color:@btn-color;
@@ -90,18 +95,19 @@ article h2 {
 }
 
 
-.article__pill{
+.article-info__pill{
 	display:inline-block;
 	padding-left:20px;
 	margin-left:20px;
-	line-height:100%;
+	line-height:1;
 }
 
-.article__pill:first-child{
+.article-info__pill:first-child{
 	display: inline-block;
 	padding-left: 20px;
 	margin-left: 30px;
 
 }
+
 
 
