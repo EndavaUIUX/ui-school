@@ -8,7 +8,7 @@ and (min-device-width: 320px)
 and (max-device-width: 568px) {
   .latest__article{
     width: 100%;
-    height: 763px;
+    height: 670px;
     .article__img{
       display: none;
     }
@@ -26,8 +26,18 @@ and (max-device-width: 568px) {
       .article__title{
         font-size: 18px;
       }
-      .article_description,
-      .article__info{
+      .article__informations{
+        .article__author.article_info{
+          font-size: 13px;
+        }
+        .article__date.article_info{
+          font-size: 13px;
+        }
+        .article__gallery.article_info{
+          font-size: 13px;
+        }
+      }
+      .article_description{
         text-align: justify;
         width: 44%;
         font-size: 13px;
@@ -39,17 +49,56 @@ and (max-device-width: 568px) {
   }
 }
 
-/* Portrait */
+/* ----------- IPhone 6----------- */
+
 @media only screen
-and (min-device-width: 320px)
-and (max-device-width: 568px)
+and (min-device-width: 375px)
+and (max-device-width: 667px){
+  .latest__article{
+    .article__content{
+      .article_description{
+        width: 53%;
+      }
+    }
+    .article__picture img{
+      width: 53%;
+      height: 10%;
+    }
+  }
+}
+
+/* ----------- Galaxy S5 ----------- */
+
+/* Portrait and Landscape */
+@media screen
+and (device-width: 360px)
+and (device-height: 640px) {
+  .latest__article{
+    .article__content{
+      .article_description{
+        width: 50%;
+      }
+      .article__picture img{
+        width: 50%;
+        height: 100%;
+      }
+    }
+
+  }
+}
+
+/* Portrait */
+@media screen
+and (device-width: 360px)
+and (device-height: 640px)
 and (orientation: portrait) {
+
 }
 
 /* Landscape */
-@media only screen
-and (min-device-width: 320px)
-and (max-device-width: 568px)
+@media screen
+and (device-width: 360px)
+and (device-height: 640px)
 and (orientation: landscape) {
 
 }
