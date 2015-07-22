@@ -12,6 +12,7 @@
     <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 
     <link href="assets/css/main.compiled.css" rel="stylesheet">
+    <link href="assets/css/reset.css" rel="stylesheet">
 </head>
 <body>
     <!--[if lt IE 7]>
@@ -21,9 +22,10 @@
     <div class="container">
       {{>partials/header}}
       {{>partials/slider}}
+      {{>partials/latest-article}}
       {{>partials/main}}
       <!--Aici va adaugati last article si article tot ca un partial. E doar de testat, nu o sa ramana asa atunci cand o sa fie generate.-->
-      {{>partials/article}}
+	  {{>partials/article}}
       {{>partials/footer}}
     </div>
 
