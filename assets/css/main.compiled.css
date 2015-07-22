@@ -160,6 +160,10 @@ header .header__profile {
   .latest__article .article__content .article__title {
     font-size: 18px;
   }
+  .latest__article .article__content .article__informations .article_info {
+    padding-left: 20px;
+    padding-right: 2px;
+  }
   .latest__article .article__content .article__informations .article__author.article_info {
     font-size: 13px;
   }
@@ -190,7 +194,7 @@ header .header__profile {
 }
 /* ----------- Galaxy S5 ----------- */
 /* Portrait and Landscape */
-@media screen and (device-width: 360px) and (device-height: 640px) {
+@media only screen and (device-width: 360px) and (device-height: 640px) {
   .latest__article .article__content .article_description {
     width: 50%;
   }
