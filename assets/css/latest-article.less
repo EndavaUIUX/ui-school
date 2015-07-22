@@ -1,9 +1,9 @@
 //Variables
 @font:"Lato";
-@author-ico: url("../images/ico/user%20-%20single.png") no-repeat;
-@date-ico: url("../images/ico/calendar.png") no-repeat;
-@gallery-ico: url("../images/ico/6.png") no-repeat;
-@article-img: url("../images/main/Layer%207.png") no-repeat;
+@author-ico: url("../images/ico/user%20-%20single.png");
+@date-ico: url("../images/ico/calendar.png");
+@gallery-ico: url("../images/ico/6.png");
+@article-img: url("../images/main/Layer%207.png");
 @article-shadow-color: rgba(0,0,0,0.08);
 @article-border-color: #e7e7e7;
 @article-header-color: #515151;
@@ -46,16 +46,19 @@
         color: @article-author-color;
       }
       .article__author{
-        background: @author-ico;
+        background: @author-ico no-repeat;
       }
       .article__date{
-        background: @date-ico;
+        background: @date-ico no-repeat;
       }
       .article__gallery{
-        background: @gallery-ico;
+        background: @gallery-ico no-repeat;
         font-size: 18px;
         color: @article-author-color;
       }
+    }
+    .article__picture img{
+      display: none;
     }
     .article_description{
       font-size: 18px;
@@ -78,7 +81,7 @@
   }
 
   .article__img{
-    background: @article-img;
+    background: @article-img no-repeat;
     height: 377px;
     width: 570px;
     float: right;
