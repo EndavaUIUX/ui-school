@@ -1,0 +1,96 @@
+//Variables
+@font:"Lato";
+@author-ico: url("../images/ico/user%20-%20single.png") no-repeat;
+@date-ico: url("../images/ico/calendar.png") no-repeat;
+@gallery-ico: url("../images/ico/6.png") no-repeat;
+@article-img: url("../images/main/Layer%207.png") no-repeat;
+@article-shadow-color: rgba(0,0,0,0.08);
+@article-border-color: #e7e7e7;
+@article-header-color: #515151;
+@article-author-color: #b1b1b1;
+@article-description-color: #828282;
+@btn-background-color: #ffffff;
+@btn-color: #747474;
+
+.latest__article{
+  margin: 0px auto;
+  width: 1170px;
+  height: 372px;
+  border: 1px solid @article-border-color;
+  box-shadow: 0px 5px 5px 0px @article-shadow-color;
+
+  .article__content{
+    width: 600px;
+    height: 377px;
+    float:left;
+    position: absolute;
+    .article__title{
+      font-family: @font;
+      font-size: 21px;
+      color: @article-header-color;
+      padding: 30px 0px 12px 30px;
+    }
+    .article__informations{
+      padding: 0px 30px 30px 30px;
+      font-family: @font;
+      .article__author.article_info{
+        font-size: 18px;
+        color: @article-author-color;
+      }
+      .article_info{
+        padding-left: 20px;
+        padding-right: 15px;
+      }
+      .article__date.article_info{
+        font-size: 18px;
+        color: @article-author-color;
+      }
+      .article__author{
+        background: @author-ico;
+      }
+      .article__date{
+        background: @date-ico;
+      }
+      .article__gallery{
+        background: @gallery-ico;
+        font-size: 18px;
+        color: @article-author-color;
+      }
+    }
+    .article_description{
+      font-size: 18px;
+      color: @article-description-color;
+      padding: 10px 30px 25px 30px;
+      line-height: 25px;
+      font-family: @font;
+    }
+    .btn.btn--more{
+      margin: 0px 0px 20px 30px;
+      height: 43px;
+      width: 133px;
+      text-align: center;
+      color: @btn-color;
+      font-size: 18px;
+      border: 1px solid #515151;
+      background-color: @btn-background-color;
+      font-family: @font;
+    }
+  }
+
+  .article__img{
+    background: @article-img;
+    height: 377px;
+    width: 570px;
+    float: right;
+  }
+}
+
+.clearfix{
+  clear:both;
+}
+
+
+
+
+
+
