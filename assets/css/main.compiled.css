@@ -65,6 +65,7 @@ header .header__profile {
   height: 372px;
   border: 1px solid #e7e7e7;
   box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.08);
+  margin-bottom: 50px;
 }
 .latest__article .article__content {
   width: 600px;
