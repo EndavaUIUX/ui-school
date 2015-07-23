@@ -1,3 +1,11 @@
+@font-face {
+  font-family: 'Lato';
+  src: url('../fonts/Lato.woff') format('woff');
+  src: url('../fonts/Lato.eot');
+  /* IE9 Compat Modes */
+  src: url('../fonts/Lato.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('../fonts/Lato.woff2') format('woff2'), /* Super Modern Browsers */ url('../fonts/Lato.woff') format('woff'), /* Pretty Modern Browsers */ url('../fonts/Lato.ttf') format('truetype');
+  /* Safari, Android, iOS */
+}
 body,
 p,
 h1,
@@ -74,14 +82,14 @@ header .header__profile {
   position: absolute;
 }
 .latest__article .article__content .article__title {
-  font-family: "Lato";
+  font-family: 'Lato';
   font-size: 21px;
   color: #515151;
   padding: 30px 0px 12px 30px;
 }
 .latest__article .article__content .article__informations {
   padding: 0px 30px 30px 30px;
-  font-family: "Lato";
+  font-family: 'Lato';
 }
 .latest__article .article__content .article__informations .article__author.article_info {
   font-size: 18px;
@@ -96,13 +104,13 @@ header .header__profile {
   color: #b1b1b1;
 }
 .latest__article .article__content .article__informations .article__author {
-  background: url("../images/ico/user%20-%20single.png") no-repeat;
+  background: url("../images/ico/user%20-%20single.png") no-repeat no-repeat;
 }
 .latest__article .article__content .article__informations .article__date {
-  background: url("../images/ico/calendar.png") no-repeat;
+  background: url("../images/ico/calendar.png") no-repeat no-repeat;
 }
 .latest__article .article__content .article__informations .article__gallery {
-  background: url("../images/ico/6.png") no-repeat;
+  background: url("../images/ico/6.png") no-repeat no-repeat;
   font-size: 18px;
   color: #b1b1b1;
 }
@@ -111,7 +119,7 @@ header .header__profile {
   color: #828282;
   padding: 10px 30px 25px 30px;
   line-height: 25px;
-  font-family: "Lato";
+  font-family: 'Lato';
   text-align: justify;
 }
 .latest__article .article__content .btn.btn--more {
@@ -123,7 +131,7 @@ header .header__profile {
   font-size: 18px;
   border: 1px solid #515151;
   background-color: #ffffff;
-  font-family: "Lato";
+  font-family: 'Lato';
 }
 .latest__article .article__img {
   height: 377px;

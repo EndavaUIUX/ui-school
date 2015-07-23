@@ -1,6 +1,5 @@
 node_modules
-
+nbproject
 .idea
-
 desktop.ini
 npm-debug.log
