@@ -287,7 +287,6 @@ header .header__profile {
   }
 }
 .article-wrapper {
-  font-size: 0;
   width: 31.6%;
   display: inline-block;
   box-sizing: border-box;
@@ -327,6 +326,12 @@ header .header__profile {
 }
 .article-wrapper article:after {
   clear: both;
+}
+.article-wrapper:nth-last-child(3n+1) {
+  width: 31.6%;
+  display: inline-block;
+  box-sizing: border-box;
+  margin-right: 0px;
 }
 .article-content {
   box-sizing: border-box;
