@@ -125,7 +125,6 @@ header .header__profile {
   font-family: "Lato";
 }
 .latest__article .article__img {
-  background: url("../images/main/Layer%207.png") no-repeat;
   height: 377px;
   width: 570px;
   float: right;
@@ -184,7 +183,6 @@ header .header__profile {
     position: relative;
   }
 }
-/* ----------- IPhone 6----------- */
 @media all and (min-width: 375px) and (max-width: 667px) {
   .latest__article .article__content .article_description {
     width: 53%;
@@ -194,8 +192,6 @@ header .header__profile {
     height: 10%;
   }
 }
-/* ----------- Galaxy S5 ----------- */
-/* Portrait and Landscape */
 @media all and (min-width: 360px) and (max-width: 640px) {
   .latest__article .article__content .article_description {
     width: 50%;
