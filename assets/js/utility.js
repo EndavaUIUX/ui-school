@@ -20,16 +20,16 @@
     };
 
     utility.createArticle = function (articleData, articleIndex, isFullContent) {
-        var base = $('<div></div>').addClass('article--wrapper'),
+        var base = $('<div></div>').addClass('article-wrapper'),
             article = $('<article></article>').attr('data-article-index', articleIndex),
             articleTitle = $('<h2></h2>').html(articleData.title),
             articleImage = $('<img>').css('height', 182),
             articleContent = $('<div></div>').addClass('article__content'),
-            articleInfo = $('<div></div>').addClass('article__info'),
+            articleInfo = $('<div></div>').addClass('article-info'),
             articleText = $('<p>'),
             articleAction = $('<button></button>').addClass('btn btn--more').html('Read More'),
-            articleAuthor = $('<span></span>').addClass('article__author article__pill').html(articleData.author),
-            articleDate = $('<span></span>').addClass('article__date article__pill').html(utility.dateFormatter(articleData.published)),
+            articleAuthor = $('<span></span>').addClass('article-info__author article-info__pill').html(articleData.author),
+            articleDate = $('<span></span>').addClass('article-info__date article-info__pill').html(utility.dateFormatter(articleData.published)),
             articleGallery,
             imageGalleryObj;
             
@@ -47,19 +47,22 @@
 
         articleInfo.append(articleImage);
         articleContent.append(articleInfo);
-        articleContent.append(articleText);
-        articleContent.append(articleAction);
         article.append(articleTitle);
         article.append(articleContent);
+        article.append(articleText);
+        article.append(articleAction);
         base.append(article);
         return base;
     };
 
-    utility.dateFormatter = function (date) {
+    utility.dateFormatter = function (date, hasYear) {
         //dd mm yyyy
         var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
         date = date.split('-');
-        return months[parseInt(date[1], 10)] + " " + date[0] + nth(date[0]) + ", " + date[2]; 
+        if (hasYear) {
+            return months[parseInt(date[1], 10)] + " " + date[0] + nth(date[0]) + ", " + date[2]; 
+        }
+        return months[parseInt(date[1], 10)] + " " + date[0] + nth(date[0]); 
     };
     
     function imageSourceGenerator(articleData) {
