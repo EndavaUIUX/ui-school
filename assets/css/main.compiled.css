@@ -16,6 +16,7 @@ p {
 .main {
   width: 1170px;
   margin: 50px auto;
+  display: block;
 }
 header {
   height: 67px;
@@ -193,12 +194,22 @@ article h2 {
   .main {
     width: auto;
     margin: 50px auto;
+    display: block;
   }
-  .article-wrapper:nth-last-child(n) {
+  .article-wrapper {
     width: 48%;
     display: inline-block;
     box-sizing: border-box;
     margin-right: 0px;
+    /*		&:first-child {
+			margin-right: 30px;
+		}*/
+  }
+  .article-wrapper:nth-last-child(3n+1) {
+    width: 48%;
+  }
+  .article-wrapper:nth-last-child(2n+1) {
+    margin-left: 30px;
   }
   /*.article-wrapper:last-child {
 		width:48%;
@@ -317,7 +328,7 @@ article h2 {
     clear: both;
   }
 }
-@media only screen and (max-width: 300px) {
+@media only screen and (max-width: 323px) {
   .article-info__pill {
     display: inline-block;
     padding-left: 20px;
