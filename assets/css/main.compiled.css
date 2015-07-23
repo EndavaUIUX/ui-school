@@ -159,6 +159,7 @@ header .header__profile {
   padding: 30px;
   font-family: 'Lato';
   text-align: left;
+  line-height: 1;
 }
 .article-wrapper article .btn--more {
   margin: 0px 0px 30px 35px;
