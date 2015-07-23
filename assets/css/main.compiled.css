@@ -111,6 +111,7 @@ header .header__profile {
   padding: 10px 30px 25px 30px;
   line-height: 25px;
   font-family: "Lato";
+  text-align: justify;
 }
 .latest__article .article__content .btn.btn--more {
   margin: 0px 0px 20px 30px;
