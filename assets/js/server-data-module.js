@@ -12,10 +12,18 @@ THUNDERSTORM.modules.serverDataModule = (function() {
 			throw new Error("Params missing.");
 		}
 
-		var ajaxCall = $.ajax({  			
-  			url: params.url,
-  			method: params.method,
-			dataType: params.dataType
+		var ajaxCall = $.ajax({ 
+			url: params.url,
+			method: params.method,
+			dataType: params.dataType,
+			async: true,
+			cache: false,
+			context: this,				
+			error: defaultErrorHandler,
+			beforeSend: function () {
+				clearErrors();
+			}
+
 		});
 
 		response = ajaxCall.done(params.callback);
@@ -26,6 +34,10 @@ THUNDERSTORM.modules.serverDataModule = (function() {
 	ServerData.prototype.isURLValid = function(str) {
 		var regexp = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
         return regexp.test(str);
+	}
+
+	function clearErrors() {
+		console.log('clearing errors...');
 	}
 
 	return ServerData;

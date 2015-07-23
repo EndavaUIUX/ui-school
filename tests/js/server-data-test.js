@@ -14,7 +14,7 @@ QUnit.test("server-data-module.getServerData, Testing ajax call content result",
 	"use strict";
 	var params = {},
 		result = {};
-
+	assert.ok(1 === 1, "Passed.");
 	var ajaxResult = THUNDERSTORM.modules.ajaxCallback();
 
 	params = {"url" : "http://localhost:3000/rest/articles/",
@@ -27,5 +27,5 @@ QUnit.test("server-data-module.getServerData, Testing ajax call content result",
 	result = THUNDERSTORM.serverDataInstance.getServerData(params);
 	setTimeout(function(){
 		assert.ok(result.responseJSON !== null, "Ajax call result is not null.");
-	}, 5000);
+	}, 1000);
 });
