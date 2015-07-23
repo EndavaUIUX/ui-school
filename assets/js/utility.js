@@ -41,7 +41,7 @@
         articleInfo.append(articleDate);
         
         if (imageGalleryObj.hasGallery) {
-            articleGallery = $('<span></span>').addClass('article-info__gallery').html('Photo Gallery');
+            articleGallery = $('<span></span>').addClass('article-info__gallery article-info__pill').html('Photo Gallery');
             articleInfo.append(articleGallery);
         }
 
@@ -87,6 +87,7 @@
             articleTitle = $('<h2></h2>').addClass('article__title').html(articleData.title),
             articleHiddenImgContainer = $('<div></div>').addClass('article__picture'),
             articleHiddenImage = $('<img>'),
+            articleVisibleImgTag = $('<img>'),
             articleVisibleImage = $('<div></div>').addClass('article__img'),
             articleInfo = $('<div></div>').addClass('article__informations'),
             articleText = $('<p>').addClass('article_description'),
@@ -97,6 +98,7 @@
             imageGalleryObj;
         imageGalleryObj = imageSourceGenerator(articleData);
         articleHiddenImage.attr('src', imageGalleryObj.sources[0]);
+        articleVisibleImgTag.attr('src', imageGalleryObj.sources[0]);
         articleText.html(articleData.description);
         /*append the elements*/
         articleInfo.append(articleAuthor);
@@ -115,6 +117,7 @@
         articleContent.append(articleText);
         articleContent.append(articleAction);
         base.append(articleContent);
+        articleVisibleImage.append(articleVisibleImgTag);
         base.append(articleVisibleImage);
         return base;
     };

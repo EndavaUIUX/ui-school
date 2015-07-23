@@ -73,6 +73,7 @@ header .header__profile {
   height: 372px;
   border: 1px solid #e7e7e7;
   box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.08);
+  margin-bottom: 50px;
 }
 .latest__article .article__content {
   width: 600px;
@@ -133,7 +134,6 @@ header .header__profile {
   font-family: 'Lato';
 }
 .latest__article .article__img {
-  background: url("../images/main/Layer%207.png") no-repeat no-repeat;
   height: 377px;
   width: 570px;
   float: right;
@@ -295,10 +295,11 @@ header .header__profile {
   }
 }
 .article-wrapper {
-  width: 31.6%;
+  width: 33.33%;
   display: inline-block;
   box-sizing: border-box;
-  margin-right: 26px;
+  vertical-align: top;
+  padding: 20px;
 }
 .article-wrapper article {
   margin-bottom: 30px;
@@ -335,17 +336,11 @@ header .header__profile {
 .article-wrapper article:after {
   clear: both;
 }
-.article-wrapper:nth-last-child(3n+1) {
-  width: 31.6%;
-  display: inline-block;
-  box-sizing: border-box;
-  margin-right: 0px;
-}
 .article-content {
   box-sizing: border-box;
   font-size: 18px;
 }
-.article-content .article-info__date {
+.article-info__date {
   background: url('../images/ico/date.png') no-repeat;
   font-size: 18px;
   font-family: 'Lato';
@@ -382,6 +377,12 @@ article h2 {
   display: inline-block;
   padding-left: 20px;
   margin-left: 30px;
+}
+.article-wrapper:nth-of-type(3n+1) {
+  padding-left: 0;
+}
+.article-wrapper:nth-of-type(3n+3) {
+  padding-right: 0;
 }
 @media all and (min-width: 320px) and (max-width: 568px) {
   .latest__article {
@@ -431,7 +432,6 @@ article h2 {
     position: relative;
   }
 }
-/* ----------- IPhone 6----------- */
 @media all and (min-width: 375px) and (max-width: 667px) {
   .latest__article .article__content .article_description {
     width: 53%;
@@ -441,8 +441,6 @@ article h2 {
     height: 10%;
   }
 }
-/* ----------- Galaxy S5 ----------- */
-/* Portrait and Landscape */
 @media all and (min-width: 360px) and (max-width: 640px) {
   .latest__article .article__content .article_description {
     width: 50%;
