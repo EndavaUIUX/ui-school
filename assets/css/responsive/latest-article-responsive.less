@@ -1,0 +1,146 @@
+//Variables
+@article-picture: url("../../images/main/Layer%207.png");
+
+@media all
+and (min-width: 320px)
+and (max-width: 568px) {
+  .latest__article{
+    width: 100%;
+    height: 670px;
+    .article__img{
+      display: none;
+    }
+    .article__picture img{
+      display: block;
+      width: 44%;
+      height: 186px;
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+    .article__content{
+      position: absolute;
+      height: 0px;
+      width: 600px;
+      .article__title{
+        font-size: 18px;
+      }
+      .article__informations{
+        .article_info{
+          padding-left: 20px;
+          padding-right: 2px;
+        }
+        .article__author.article_info{
+          font-size: 13px;
+        }
+        .article__date.article_info{
+          font-size: 13px;
+        }
+        .article__gallery.article_info{
+          font-size: 13px;
+        }
+      }
+      .article_description{
+        text-align: justify;
+        width: 44%;
+        font-size: 13px;
+      }
+
+      .btn.btn--more{
+        margin: 0px 0px 20px 31px;
+      }
+    }
+  }
+  .main{
+    position: relative;
+  }
+}
+
+/* ----------- IPhone 6----------- */
+
+@media all
+and (min-width: 375px)
+and (max-width: 667px){
+  .latest__article{
+    .article__content{
+      .article_description{
+        width: 53%;
+      }
+    }
+    .article__picture img{
+      width: 53%;
+      height: 10%;
+    }
+  }
+}
+
+/* ----------- Galaxy S5 ----------- */
+
+/* Portrait and Landscape */
+@media all
+and (min-width: 360px)
+and (max-width: 640px) {
+  .latest__article{
+    .article__content{
+      .article_description{
+        width: 50%;
+      }
+      .article__picture img{
+        width: 50%;
+        height: 100%;
+      }
+    }
+
+  }
+}
+
+@media all
+and (min-width: 768px)
+and (max-width: 1024px) {
+  .latest__article{
+    width: 95%;
+    height: 408px;
+    .article__content{
+      text-align: justify;
+      width: 42%;
+      .article__informations{
+        .article__author.article_info{
+          font-size: 15px;
+        }
+        .article__date.article_info{
+          font-size: 15px;
+        }
+        .article__gallery{
+          font-size: 15px;
+        }
+      }
+      .article_description{
+        font-size: 15px;
+        width: 85%;
+      }
+      .btn.btn--more{
+        font-size: 15px;
+      }
+    }
+    .article__img{
+      width: 56%;
+      margin-top: 14px;
+    }
+  }
+}
+
+/*@media all
+and (min-width: 568px){
+  .latest__article{
+    .article__content{
+      .article_description{
+        width: 84%;
+      }
+      .btn.btn--more{
+        margin: 4px 0px 20px 31px;
+      }
+    }
+    .article__picture img{
+      width: 84%;
+    }
+  }
+}*/
