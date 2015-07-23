@@ -1,5 +1,5 @@
 //Variables
-@article-picture: url("../images/main/Layer%207.png");
+@article-picture: url("../../images/main/Layer%207.png");
 
 /* ----------- iPhone 5 and 5S ----------- */
 /* Portrait and Landscape */
@@ -74,9 +74,9 @@ and (max-width: 667px){
 /* ----------- Galaxy S5 ----------- */
 
 /* Portrait and Landscape */
-@media only screen
-and (device-width: 360px)
-and (device-height: 640px) {
+@media all
+and (min-width: 360px)
+and (max-height: 640px) {
   .latest__article{
     .article__content{
       .article_description{
@@ -91,18 +91,40 @@ and (device-height: 640px) {
   }
 }
 
-/* Portrait */
-@media screen
-and (device-width: 360px)
-and (device-height: 640px)
-and (orientation: portrait) {
+/* IPad */
 
-}
+@media all
+and (min-width: 768px)
+and (max-width: 1024px) {
+  .latest__article{
+    width: 95%;
+    height: 408px;
+    .article__content{
+      text-align: justify;
+      width: 42%;
+      .article__informations{
+        .article__author.article_info{
+          font-size: 15px;
+        }
+        .article__date.article_info{
+          font-size: 15px;
+        }
+        .article__gallery{
+          font-size: 15px;
+        }
+      }
+      .article_description{
+        font-size: 15px;
+      }
+      .btn.btn--more{
+        font-size: 15px;
+      }
+    }
+    .article__img{
+      width: 56%;
+      margin-top: 14px;
+    }
+  }
 
-/* Landscape */
-@media screen
-and (device-width: 360px)
-and (device-height: 640px)
-and (orientation: landscape) {
 
 }

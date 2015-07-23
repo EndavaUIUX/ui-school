@@ -23,10 +23,10 @@
         console.log('Key does not exist in local storage, will access Tatiana\'s send request module.');
     }
 
-    /*function mockDataInLs(){
+    function mockDataInLs(){
          persistence.set({data:THUNDERSTORM.data[key], sourcename: key});
-    }*/
-    //mockDataInLs();
+    }
+    mockDataInLs();
    
 /* ==========================================================================
    Functie de generare a unui singur articol. Functie de generare articol

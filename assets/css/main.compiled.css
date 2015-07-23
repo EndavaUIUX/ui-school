@@ -194,7 +194,7 @@ header .header__profile {
 }
 /* ----------- Galaxy S5 ----------- */
 /* Portrait and Landscape */
-@media only screen and (device-width: 360px) and (device-height: 640px) {
+@media all and (min-width: 360px) and (max-height: 640px) {
   .latest__article .article__content .article_description {
     width: 50%;
   }
@@ -203,8 +203,36 @@ header .header__profile {
     height: 100%;
   }
 }
-/* Portrait */
-/* Landscape */
+/* IPad */
+@media all and (min-width: 768px) and (max-width: 1024px) {
+  .latest__article {
+    width: 95%;
+    height: 408px;
+  }
+  .latest__article .article__content {
+    text-align: justify;
+    width: 42%;
+  }
+  .latest__article .article__content .article__informations .article__author.article_info {
+    font-size: 15px;
+  }
+  .latest__article .article__content .article__informations .article__date.article_info {
+    font-size: 15px;
+  }
+  .latest__article .article__content .article__informations .article__gallery {
+    font-size: 15px;
+  }
+  .latest__article .article__content .article_description {
+    font-size: 15px;
+  }
+  .latest__article .article__content .btn.btn--more {
+    font-size: 15px;
+  }
+  .latest__article .article__img {
+    width: 56%;
+    margin-top: 14px;
+  }
+}
 .article--wrapper {
   width: 370px;
   display: inline-block;
