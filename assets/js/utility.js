@@ -55,11 +55,14 @@
         return base;
     };
 
-    utility.dateFormatter = function (date) {
+    utility.dateFormatter = function (date, hasYear) {
         //dd mm yyyy
         var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
         date = date.split('-');
-        return months[parseInt(date[1], 10)] + " " + date[0] + nth(date[0]) + ", " + date[2]; 
+        if (hasYear) {
+            return months[parseInt(date[1], 10)] + " " + date[0] + nth(date[0]) + ", " + date[2]; 
+        }
+        return months[parseInt(date[1], 10)] + " " + date[0] + nth(date[0]); 
     };
     
     function imageSourceGenerator(articleData) {
