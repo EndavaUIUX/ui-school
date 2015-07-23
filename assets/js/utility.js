@@ -78,12 +78,42 @@
         return imageSourceObj;
     }
     
-    utility.createRecentArticle = function (obj) {
-        for (var key in obj) {
-            if (obj.hasOwnProperty(key)) {
-                //console.log(key);
-            }
+    utility.createRecentArticle = function (articleData, articleIndex) {
+        var base = $('<article></article>').addClass('latest__article'),
+            articleContent = $('<div></div>').addClass('article__content'),
+            articleTitle = $('<h2></h2>').addClass('article__title').html(articleData.title),
+            articleHiddenImgContainer = $('<div></div>').addClass('article__picture'),
+            articleHiddenImage = $('<img>'),
+            articleVisibleImage = $('<div></div>').addClass('article__img'),
+            articleInfo = $('<div></div>').addClass('article__informations'),
+            articleText = $('<p>').addClass('article_description'),
+            articleAction = $('<button></button>').addClass('btn btn--more').html('Read More'),
+            articleAuthor = $('<span></span>').addClass('article__author article_info').html(articleData.author),
+            articleDate = $('<span></span>').addClass('article__date article_info').html(utility.dateFormatter(articleData.published)),
+            articleGallery,
+            imageGalleryObj;
+        imageGalleryObj = imageSourceGenerator(articleData);
+        articleHiddenImage.attr('src', imageGalleryObj.sources[0]);
+        articleText.html(articleData.description);
+        /*append the elements*/
+        articleInfo.append(articleAuthor);
+        articleInfo.append(articleDate);
+        if (imageGalleryObj.hasGallery) {
+            articleGallery = $('<span></span>').addClass('article__gallery article_info').html('Photo Gallery');
+            articleInfo.append(articleGallery);
         }
+        articleContent.append(articleTitle);
+        articleContent.append(articleInfo);
+        
+        articleHiddenImgContainer.append(articleHiddenImage);
+        
+        articleContent.append(articleHiddenImgContainer);
+        
+        articleContent.append(articleText);
+        articleContent.append(articleAction);
+        base.append(articleContent);
+        base.append(articleVisibleImage);
+        return base;
     };
     
     THUNDERSTORM.modules.utility = utility;
