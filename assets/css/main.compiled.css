@@ -1,3 +1,22 @@
+@font-face {
+  font-family: 'Lato';
+  src: url('../fonts/Lato.woff2') format('woff2');
+}
+body,
+p,
+h1,
+h2,
+h3,
+h4,
+ul {
+  margin: 0px;
+}
+p {
+  text-align: center;
+}
+.container {
+  width: 100%;
+}
 body,
 p,
 h1,
@@ -16,10 +35,6 @@ p {
 .main {
   width: 1170px;
   margin: 0px auto;
-<<<<<<< HEAD
-  height: 500px;
-=======
->>>>>>> dev
   background-color: lightgray;
 }
 header {
@@ -32,8 +47,6 @@ header {
   background-color: lightblue;
   height: 600px;
 }
-<<<<<<< HEAD
-=======
 .latest__article {
   margin: 0px auto;
   width: 1170px;
@@ -48,14 +61,14 @@ header {
   position: absolute;
 }
 .latest__article .article__content .article__title {
-  font-family: "Lato";
+  font-family: 'Lato';
   font-size: 21px;
   color: #515151;
   padding: 30px 0px 12px 30px;
 }
 .latest__article .article__content .article__informations {
   padding: 0px 30px 30px 30px;
-  font-family: "Lato";
+  font-family: 'Lato';
 }
 .latest__article .article__content .article__informations .article__author.article_info {
   font-size: 18px;
@@ -85,7 +98,7 @@ header {
   color: #828282;
   padding: 10px 30px 25px 30px;
   line-height: 25px;
-  font-family: "Lato";
+  font-family: 'Lato';
 }
 .latest__article .article__content .btn.btn--more {
   margin: 0px 0px 20px 30px;
@@ -96,7 +109,7 @@ header {
   font-size: 18px;
   border: 1px solid #515151;
   background-color: #ffffff;
-  font-family: "Lato";
+  font-family: 'Lato';
 }
 .latest__article .article__img {
   background: url("../images/main/Layer%207.png") no-repeat;
@@ -115,10 +128,10 @@ header {
 }
 .article--wrapper article {
   margin-bottom: 30px;
-  background-color: white;
+  background-color: #ffffff;
   border: 1px solid #cecece;
   box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
-  color: gray;
+  color: #b1b1b1;
 }
 .article--wrapper article img {
   margin-top: 30px;
@@ -180,14 +193,13 @@ article h2 {
   display: inline-block;
   padding-left: 20px;
   margin-left: 20px;
-  line-height: 100%;
+  line-height: 1;
 }
 .article__pill:first-child {
   display: inline-block;
   padding-left: 20px;
   margin-left: 30px;
 }
->>>>>>> dev
 footer {
   width: 100%;
   height: 67px;
