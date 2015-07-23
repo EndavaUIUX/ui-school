@@ -45,13 +45,13 @@
         color: @article-author-color;
       }
       .article__author{
-        background: @author-ico;
+        background: @author-ico no-repeat;
       }
       .article__date{
-        background: @date-ico;
+        background: @date-ico no-repeat;
       }
       .article__gallery{
-        background: @gallery-ico;
+        background: @gallery-ico no-repeat;
         font-size: 18px;
         color: @article-author-color;
       }
@@ -76,14 +76,17 @@
     }
   }
 
+
   .article__img{
-    background: @article-img;
+    background: @article-img no-repeat;
     height: 377px;
     width: 570px;
     float: right;
   }
 }
-
+.article__picture img{
+  display: none;
+}
 .clearfix{
   clear:both;
 }
