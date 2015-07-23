@@ -10,11 +10,12 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-
     <link href="assets/css/main.compiled.css" rel="stylesheet">
     <link href="assets/css/reset.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 </head>
-<body>
+<body>    
+
     <!--[if lt IE 7]>
         <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -25,14 +26,22 @@
       {{>partials/latest-article}}
       {{>partials/main}}
       <!--Aici va adaugati last article si article tot ca un partial. E doar de testat, nu o sa ramana asa atunci cand o sa fie generate.-->
-	  {{>partials/article}}
+      {{>partials/article}}
       {{>partials/footer}}
     </div>
 
-    <script src="assets/js/API.js"></script>
     <script src="assets/js/Thunderstorm.js"></script>
     <script src="assets/js/persistence.js"></script>
+    <script src="assets/js/get.js"></script>
+    <script src="assets/js/utility.js"></script>
+    <script src="assets/js/API.js"></script>
+    <script src="assets/js/UI.js"></script>
+    <script src="assets/js/server-data-module.js"></script>
 
-    
+    <!-- TODO: de sters la un moment dat server-data-test.js>
+    <script  src="assets/js/server-data-test.js"></script-->
 </body>
+
+
 </html>
+

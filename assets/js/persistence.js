@@ -31,6 +31,9 @@
         var id = options.id;
         var source = options.source;
 
+        if (typeof options === 'string') {
+            source = options;
+        }
         if (typeof source !== 'string') {
             throw new Error('Sursa obiectului in localstorage lipseste sau nu este in format string.');
         }
