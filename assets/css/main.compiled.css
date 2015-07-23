@@ -209,7 +209,7 @@ article h2 {
     width: 48%;
   }
   .article-wrapper:nth-last-child(2n+1) {
-    margin-left: 30px;
+    margin-left: 3%;
   }
   /*.article-wrapper:last-child {
 		width:48%;
