@@ -164,6 +164,14 @@ header {
   font-family: 'Lato';
   color: #b1b1b1;
 }
+.article-info__gallery {
+  background: url('../images/ico/photo.png') no-repeat;
+  padding-left: 30px;
+  padding-right: 30px;
+  font-size: 18px;
+  font-family: 'Lato';
+  color: #b1b1b1;
+}
 article h2 {
   font-size: 21px;
   color: #515151;
@@ -173,7 +181,7 @@ article h2 {
 .article-info__pill {
   display: inline-block;
   padding-left: 20px;
-  margin-left: 20px;
+  margin-left: 30px;
   line-height: 1;
 }
 .article-info__pill:first-child {
@@ -246,7 +254,6 @@ article h2 {
 		display: block;
 		padding-left:20px;
 		margin-left:20px;
-		line-height:100%;
 	}
 
 	.article-info__pill:first-child{
@@ -265,13 +272,11 @@ article h2 {
     width: 100%;
     display: inline-block;
     box-sizing: border-box;
-    padding: 1%;
   }
   .article-wrapper {
     width: 100%;
     display: inline-block;
     box-sizing: border-box;
-    padding: 1%;
     margin-right: 0px;
   }
   .article-wrapper article {
@@ -312,18 +317,16 @@ article h2 {
     clear: both;
   }
 }
-@media only screen and (min-width: 1px) and (max-width: 250px) {
+@media only screen and (max-width: 300px) {
   .article-info__pill {
-    display: block;
+    display: inline-block;
     padding-left: 20px;
     margin-left: 30px;
-    line-height: 100%;
   }
   .article-info__pill:first-child {
-    display: block;
+    display: inline-block;
     padding-left: 20px;
     margin-left: 30px;
-    padding-top: 10px;
   }
 }
 footer {
