@@ -18,6 +18,7 @@
     }
     utility.imageSourceGenerator = function (articleData) {
         console.log("Article data", articleData);
+
         var imageSourceObj = {},
                 index;
         imageSourceObj.sources = [];
@@ -30,9 +31,14 @@
             imageSourceObj.hasHallery = false;
             imageSourceObj.sources.push(articleData.featuredImage)
         }
+
         console.log("Image Source Obj",imageSourceObj);
         return imageSourceObj;
-    }
+    };
+
+    utility.showPhotoGallery = function () {
+
+    };
 
     utility.keyInLocalStorage = function (key) {
         if (window.localStorage.getItem(key) === null) {
@@ -99,7 +105,6 @@
             }
         }
         limit = THUNDERSTORM.statistics.generatedCount;
-        //debugger;
         for (index = THUNDERSTORM.statistics.generatedCount; index < limit + 6; index = index + 1) {
             if (index >= data.length) {
                 return true;
