@@ -144,8 +144,6 @@ header .header__profile {
 .clearfix {
   clear: both;
 }
-<<<<<<< HEAD
-=======
 @media only screen and (min-width: 1180px) {
   .article-wrapper:nth-of-type(3n+3) {
     margin-right: 0;
@@ -288,7 +286,6 @@ header .header__profile {
     margin-left: 30px;
   }
 }
->>>>>>> iuliana2
 .article-wrapper {
   width: 31.625%;
   float: left;
@@ -317,13 +314,8 @@ header .header__profile {
   padding: 30px;
   font-family: 'Lato';
   text-align: left;
-<<<<<<< HEAD
-  line-height: 1;
-=======
   height: 55px;
   overflow: hidden;
-  line-height: 1.2;
->>>>>>> iuliana2
 }
 .article-wrapper article .btn--more {
   margin: 0px 0px 30px 35px;
@@ -371,9 +363,6 @@ article h2 {
   color: #515151;
   padding: 30px 30px 20px 30px;
   font-family: 'Lato';
-  overflow: hidden;
-  height: 25px;
-  margin-bottom: 25px;
 }
 .article-info__pill {
   display: inline-block;
@@ -385,9 +374,6 @@ article h2 {
   display: inline-block;
   padding-left: 20px;
   margin-left: 30px;
-}
-.clearfix {
-  clear: both;
 }
 @media all and (min-width: 320px) and (max-width: 568px) {
   .latest__article {
