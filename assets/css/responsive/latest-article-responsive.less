@@ -2,6 +2,42 @@
 @article-picture: url("../../images/main/Layer%207.png");
 
 @media all
+and (max-width: 298px) {
+  .latest__article{
+    height: auto;
+    .article__content{
+      height: auto;
+      position: static;
+      .article__informations{
+        .article__author.article_info{
+          font-size: 13px;
+        }
+        .article__date.article_info{
+          font-size: 13px;
+        }
+        .article__gallery.article_info{
+          font-size: 13px;
+        }
+      }
+      .article_description{
+        text-align: justify;
+        font-size: 13px;
+      }
+    }
+    .article__img{
+      display: none;
+    }
+    .article__picture img{
+      display: block;
+      width: 44%;
+      height: 186px;
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+  }
+}
+
+@media all
 and (min-width: 299px)
 and (max-width: 450px) {
   .latest__article{
@@ -59,24 +95,27 @@ and (max-width: 450px) {
 and (min-width: 455px)
 and (max-width: 611px){
   .latest__article{
+    height: auto;
     .article__content{
       width: 100%;
+      position: static;
+      height: auto;
+      .article_description{
+        width: 40%;
+      }
     }
     .article__img{
       display: none;
     }
     .article__picture img{
       display: block;
-      width: 94%;
+      width: 40%;
       height: 186px;
       padding-left: 4%;
       padding-right: 2%;
       box-sizing: border-box;
     }
   }
-
-
-
 }
 .latest__article:after {
   clear: both;
