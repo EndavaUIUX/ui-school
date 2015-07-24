@@ -118,13 +118,8 @@ header .header__profile {
   font-size: 18px;
   color: #828282;
   padding: 10px 30px 25px 30px;
-<<<<<<< HEAD
   line-height: 1.2;
-  font-family: "Lato";
-=======
-  line-height: 25px;
   font-family: 'Lato';
->>>>>>> 5887a2d259fba3df36977d5abf90e380475c4978
   text-align: justify;
 }
 .latest__article .article__content .btn.btn--more {
@@ -195,20 +190,6 @@ header .header__profile {
     border: 1px solid #cecece;
     box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
     color: #828282;
-    /*			.btn--more {
-				margin: 0px 0px 30px 35px;
-				font-family: 'Lato';
-				width: 133px;
-				height: 43px;
-				font-size: @text-size;
-				text-align: center;
-				color: @btn-color; 
-				text-align: center;
-				border-style: solid;
-				border-width: 1px;
-				border-color: @btn-color;
-				background-color: @white;
-			}*/
   }
   .article-wrapper article img {
     padding-top: 30px;
@@ -223,6 +204,19 @@ header .header__profile {
     padding: 30px;
     font-family: 'Lato';
     text-align: left;
+  }
+  .article-wrapper article .btn--more {
+    margin: 0px 0px 30px 35px;
+    font-family: 'Lato';
+    width: 133px;
+    height: 43px;
+    font-size: 18px;
+    color: #515151;
+    text-align: center;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #515151;
+    background-color: #ffffff;
   }
   .article-wrapper article:after {
     clear: both;
@@ -262,21 +256,6 @@ header .header__profile {
     border: 1px solid #cecece;
     box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
     color: #828282;
-    /*
-			.btn--more {
-				margin: 0px 0px 30px 35px;
-				font-family: 'Lato';
-				width: 133px;
-				height: 43px;
-				font-size: @text-size;
-				text-align: center;
-				color: @btn-color; 
-				text-align: center;
-				border-style: solid;
-				border-width: 1px;
-				border-color: @btn-color;
-				background-color: @white;
-			}*/
   }
   .article-wrapper article img {
     padding-top: 30px;
@@ -291,6 +270,19 @@ header .header__profile {
     padding: 30px;
     font-family: 'Lato';
     text-align: left;
+  }
+  .article-wrapper article .btn--more {
+    margin: 0px 0px 30px 35px;
+    font-family: 'Lato';
+    width: 133px;
+    height: 43px;
+    font-size: 18px;
+    color: #515151;
+    text-align: center;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #515151;
+    background-color: #ffffff;
   }
   .article-wrapper article:after {
     clear: both;
@@ -392,7 +384,12 @@ article h2 {
   padding-left: 20px;
   margin-left: 30px;
 }
-<<<<<<< HEAD
+.article-wrapper:nth-of-type(3n+1) {
+  padding-left: 0;
+}
+.article-wrapper:nth-of-type(3n+3) {
+  padding-right: 0;
+}
 @media all and (max-width: 298px) {
   .latest__article {
     height: auto;
@@ -426,15 +423,6 @@ article h2 {
   }
 }
 @media all and (min-width: 299px) and (max-width: 450px) {
-=======
-.article-wrapper:nth-of-type(3n+1) {
-  padding-left: 0;
-}
-.article-wrapper:nth-of-type(3n+3) {
-  padding-right: 0;
-}
-@media all and (min-width: 320px) and (max-width: 568px) {
->>>>>>> 5887a2d259fba3df36977d5abf90e380475c4978
   .latest__article {
     width: 100%;
     height: 670px;
