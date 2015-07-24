@@ -8,7 +8,7 @@
     var utility = THUNDERSTORM.modules.utility;
     var persistence = THUNDERSTORM.modules.persistence;
     var articlesParent = $('.main');
-    var articleClickTriggers = $('article h2, .article__title, .article-info img, .article__img img .btn--more');
+    var articleClickTriggers ='article h2, .article__title, .article-info img, .article__img img, .btn--more, .load-more';
     var loadMore = $('.load-more');
     var key = 'articles';
     //TODO add these to another module.
@@ -27,7 +27,7 @@
         console.log('Key exists in local storage');
 
         THUNDERSTORM.articleData = persistence.get(key);
-        utility.generateArticles(THUNDERSTORM.articleData, articlesParent);
+        utility.generateArticles(THUNDERSTORM.articleData, articlesParent, 1);
     } else {
         THUNDERSTORM.modules.API.get({
             url: 'rest/articles',
@@ -47,24 +47,18 @@
      }*/
     //mockDataInLs();
 
-
-
-
-    /* ==========================================================================
-     Event listeners
-     ========================================================================== */
-    $('body').on('click', articlesParent, function (ev) {
-
-        /*if ($(ev.target).is(articleClickTriggers)) {
-         console.log('asdasdasd');
-         }*/
+/* ==========================================================================
+   Event listeners
+   ========================================================================== */
+    articlesParent.on('click', articleClickTriggers, function (ev) {
+        ev.stopPropagation();
         var articleIndex = $(ev.target).closest('article')[0].getAttribute('data-article-index');
         //the actual redirect
         window.location.href = "/article#" + articleIndex;
     });
 
-    /* $('body').on('click', '.load-more', function () {
-     console.log('test');
-     });*/
+    loadMore.on('click', function (ev) {
+        utility.generateArticles(THUNDERSTORM.articleData, articlesParent);
+    });
 
 }(window, window.THUNDERSTORM, window.jQuery));
