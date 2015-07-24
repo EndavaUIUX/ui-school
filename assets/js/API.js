@@ -2,8 +2,6 @@
 			'use strict';	
 			var ServerData = {};
 			var defaultAjaxOptions = {
-					async: true,
-					cache: false,
 					context: this,
 					type: 'GET',
 					dataType: 'json',
@@ -18,7 +16,7 @@
 			}
 
 			function clearErrors() {
-				console.log('clearing errors...');
+				console.log('Clearing errors...');
 			}
 			
 			ServerData.get = function (options) {

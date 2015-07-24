@@ -82,7 +82,7 @@
     }
     
     utility.createRecentArticle = function (articleData, articleIndex) {
-        var base = $('<article></article>').addClass('latest__article'),
+        var base = $('<article></article>').addClass('latest__article').attr('data-article-index', articleIndex),
             articleContent = $('<div></div>').addClass('article__content'),
             articleTitle = $('<h2></h2>').addClass('article__title').html(articleData.title),
             articleHiddenImgContainer = $('<div></div>').addClass('article__picture'),
