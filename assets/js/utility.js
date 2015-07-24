@@ -11,7 +11,23 @@
             default: return "th";
         }
     }
-
+    
+    utility.imageSourceGenerator = function (articleData) {
+        var imageSourceObj = {},
+            index;
+        imageSourceObj.sources = [];
+        if (articleData.gallery.length > 0) {
+            imageSourceObj.hasGallery = true;
+            for (index = 0; index < articleData.gallery.length; index = index + 1) {
+                imageSourceObj.sources.push(articleData.gallery[index]);
+            }
+        } else {
+            imageSourceObj.hasHallery = false;
+            imageSourceObj.sources.push(articleData.featuredImage)
+        }
+        return imageSourceObj;
+    }
+    
     utility.keyInLocalStorage = function (key) {
         if (window.localStorage.getItem(key) === null) {
             return false;
@@ -33,7 +49,7 @@
             articleGallery,
             imageGalleryObj;
             
-        imageGalleryObj = imageSourceGenerator(articleData);
+        imageGalleryObj = utility.imageSourceGenerator(articleData);
         articleImage.attr('src', imageGalleryObj.sources[0]);
         isFullContent ? articleText.html(articleData.content) : articleText.html(articleData.description);
         /*append the elements*/
@@ -44,7 +60,6 @@
             articleGallery = $('<span></span>').addClass('article-info__gallery article-info__pill').html('Photo Gallery');
             articleInfo.append(articleGallery);
         }
-
         articleInfo.append(articleImage);
         articleContent.append(articleInfo);
         article.append(articleTitle);
@@ -65,23 +80,37 @@
         return months[parseInt(date[1], 10)] + " " + date[0] + nth(date[0]); 
     };
     
-    function imageSourceGenerator(articleData) {
-        var imageSourceObj = {},
-            index;
-        imageSourceObj.sources = [];
-        if (articleData.gallery.length > 0) {
-            imageSourceObj.hasGallery = true;
-            for (index = 0; index < articleData.gallery.length; index = index + 1) {
-                imageSourceObj.sources.push(articleData.gallery[index]);
-            }
+    utility.createLoadMoreBtn = function (parent) {
+        parent.append($('<button>Load More</button>').css('display', 'block').addClass('load-more'));
+    }
+    
+    utility.generateArticles = function (data, parent) {
+        var index;
+        var myArticle;
+        var limit;
+        if (!THUNDERSTORM.statistics.hasOwnProperty('generatedCount')) {
+            THUNDERSTORM.statistics.generatedCount = 0;
         } else {
-            imageSourceObj.hasHallery = false;
-            imageSourceObj.sources.push(articleData.featuredImage)
+            if (THUNDERSTORM.statistics.generatedCount === data.length) {
+                return false;
+            }
         }
-        return imageSourceObj;
+        limit = THUNDERSTORM.statistics.generatedCount;
+        //debugger;
+        for (index = THUNDERSTORM.statistics.generatedCount; index < limit + 6; index = index + 1) {
+            index === 0 ? myArticle = utility.createRecentArticle(data[index], index)
+                    : myArticle = utility.createArticle(data[index], index, 0);
+            parent.append(myArticle);
+            THUNDERSTORM.statistics.generatedCount += 1;
+        }
+        if (THUNDERSTORM.statistics.generatedCount < data.length) {
+            utility.createLoadMoreBtn(parent);
+        }
+
     }
     
     utility.createRecentArticle = function (articleData, articleIndex) {
+      //TODO needs a simpler structure :(
         var base = $('<article></article>').addClass('latest__article').attr('data-article-index', articleIndex),
             articleContent = $('<div></div>').addClass('article__content'),
             articleTitle = $('<h2></h2>').addClass('article__title').html(articleData.title),
@@ -96,7 +125,7 @@
             articleDate = $('<span></span>').addClass('article__date article_info').html(utility.dateFormatter(articleData.published)),
             articleGallery,
             imageGalleryObj;
-        imageGalleryObj = imageSourceGenerator(articleData);
+        imageGalleryObj = utility.imageSourceGenerator(articleData);
         articleHiddenImage.attr('src', imageGalleryObj.sources[0]);
         articleVisibleImgTag.attr('src', imageGalleryObj.sources[0]);
         articleText.html(articleData.description);

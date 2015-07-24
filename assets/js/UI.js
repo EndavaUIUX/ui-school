@@ -9,8 +9,11 @@
     var persistence = THUNDERSTORM.modules.persistence;
     var articlesParent = $('.main');
     var articleClickTriggers = $('article h2, .article__title, .article-info img, .article__img img .btn--more');
+    var loadMore = $('.load-more');
     var key = 'articles';
+    //TODO add these to another module.
     THUNDERSTORM.articleData = {};
+    THUNDERSTORM.statistics = {};
 /* ==========================================================================
    Verifica daca exista cheia articles in local storage. Daca da, preia datele
    de acolo.
@@ -22,8 +25,9 @@
     
     if (utility.keyInLocalStorage(key)) {
         console.log('Key exists in local storage');
+        
         THUNDERSTORM.articleData = persistence.get(key);
-        generateArticles(THUNDERSTORM.articleData);
+        utility.generateArticles(THUNDERSTORM.articleData, articlesParent);
     } else {
         THUNDERSTORM.modules.API.get({
             url : 'rest/articles',
@@ -33,7 +37,7 @@
                     sourcename : key
                 });
                 THUNDERSTORM.articleData = persistence.get(key);
-                generateArticles(THUNDERSTORM.articleData);
+                utility.generateArticles(THUNDERSTORM.articleData, articlesParent);
             }
         });
     }
@@ -54,25 +58,23 @@
    moment dat(public).
    ========================================================================== */
     
-    function generateArticles(data) {
-        
-        console.log(data);
-        data.filter(function (item, index) {
-            //console.log(item);
-            var myArticle;
-            index === 0 ? myArticle = utility.createRecentArticle(data[index], index)
-                        : myArticle = utility.createArticle(data[index], index, 0);
-            articlesParent.append(myArticle);
-        });
-    }
+
     
 /* ==========================================================================
    Event listeners
    ========================================================================== */
-    articlesParent.on('click', articleClickTriggers, function (ev) {
+    $('body').on('click', articlesParent, function (ev) {
+
+        /*if ($(ev.target).is(articleClickTriggers)) {
+            console.log('asdasdasd');
+        }*/
         var articleIndex = $(ev.target).closest('article')[0].getAttribute('data-article-index');
         //the actual redirect
         window.location.href = "/article#" + articleIndex;
     });
+
+   /* $('body').on('click', '.load-more', function () {
+        console.log('test');
+    });*/
    
 }(window, window.THUNDERSTORM, window.jQuery));

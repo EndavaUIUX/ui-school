@@ -20,20 +20,16 @@
 			}
 			
 			ServerData.get = function (options) {
-				var ajaxOptions = {},
-					response = {},
-					ajaxCall = {},
-					errorHandler = options.errorHandler || defaultErrorHandler;
-
+				var ajaxOptions = {};
+				var errorHandler = options.errorHandler || defaultErrorHandler;
 				if (typeof options.callback !== 'function') {
 					throw new Error('Callback type is not a function.');
 				}
 				ajaxOptions = $.extend(ajaxOptions, options);
 				
-				ajaxCall = $.ajax(ajaxOptions);
-				response = ajaxCall.done(options.callback);
-				ajaxCall.error(options.errorHandler);	
-				return response;			
+				$.ajax(ajaxOptions)
+						.done(options.callback)
+						.error(options.errorHandler);				
 			};
 			window.THUNDERSTORM.modules.API = ServerData;
 			
