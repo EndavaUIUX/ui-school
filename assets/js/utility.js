@@ -44,9 +44,10 @@
         var base = $('<div></div>').addClass('article-wrapper'),
                 article = $('<article></article>').attr('data-article-index', articleIndex),
                 articleTitle = $('<h2></h2>').html(articleData.title),
-                articleImage = $('<img>').css('height', 182),
+                articleImage = $('<img>'),
                 articleContent = $('<div></div>').addClass('article__content'),
                 articleInfo = $('<div></div>').addClass('article-info'),
+                // articleDetails = $ ('<div><div>').addClass('article-details'),
                 articleText = $('<p>'),
                 articleAction = $('<button></button>').addClass('btn btn--more').html('Read More'),
                 articleAuthor = $('<span></span>').addClass('article-info__author article-info__pill').html(articleData.author),
@@ -67,6 +68,7 @@
         }
         articleInfo.append(articleImage);
         articleContent.append(articleInfo);
+        // articleInfo.append(articleDetails)
         article.append(articleTitle);
         article.append(articleContent);
         article.append(articleText);
