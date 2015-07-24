@@ -361,7 +361,7 @@ article h2 {
     color: #515151;
     padding: 30px 30px 20px 30px;
     font-family: 'Lato';
-    height: 4px;
+    height: 0px;
     overflow: hidden;
     margin-bottom: 25px;
   }
@@ -586,7 +586,6 @@ article h2 {
   }
   .latest__article .article__content .article__informations .article__date.article_info {
     font-size: 13px;
-    display: block;
   }
   .latest__article .article__content .article__informations .article__gallery {
     font-size: 13px;
