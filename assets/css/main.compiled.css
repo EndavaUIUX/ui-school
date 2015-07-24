@@ -86,8 +86,10 @@ header .header__profile {
   font-size: 21px;
   color: #515151;
   padding: 30px 0px 20px 30px;
+  height: 25px;
 }
 .latest__article .article__content .article__informations {
+  height: 20px;
   padding: 0px 30px 30px 30px;
   font-family: 'Lato';
 }
@@ -121,6 +123,8 @@ header .header__profile {
   font-family: 'Lato';
   line-height: 1.2;
   text-align: justify;
+  height: 55px;
+  overflow: hidden;
 }
 .latest__article .article__content .btn.btn--more {
   margin: 0px 0px 20px 30px;
@@ -496,6 +500,7 @@ article h2 {
   }
   .latest__article .article__content .article__informations .article__gallery.article_info {
     font-size: 13px;
+    display: block;
   }
   .latest__article .article__content .article_description {
     text-align: justify;
@@ -547,11 +552,14 @@ article h2 {
   }
   .latest__article .article__content .article__informations .article__gallery.article_info {
     font-size: 13px;
+    display: block;
   }
   .latest__article .article__content .article_description {
     text-align: justify;
     width: 44%;
     font-size: 13px;
+    height: 38px;
+    overflow: hidden;
   }
   .latest__article .article__content .btn.btn--more {
     margin: 0px 0px 20px 31px;
@@ -569,8 +577,22 @@ article h2 {
     position: static;
     height: auto;
   }
+  .latest__article .article__content .article__informations {
+    text-align: left;
+  }
+  .latest__article .article__content .article__informations .article__author.article_info {
+    font-size: 13px;
+  }
+  .latest__article .article__content .article__informations .article__date.article_info {
+    font-size: 13px;
+    display: block;
+  }
+  .latest__article .article__content .article__informations .article__gallery {
+    font-size: 13px;
+  }
   .latest__article .article__content .article_description {
-    width: 40%;
+    width: 36%;
+    font-size: 13px;
   }
   .latest__article .article__img {
     display: none;
@@ -611,6 +633,7 @@ article h2 {
   }
   .latest__article .article__content .article_description {
     font-size: 15px;
+    height: 50px;
     width: 85%;
   }
   .latest__article .article__content .btn.btn--more {
