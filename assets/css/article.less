@@ -1,5 +1,4 @@
 @white:#FFF;
-@lato:'Lato';
 @info-text: #B1B1B1;
 @border-color:#CECECE;
 @btn-color: #515151;
@@ -10,10 +9,11 @@
 
 
 .article-wrapper {
-	width:31.6%;
-	display:inline-block;
-	box-sizing:border-box; 
-	margin-right:26px;
+  width: 33.33%;
+  display: inline-block;
+  box-sizing: border-box;
+  vertical-align: top;
+  padding: 20px;
 
 
 	article {
@@ -34,13 +34,13 @@
 			font-size: @text-size;
 			color: @text-color;
 			padding: 30px;
-		 	font-family: @lato;
+		 	font-family: 'Lato';
 			text-align: left;
 		}
 
 		.btn--more {
 			margin: 0px 0px 30px 35px;
-			font-family: @lato;
+			font-family: 'Lato';
 			width: 133px;
 			height: 43px;
 			font-size: @text-size;
@@ -52,7 +52,6 @@
 			border-color: @btn-color;
 			background-color: @white;
 		}
-
 	}
 
 	article:after{
@@ -60,32 +59,22 @@
 	}
 }
 
-.article-wrapper:nth-last-child(3n+1){
-	width:31.6%;
-	display:inline-block;
-	box-sizing:border-box; 
-	margin-right:0px;
-}
-
 .article-content{
 	box-sizing:border-box;
 	font-size:@text-size;
 
-	
-
-	.article-info__date{
-		background: url('../images/ico/date.png') no-repeat;
-		font-size: @text-size;
-		font-family: @lato;
-		color:@info-text;
-	  }
 }
-
+.article-info__date{
+	background: url('../images/ico/date.png') no-repeat;
+	font-size: @text-size;
+	font-family: 'Lato';
+	color:@info-text;
+}
 .article-info__author{
 		background: url('../images/ico/user.png') no-repeat;
 		padding-left: 30px;
 		font-size: @text-size;
-		font-family: @lato;
+		font-family: 'Lato';
 		color: @info-text;
 	}
 
@@ -94,7 +83,7 @@
 		padding-left: 30px;
 		padding-right: 30px;
 		font-size: @text-size;
-		font-family: @lato;
+		font-family: 'Lato';
 		color: @info-text;
 	}
 
@@ -103,7 +92,7 @@ article h2 {
 	font-size:21px;
 	color:@btn-color;
 	padding: 30px 0px 20px 30px;  
-	font-family: @lato;
+	font-family: 'Lato';
 }
 
 
@@ -119,7 +108,9 @@ article h2 {
 	padding-left: 20px;
 	margin-left: 30px;
 }
-
- 
-
-
+.article-wrapper:nth-of-type(3n+1) {
+  padding-left: 0;
+}
+.article-wrapper:nth-of-type(3n+3) {
+  padding-right: 0;
+}

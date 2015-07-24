@@ -1,9 +1,8 @@
 //Variables
-@font:"Lato";
-@author-ico: url("../images/ico/user%20-%20single.png");
-@date-ico: url("../images/ico/calendar.png");
-@gallery-ico: url("../images/ico/6.png");
-@article-img: url("../images/main/Layer%207.png");
+@author-ico: url("../images/ico/user%20-%20single.png") no-repeat;
+@date-ico: url("../images/ico/calendar.png") no-repeat;
+@gallery-ico: url("../images/ico/6.png") no-repeat;
+@article-img: url("../images/main/Layer%207.png") no-repeat;
 @article-shadow-color: rgba(0,0,0,0.08);
 @article-border-color: #e7e7e7;
 @article-header-color: #515151;
@@ -26,14 +25,14 @@
     float:left;
     position: absolute;
     .article__title{
-      font-family: @font;
+      font-family: 'Lato';
       font-size: 21px;
       color: @article-header-color;
       padding: 30px 0px 20px 30px;
     }
     .article__informations{
       padding: 0px 30px 30px 30px;
-      font-family: @font;
+      font-family: 'Lato';
       .article__author.article_info{
         font-size: 18px;
         color: @article-author-color;
@@ -63,7 +62,7 @@
       color: @article-description-color;
       padding: 10px 30px 25px 30px;
       line-height: 1.2;
-      font-family: @font;
+      font-family: 'Lato';
       text-align: justify;
     }
     .btn.btn--more{
@@ -75,7 +74,7 @@
       font-size: 18px;
       border: 1px solid #515151;
       background-color: @btn-background-color;
-      font-family: @font;
+      font-family: 'Lato';
     }
   }
   .article__img{

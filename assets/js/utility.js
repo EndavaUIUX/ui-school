@@ -41,7 +41,7 @@
         articleInfo.append(articleDate);
         
         if (imageGalleryObj.hasGallery) {
-            articleGallery = $('<span></span>').addClass('article-info__gallery').html('Photo Gallery');
+            articleGallery = $('<span></span>').addClass('article-info__gallery article-info__pill').html('Photo Gallery');
             articleInfo.append(articleGallery);
         }
 
