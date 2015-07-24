@@ -17,6 +17,7 @@ and (max-width: 298px) {
         }
         .article__gallery.article_info{
           font-size: 13px;
+          display: block;
         }
       }
       .article_description{
@@ -73,12 +74,15 @@ and (max-width: 450px) {
         }
         .article__gallery.article_info{
           font-size: 13px;
+          display: block;
         }
       }
       .article_description{
         text-align: justify;
         width: 44%;
         font-size: 13px;
+        height: 38px;
+        overflow: hidden;
       }
 
       .btn.btn--more{
@@ -100,8 +104,22 @@ and (max-width: 611px){
       width: 100%;
       position: static;
       height: auto;
+      .article__informations{
+        text-align: left;
+        .article__author.article_info{
+          font-size: 13px;
+        }
+        .article__date.article_info{
+          font-size: 13px;
+          display: block;
+        }
+        .article__gallery{
+          font-size: 13px;
+        }
+      }
       .article_description{
-        width: 40%;
+        width: 36%;
+        font-size: 13px;
       }
     }
     .article__img{
@@ -144,6 +162,7 @@ and (max-width: 1024px) {
       }
       .article_description{
         font-size: 15px;
+        height: 50px;
         width: 85%;
       }
       .btn.btn--more{
