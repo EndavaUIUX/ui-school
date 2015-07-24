@@ -141,9 +141,7 @@ header .header__profile .header__profile img {
 }
 .latest__article .article__img img {
   width: 100%;
-  height: 100%;
-  margin-top: -5px;
-  margin-left: 5px;
+  height: 98%;
 }
 .article__picture img {
   display: none;
