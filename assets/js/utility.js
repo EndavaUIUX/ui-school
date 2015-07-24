@@ -16,7 +16,6 @@
                 return "th";
         }
     }
-
     utility.imageSourceGenerator = function (articleData) {
         console.log("Article data", articleData);
         var imageSourceObj = {},
@@ -86,6 +85,7 @@
         }
         return months[parseInt(date[1], 10)] + " " + date[0] + nth(date[0]);
     };
+    
     utility.generateArticles = function (data, parent) {
         var index,
             myArticle,
@@ -110,9 +110,9 @@
             THUNDERSTORM.statistics.generatedCount += 1;
         }
         if (THUNDERSTORM.statistics.generatedCount + 6  < data.length) {
-            $('.action').show('fast');
+            $('.action button').show('fast');
         } else {
-            $('.action').hide('fast');
+            $('.action button').hide('fast');
         }
     };
 
