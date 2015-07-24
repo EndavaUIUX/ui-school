@@ -24,6 +24,7 @@
 			ServerData.get = function (options) {
 				var ajaxOptions = {},
 					response = {},
+					ajaxCall = {},
 					errorHandler = options.errorHandler || defaultErrorHandler;
 
 				if (typeof options.callback !== 'function') {
@@ -31,7 +32,7 @@
 				}
 				ajaxOptions = $.extend(ajaxOptions, options);
 				
-				var ajaxCall = $.ajax(ajaxOptions);
+				ajaxCall = $.ajax(ajaxOptions);
 				response = ajaxCall.done(options.callback);
 				ajaxCall.error(options.errorHandler);	
 				return response;			
