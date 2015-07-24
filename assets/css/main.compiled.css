@@ -118,8 +118,13 @@ header .header__profile {
   font-size: 18px;
   color: #828282;
   padding: 10px 30px 25px 30px;
+<<<<<<< HEAD
   font-family: 'Lato';
   line-height: 1.2;
+=======
+  line-height: 1.2;
+  font-family: 'Lato';
+>>>>>>> Iulia01
   text-align: justify;
 }
 .latest__article .article__content .btn.btn--more {
