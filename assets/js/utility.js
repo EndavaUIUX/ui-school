@@ -16,6 +16,7 @@
                 return "th";
         }
     }
+
     utility.imageSourceGenerator = function (articleData) {
         var imageSourceObj = {},
                 index;
@@ -46,13 +47,12 @@
                 articleImage = $('<img>'),
                 articleContent = $('<div></div>').addClass('article__content'),
                 articleInfo = $('<div></div>').addClass('article-info'),
-                // articleDetails = $ ('<div><div>').addClass('article-details'),
                 articleText = $('<p>'),
                 articleAction = $('<button></button>').addClass('btn btn--more').html('Read More'),
                 articleAuthor = $('<span></span>').addClass('article-info__author article-info__pill').html(articleData.author),
                 articleDate = $('<span></span>').addClass('article-info__date article-info__pill').html(utility.dateFormatter(articleData.published)),
-                articleGallery,
-                imageGalleryObj;
+                // articleGallery,
+                 imageGalleryObj;
 
         imageGalleryObj = utility.imageSourceGenerator(articleData);
         articleImage.attr('src', imageGalleryObj.sources[0]);
@@ -61,13 +61,12 @@
         articleInfo.append(articleAuthor);
         articleInfo.append(articleDate);
 
-        if (imageGalleryObj.hasGallery) {
-            articleGallery = $('<span></span>').addClass('article-info__gallery article-info__pill').html('Photo Gallery');
-            articleInfo.append(articleGallery);
-        }
+        // if (imageGalleryObj.hasGallery) {
+        //     articleGallery = $('<span></span>').addClass('article-info__gallery article-info__pill').html('Photo Gallery');
+        //     articleInfo.append(articleGallery);
+        // }
         articleInfo.append(articleImage);
         articleContent.append(articleInfo);
-        // articleInfo.append(articleDetails)
         article.append(articleTitle);
         article.append(articleContent);
         article.append(articleText);
@@ -86,34 +85,36 @@
         return months[parseInt(date[1], 10)] + " " + date[0] + nth(date[0]);
     };
 
-    utility.generateArticles = function (data, parent, initialLoad) {
-        var index,
-            myArticle,
-            limit;
+    utility.createLoadMoreBtn = function (parent) {
+        parent.append($('<button>Load More</button>').css('display', 'block').addClass('load-more'));
+    };
+
+    utility.generateArticles = function (data, parent) {
+        var index;
+        var myArticle;
+        var limit;
         if (!THUNDERSTORM.statistics.hasOwnProperty('generatedCount')) {
             THUNDERSTORM.statistics.generatedCount = 0;
         } else {
             if (THUNDERSTORM.statistics.generatedCount === data.length) {
-                $('.action').hide('fast');
                 return false;
             }
         }
-        initialLoad ? limit = THUNDERSTORM.statistics.generatedCount + 1
-                    : limit = THUNDERSTORM.statistics.generatedCount;
-        
+        limit = THUNDERSTORM.statistics.generatedCount;
         //debugger;
-        index = THUNDERSTORM.statistics.generatedCount;
-        for (index; index < limit + 6; index = index + 1) {
-            if (index >= data.length) {
-                $('.action button').hide('fast');
-                return true;
-            }
+        for (index = THUNDERSTORM.statistics.generatedCount; index < limit + 6; index = index + 1) {
             index === 0 ? myArticle = utility.createRecentArticle(data[index], index)
                     : myArticle = utility.createArticle(data[index], index, 0);
             parent.append(myArticle);
             THUNDERSTORM.statistics.generatedCount += 1;
         }
+        if (THUNDERSTORM.statistics.generatedCount < data.length) {
+            utility.createLoadMoreBtn(parent);
+        }
+
     };
+
+
 
     utility.createRecentArticle = function (articleData, articleIndex) {
         //TODO needs a simpler structure :(
