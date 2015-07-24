@@ -1,188 +1,233 @@
-@media only screen and (min-width: 600px) and (max-width: 1180px){
 
-	.main{
-		width: auto;
-		margin:50px auto;
-		display: block;
-	}
-	.article-wrapper{
-		width:48%;
-		display:inline-block;
-		box-sizing:border-box; 
-		margin-right: 0px;
-		&:nth-last-child(3n+1) {
-			
-			width: 48%;
-		}
-		&:nth-last-child(2n+1) {
-			margin-left: 3%;
-		}
-/*		&:first-child {
+@media only screen and (min-width: 1180px) {
+  .article-wrapper:nth-of-type(3n+3) {
+    margin-right: 0;
+  }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 1180px) {
+  .main {
+    width: auto;
+    margin: 50px auto;
+    display: block;
+  }
+  .article-wrapper {
+    width: 48%;
+    margin-right: 4%;
+    /*		&:first-child {
 			margin-right: 30px;
 		}*/
-	}
+  }
 
+  .article-wrapper:nth-of-type(2n+2) {
+    margin-right: 0%;
+  }
 
-	/*.article-wrapper:last-child {
+  /*.article-wrapper:last-child {
 		width:48%;
 		display:inline-block;
 		box-sizing:border-box; 
 		margin-right:0px;
 	}
 */
-
-
-	
-
-	.article-wrapper {
-		width:48%;
-		display:inline-block;
-		box-sizing:border-box; 
-		margin-right:0px;
-
-
-		article {
-			margin-bottom:30px;
-			background-color:white;
-			border:1px solid @border-color;
-			box-shadow: @box-shadow ;
-			color:@text-color;
-
-			img{
-				padding-top: 30px; 
-				display: block; 
-				margin: 0 auto;
-				max-width: 100%;
-    			height: auto;
-			}
-
-
-			p{
-				font-size: @text-size;
-				color: @text-color;
-				padding: 30px;
-			 	font-family: 'Lato';
-				text-align: left;
-			}
-
-			.btn--more {
-				margin: 0px 0px 30px 35px;
-				font-family: 'Lato';
-				width: 133px;
-				height: 43px;
-				font-size: @text-size;
-				text-align: center;
-				color: @btn-color; 
-				text-align: center;
-				border-style: solid;
-				border-width: 1px;
-				border-color: @btn-color;
-				background-color: @white;
-			}
-
-		}
-
-		article:after{
-			clear:both;
-		}
-	}
-
-	/*.article-info__pill{
+  .article-wrapper article {
+    margin-bottom: 30px;
+    background-color: white;
+    border: 1px solid #cecece;
+    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
+    color: #828282;
+  }
+  .article-wrapper article img {
+    padding-top: 30px;
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+  }
+  .article-wrapper article p {
+	font-size: 15px;
+	color: #828282;
+	padding: 30px;
+	font-family: 'Lato';
+	text-align: left;
+	overflow: hidden;
+	height: 45px;
+	line-height: 1.2;
+  }
+  .article-wrapper article .btn--more {
+    margin: 0px 0px 30px 35px;
+    font-family: 'Lato';
+    width: 133px;
+    height: 43px;
+    font-size: 18px;
+    color: #515151;
+    text-align: center;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #515151;
+    background-color: #ffffff;
+  }
+  .article-wrapper article:after {
+    clear: both;
+  }
+  /*.article-info__pill{
 		display: block;
 		padding-left:20px;
 		margin-left:20px;
 	}
-
 	.article-info__pill:first-child{
 		display:  block;
 		padding-left: 20px;
 		margin-left: 30px;
-
 	}*/
+	.article-info__date {
+	  background: url('../images/ico/date.png') no-repeat;
+	  font-size: 15px;
+	  font-family: 'Lato';
+	  color: #b1b1b1;
+	}
+	.article-info__author {
+	  background: url('../images/ico/user.png') no-repeat;
+	  padding-left: 30px;
+	  font-size: 15px;
+	  font-family: 'Lato';
+	  color: #b1b1b1;
+	}
+	.article-info__gallery {
+	  background: url('../images/ico/photo.png') no-repeat;
+	  padding-left: 30px;
+	  padding-right: 30px;
+	  font-size: 15px;
+	  font-family: 'Lato';
+	  color: #b1b1b1;
+	}
+	article h2 {
+	  font-size: 18px;
+	  color: #515151;
+	  padding: 30px 30px 20px 30px;
+	  font-family: 'Lato';
+	  height: 4px;
+	  overflow: hidden;
+	  margin-bottom: 25px;
+	}
 }
-
-
-
-@media only screen and (min-width: 1px) and (max-width: 599px){
-
-	.main{
-		width:auto;
-		margin:50px auto;
+@media only screen and (min-width: 1px) and (max-width: 599px) {
+  .main {
+    width: auto;
+    margin: 50px auto;
+  }
+  .article-wrapper:nth-last-child(n) {
+    width: 100%;
+    display: inline-block;
+    box-sizing: border-box;
+  }
+  .article-wrapper {
+    width: 100%;
+    display: inline-block;
+    box-sizing: border-box;
+    margin-right: 0px;
+  }
+  .article-wrapper article {
+    margin-bottom: 30px;
+    background-color: white;
+    border: 1px solid #cecece;
+    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
+    color: #828282;
+  }
+  .article-wrapper article img {
+    padding-top: 30px;
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+  }
+  .article-wrapper article p {
+    font-size: 13px;
+    color: #828282;
+    padding: 30px;
+    font-family: 'Lato';
+    text-align: left;
+    overflow: hidden;
+	height: 30px;
+	line-height: 1.2;
+  }
+  .article-wrapper article .btn--more {
+    margin: 0px 0px 30px 35px;
+    font-family: 'Lato';
+    width: 133px;
+    height: 43px;
+    font-size: 18px;
+    color: #515151;
+    text-align: center;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #515151;
+    background-color: #ffffff;
+  }
+  .article-wrapper article:after {
+    clear: both;
+  }
+  .article-info__date {
+	  background: url('../images/ico/date.png') no-repeat;
+	  font-size: 15px;
+	  font-family: 'Lato';
+	  color: #b1b1b1;
 	}
-	 
-	.article-wrapper:nth-last-child(n){
-		width:100%;
-		display:inline-block;
-		box-sizing:border-box;  
+	.article-info__author {
+	  background: url('../images/ico/user.png') no-repeat;
+	  padding-left: 30px;
+	  font-size: 15px;
+	  font-family: 'Lato';
+	  color: #b1b1b1;
 	}
-
-	.article-wrapper {
-		width:100%;
-		display:inline-block;
-		box-sizing:border-box;  
-		margin-right:0px;
-
-
-		article {
-			margin-bottom:30px;
-			background-color:white;
-			border:1px solid @border-color;
-			box-shadow: @box-shadow ;
-			color:@text-color;
-
-			img{
-				padding-top: 30px; 
-				display: block; 
-				margin: 0 auto;
-				max-width: 100%;
-    			height: auto;
-			}
-
-
-			p{
-				font-size: @text-size;
-				color: @text-color;
-				padding: 30px;
-			 	font-family: 'Lato';
-				text-align: left;
-			}
-
-			.btn--more {
-				margin: 0px 0px 30px 35px;
-				font-family: 'Lato';
-				width: 133px;
-				height: 43px;
-				font-size: @text-size;
-				text-align: center;
-				color: @btn-color; 
-				text-align: center;
-				border-style: solid;
-				border-width: 1px;
-				border-color: @btn-color;
-				background-color: @white;
-			}
-
-		}
-
-		article:after{
-			clear:both;
-		}
+	.article-info__gallery {
+	  background: url('../images/ico/photo.png') no-repeat;
+	  padding-left: 30px;
+	  padding-right: 30px;
+	  font-size: 15px;
+	  font-family: 'Lato';
+	  color: #b1b1b1;
 	}
-
-	
+	article h2 {
+	  font-size: 18px;
+	  color: #515151;
+	  padding: 30px 30px 20px 30px;
+	  font-family: 'Lato';
+	  height: 0px;
+	  overflow: hidden;
+	  margin-bottom: 25px;
+	}
 }
+@media only screen and (max-width: 323px) {
+  .article-info__pill {
+    display: inline-block;
+    padding-left: 20px;
+    margin-left: 30px;
+     margin-bottom: 10px;
+  }
+  .article-info__pill:first-child {
+    display: inline-block;
+    padding-left: 20px;
+    margin-left: 30px;
 
-@media only screen and  (max-width: 323px){
-	.article-info__pill{
-		display: inline-block;
-		padding-left:20px;
-		margin-left:30px;
+  }
+	.article-wrapper article p {
+		font-size: 13px;
+		color: #828282;
+		padding: 30px;
+		font-family: 'Lato';
+		text-align: left;
+		overflow: hidden;
+		height: 30px;
+		line-height: 1.2;
 	}
-
-	.article-info__pill:first-child{
-		display:  inline-block;
-		padding-left: 20px;
-		margin-left: 30px; 
-
+	article h2 {
+	  font-size: 18px;
+	  color: #515151;
+	  padding: 30px 30px 20px 30px;
+	  font-family: 'Lato';
+	  height: 0px;
+	  overflow: hidden;
+	  margin-bottom: 25px;
 	}
 }
