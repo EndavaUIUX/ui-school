@@ -16,9 +16,8 @@
                 return "th";
         }
     }
-    utility.imageSourceGenerator = function (articleData) {
-        console.log("Article data", articleData);
 
+    utility.imageSourceGenerator = function (articleData) {
         var imageSourceObj = {},
                 index;
         imageSourceObj.sources = [];
@@ -27,12 +26,11 @@
             for (index = 0; index < articleData.gallery.length; index = index + 1) {
                 imageSourceObj.sources.push(articleData.gallery[index]);
             }
+            imageSourceObj.sources.unshift(articleData.featuredImage);
         } else {
-            imageSourceObj.hasHallery = false;
+            imageSourceObj.hasGallery = false;
             imageSourceObj.sources.push(articleData.featuredImage)
         }
-
-        console.log("Image Source Obj",imageSourceObj);
         return imageSourceObj;
     };
 
@@ -91,8 +89,8 @@
         }
         return months[parseInt(date[1], 10)] + " " + date[0] + nth(date[0]);
     };
-    
-    utility.generateArticles = function (data, parent) {
+
+    utility.generateArticles = function (data, parent, initialLoad) {
         var index,
             myArticle,
             limit;
@@ -104,20 +102,21 @@
                 return false;
             }
         }
-        limit = THUNDERSTORM.statistics.generatedCount;
-        for (index = THUNDERSTORM.statistics.generatedCount; index < limit + 6; index = index + 1) {
+
+        initialLoad ? limit = THUNDERSTORM.statistics.generatedCount + 1
+                    : limit = THUNDERSTORM.statistics.generatedCount;
+        
+        //debugger;
+        index = THUNDERSTORM.statistics.generatedCount;
+        for (index; index < limit + 6; index = index + 1) {
             if (index >= data.length) {
+                $('.action button').hide('fast');
                 return true;
             }
             index === 0 ? myArticle = utility.createRecentArticle(data[index], index)
                     : myArticle = utility.createArticle(data[index], index, 0);
             parent.append(myArticle);
             THUNDERSTORM.statistics.generatedCount += 1;
-        }
-        if (THUNDERSTORM.statistics.generatedCount + 6  < data.length) {
-            $('.action button').show('fast');
-        } else {
-            $('.action button').hide('fast');
         }
     };
 
@@ -160,6 +159,7 @@
         base.append(articleContent);
         articleVisibleImage.append(articleVisibleImgTag);
         base.append(articleVisibleImage);
+
         return base;
     };
 

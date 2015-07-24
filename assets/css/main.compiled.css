@@ -36,30 +36,27 @@ header .header__hamburger {
   float: left;
   width: 10%;
 }
+header .header__hamburger .header__hamburger img {
+  padding: 25px 0px 25px 25px;
+}
 header .header__logo {
   display: inline-block;
   float: left;
   width: 80%;
   position: absolute;
 }
-header .header__profile {
-  display: inline-block;
-  float: right;
-}
-/* Menu of the Header */
-.header__hamburger img {
-  padding: 25px 0px 25px 25px;
-}
-/* Logo of the Header */
-.header__logo img {
+header .header__logo .header__logo img {
   position: relative;
   top: 50%;
   left: 50%;
   margin-top: 10px;
   margin-left: -58px;
 }
-/* Profile of the Header */
-.header__profile img {
+header .header__profile {
+  display: inline-block;
+  float: right;
+}
+header .header__profile .header__profile img {
   padding: 10px 20px 10px 0px;
 }
 .slider {
@@ -248,6 +245,7 @@ article h2 {
   display: inline-block;
   padding-left: 20px;
   margin-left: 30px;
+  margin-bottom: 10px;
 }
 .clearfix {
   clear: both;
@@ -432,7 +430,7 @@ article h2 {
   }
   .article-info__gallery {
     background: url('../images/ico/photo.png') no-repeat;
-    padding-left: 30px;
+    padding-left: 20px;
     padding-right: 30px;
     font-size: 15px;
     font-family: 'Lato';
@@ -516,7 +514,7 @@ article h2 {
 @media all and (min-width: 299px) and (max-width: 450px) {
   .latest__article {
     width: 100%;
-    height: 670px;
+    height: 507px;
   }
   .latest__article .article__img {
     display: none;
@@ -554,7 +552,7 @@ article h2 {
     text-align: justify;
     width: 44%;
     font-size: 13px;
-    height: 38px;
+    height: 35px;
     overflow: hidden;
   }
   .latest__article .article__content .btn.btn--more {
