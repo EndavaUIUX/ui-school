@@ -184,6 +184,20 @@ header .header__profile {
     border: 1px solid #cecece;
     box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
     color: #828282;
+    /*			.btn--more {
+				margin: 0px 0px 30px 35px;
+				font-family: 'Lato';
+				width: 133px;
+				height: 43px;
+				font-size: @text-size;
+				text-align: center;
+				color: @btn-color; 
+				text-align: center;
+				border-style: solid;
+				border-width: 1px;
+				border-color: @btn-color;
+				background-color: @white;
+			}*/
   }
   .article-wrapper article img {
     padding-top: 30px;
@@ -198,19 +212,6 @@ header .header__profile {
     padding: 30px;
     font-family: 'Lato';
     text-align: left;
-  }
-  .article-wrapper article .btn--more {
-    margin: 0px 0px 30px 35px;
-    font-family: 'Lato';
-    width: 133px;
-    height: 43px;
-    font-size: 18px;
-    color: #515151;
-    text-align: center;
-    border-style: solid;
-    border-width: 1px;
-    border-color: #515151;
-    background-color: #ffffff;
   }
   .article-wrapper article:after {
     clear: both;
@@ -250,6 +251,21 @@ header .header__profile {
     border: 1px solid #cecece;
     box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
     color: #828282;
+    /*
+			.btn--more {
+				margin: 0px 0px 30px 35px;
+				font-family: 'Lato';
+				width: 133px;
+				height: 43px;
+				font-size: @text-size;
+				text-align: center;
+				color: @btn-color; 
+				text-align: center;
+				border-style: solid;
+				border-width: 1px;
+				border-color: @btn-color;
+				background-color: @white;
+			}*/
   }
   .article-wrapper article img {
     padding-top: 30px;
@@ -264,19 +280,6 @@ header .header__profile {
     padding: 30px;
     font-family: 'Lato';
     text-align: left;
-  }
-  .article-wrapper article .btn--more {
-    margin: 0px 0px 30px 35px;
-    font-family: 'Lato';
-    width: 133px;
-    height: 43px;
-    font-size: 18px;
-    color: #515151;
-    text-align: center;
-    border-style: solid;
-    border-width: 1px;
-    border-color: #515151;
-    background-color: #ffffff;
   }
   .article-wrapper article:after {
     clear: both;
