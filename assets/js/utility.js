@@ -16,7 +16,6 @@
                 return "th";
         }
     }
-
     utility.imageSourceGenerator = function (articleData) {
         var imageSourceObj = {},
                 index;
@@ -86,37 +85,36 @@
         }
         return months[parseInt(date[1], 10)] + " " + date[0] + nth(date[0]);
     };
-
-    utility.createLoadMoreBtn = function (parent) {
-        parent.append($('<button>Load More</button>').css('display', 'block').addClass('load-more'));
-    };
-
+    
     utility.generateArticles = function (data, parent) {
-        var index;
-        var myArticle;
-        var limit;
+        var index,
+            myArticle,
+            limit;
         if (!THUNDERSTORM.statistics.hasOwnProperty('generatedCount')) {
             THUNDERSTORM.statistics.generatedCount = 0;
         } else {
             if (THUNDERSTORM.statistics.generatedCount === data.length) {
+                $('.action').hide('fast');
                 return false;
             }
         }
         limit = THUNDERSTORM.statistics.generatedCount;
         //debugger;
         for (index = THUNDERSTORM.statistics.generatedCount; index < limit + 6; index = index + 1) {
+            if (index >= data.length) {
+                return true;
+            }
             index === 0 ? myArticle = utility.createRecentArticle(data[index], index)
                     : myArticle = utility.createArticle(data[index], index, 0);
             parent.append(myArticle);
             THUNDERSTORM.statistics.generatedCount += 1;
         }
-        if (THUNDERSTORM.statistics.generatedCount < data.length) {
-            utility.createLoadMoreBtn(parent);
+        if (THUNDERSTORM.statistics.generatedCount + 6  < data.length) {
+            $('.action button').show('fast');
+        } else {
+            $('.action button').hide('fast');
         }
-
     };
-
-
 
     utility.createRecentArticle = function (articleData, articleIndex) {
         //TODO needs a simpler structure :(
