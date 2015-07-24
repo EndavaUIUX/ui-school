@@ -13,6 +13,7 @@
     }
     
     utility.imageSourceGenerator = function (articleData) {
+        console.log("Article data", articleData);
         var imageSourceObj = {},
             index;
         imageSourceObj.sources = [];
@@ -25,6 +26,7 @@
             imageSourceObj.hasHallery = false;
             imageSourceObj.sources.push(articleData.featuredImage)
         }
+        console.log("Image Source Obj",imageSourceObj);
         return imageSourceObj;
     }
     
