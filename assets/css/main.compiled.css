@@ -119,7 +119,7 @@ header .header__profile img {
   font-family: 'Lato';
   line-height: 1.2;
   text-align: justify;
-  height: 55px;
+  height: auto;
   overflow: hidden;
 }
 .latest__article .article__content .btn.btn--more {
@@ -534,22 +534,20 @@ article h2:hover {
   }
   .latest__article .article__picture img {
     display: block;
-    width: 60%;
     height: 186px;
-    padding-left: 30px;
-    padding-right: 30px;
+    margin-left: auto;
+    margin-right: auto;
   }
   .latest__article .article__content {
     position: absolute;
-    height: 0px;
-    width: 600px;
+    height: auto;
+    width: 100%;
   }
   .latest__article .article__content .article__title {
     font-size: 18px;
   }
   .latest__article .article__content .article__informations .article_info {
     padding-left: 20px;
-    padding-right: 2px;
   }
   .latest__article .article__content .article__informations .article__author.article_info {
     font-size: 13px;
@@ -560,13 +558,16 @@ article h2:hover {
   .latest__article .article__content .article__informations .article__gallery.article_info {
     font-size: 13px;
     display: block;
+    margin-top: 10px;
   }
   .latest__article .article__content .article_description {
     text-align: justify;
-    width: 58%;
+    width: 100%;
     font-size: 13px;
-    height: 35px;
+    height: auto;
     overflow: hidden;
+    box-sizing: border-box;
+    padding: 10px 30px 25px 30px;
   }
   .latest__article .article__content .btn.btn--more {
     margin: 0px 0px 20px 31px;
@@ -575,7 +576,7 @@ article h2:hover {
     position: relative;
   }
 }
-@media all and (min-width: 455px) and (max-width: 611px) {
+@media all and (min-width: 451px) and (max-width: 611px) {
   .latest__article {
     height: auto;
     width: 100%;
@@ -606,11 +607,12 @@ article h2:hover {
   }
   .latest__article .article__picture img {
     display: block;
-    width: 100%;
     height: 186px;
     padding-left: 4%;
     padding-right: 2%;
     box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 .latest__article:after {
