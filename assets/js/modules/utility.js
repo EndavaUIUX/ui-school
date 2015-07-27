@@ -65,7 +65,6 @@
         /*append the elements*/
         articleInfo.append(articleAuthor);
         articleInfo.append(articleDate);
-
         // if (imageGalleryObj.hasGallery) {
         //     articleGallery = $('<span></span>').addClass('article-info__gallery article-info__pill').html('Photo Gallery');
         //     articleInfo.append(articleGallery);
@@ -172,10 +171,10 @@
     };
 
     utility.populateArticleDetails = function(articleData, articleIndex) {
-        debugger;
         var articleContent = $(".article__content");
         articleContent.html(articleData.content);
     };
+
 
 
     THUNDERSTORM.modules.utility = utility;
