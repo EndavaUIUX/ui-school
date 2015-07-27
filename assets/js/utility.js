@@ -163,6 +163,22 @@
         return base;
     };
 
+//$(document).on("pagecreate", "#page1", function(){
+//
+//    $("#theimage").on("click", function(){       
+//        $(this).addClass("imageRot").one('webkitAnimationEnd mozAnimationEnd oAnimationEnd msAnimationEnd animationend', function () {
+//            $(this).removeClass("imageRot");
+//            var url = $(this).data('linkurl');
+//            $( ":mobile-pagecontainer" ).pagecontainer( "change", url);        
+//        });
+//    });
+//
+//}); functia alex
+
+
+
+
+
     THUNDERSTORM.modules.utility = utility;
 
 }(window, window.THUNDERSTORM, window.jQuery));
