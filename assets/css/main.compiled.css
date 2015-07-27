@@ -233,6 +233,10 @@ article h2 {
   overflow: hidden;
   margin-bottom: 25px;
 }
+article h2:hover {
+  color: #DD852C;
+  cursor: pointer;
+}
 .article-info__pill {
   display: inline-block;
   padding-left: 20px;
