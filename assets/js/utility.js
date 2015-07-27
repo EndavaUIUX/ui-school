@@ -89,38 +89,40 @@
         }
         return months[parseInt(date[1], 10)] + " " + date[0] + nth(date[0]);
     };
-
-    utility.createLoadMoreBtn = function (parent) {
-        parent.append($('<button>Load More</button>').css('display', 'block').addClass('load-more'));
+    utility.pagination = function (data) {
+        var pages = {},
+          pageNr = 0,
+          itemsPerPage = 7;
+        data.filter(function (item, index) {
+            if (!pages[pageNr]) {
+                pages[pageNr] = [];
+            }
+            if (pages[pageNr].length < itemsPerPage) {
+                pages[pageNr].push(item);
+            } else {
+                if (pageNr === 0) {
+                    itemsPerPage = 6;
+                }
+                pageNr = pageNr + 1;
+                pages[pageNr] = [];
+                pages[pageNr].push(item);
+            }
+        });
+        return pages;
     };
-
-   utility.generateArticles = function (data, parent, initialLoad) {
+    //data should be a page i.e. pages[0]
+    utility.generateArticles = function (data, parent, withRecent) {
         var index,
             myArticle,
-            limit;
-        if (!THUNDERSTORM.statistics.hasOwnProperty('generatedCount')) {
-            THUNDERSTORM.statistics.generatedCount = 0;
-        } else {
-            if (THUNDERSTORM.statistics.generatedCount === data.length) {
-                $('.action').hide('fast');
-                return false;
+            limit = data.length;
+        for (var i = 0; i < data.length; i = i + 1) {
+            if (withRecent) {
+                myArticle = utility.createRecentArticle(data[i], i);
+                withRecent = false;
+            } else {
+                myArticle = utility.createArticle(data[i], i, 0);
             }
-        }
-
-        initialLoad ? limit = THUNDERSTORM.statistics.generatedCount + 1
-                    : limit = THUNDERSTORM.statistics.generatedCount;
-        
-        //debugger;
-        index = THUNDERSTORM.statistics.generatedCount;
-        for (index; index < limit + 6; index = index + 1) {
-            if (index >= data.length) {
-                $('.action button').hide('fast');
-                return true;
-            }
-            index === 0 ? myArticle = utility.createRecentArticle(data[index], index)
-                    : myArticle = utility.createArticle(data[index], index, 0);
             parent.append(myArticle);
-            THUNDERSTORM.statistics.generatedCount += 1;
         }
     };
 
