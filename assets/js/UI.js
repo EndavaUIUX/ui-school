@@ -27,7 +27,9 @@
         console.log('Key exists in local storage');
 
         THUNDERSTORM.articleData = persistence.get(key);
-        utility.generateArticles(THUNDERSTORM.articleData, articlesParent, 1);
+        //sets data in page like format
+        THUNDERSTORM.pages =  utility.pagination(THUNDERSTORM.articleData);
+        utility.generateArticles(THUNDERSTORM.pages[0], articlesParent);
     } else {
         THUNDERSTORM.modules.API.get({
             url: 'rest/articles',
@@ -37,7 +39,8 @@
                     sourcename: key
                 });
                 THUNDERSTORM.articleData = persistence.get(key);
-                utility.generateArticles(THUNDERSTORM.articleData, articlesParent);
+                utility.pagination(THUNDERSTORM.articleData);
+                utility.generateArticles(THUNDERSTORM.pages[0], articlesParent);
             }
         });
     }
@@ -58,7 +61,15 @@
     });
 
     loadMore.on('click', function (ev) {
-        utility.generateArticles(THUNDERSTORM.articleData, articlesParent);
+        var page = $(this).data('page');
+        utility.generateArticles(THUNDERSTORM.pages[page], articlesParent);
+        page = page + 1;
+        if (page < Object.keys(THUNDERSTORM.pages).length) {
+            $(this).data('page', page);
+        } else{
+            $(this).hide('fast');
+        }
+
     });
 
 }(window, window.THUNDERSTORM, window.jQuery));
