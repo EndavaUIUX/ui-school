@@ -171,6 +171,13 @@
         return base;
     };
 
+    utility.populateArticleDetails = function(articleData, articleIndex) {
+        debugger;
+        var articleContent = $(".article__content");
+        articleContent.html(articleData.content);
+    };
+
+
     THUNDERSTORM.modules.utility = utility;
 
 }(window, window.THUNDERSTORM, window.jQuery));
