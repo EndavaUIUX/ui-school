@@ -167,6 +167,10 @@
         return base;
     };
 
+    utility.populateArticleDetails = function(articleData, articleIndex) {
+        var articleContent = $(".article__content");
+        articleContent.html(articleData.content);
+    };
 
 
 

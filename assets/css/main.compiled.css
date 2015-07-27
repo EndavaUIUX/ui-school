@@ -752,7 +752,7 @@ article h2:hover {
   margin: 0 0 30px 0;
 }
 .article__details .article__img img {
-  max-width: 100%;
+  width: 100%;
   height: auto;
 }
 .article__details .article__content {
@@ -766,6 +766,16 @@ article h2:hover {
   line-height: 1.2;
   text-align: justify;
   margin-bottom: 70px;
+}
+@media only screen and (min-width: 600px) and (max-width: 1180px) {
+  .article-details .article__content p {
+    font-size: 15px;
+  }
+}
+@media only screen and (min-width: 1px) and (max-width: 599px) {
+  .article__details .article__content p {
+    font-size: 13px;
+  }
 }
 /*MIO: to be replaced*/
 footer {
