@@ -16,6 +16,7 @@
                 return "th";
         }
     }
+
     utility.imageSourceGenerator = function (articleData) {
         var imageSourceObj = {},
                 index;
@@ -25,12 +26,17 @@
             for (index = 0; index < articleData.gallery.length; index = index + 1) {
                 imageSourceObj.sources.push(articleData.gallery[index]);
             }
+            imageSourceObj.sources.unshift(articleData.featuredImage);
         } else {
-            imageSourceObj.hasHallery = false;
+            imageSourceObj.hasGallery = false;
             imageSourceObj.sources.push(articleData.featuredImage)
         }
         return imageSourceObj;
-    }
+    };
+
+    utility.showPhotoGallery = function () {
+
+    };
 
     utility.keyInLocalStorage = function (key) {
         if (window.localStorage.getItem(key) === null) {
@@ -96,6 +102,7 @@
                 return false;
             }
         }
+
         initialLoad ? limit = THUNDERSTORM.statistics.generatedCount + 1
                     : limit = THUNDERSTORM.statistics.generatedCount;
         
@@ -152,6 +159,7 @@
         base.append(articleContent);
         articleVisibleImage.append(articleVisibleImgTag);
         base.append(articleVisibleImage);
+
         return base;
     };
 
