@@ -92,6 +92,7 @@ header .header__profile img {
 .latest__article .article__content .article__informations .article__author.article_info {
   font-size: 18px;
   color: #b1b1b1;
+  display: inline-block;
 }
 .latest__article .article__content .article__informations .article_info {
   padding-left: 20px;
@@ -100,17 +101,21 @@ header .header__profile img {
 .latest__article .article__content .article__informations .article__date.article_info {
   font-size: 18px;
   color: #b1b1b1;
+  display: inline-block;
 }
 .latest__article .article__content .article__informations .article__author {
   background: url("../images/ico/user%20-%20single.png") no-repeat no-repeat;
+  display: inline-block;
 }
 .latest__article .article__content .article__informations .article__date {
   background: url("../images/ico/calendar.png") no-repeat no-repeat;
+  display: inline-block;
 }
 .latest__article .article__content .article__informations .article__gallery {
   background: url("../images/ico/6.png") no-repeat no-repeat;
   font-size: 18px;
   color: #b1b1b1;
+  display: inline-block;
 }
 .latest__article .article__content .article_description {
   font-size: 18px;
@@ -542,13 +547,16 @@ article h2:hover {
   }
   .latest__article .article__content .article__informations .article__author.article_info {
     font-size: 13px;
+    padding-top: 4px;
   }
   .latest__article .article__content .article__informations .article__date.article_info {
     font-size: 13px;
+    padding-top: 4px;
   }
   .latest__article .article__content .article__informations .article__gallery.article_info {
     font-size: 13px;
     display: block;
+    padding-top: 4px;
   }
   .latest__article .article__content .article_description {
     text-align: justify;
@@ -589,6 +597,7 @@ article h2:hover {
   }
   .latest__article .article__content .article__informations .article_info {
     padding-left: 20px;
+    padding-top: 4px;
   }
   .latest__article .article__content .article__informations .article__author.article_info {
     font-size: 13px;
@@ -632,12 +641,15 @@ article h2:hover {
   }
   .latest__article .article__content .article__informations .article__author.article_info {
     font-size: 13px;
+    padding-top: 4px;
   }
   .latest__article .article__content .article__informations .article__date.article_info {
     font-size: 13px;
+    padding-top: 4px;
   }
   .latest__article .article__content .article__informations .article__gallery {
     font-size: 13px;
+    padding-top: 4px;
   }
   .latest__article .article__content .article_description {
     width: 90%;
