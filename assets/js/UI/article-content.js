@@ -3,7 +3,7 @@
  */
 
 (function(window, THUNDERSTORM, $) {
-
+    "use strict";
     var pageUrl = window.location.href,
         articleUrlNumber = pageUrl.split("#")[1],
         article = THUNDERSTORM.modules.articles.data[articleUrlNumber],
@@ -13,4 +13,5 @@
     if(currentArticle.hasGallery == true){
         $(".article__img").append(viewMoreButton);
     }
+
 }(window, window.THUNDERSTORM, window.jQuery));
