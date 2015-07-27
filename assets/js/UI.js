@@ -29,7 +29,7 @@
         THUNDERSTORM.articleData = persistence.get(key);
         //sets data in page like format
         THUNDERSTORM.pages =  utility.pagination(THUNDERSTORM.articleData);
-        utility.generateArticles(THUNDERSTORM.pages[0], articlesParent);
+        utility.generateArticles(THUNDERSTORM.pages[0], articlesParent, true);
         toggleLoadMore(loadMore.data('page'));
     } else {
         THUNDERSTORM.modules.API.get({
@@ -41,7 +41,7 @@
                 });
                 THUNDERSTORM.articleData = persistence.get(key);
                 utility.pagination(THUNDERSTORM.articleData);
-                utility.generateArticles(THUNDERSTORM.pages[0], articlesParent);
+                utility.generateArticles(THUNDERSTORM.pages[0], articlesParent, true);
                 toggleLoadMore(loadMore.data('page'));
             }
         });
@@ -72,7 +72,7 @@
 
     loadMore.on('click', function (ev) {
         var page = $(this).data('page');
-        utility.generateArticles(THUNDERSTORM.pages[page], articlesParent);
+        utility.generateArticles(THUNDERSTORM.pages[page], articlesParent, false);
         page = page + 1;
         toggleLoadMore(page);
     });

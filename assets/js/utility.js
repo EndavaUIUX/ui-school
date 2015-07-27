@@ -111,14 +111,14 @@
         return pages;
     };
     //data should be a page i.e. pages[0]
-    utility.generateArticles = function (data, parent) {
+    utility.generateArticles = function (data, parent, withRecent) {
         var index,
             myArticle,
             limit = data.length;
         for (var i = 0; i < data.length; i = i + 1) {
-            if (limit === 7) {
+            if (withRecent) {
                 myArticle = utility.createRecentArticle(data[i], i);
-                limit = null;
+                withRecent = false;
             } else {
                 myArticle = utility.createArticle(data[i], i, 0);
             }
