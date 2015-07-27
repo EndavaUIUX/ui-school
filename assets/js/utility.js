@@ -49,15 +49,15 @@
         var base = $('<div></div>').addClass('article-wrapper'),
                 article = $('<article></article>').attr('data-article-index', articleIndex),
                 articleTitle = $('<h2></h2>').html(articleData.title),
-                articleImage = $('<img>').css('height', 182),
+                articleImage = $('<img>'),
                 articleContent = $('<div></div>').addClass('article__content'),
                 articleInfo = $('<div></div>').addClass('article-info'),
                 articleText = $('<p>'),
                 articleAction = $('<button></button>').addClass('btn btn--more').html('Read More'),
                 articleAuthor = $('<span></span>').addClass('article-info__author article-info__pill').html(articleData.author),
                 articleDate = $('<span></span>').addClass('article-info__date article-info__pill').html(utility.dateFormatter(articleData.published)),
-                articleGallery,
-                imageGalleryObj;
+                // articleGallery,
+                 imageGalleryObj;
 
         imageGalleryObj = utility.imageSourceGenerator(articleData);
         articleImage.attr('src', imageGalleryObj.sources[0]);
@@ -66,10 +66,10 @@
         articleInfo.append(articleAuthor);
         articleInfo.append(articleDate);
 
-        if (imageGalleryObj.hasGallery) {
-            articleGallery = $('<span></span>').addClass('article-info__gallery article-info__pill').html('Photo Gallery');
-            articleInfo.append(articleGallery);
-        }
+        // if (imageGalleryObj.hasGallery) {
+        //     articleGallery = $('<span></span>').addClass('article-info__gallery article-info__pill').html('Photo Gallery');
+        //     articleInfo.append(articleGallery);
+        // }
         articleInfo.append(articleImage);
         articleContent.append(articleInfo);
         article.append(articleTitle);
@@ -89,36 +89,44 @@
         }
         return months[parseInt(date[1], 10)] + " " + date[0] + nth(date[0]);
     };
-
-    utility.generateArticles = function (data, parent, initialLoad) {
+    utility.pagination = function (data) {
+        var pages = {},
+          pageNr = 0,
+          itemsPerPage = 7;
+        data.filter(function (item, index) {
+            if (!pages[pageNr]) {
+                pages[pageNr] = [];
+            }
+            if (pages[pageNr].length < itemsPerPage) {
+                pages[pageNr].push(item);
+            } else {
+                if (pageNr === 0) {
+                    itemsPerPage = 6;
+                }
+                pageNr = pageNr + 1;
+                pages[pageNr] = [];
+                pages[pageNr].push(item);
+            }
+        });
+        return pages;
+    };
+    //data should be a page i.e. pages[0]
+    utility.generateArticles = function (data, parent, withRecent) {
         var index,
             myArticle,
-            limit;
-        if (!THUNDERSTORM.statistics.hasOwnProperty('generatedCount')) {
-            THUNDERSTORM.statistics.generatedCount = 0;
-        } else {
-            if (THUNDERSTORM.statistics.generatedCount === data.length) {
-                $('.action').hide('fast');
-                return false;
+            limit = data.length;
+        for (var i = 0; i < data.length; i = i + 1) {
+            if (withRecent) {
+                myArticle = utility.createRecentArticle(data[i], i);
+                withRecent = false;
+            } else {
+                myArticle = utility.createArticle(data[i], i, 0);
             }
-        }
-
-        initialLoad ? limit = THUNDERSTORM.statistics.generatedCount + 1
-                    : limit = THUNDERSTORM.statistics.generatedCount;
-        
-        //debugger;
-        index = THUNDERSTORM.statistics.generatedCount;
-        for (index; index < limit + 6; index = index + 1) {
-            if (index >= data.length) {
-                $('.action button').hide('fast');
-                return true;
-            }
-            index === 0 ? myArticle = utility.createRecentArticle(data[index], index)
-                    : myArticle = utility.createArticle(data[index], index, 0);
             parent.append(myArticle);
-            THUNDERSTORM.statistics.generatedCount += 1;
         }
     };
+
+
 
     utility.createRecentArticle = function (articleData, articleIndex) {
         //TODO needs a simpler structure :(
