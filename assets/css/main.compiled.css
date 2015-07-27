@@ -59,9 +59,10 @@ header .header__profile {
 header .header__profile img {
   padding: 10px 20px 10px 0px;
 }
+/*MIO: To be replaced*/
 .slider {
   width: 100%;
-  background-color: lightblue;
+  background: url('../images/slider.png') no-repeat;
   height: 600px;
 }
 .latest__article {
@@ -82,7 +83,7 @@ header .header__profile img {
   font-family: 'Lato';
   font-size: 21px;
   color: #515151;
-  padding: 30px 0px 20px 30px;
+  padding: 30px 30px 20px 30px;
   height: 25px;
 }
 .latest__article .article__content .article__informations {
@@ -92,25 +93,30 @@ header .header__profile img {
 .latest__article .article__content .article__informations .article__author.article_info {
   font-size: 18px;
   color: #b1b1b1;
+  display: inline-block;
 }
 .latest__article .article__content .article__informations .article_info {
   padding-left: 20px;
-  padding-right: 15px;
+  padding-right: 20px;
 }
 .latest__article .article__content .article__informations .article__date.article_info {
   font-size: 18px;
   color: #b1b1b1;
+  display: inline-block;
 }
 .latest__article .article__content .article__informations .article__author {
   background: url("../images/ico/user%20-%20single.png") no-repeat no-repeat;
+  display: inline-block;
 }
 .latest__article .article__content .article__informations .article__date {
   background: url("../images/ico/calendar.png") no-repeat no-repeat;
+  display: inline-block;
 }
 .latest__article .article__content .article__informations .article__gallery {
   background: url("../images/ico/6.png") no-repeat no-repeat;
   font-size: 18px;
   color: #b1b1b1;
+  display: inline-block;
 }
 .latest__article .article__content .article_description {
   font-size: 18px;
@@ -119,7 +125,7 @@ header .header__profile img {
   font-family: 'Lato';
   line-height: 1.2;
   text-align: justify;
-  height: 55px;
+  height: auto;
   overflow: hidden;
 }
 .latest__article .article__content .btn.btn--more {
@@ -171,6 +177,22 @@ header .header__profile img {
   margin-top: 30px;
   width: 100%;
   height: 180px;
+  opacity: 0.8;
+  -webkit-opacity: 0.8;
+  -moz-opacity: 0.8;
+  transition: 0.5s ease;
+  -webkit-transition: 0.5s ease;
+  -moz-transition: 0.5s ease;
+}
+.article-wrapper article img:hover {
+  border: 5px solid #D0D0D0   ;
+  box-sizing: border-box;
+  border-radius: 1%;
+  -webkit-transform: scale(1, 1);
+  -moz-transform: scale(1, 1);
+  opacity: 1;
+  -webkit-opacity: 1;
+  -moz-opacity: 1;
 }
 .article-wrapper article p {
   font-size: 18px;
@@ -207,6 +229,7 @@ header .header__profile img {
   font-size: 18px;
   font-family: 'Lato';
   color: #b1b1b1;
+  line-height: 1.4;
 }
 .article-info__author {
   background: url('../images/ico/user.png') no-repeat;
@@ -214,6 +237,7 @@ header .header__profile img {
   font-size: 18px;
   font-family: 'Lato';
   color: #b1b1b1;
+  line-height: 1.4;
 }
 .article-info__gallery {
   background: url('../images/ico/photo.png') no-repeat;
@@ -239,8 +263,13 @@ article h2:hover {
 .article-info__pill {
   display: inline-block;
   padding-left: 20px;
-  margin-left: 30px;
+  margin-left: 20px;
   line-height: 1.2;
+}
+.article-info__pill:first-child {
+  display: inline-block;
+  padding-left: 20px;
+  margin-left: 20px;
 }
 .article-info__pill:first-child {
   display: inline-block;
@@ -250,6 +279,42 @@ article h2:hover {
 }
 .clearfix {
   clear: both;
+}
+.load-more {
+  display: inline-block;
+  font-family: "Lato regular", "Lato";
+  font-size: 18px;
+  color: #e1632a;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #e1632a;
+  background-color: #fff;
+  width: 160px;
+  height: 50px;
+  text-align: center;
+  /*    background: url('../images/ico/load_more.png') no-repeat;
+        background-position: 15px center;*/
+  /*    text-align: right;*/
+  /*    padding-right: 15px;*/
+  outline: none;
+}
+.load-more:hover img {
+  -webkit-animation-name: rotate;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  -moz-animation-name: rotate;
+  -moz-animation-duration: 2s;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-timing-function: linear;
+}
+@-webkit-keyframes rotate {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
 }
 @media only screen and (min-width: 1180px) {
   .article-wrapper:nth-of-type(3n+3) {
@@ -442,18 +507,36 @@ article h2:hover {
     overflow: hidden;
     margin-bottom: 25px;
   }
+  .article-info__pill {
+    display: inline-block;
+    padding-left: 20px;
+    margin-left: 20px;
+    line-height: 1.4;
+    font-size: 13px;
+  }
+  .article-info__pill:first-child {
+    display: inline-block;
+    padding-left: 20px;
+    margin-left: 30px;
+    line-height: 1.4;
+    font-size: 13px;
+  }
 }
 @media only screen and (max-width: 323px) {
   .article-info__pill {
     display: inline-block;
     padding-left: 20px;
     margin-left: 30px;
+    line-height: 1.4;
+    font-size: 13px;
     margin-bottom: 10px;
   }
   .article-info__pill:first-child {
     display: inline-block;
     padding-left: 20px;
     margin-left: 30px;
+    line-height: 1.4;
+    font-size: 13px;
   }
   .article-wrapper article p {
     font-size: 13px;
@@ -485,13 +568,16 @@ article h2:hover {
   }
   .latest__article .article__content .article__informations .article__author.article_info {
     font-size: 13px;
+    padding-top: 4px;
   }
   .latest__article .article__content .article__informations .article__date.article_info {
     font-size: 13px;
+    padding-top: 4px;
   }
   .latest__article .article__content .article__informations .article__gallery.article_info {
     font-size: 13px;
     display: block;
+    padding-top: 4px;
   }
   .latest__article .article__content .article_description {
     text-align: justify;
@@ -518,22 +604,21 @@ article h2:hover {
   }
   .latest__article .article__picture img {
     display: block;
-    width: 60%;
     height: 186px;
-    padding-left: 30px;
-    padding-right: 30px;
+    margin-left: auto;
+    margin-right: auto;
   }
   .latest__article .article__content {
     position: absolute;
-    height: 0px;
-    width: 600px;
+    height: auto;
+    width: 100%;
   }
   .latest__article .article__content .article__title {
     font-size: 18px;
   }
   .latest__article .article__content .article__informations .article_info {
     padding-left: 20px;
-    padding-right: 2px;
+    padding-top: 4px;
   }
   .latest__article .article__content .article__informations .article__author.article_info {
     font-size: 13px;
@@ -544,13 +629,16 @@ article h2:hover {
   .latest__article .article__content .article__informations .article__gallery.article_info {
     font-size: 13px;
     display: block;
+    margin-top: 10px;
   }
   .latest__article .article__content .article_description {
     text-align: justify;
-    width: 58%;
+    width: 100%;
     font-size: 13px;
-    height: 35px;
+    height: auto;
     overflow: hidden;
+    box-sizing: border-box;
+    padding: 10px 30px 25px 30px;
   }
   .latest__article .article__content .btn.btn--more {
     margin: 0px 0px 20px 31px;
@@ -559,7 +647,7 @@ article h2:hover {
     position: relative;
   }
 }
-@media all and (min-width: 455px) and (max-width: 611px) {
+@media all and (min-width: 451px) and (max-width: 611px) {
   .latest__article {
     height: auto;
     width: 100%;
@@ -574,12 +662,15 @@ article h2:hover {
   }
   .latest__article .article__content .article__informations .article__author.article_info {
     font-size: 13px;
+    padding-top: 4px;
   }
   .latest__article .article__content .article__informations .article__date.article_info {
     font-size: 13px;
+    padding-top: 4px;
   }
   .latest__article .article__content .article__informations .article__gallery {
     font-size: 13px;
+    padding-top: 4px;
   }
   .latest__article .article__content .article_description {
     width: 90%;
@@ -590,11 +681,12 @@ article h2:hover {
   }
   .latest__article .article__picture img {
     display: block;
-    width: 100%;
     height: 186px;
     padding-left: 4%;
     padding-right: 2%;
     box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 .latest__article:after {
@@ -602,7 +694,7 @@ article h2:hover {
 }
 @media all and (min-width: 611px) and (max-width: 1024px) {
   .latest__article {
-    width: 95%;
+    width: 100%;
     height: 408px;
   }
   .latest__article .article__content {
@@ -675,8 +767,9 @@ article h2:hover {
   text-align: justify;
   margin-bottom: 70px;
 }
+/*MIO: to be replaced*/
 footer {
   width: 100%;
-  height: 67px;
-  background-color: coral;
+  height: 110px;
+  background: url('../images/footer.png') no-repeat;
 }
