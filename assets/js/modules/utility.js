@@ -31,11 +31,8 @@
             imageSourceObj.hasGallery = false;
             imageSourceObj.sources.push(articleData.featuredImage)
         }
+        console.log(imageSourceObj);
         return imageSourceObj;
-    };
-
-    utility.showPhotoGallery = function () {
-
     };
 
     utility.keyInLocalStorage = function (key) {
