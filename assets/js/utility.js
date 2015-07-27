@@ -49,15 +49,15 @@
         var base = $('<div></div>').addClass('article-wrapper'),
                 article = $('<article></article>').attr('data-article-index', articleIndex),
                 articleTitle = $('<h2></h2>').html(articleData.title),
-                articleImage = $('<img>').css('height', 182),
+                articleImage = $('<img>'),
                 articleContent = $('<div></div>').addClass('article__content'),
                 articleInfo = $('<div></div>').addClass('article-info'),
                 articleText = $('<p>'),
                 articleAction = $('<button></button>').addClass('btn btn--more').html('Read More'),
                 articleAuthor = $('<span></span>').addClass('article-info__author article-info__pill').html(articleData.author),
                 articleDate = $('<span></span>').addClass('article-info__date article-info__pill').html(utility.dateFormatter(articleData.published)),
-                articleGallery,
-                imageGalleryObj;
+                // articleGallery,
+                 imageGalleryObj;
 
         imageGalleryObj = utility.imageSourceGenerator(articleData);
         articleImage.attr('src', imageGalleryObj.sources[0]);
@@ -66,10 +66,10 @@
         articleInfo.append(articleAuthor);
         articleInfo.append(articleDate);
 
-        if (imageGalleryObj.hasGallery) {
-            articleGallery = $('<span></span>').addClass('article-info__gallery article-info__pill').html('Photo Gallery');
-            articleInfo.append(articleGallery);
-        }
+        // if (imageGalleryObj.hasGallery) {
+        //     articleGallery = $('<span></span>').addClass('article-info__gallery article-info__pill').html('Photo Gallery');
+        //     articleInfo.append(articleGallery);
+        // }
         articleInfo.append(articleImage);
         articleContent.append(articleInfo);
         article.append(articleTitle);
@@ -89,7 +89,6 @@
         }
         return months[parseInt(date[1], 10)] + " " + date[0] + nth(date[0]);
     };
-
     utility.pagination = function (data) {
         var pages = {},
           pageNr = 0,
@@ -126,6 +125,8 @@
             parent.append(myArticle);
         }
     };
+
+
 
     utility.createRecentArticle = function (articleData, articleIndex) {
         //TODO needs a simpler structure :(

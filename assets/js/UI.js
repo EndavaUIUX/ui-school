@@ -7,7 +7,7 @@
     'use strict';
     var utility = THUNDERSTORM.modules.utility;
     var persistence = THUNDERSTORM.modules.persistence;
-    var articlesParent = $('.main');
+    var articlesParent = $('.main--homepage');
     var articleClickTriggers ='article h2, .article__title, .article-info img, .article__img img, .btn--more, .load-more';
     var loadMore = $('.load-more');
     var key = 'articles';
@@ -19,17 +19,18 @@
      de acolo.
      Daca nu, se apeleaza modulul de request la server care returneaza un json,
      salvat intr-un obiect public(sa poate fi vizibil din orice alta functie).
-     TODO handle single article page.
+     MIO: TODO handle single article page.
+     MIO: TODO simplify some of the bellow
      ========================================================================== */
 
 
     if (utility.keyInLocalStorage(key)) {
         console.log('Key exists in local storage');
-
         THUNDERSTORM.articleData = persistence.get(key);
         //sets data in page like format
         THUNDERSTORM.pages =  utility.pagination(THUNDERSTORM.articleData);
         utility.generateArticles(THUNDERSTORM.pages[0], articlesParent);
+        toggleLoadMore(loadMore.data('page'));
     } else {
         THUNDERSTORM.modules.API.get({
             url: 'rest/articles',
@@ -41,6 +42,7 @@
                 THUNDERSTORM.articleData = persistence.get(key);
                 utility.pagination(THUNDERSTORM.articleData);
                 utility.generateArticles(THUNDERSTORM.pages[0], articlesParent);
+                toggleLoadMore(loadMore.data('page'));
             }
         });
     }
@@ -60,16 +62,19 @@
         window.location.href = "/article#" + articleIndex;
     });
 
+    function toggleLoadMore(page) {
+        if (page < Object.keys(THUNDERSTORM.pages).length) {
+            loadMore.data('page', page);
+        } else {
+            loadMore.hide('fast');
+        }
+    }
+
     loadMore.on('click', function (ev) {
         var page = $(this).data('page');
         utility.generateArticles(THUNDERSTORM.pages[page], articlesParent);
         page = page + 1;
-        if (page < Object.keys(THUNDERSTORM.pages).length) {
-            $(this).data('page', page);
-        } else{
-            $(this).hide('fast');
-        }
-
+        toggleLoadMore(page);
     });
 
 }(window, window.THUNDERSTORM, window.jQuery));
