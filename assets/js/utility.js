@@ -16,6 +16,7 @@
                 return "th";
         }
     }
+
     utility.imageSourceGenerator = function (articleData) {
         var imageSourceObj = {},
                 index;
@@ -25,12 +26,17 @@
             for (index = 0; index < articleData.gallery.length; index = index + 1) {
                 imageSourceObj.sources.push(articleData.gallery[index]);
             }
+            imageSourceObj.sources.unshift(articleData.featuredImage);
         } else {
-            imageSourceObj.hasHallery = false;
+            imageSourceObj.hasGallery = false;
             imageSourceObj.sources.push(articleData.featuredImage)
         }
         return imageSourceObj;
-    }
+    };
+
+    utility.showPhotoGallery = function () {
+
+    };
 
     utility.keyInLocalStorage = function (key) {
         if (window.localStorage.getItem(key) === null) {
@@ -43,15 +49,15 @@
         var base = $('<div></div>').addClass('article-wrapper'),
                 article = $('<article></article>').attr('data-article-index', articleIndex),
                 articleTitle = $('<h2></h2>').html(articleData.title),
-                articleImage = $('<img>').css('height', 182),
+                articleImage = $('<img>'),
                 articleContent = $('<div></div>').addClass('article__content'),
                 articleInfo = $('<div></div>').addClass('article-info'),
                 articleText = $('<p>'),
                 articleAction = $('<button></button>').addClass('btn btn--more').html('Read More'),
                 articleAuthor = $('<span></span>').addClass('article-info__author article-info__pill').html(articleData.author),
                 articleDate = $('<span></span>').addClass('article-info__date article-info__pill').html(utility.dateFormatter(articleData.published)),
-                articleGallery,
-                imageGalleryObj;
+                // articleGallery,
+                 imageGalleryObj;
 
         imageGalleryObj = utility.imageSourceGenerator(articleData);
         articleImage.attr('src', imageGalleryObj.sources[0]);
@@ -60,10 +66,10 @@
         articleInfo.append(articleAuthor);
         articleInfo.append(articleDate);
 
-        if (imageGalleryObj.hasGallery) {
-            articleGallery = $('<span></span>').addClass('article-info__gallery article-info__pill').html('Photo Gallery');
-            articleInfo.append(articleGallery);
-        }
+        // if (imageGalleryObj.hasGallery) {
+        //     articleGallery = $('<span></span>').addClass('article-info__gallery article-info__pill').html('Photo Gallery');
+        //     articleInfo.append(articleGallery);
+        // }
         articleInfo.append(articleImage);
         articleContent.append(articleInfo);
         article.append(articleTitle);
@@ -83,8 +89,12 @@
         }
         return months[parseInt(date[1], 10)] + " " + date[0] + nth(date[0]);
     };
-    
-    utility.generateArticles = function (data, parent) {
+
+    utility.createLoadMoreBtn = function (parent) {
+        parent.append($('<button>Load More</button>').css('display', 'block').addClass('load-more'));
+    };
+
+   utility.generateArticles = function (data, parent, initialLoad) {
         var index,
             myArticle,
             limit;
@@ -96,10 +106,15 @@
                 return false;
             }
         }
-        limit = THUNDERSTORM.statistics.generatedCount;
+
+        initialLoad ? limit = THUNDERSTORM.statistics.generatedCount + 1
+                    : limit = THUNDERSTORM.statistics.generatedCount;
+        
         //debugger;
-        for (index = THUNDERSTORM.statistics.generatedCount; index < limit + 6; index = index + 1) {
+        index = THUNDERSTORM.statistics.generatedCount;
+        for (index; index < limit + 6; index = index + 1) {
             if (index >= data.length) {
+                $('.action button').hide('fast');
                 return true;
             }
             index === 0 ? myArticle = utility.createRecentArticle(data[index], index)
@@ -107,12 +122,9 @@
             parent.append(myArticle);
             THUNDERSTORM.statistics.generatedCount += 1;
         }
-        if (THUNDERSTORM.statistics.generatedCount + 6  < data.length) {
-            $('.action button').show('fast');
-        } else {
-            $('.action button').hide('fast');
-        }
     };
+
+
 
     utility.createRecentArticle = function (articleData, articleIndex) {
         //TODO needs a simpler structure :(
@@ -153,6 +165,7 @@
         base.append(articleContent);
         articleVisibleImage.append(articleVisibleImgTag);
         base.append(articleVisibleImage);
+
         return base;
     };
 

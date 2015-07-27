@@ -27,7 +27,7 @@
         console.log('Key exists in local storage');
 
         THUNDERSTORM.articleData = persistence.get(key);
-        utility.generateArticles(THUNDERSTORM.articleData, articlesParent);
+        utility.generateArticles(THUNDERSTORM.articleData, articlesParent, 1);
     } else {
         THUNDERSTORM.modules.API.get({
             url: 'rest/articles',
