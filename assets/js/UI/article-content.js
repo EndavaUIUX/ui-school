@@ -23,13 +23,17 @@
         var gallery;
         for(var index = 0; index < currentArticle.sources.length; index = index + 1){
             gallery = $("<img>").attr("src", currentArticle.sources[index]);
-            $(".article__img").append(gallery);
+            $(".article__gallery").append(gallery);
+            if(index != 0){
+                gallery.addClass("hidden");
+            }
         }
-        $(".article__img").append(viewMoreButton);
+        $(".article__gallery").append(viewMoreButton);
+
 
     } else {
         gallery = $("<img>").attr("src", currentArticle.sources);
-        $(".article__img").append(gallery);
+        $(".article__gallery").append(gallery);
     }
 
     utility.populateArticleDetails(articleContent, articleIndex);
