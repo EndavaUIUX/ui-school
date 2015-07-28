@@ -758,6 +758,25 @@ article h2:hover {
 .article__details .article__content {
   width: 100%;
   height: auto;
+  margin-bottom: 70px;
+}
+.article__details .article__content div {
+  color: #828282;
+  font-size: 18px;
+  font-family: 'Lato';
+  line-height: 1.2;
+  text-align: justify;
+}
+.article__details .article__content div a {
+  float: left;
+  margin: 0 15px 15px 0;
+}
+.article__details .article__content h2 {
+  color: #828282;
+  font-size: 18px;
+  font-family: 'Lato';
+  line-height: 1.2;
+  text-align: justify;
 }
 .article__details .article__content p {
   font-size: 18px;
@@ -765,7 +784,23 @@ article h2:hover {
   font-family: 'Lato';
   line-height: 1.2;
   text-align: justify;
-  margin-bottom: 70px;
+  margin-bottom: 10px;
+}
+.article__details .article__content p a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #828282;
+}
+.article__details .article__content p a .wp-image-468 {
+  margin-top: 30px;
+}
+.article__details .article__content p .size-full {
+  width: 100%;
+  height: auto;
+}
+.article__details .article__content p .size-medium {
+  width: 50%;
+  height: auto;
 }
 @media only screen and (min-width: 600px) and (max-width: 1180px) {
   .article-details .article__content p {
