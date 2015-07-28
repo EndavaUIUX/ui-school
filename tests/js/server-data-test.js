@@ -1,15 +1,3 @@
-QUnit.test("server-data-module.getServerData, Testing URL validation", function(assert) {
-	"use strict";
-	var url = "sfsgfg",
-		result = false;	
-
-	THUNDERSTORM.serverDataInstance = new THUNDERSTORM.modules.serverDataModule();
-	result = THUNDERSTORM.serverDataInstance.isURLValid(url);
-
-	assert.ok(result === true, "URL is valid.");
-	
-});
-
 QUnit.test("server-data-module.getServerData, Testing ajax call content result", function(assert) {
 	"use strict";
 	var params = {},
