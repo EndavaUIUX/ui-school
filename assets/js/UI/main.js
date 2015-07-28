@@ -3,7 +3,7 @@
  rest cu localstorage, localstorage cu scriptul de generare, etc.
  ========================================================================== */
 
-(function (window, THUNDERSTORM, $) {
+(function (window, THUNDERSTORM) {
     'use strict';
     var utility = THUNDERSTORM.modules.utility;
     var persistence = THUNDERSTORM.modules.persistence;
@@ -41,4 +41,4 @@
         toggleLoadMore(page);
     });
 
-}(window, window.THUNDERSTORM, window.jQuery));
+}(window, window.THUNDERSTORM));

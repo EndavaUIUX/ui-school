@@ -1,4 +1,4 @@
-(function (window, THUNDERSTORM, $) {
+(function (window, THUNDERSTORM) {
     'use strict';
     var articles = {},
         utility = THUNDERSTORM.modules.utility,
@@ -6,7 +6,6 @@
     articles.moduleName = "articles";
     
     articles.data = {};
-
     /* ==========================================================================
      function init()
      Verifica daca exista cheia articles in local storage. Daca da, preia datele
@@ -110,20 +109,7 @@
         return pages;
     }
     
-    articles.generateArticles = function (data, parent) {
-        var myArticle,
-            recentGenerated = false,
-            i;
-        for (i = 0; i < data.length; i = i + 1) {
-            if (data.length === 7 && recentGenerated === false) {
-                myArticle = utility.createRecentArticle(data[i], i);
-                recentGenerated = true;
-            } else {
-                myArticle = utility.createArticle(data[i], i, 0);
-            }
-            parent.append(myArticle);
-        }
-    };
+
     
     articles.createArticle = function (articleData, articleIndex, isFullContent) {
         var base = $('<div></div>').addClass('article-wrapper'),
@@ -158,6 +144,20 @@
         return base;
     };
 
+    articles.generateArticles = function (data, parent) {
+        var myArticle,
+            recentGenerated = false,
+            i;
+        for (i = 0; i < data.length; i = i + 1) {
+            if (data.length === 7 && recentGenerated === false) {
+                myArticle = createRecentArticle(data[i], i);
+                recentGenerated = true;
+            } else {
+                myArticle = articles.createArticle(data[i], i, 0);
+            }
+            parent.append(myArticle);
+        }
+    };
     THUNDERSTORM.modules.articles = articles;
 
-}(window, window.THUNDERSTORM), window.jQuery);
+}(window, window.THUNDERSTORM));
