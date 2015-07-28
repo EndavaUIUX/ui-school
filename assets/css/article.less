@@ -151,26 +151,31 @@ article h2:hover {
 }
 
 .load-moreimg {
-	text-align: left;
+ 
+	text-align: left; 
+    top: 50%;
+    position: absolute;
+    left: 20px;
+    margin-top: -15px;
+
+ 
 }
 
 .load-more {
     display: inline-block;
     font-family: "Lato regular", "Lato";
     font-size: 18px;
-    color: @load-more-color;
+    color: #e1632a;
     border-style: solid;
     border-width: 1px;
-    border-color: @load-more-color;
-    background-color: @btn-background-color;
+    border-color: #e1632a;
+    background-color: #ffffff;
     width: 160px;
     height: 50px;
-    text-align: center;
-	/*background: url('../images/ico/load_more.png') no-repeat;
-	background-position: 15px center;
-	text-align: right;
-	padding-right: 15px;
-	outline: none;*/
+    padding: 14px;
+    text-align: right;
+    position: relative;
+    outline:none;
 }
 
 .load-more:hover img {
