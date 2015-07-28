@@ -287,6 +287,9 @@ article h2:hover {
 .clearfix {
   clear: both;
 }
+.load-moreimg {
+  text-align: left;
+}
 .load-more {
   display: inline-block;
   font-family: "Lato regular", "Lato";
