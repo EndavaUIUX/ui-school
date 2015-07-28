@@ -14,19 +14,18 @@
         articleUrlNumber = pageUrl.split("#")[1],
         article = THUNDERSTORM.modules.articles.data['articles'][articleUrlNumber],
         currentArticle = THUNDERSTORM.modules.utility.imageSourceGenerator(article),
-        viewMoreButton = $("<div></div>").html("View gallery").addClass("button__gallery"),
-        image = $("<img>");
+        viewMoreButton = $("<div></div>").html("View gallery").addClass("button__gallery");
 
     if(currentArticle.hasGallery == true){
-        var currentGallery;
-        for(var index = 0; index < currentArticle.sources.length; index++){
-            currentGallery = image.attr("src", currentArticle.sources[index]);
-            $(".article__img").append(currentGallery);
+        var gallery;
+        for(var index = 0; index < currentArticle.sources.length; index = index + 1){
+            gallery = $("<img>").attr("src", currentArticle.sources[index]);
+            $(".article__img").append(gallery);
         }
         $(".article__img").append(viewMoreButton);
 
     } else {
-        var currentGallery = image.attr("src", currentArticle.sources);
-        $(".article__img").append(currentGallery);
+        gallery = $("<img>").attr("src", currentArticle.sources);
+        $(".article__img").append(gallery);
     }
 }(window, window.THUNDERSTORM, window.jQuery));
