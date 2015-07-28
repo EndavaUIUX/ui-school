@@ -17,21 +17,25 @@
         viewMoreButton = $("<div></div>").html("View gallery").addClass("button__gallery"),
         utility = THUNDERSTORM.modules.utility,
         articleIndex = window.location.href.substr(window.location.href.indexOf("#") + 1),
-        articleContent = THUNDERSTORM.modules.articles.data['articles'][articleIndex];
+        articleContent = THUNDERSTORM.modules.articles.data['articles'][articleIndex],
+        articleBody = $(".article__body");
 
     if(currentArticle.hasGallery == true){
         var gallery;
         for(var index = 0; index < currentArticle.sources.length; index = index + 1){
             gallery = $("<img>").attr("src", currentArticle.sources[index]);
-            $(".article__img").append(gallery);
+            $(".article__gallery").append(gallery);
+            if(index != 0){
+                gallery.addClass("hidden");
+            }
         }
-        $(".article__img").append(viewMoreButton);
+        $(".article__gallery").append(viewMoreButton);
 
     } else {
         gallery = $("<img>").attr("src", currentArticle.sources);
-        $(".article__img").append(gallery);
+        $(".article__gallery").append(gallery);
     }
 
-    utility.populateArticleDetails(articleContent, articleIndex);
+    utility.populateArticleDetails(articleContent, articleBody);
 
 }(window, window.THUNDERSTORM, window.jQuery));

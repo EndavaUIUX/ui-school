@@ -51,11 +51,9 @@
         return months[parseInt(date[1], 10)] + " " + date[0] + nth(date[0]);
     };
 
-    utility.populateArticleDetails = function(articleData, articleIndex) {
-        var articleContent = $(".article__content");
-        articleContent.html(articleData.content);
+    utility.populateArticleDetails = function(articleData, articleBody) {
+        articleBody.html(articleData.content);
     };
-
 
 
     THUNDERSTORM.modules.utility = utility;
