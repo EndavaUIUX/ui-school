@@ -745,36 +745,26 @@ article h2:hover {
   font-size: 18px;
   height: 20px;
   padding: 0px 20px 20px 0px;
-  /*.article-info__author {
-        background:  no-repeat;
-        padding-left: 20px;
-        padding-right: 15px;
-        display: inline-block;
-      }
-
-      .article__date {
-        background: url(../images/ico/calendar.png) no-repeat;
-        padding-left: 20px;
-        padding-right: 15px;
-        display: inline-block;
-      }*/
+}
+.article__content .article-info .article-info__author {
+  background: url("../images/ico/user%20-%20single.png") no-repeat no-repeat;
+  padding-left: 20px;
+  padding-right: 15px;
+  display: inline-block;
+  font-family: 'Lato';
+  font-size: 18px;
+  color: #b1b1b1;
+}
+.article__content .article-info .article-info__date {
+  background: url("../images/ico/calendar.png") no-repeat no-repeat;
+  padding-left: 20px;
+  padding-right: 15px;
+  display: inline-block;
+  font-family: 'Lato';
+  font-size: 18px;
+  color: #b1b1b1;
 }
 /***********************/
-.article-info__date {
-  background: url("../images/ico/calendar.png") no-repeat;
-  font-size: 18px;
-  font-family: 'Lato';
-  color: #b1b1b1;
-  line-height: 1.4;
-}
-.article-info__author {
-  background: url("../images/ico/user%20-%20single.png") no-repeat;
-  padding-left: 30px;
-  font-size: 18px;
-  font-family: 'Lato';
-  color: #b1b1b1;
-  line-height: 1.4;
-}
 .article__details {
   width: 100%;
   height: auto;
