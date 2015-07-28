@@ -21,6 +21,11 @@ p {
 .container {
   width: 100%;
 }
+.content {
+  width: 1170px;
+  margin: 0px auto;
+  height: auto;
+}
 .main {
   width: 1170px;
   margin: 50px auto;
@@ -127,7 +132,6 @@ p {
 .latest__article .article__content .article_description {
   font-size: 18px;
   color: #828282;
-  /*      padding: 10px 30px 25px 30px;*/
   text-align: justify;
   padding: 12px 30px 0px 30px;
   font-family: 'Lato';
@@ -282,6 +286,12 @@ article h2:hover {
 .clearfix {
   clear: both;
 }
+.load-moreimg {
+  top: 50%;
+  position: absolute;
+  left: 20px;
+  margin-top: -15px;
+}
 .load-more {
   display: inline-block;
   font-family: "Lato regular", "Lato";
@@ -293,12 +303,10 @@ article h2:hover {
   background-color: #ffffff;
   width: 160px;
   height: 50px;
-  text-align: center;
-  /*background: url('../images/ico/load_more.png') no-repeat;
-	background-position: 15px center;
-	text-align: right;
-	padding-right: 15px;
-	outline: none;*/
+  padding: 14px;
+  text-align: right;
+  position: relative;
+  outline: none;
 }
 .load-more:hover img {
   -webkit-animation-name: rotate;
@@ -733,6 +741,8 @@ article h2:hover {
 }
 .article__details .article__gallery {
   width: 100%;
+  height: 440px;
+  overflow: hidden;
   margin: 0 0 30px 0;
   background-color: aliceblue;
 }
@@ -743,6 +753,10 @@ article h2:hover {
 }
 .article__details .article__gallery .hidden {
   display: none;
+}
+.article__details .article__gallery img {
+  width: 100%;
+  height: auto;
 }
 .article__details .article__gallery .button__gallery {
   background: #FFFFFF;
