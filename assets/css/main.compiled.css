@@ -134,16 +134,18 @@ p {
   height: auto;
   overflow: hidden;
 }
-.latest__article .article__content .btn.btn--more {
-  margin: 0px 0px 20px 30px;
-  height: 43px;
-  width: 133px;
-  text-align: center;
-  color: #747474;
-  font-size: 18px;
-  border: 1px solid #515151;
-  background-color: #ffffff;
+.latest__article .article__content .btn.btn--more:first-child {
+  margin: 53px 0px 30px 30px;
   font-family: 'Lato';
+  width: 133px;
+  height: 43px;
+  font-size: 18px;
+  color: #515151;
+  text-align: center;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #515151;
+  background-color: #ffffff;
 }
 .latest__article .article__img {
   height: 377px;
@@ -196,7 +198,7 @@ p {
   border-radius: 1%;
   -webkit-transform: scale(1, 1);
   -moz-transform: scale(1, 1);
-  opacity: 1;
+  opacity: 1 ;
   -webkit-opacity: 1;
   -moz-opacity: 1;
 }
@@ -597,6 +599,9 @@ article h2:hover {
     position: absolute;
     height: auto;
     width: 100%;
+    /*      .btn.btn--more{
+        margin: 0px 0px 20px 31px;
+      }*/
   }
   .latest__article .article__content .article__title {
     font-size: 18px;
@@ -624,9 +629,6 @@ article h2:hover {
     overflow: hidden;
     box-sizing: border-box;
     padding: 10px 30px 25px 30px;
-  }
-  .latest__article .article__content .btn.btn--more {
-    margin: 0px 0px 20px 31px;
   }
   .main {
     position: relative;
@@ -778,6 +780,25 @@ article h2:hover {
 .article__details .article__content {
   width: 100%;
   height: auto;
+  margin-bottom: 70px;
+}
+.article__details .article__content div {
+  color: #828282;
+  font-size: 18px;
+  font-family: 'Lato';
+  line-height: 1.2;
+  text-align: justify;
+}
+.article__details .article__content div a {
+  float: left;
+  margin: 0 15px 15px 0;
+}
+.article__details .article__content h2 {
+  color: #828282;
+  font-size: 18px;
+  font-family: 'Lato';
+  line-height: 1.2;
+  text-align: justify;
 }
 .article__details .article__content p {
   font-size: 18px;
@@ -785,7 +806,26 @@ article h2:hover {
   font-family: 'Lato';
   line-height: 1.2;
   text-align: justify;
-  margin-bottom: 70px;
+  margin-bottom: 10px;
+}
+.article__details .article__content p a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #828282;
+}
+.article__details .article__content p a .wp-image-468 {
+  margin-top: 30px;
+}
+.article__details .article__content p .size-full {
+  width: 100%;
+  height: auto;
+}
+.article__details .article__content p .size-medium {
+  width: 50%;
+  height: auto;
+}
+.article__details .article__content li {
+  color: #828282;
 }
 @media only screen and (min-width: 600px) and (max-width: 1180px) {
   .article-details .article__content p {
