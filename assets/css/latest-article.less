@@ -73,17 +73,20 @@
       height: auto;
       overflow: hidden;
     }
-    .btn.btn--more{
-      margin: 0px 0px 20px 30px;
-      height: 43px;
-      width: 133px;
-      text-align: center;
-      color: @btn-color;
-      font-size: 18px;
-      border: 1px solid @article-header-color;
-      background-color: @btn-background-color;
-      font-family: 'Lato';
+    .btn.btn--more:first-child{
+     margin: 53px 0px 30px 30px;
+    font-family: 'Lato';
+    width: 133px;
+    height: 43px;
+    font-size: @desktop-font-size;
+    color: @article-header-color;
+    text-align: center;
+    border-style: solid;
+    border-width: 1px;
+    border-color: @article-header-color;
+    background-color: @btn-background-color;
     }
+    
   }
   .article__img{
     height: 377px;
