@@ -13,7 +13,7 @@
     
     API.set = function (options) {
         var data = options.data;
-        var sourceName = options.sourcename;
+        var sourceName = options.sourceName;
 
         if (typeof data !== 'object') {
             throw new Error('Arg data {object} nu este definit sau nu este obiect.');
@@ -29,7 +29,7 @@
     API.get = function (options) {
         var dataFromLs;
         var id = options.id;
-        var source = options.source;
+        var source = options.sourceName;
 
         if (typeof options === 'string') {
             source = options;
@@ -44,7 +44,7 @@
         } else {
             dataFromLs = JSON.parse(dataFromLs);
             if (typeof id !== 'undefined') {
-                dataFromLs = dataFromLs[id - 1];
+                dataFromLs = dataFromLs[source][id - 1];
             }
         }
         return dataFromLs;
