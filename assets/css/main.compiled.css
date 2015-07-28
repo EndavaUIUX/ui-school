@@ -727,33 +727,51 @@ article h2:hover {
     display: block;
   }
 }
-.article__title {
+/******************************/
+.article__content {
   height: auto;
   font-family: 'Lato';
 }
-.article__title h1 {
+.article__content h1 {
   font-family: 'Lato';
   font-size: 30px;
   padding: 80px 0px 20px 0px;
 }
-.article__title .article__informations {
+.article__content .article-info {
   color: #828282;
   font-family: 'Lato';
   font-size: 18px;
   height: 20px;
   padding: 0px 20px 20px 0px;
+  /*.article-info__author {
+        background:  no-repeat;
+        padding-left: 20px;
+        padding-right: 15px;
+        display: inline-block;
+      }
+
+      .article__date {
+        background: url(../images/ico/calendar.png) no-repeat;
+        padding-left: 20px;
+        padding-right: 15px;
+        display: inline-block;
+      }*/
 }
-.article__title .article__informations .article__author {
-  background: url(../images/ico/user%20-%20single.png) no-repeat;
-  padding-left: 20px;
-  padding-right: 15px;
-  display: inline-block;
+/***********************/
+.article-info__date {
+  background: url("../images/ico/calendar.png") no-repeat;
+  font-size: 18px;
+  font-family: 'Lato';
+  color: #b1b1b1;
+  line-height: 1.4;
 }
-.article__title .article__informations .article__date {
-  background: url(../images/ico/calendar.png) no-repeat;
-  padding-left: 20px;
-  padding-right: 15px;
-  display: inline-block;
+.article-info__author {
+  background: url("../images/ico/user%20-%20single.png") no-repeat;
+  padding-left: 30px;
+  font-size: 18px;
+  font-family: 'Lato';
+  color: #b1b1b1;
+  line-height: 1.4;
 }
 .article__details {
   width: 100%;
