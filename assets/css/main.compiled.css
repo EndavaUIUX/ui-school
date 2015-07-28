@@ -66,78 +66,29 @@ header {
 				}
 		}
 }*/
-/*header {
-	height: 67px;
-	width: 100%;
-}
-.leftHeader__hamburger{
-    float: left;
-    width: 10%;
-    padding-left: 20px;
-}
-
-.centerHeader__logo{  
-    width: 330px;;
-    margin: 0 auto;
-    text-align: center;
-    font-size: 27px;
-    font-family: Lato;
-    color: #DB532D;
-    line-height: 100%;
-}
-
-.centerHeader__logo img {
-    margin-top: 30px;
-    margin-right: 10px;
-}
-
-.centerHeader__logo img {
-    float: left;
-}
-
-.rightHeader__profile{
-    float:right;
-    position: absolute;
-    right: 0px; 
-    top: 0px;
-    padding-right: 20px;
-}
-
-rightHeader__profile  {
-    float: left;
-    width: 65px;
-    margin-top: 20px;
-}*/
 .topheader {
   width: 100%;
   height: 67px;
-  /*    background-image: url();
-        border: 1px solid black;
-        margin: 10px auto;*/
 }
 .leftthird {
   width: 33%;
   height: 100%;
-  /*    background-color: yellow;*/
   float: left;
 }
 .righttwothirds {
   width: 67%;
   height: 100%;
-  /*    background-color: transparent;*/
   float: right;
 }
 .centerdiv {
   width: 50%;
   height: 100%;
-  /*    background-color: green;*/
   color: white;
   float: left;
 }
 .rightminidiv {
   width: 50%;
   height: 100%;
-  /*    background-color: blue;*/
   color: white;
   float: right;
 }
