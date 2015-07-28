@@ -17,7 +17,8 @@
         viewMoreButton = $("<div></div>").html("View gallery").addClass("button__gallery"),
         utility = THUNDERSTORM.modules.utility,
         articleIndex = window.location.href.substr(window.location.href.indexOf("#") + 1),
-        articleContent = THUNDERSTORM.modules.articles.data['articles'][articleIndex];
+        articleContent = THUNDERSTORM.modules.articles.data['articles'][articleIndex],
+        articleBody = $(".article__body");
 
     if(currentArticle.hasGallery == true){
         var gallery;
@@ -30,12 +31,11 @@
         }
         $(".article__gallery").append(viewMoreButton);
 
-
     } else {
         gallery = $("<img>").attr("src", currentArticle.sources);
         $(".article__gallery").append(gallery);
     }
 
-    utility.populateArticleDetails(articleContent, articleIndex);
+    utility.populateArticleDetails(articleContent, articleBody);
 
 }(window, window.THUNDERSTORM, window.jQuery));
