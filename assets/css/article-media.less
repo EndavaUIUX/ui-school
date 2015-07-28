@@ -1,27 +1,27 @@
-
 @media only screen and (min-width: 1180px) {
-  .article-wrapper:nth-of-type(3n+3) {
-    margin-right: 0;
-  }
+    .article-wrapper:nth-of-type(3n+3) {
+        margin-right: 0;
+    };
 }
 
 @media only screen and (min-width: 600px) and (max-width: 1180px) {
-  .main {
-    width: auto;
-    margin: 50px auto;
-    display: block;
-  }
-  .article-wrapper {
-    width: 48%;
-    margin-right: 4%;
+    .main {
+        width: auto;
+        margin: 50px auto;
+        display: block;
+    }
+
+    .article-wrapper {
+        width: 48%;
+        margin-right: 4%;
     /*		&:first-child {
 			margin-right: 30px;
-		}*/
-  }
+		}*/;
+    }
 
-  .article-wrapper:nth-of-type(2n+2) {
-    margin-right: 0%;
-  }
+    .article-wrapper:nth-of-type(2n+2) {
+        margin-right: 0%;
+    }
 
   /*.article-wrapper:last-child {
 		width:48%;
@@ -30,44 +30,46 @@
 		margin-right:0px;
 	}
 */
-  .article-wrapper article {
-    margin-bottom: 30px;
-    background-color: white;
-    border: 1px solid #cecece;
-    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
-    color: @article-description-color;
-  }
-.article-wrapper article img {
-    margin-top: 30px;
-	width: 100%;
-	height: 180px;
-}
-  .article-wrapper article p {
-	font-size: @pad-font-size;
-	color: @article-description-color;
-	padding: 30px;
-	font-family: 'Lato';
-	text-align: left;
-	overflow: hidden;
-	height: 45px;
-	line-height: 1.2;
-  }
-  .article-wrapper article .btn--more {
-    margin: 0px 0px 30px 35px;
-    font-family: 'Lato';
-    width: 133px;
-    height: 43px;
-    font-size: @desktop-font-size;
-    color: @article-header-color;
-    text-align: center;
-    border-style: solid;
-    border-width: 1px;
-    border-color: @article-header-color;
-    background-color: @btn-background-color;
-  }
-  .article-wrapper article:after {
-    clear: both;
-  }
+    .article-wrapper article {
+        margin-bottom: 30px; 
+        border: 1px solid #cecece;
+        color: @article-description-color;
+    }
+
+    .article-wrapper article img {
+        margin-top: 30px;
+        width: 100%;
+        height: 180px;
+    }
+
+    .article-wrapper article p {
+        font-size: @pad-font-size;
+        color: @article-description-color;
+        padding: 30px;
+        font-family: 'Lato';
+        text-align: left;
+        overflow: hidden;
+        height: 45px;
+        line-height: 1.2;
+    }
+
+    .article-wrapper article .btn--more {
+        margin: 0px 0px 30px 35px;
+        font-family: 'Lato';
+        width: 133px;
+        height: 43px;
+        font-size: @desktop-font-size;
+        color: @article-header-color;
+        text-align: center;
+        border-style: solid;
+        border-width: 1px;
+        border-color: @article-header-color;
+        background-color: @btn-background-color;
+    }
+
+    .article-wrapper article:after {
+        clear: both;
+    }
   /*.article-info__pill{
 		display: block;
 		padding-left:20px;
@@ -78,154 +80,176 @@
 		padding-left: 20px;
 		margin-left: 30px;
 	}*/
-	.article-info__date {
-	  background: url('../images/ico/date.png') no-repeat;
-	  font-size: @pad-font-size;
-	  font-family: 'Lato';
-	  color: #b1b1b1;
-	}
-	.article-info__author {
-	  background: url('../images/ico/user.png') no-repeat;
-	  padding-left: 30px;
-	  font-size: @pad-font-size;
-	  font-family: 'Lato';
-	  color: #b1b1b1;
-	}
-	.article-info__gallery {
-	  background: url('../images/ico/photo.png') no-repeat;
-	  padding-left: 30px;
-	  padding-right: 30px;
-	  font-size: @pad-font-size;
-	  font-family: 'Lato';
-	  color: #b1b1b1;
-	}
-	article h2 {
-	  font-size: @desktop-font-size;
-	  color: @article-header-color;
-	  padding: 30px 30px 20px 30px;
-	  font-family: 'Lato';
-	  height: 0px;
-	  overflow: hidden;
-	  margin-bottom: 25px;
-	}
+    .article-info__date {
+        font-size: @pad-font-size;
+        color: @article-author-color;
+    }
+
+    .article-info__author {
+        padding-left: 30px;
+        font-size: @pad-font-size;
+        color: @article-author-color;
+    }
+
+    .article-info__gallery {
+        padding-left: 30px;
+        padding-right: 30px;
+        font-size: @pad-font-size;
+        color: @article-author-color;
+    }
+
+    article h2 {
+        font-size: @desktop-font-size;
+        color: @article-header-color;
+        padding: 30px 30px 20px 30px;
+        font-family: 'Lato';
+        height: 0px;
+        overflow: hidden;
+        margin-bottom: 25px;
+    };
 }
+
 @media only screen and (min-width: 1px) and (max-width: 599px) {
-  .main {
-    width: auto;
-    margin: 50px auto;
-  }
-  .article-wrapper:nth-last-child(n) {
-    width: 100%;
-    display: inline-block;
-    box-sizing: border-box;
-  }
-  .article-wrapper {
-    width: 100%;
-    display: inline-block;
-    box-sizing: border-box;
-    margin-right: 0px;
-  }
-  .article-wrapper article {
-    margin-bottom: 30px;
-    background-color: white;
-    border: 1px solid #cecece;
-    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
-    color: #828282;
-  }
-  .article-wrapper article img {
-    margin-top: 30px;
-	width: 100%;
-	height: 180px;
-  }
-  .article-wrapper article p {
-    font-size: @mobile-font-size;
-    color: #828282;
-    padding: 30px;
-    font-family: 'Lato';
-    text-align: left;
-    overflow: hidden;
-	height: 30px;
-	line-height: 1.2;
-  }
-  .article-wrapper article .btn--more {
-    margin: 0px 0px 30px 35px;
-    font-family: 'Lato';
-    width: 133px;
-    height: 43px;
-    font-size: @desktop-font-size;
-    color: @article-header-color;
-    text-align: center;
-    border-style: solid;
-    border-width: 1px;
-    border-color: @article-header-color;
-    background-color: @btn-background-color;
-  }
-  .article-wrapper article:after {
-    clear: both;
-  }
-  .article-info__date {
-	  background: url('../images/ico/date.png') no-repeat;
-	  font-size: @pad-font-size;
-	  font-family: 'Lato';
-	  color: #b1b1b1;
-	}
-	.article-info__author {
-	  background: url('../images/ico/user.png') no-repeat;
-	  padding-left: 30px;
-	  font-size: @pad-font-size;
-	  font-family: 'Lato';
-	  color: #b1b1b1;
-	}
-	.article-info__gallery {
-	  background: url('../images/ico/photo.png') no-repeat;
-	  padding-left: 30px;
-	  padding-right: 30px;
-	  font-size: @pad-font-size;
-	  font-family: 'Lato';
-	  color: #b1b1b1;
-	}
-	article h2 {
-	  font-size: @desktop-font-size;
-	  color: @article-header-color;
-	  padding: 30px 30px 20px 30px;
-	  font-family: 'Lato';
-	  height: 0px;
-	  overflow: hidden;
-	  margin-bottom: 25px;
-	}
+    .main {
+        width: auto;
+        margin: 50px auto;
+    }
+
+    .article-wrapper:nth-last-child(n) {
+        width: 100%;
+        display: inline-block;
+        box-sizing: border-box;
+    }
+
+    .article-wrapper {
+        width: 100%;
+        display: inline-block;
+        box-sizing: border-box;
+        margin-right: 0px;
+    }
+
+    .article-wrapper article {
+        margin-bottom: 30px;
+        border: 1px solid #cecece;
+        color: @article-description-color;
+    }
+
+    .article-wrapper article img {
+        margin-top: 30px;
+        width: 100%;
+        height: 180px;
+    }
+
+    .article-wrapper article p {
+        font-size: @mobile-font-size;
+        color: @article-description-color;
+        padding: 30px;
+        font-family: 'Lato';
+        text-align: left;
+        overflow: hidden;
+        height: 30px;
+        line-height: 1.2;
+    }
+
+    .article-wrapper article .btn--more {
+        margin: 0px 0px 30px 35px;
+        font-family: 'Lato';
+        width: 133px;
+        height: 43px;
+        font-size: @desktop-font-size;
+        color: @article-header-color;
+        text-align: center;
+        border-style: solid;
+        border-width: 1px;
+        border-color: @article-header-color;
+        background-color: @btn-background-color;
+    }
+
+    .article-wrapper article:after {
+        clear: both;
+    }
+
+    .article-info__date {
+        font-size: @pad-font-size;
+        color: @article-author-color;
+    }
+
+    .article-info__author {
+        padding-left: 30px;
+        font-size: @pad-font-size;
+        color: @article-author-color;
+    }
+
+    .article-info__gallery {
+        padding-left: 30px;
+        padding-right: 30px;
+        font-size: @pad-font-size;
+        color: @article-author-color;
+    }
+
+    article h2 {
+        font-size: @desktop-font-size;
+        color: @article-header-color;
+        padding: 30px 30px 20px 30px;
+        font-family: 'Lato';
+        height: 0px;
+        overflow: hidden;
+        margin-bottom: 25px;
+    }
+
+    .article-info__pill {
+        display: inline-block;
+        padding-left: 20px;
+        margin-left: 20px;
+        line-height: 1.4;
+        font-size: 13px;
+    }
+
+    .article-info__pill:first-child {
+        display: inline-block;
+        padding-left: 20px;
+        margin-left: 30px;
+        line-height: 1.4;
+        font-size: 13px;
+    };
 }
+
 @media only screen and (max-width: 323px) {
-  .article-info__pill {
-    display: inline-block;
-    padding-left: 20px;
-    margin-left: 30px;
-    margin-bottom: 10px;
-    margin-bottom: 10px;
+    .article-info__pill {
+        display: inline-block;
+        padding-left: 20px;
+        margin-left: 20px;
+        line-height: 1.4;
+        font-size: 13px;
+        margin-bottom: 10px;
+    }
 
-  }
-  .article-info__pill:first-child {
-    display: inline-block;
-    padding-left: 20px;
-    margin-left: 30px;
+    .article-info__pill:first-child {
+        display: inline-block;
+        padding-left: 20px;
+        margin-left: 30px;
+        line-height: 1.4;
+        font-size: 13px;
+    }
 
-  }
-	.article-wrapper article p {
-		font-size: @mobile-font-size;
-		color: #828282;
-		padding: 30px;
-		font-family: 'Lato';
-		text-align: left;
-		overflow: hidden;
-		height: 30px;
-		line-height: 1.2;
-	}
-	article h2 {
-	  font-size: @desktop-font-size;
-	  color: @article-header-color;
-	  padding: 30px 30px 20px 30px;
-	  font-family: 'Lato';
-	  height: 0px;
-	  overflow: hidden;
-	  margin-bottom: 25px;
-	}
+    .article-wrapper article p {
+        font-size: @mobile-font-size;
+        color: @article-description-color;
+        padding: 30px;
+        font-family: 'Lato';
+        text-align: left;
+        overflow: hidden;
+        height: 30px;
+        line-height: 1.2;
+    }
+
+    article h2 {
+        font-size: @desktop-font-size;
+        color: @article-header-color;
+        padding: 30px 30px 20px 30px;
+        font-family: 'Lato';
+        height: 0px;
+        overflow: hidden;
+        margin-bottom: 25px;
+    };
 }

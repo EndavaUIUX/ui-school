@@ -26,41 +26,49 @@ p {
   margin: 50px auto;
   display: block;
 }
-header {
-  height: 67px;
+.topheader {
   width: 100%;
+  height: 67px;
 }
-header .header__hamburger {
-  display: inline-block;
+.leftthird {
+  width: 33%;
+  height: 100%;
   float: left;
-  width: 10%;
 }
-header .header__hamburger img {
-  padding: 25px 0px 25px 25px;
-}
-header .header__logo {
-  display: inline-block;
-  float: left;
-  width: 80%;
-  position: absolute;
-}
-header .header__logo img {
-  position: relative;
-  top: 50%;
-  left: 50%;
-  margin-top: 10px;
-  margin-left: -58px;
-}
-header .header__profile {
-  display: inline-block;
+.righttwothirds {
+  width: 67%;
+  height: 100%;
   float: right;
 }
-header .header__profile img {
+.centerdiv {
+  width: 50%;
+  height: 100%;
+  color: white;
+  float: left;
+}
+.rightminidiv {
+  width: 50%;
+  height: 100%;
+  color: white;
+  float: right;
+}
+.menu {
+  padding: 25px 0px 25px 25px;
+}
+.logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 14px;
+}
+.profile {
+  float: right;
   padding: 10px 20px 10px 0px;
 }
+/*MIO: To be replaced*/
 .slider {
   width: 100%;
-  background-color: lightblue;
+  background: url('../images/slider.png') no-repeat;
   height: 600px;
 }
 .latest__article {
@@ -81,7 +89,7 @@ header .header__profile img {
   font-family: 'Lato';
   font-size: 21px;
   color: #515151;
-  padding: 30px 0px 20px 30px;
+  padding: 30px 30px 20px 30px;
   height: 25px;
 }
 .latest__article .article__content .article__informations {
@@ -91,25 +99,30 @@ header .header__profile img {
 .latest__article .article__content .article__informations .article__author.article_info {
   font-size: 18px;
   color: #b1b1b1;
+  display: inline-block;
 }
 .latest__article .article__content .article__informations .article_info {
   padding-left: 20px;
-  padding-right: 15px;
+  padding-right: 20px;
 }
 .latest__article .article__content .article__informations .article__date.article_info {
   font-size: 18px;
   color: #b1b1b1;
+  display: inline-block;
 }
 .latest__article .article__content .article__informations .article__author {
   background: url("../images/ico/user%20-%20single.png") no-repeat no-repeat;
+  display: inline-block;
 }
 .latest__article .article__content .article__informations .article__date {
   background: url("../images/ico/calendar.png") no-repeat no-repeat;
+  display: inline-block;
 }
 .latest__article .article__content .article__informations .article__gallery {
   background: url("../images/ico/6.png") no-repeat no-repeat;
   font-size: 18px;
   color: #b1b1b1;
+  display: inline-block;
 }
 .latest__article .article__content .article_description {
   font-size: 18px;
@@ -118,7 +131,7 @@ header .header__profile img {
   font-family: 'Lato';
   line-height: 1.2;
   text-align: justify;
-  height: 55px;
+  height: auto;
   overflow: hidden;
 }
 .latest__article .article__content .btn.btn--more {
@@ -160,7 +173,7 @@ header .header__profile img {
   margin-right: 2.565%;
 }
 .article-wrapper article {
-  background-color: white;
+  background-color: #ffffff;
   border: 1px solid #e7e7e7;
   box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.08);
   color: #828282;
@@ -170,6 +183,22 @@ header .header__profile img {
   margin-top: 30px;
   width: 100%;
   height: 180px;
+  opacity: 0.8;
+  -webkit-opacity: 0.8;
+  -moz-opacity: 0.8;
+  transition: 0.5s ease;
+  -webkit-transition: 0.5s ease;
+  -moz-transition: 0.5s ease;
+}
+.article-wrapper article img:hover {
+  border: 5px solid #d0d0d0;
+  box-sizing: border-box;
+  border-radius: 1%;
+  -webkit-transform: scale(1, 1);
+  -moz-transform: scale(1, 1);
+  opacity: 1;
+  -webkit-opacity: 1;
+  -moz-opacity: 1;
 }
 .article-wrapper article p {
   font-size: 18px;
@@ -202,20 +231,22 @@ header .header__profile img {
   font-size: 18px;
 }
 .article-info__date {
-  background: url('../images/ico/date.png') no-repeat;
+  background: url("../images/ico/calendar.png") no-repeat;
   font-size: 18px;
   font-family: 'Lato';
   color: #b1b1b1;
+  line-height: 1.4;
 }
 .article-info__author {
-  background: url('../images/ico/user.png') no-repeat;
+  background: url("../images/ico/user%20-%20single.png") no-repeat;
   padding-left: 30px;
   font-size: 18px;
   font-family: 'Lato';
   color: #b1b1b1;
+  line-height: 1.4;
 }
 .article-info__gallery {
-  background: url('../images/ico/photo.png') no-repeat;
+  background: url("../images/ico/6.png") no-repeat;
   padding-left: 30px;
   padding-right: 30px;
   font-size: 18px;
@@ -232,23 +263,59 @@ article h2 {
   margin-bottom: 25px;
 }
 article h2:hover {
-  color: #DD852C;
+  color: #e1632a;
   cursor: pointer;
 }
 .article-info__pill {
   display: inline-block;
   padding-left: 20px;
-  margin-left: 30px;
+  margin-left: 20px;
   line-height: 1.2;
 }
+/*corect*/
 .article-info__pill:first-child {
   display: inline-block;
   padding-left: 20px;
   margin-left: 30px;
-  margin-bottom: 10px;
 }
 .clearfix {
   clear: both;
+}
+.load-more {
+  display: inline-block;
+  font-family: "Lato regular", "Lato";
+  font-size: 18px;
+  color: #e1632a;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #e1632a;
+  background-color: #ffffff;
+  width: 160px;
+  height: 50px;
+  text-align: center;
+  /*background: url('../images/ico/load_more.png') no-repeat;
+	background-position: 15px center;
+	text-align: right;
+	padding-right: 15px;
+	outline: none;*/
+}
+.load-more:hover img {
+  -webkit-animation-name: rotate;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  -moz-animation-name: rotate;
+  -moz-animation-duration: 2s;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-timing-function: linear;
+}
+@-webkit-keyframes rotate {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
 }
 @media only screen and (min-width: 1180px) {
   .article-wrapper:nth-of-type(3n+3) {
@@ -280,9 +347,7 @@ article h2:hover {
 */
   .article-wrapper article {
     margin-bottom: 30px;
-    background-color: white;
     border: 1px solid #cecece;
-    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
     color: #828282;
   }
   .article-wrapper article img {
@@ -327,24 +392,18 @@ article h2:hover {
 		margin-left: 30px;
 	}*/
   .article-info__date {
-    background: url('../images/ico/date.png') no-repeat;
     font-size: 15px;
-    font-family: 'Lato';
     color: #b1b1b1;
   }
   .article-info__author {
-    background: url('../images/ico/user.png') no-repeat;
     padding-left: 30px;
     font-size: 15px;
-    font-family: 'Lato';
     color: #b1b1b1;
   }
   .article-info__gallery {
-    background: url('../images/ico/photo.png') no-repeat;
     padding-left: 30px;
     padding-right: 30px;
     font-size: 15px;
-    font-family: 'Lato';
     color: #b1b1b1;
   }
   article h2 {
@@ -375,9 +434,7 @@ article h2:hover {
   }
   .article-wrapper article {
     margin-bottom: 30px;
-    background-color: white;
     border: 1px solid #cecece;
-    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
     color: #828282;
   }
   .article-wrapper article img {
@@ -412,24 +469,18 @@ article h2:hover {
     clear: both;
   }
   .article-info__date {
-    background: url('../images/ico/date.png') no-repeat;
     font-size: 15px;
-    font-family: 'Lato';
     color: #b1b1b1;
   }
   .article-info__author {
-    background: url('../images/ico/user.png') no-repeat;
     padding-left: 30px;
     font-size: 15px;
-    font-family: 'Lato';
     color: #b1b1b1;
   }
   .article-info__gallery {
-    background: url('../images/ico/photo.png') no-repeat;
     padding-left: 30px;
     padding-right: 30px;
     font-size: 15px;
-    font-family: 'Lato';
     color: #b1b1b1;
   }
   article h2 {
@@ -441,18 +492,36 @@ article h2:hover {
     overflow: hidden;
     margin-bottom: 25px;
   }
+  .article-info__pill {
+    display: inline-block;
+    padding-left: 20px;
+    margin-left: 20px;
+    line-height: 1.4;
+    font-size: 13px;
+  }
+  .article-info__pill:first-child {
+    display: inline-block;
+    padding-left: 20px;
+    margin-left: 30px;
+    line-height: 1.4;
+    font-size: 13px;
+  }
 }
 @media only screen and (max-width: 323px) {
   .article-info__pill {
     display: inline-block;
     padding-left: 20px;
-    margin-left: 30px;
+    margin-left: 20px;
+    line-height: 1.4;
+    font-size: 13px;
     margin-bottom: 10px;
   }
   .article-info__pill:first-child {
     display: inline-block;
     padding-left: 20px;
     margin-left: 30px;
+    line-height: 1.4;
+    font-size: 13px;
   }
   .article-wrapper article p {
     font-size: 13px;
@@ -484,13 +553,16 @@ article h2:hover {
   }
   .latest__article .article__content .article__informations .article__author.article_info {
     font-size: 13px;
+    padding-top: 4px;
   }
   .latest__article .article__content .article__informations .article__date.article_info {
     font-size: 13px;
+    padding-top: 4px;
   }
   .latest__article .article__content .article__informations .article__gallery.article_info {
     font-size: 13px;
     display: block;
+    padding-top: 4px;
   }
   .latest__article .article__content .article_description {
     text-align: justify;
@@ -517,22 +589,21 @@ article h2:hover {
   }
   .latest__article .article__picture img {
     display: block;
-    width: 60%;
     height: 186px;
-    padding-left: 30px;
-    padding-right: 30px;
+    margin-left: auto;
+    margin-right: auto;
   }
   .latest__article .article__content {
     position: absolute;
-    height: 0px;
-    width: 600px;
+    height: auto;
+    width: 100%;
   }
   .latest__article .article__content .article__title {
     font-size: 18px;
   }
   .latest__article .article__content .article__informations .article_info {
     padding-left: 20px;
-    padding-right: 2px;
+    padding-top: 4px;
   }
   .latest__article .article__content .article__informations .article__author.article_info {
     font-size: 13px;
@@ -543,13 +614,16 @@ article h2:hover {
   .latest__article .article__content .article__informations .article__gallery.article_info {
     font-size: 13px;
     display: block;
+    margin-top: 10px;
   }
   .latest__article .article__content .article_description {
     text-align: justify;
-    width: 58%;
+    width: 100%;
     font-size: 13px;
-    height: 35px;
+    height: auto;
     overflow: hidden;
+    box-sizing: border-box;
+    padding: 10px 30px 25px 30px;
   }
   .latest__article .article__content .btn.btn--more {
     margin: 0px 0px 20px 31px;
@@ -558,7 +632,7 @@ article h2:hover {
     position: relative;
   }
 }
-@media all and (min-width: 455px) and (max-width: 611px) {
+@media all and (min-width: 451px) and (max-width: 611px) {
   .latest__article {
     height: auto;
     width: 100%;
@@ -573,12 +647,15 @@ article h2:hover {
   }
   .latest__article .article__content .article__informations .article__author.article_info {
     font-size: 13px;
+    padding-top: 4px;
   }
   .latest__article .article__content .article__informations .article__date.article_info {
     font-size: 13px;
+    padding-top: 4px;
   }
   .latest__article .article__content .article__informations .article__gallery {
     font-size: 13px;
+    padding-top: 4px;
   }
   .latest__article .article__content .article_description {
     width: 90%;
@@ -589,11 +666,12 @@ article h2:hover {
   }
   .latest__article .article__picture img {
     display: block;
-    width: 100%;
     height: 186px;
     padding-left: 4%;
     padding-right: 2%;
     box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 .latest__article:after {
@@ -601,7 +679,7 @@ article h2:hover {
 }
 @media all and (min-width: 611px) and (max-width: 1024px) {
   .latest__article {
-    width: 95%;
+    width: 100%;
     height: 408px;
   }
   .latest__article .article__content {
@@ -679,7 +757,7 @@ article h2:hover {
 }
 .article__details {
   width: 100%;
-  height: 616px;
+  height: auto;
   margin: 0 auto;
 }
 .article__details .article__img {
@@ -688,7 +766,7 @@ article h2:hover {
 }
 .article__details .article__img img {
   width: 100%;
-  height: 100%;
+  height: auto;
 }
 .article__details .article__img .button__gallery {
   background: #FFFFFF;
@@ -707,9 +785,21 @@ article h2:hover {
   font-family: 'Lato';
   line-height: 1.2;
   text-align: justify;
+  margin-bottom: 70px;
 }
+@media only screen and (min-width: 600px) and (max-width: 1180px) {
+  .article-details .article__content p {
+    font-size: 15px;
+  }
+}
+@media only screen and (min-width: 1px) and (max-width: 599px) {
+  .article__details .article__content p {
+    font-size: 13px;
+  }
+}
+/*MIO: to be replaced*/
 footer {
   width: 100%;
-  height: 67px;
-  background-color: coral;
+  height: 110px;
+  background: url('../images/footer.png') no-repeat;
 }
