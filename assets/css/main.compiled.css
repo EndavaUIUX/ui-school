@@ -730,7 +730,42 @@ article h2:hover {
     display: block;
   }
 }
-/*@import "article-title.less";*/
+/******************************/
+.article__content--full {
+  height: auto;
+  font-family: 'Lato';
+}
+.article__content--full h1 {
+  font-family: 'Lato';
+  font-size: 30px;
+  padding: 80px 0px 20px 0px;
+}
+.article__content--full .article-informations {
+  color: #828282;
+  font-family: 'Lato';
+  font-size: 18px;
+  height: 20px;
+  padding: 0px 20px 20px 0px;
+}
+.article__content--full .article-informations .article-informations__author {
+  background: url("../images/ico/user%20-%20single.png") no-repeat no-repeat;
+  padding-left: 20px;
+  padding-right: 15px;
+  display: inline-block;
+  font-family: 'Lato';
+  font-size: 18px;
+  color: #b1b1b1;
+}
+.article__content--full .article-informations .article-informations__date {
+  background: url("../images/ico/calendar.png") no-repeat no-repeat;
+  padding-left: 20px;
+  padding-right: 15px;
+  display: inline-block;
+  font-family: 'Lato';
+  font-size: 18px;
+  color: #b1b1b1;
+}
+/***********************/
 .article__details {
   width: 100%;
   height: auto;
