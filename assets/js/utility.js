@@ -31,8 +31,11 @@
             imageSourceObj.hasGallery = false;
             imageSourceObj.sources.push(articleData.featuredImage)
         }
-        console.log(imageSourceObj);
         return imageSourceObj;
+    };
+
+    utility.showPhotoGallery = function () {
+
     };
 
     utility.keyInLocalStorage = function (key) {
@@ -62,6 +65,7 @@
         /*append the elements*/
         articleInfo.append(articleAuthor);
         articleInfo.append(articleDate);
+
         // if (imageGalleryObj.hasGallery) {
         //     articleGallery = $('<span></span>').addClass('article-info__gallery article-info__pill').html('Photo Gallery');
         //     articleInfo.append(articleGallery);
@@ -167,10 +171,19 @@
         return base;
     };
 
-    utility.populateArticleDetails = function(articleData, articleIndex) {
-        var articleContent = $(".article__content");
-        articleContent.html(articleData.content);
-    };
+//$(document).on("pagecreate", "#page1", function(){
+//
+//    $("#theimage").on("click", function(){       
+//        $(this).addClass("imageRot").one('webkitAnimationEnd mozAnimationEnd oAnimationEnd msAnimationEnd animationend', function () {
+//            $(this).removeClass("imageRot");
+//            var url = $(this).data('linkurl');
+//            $( ":mobile-pagecontainer" ).pagecontainer( "change", url);        
+//        });
+//    });
+//
+//}); functia alex
+
+
 
 
 
