@@ -824,6 +824,9 @@ article h2:hover {
   width: 50%;
   height: auto;
 }
+.article__details .article__content li {
+  color: #828282;
+}
 @media only screen and (min-width: 600px) and (max-width: 1180px) {
   .article-details .article__content p {
     font-size: 15px;

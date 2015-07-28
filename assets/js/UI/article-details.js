@@ -3,6 +3,6 @@
     var utility = THUNDERSTORM.modules.utility,
         articleIndex = window.location.href.substr(window.location.href.indexOf("#") + 1);
     var test = THUNDERSTORM.modules.articles.data['articles'][articleIndex];
-    console.log(test);
+  //  console.log(test);
     utility.populateArticleDetails(test, articleIndex);
 }());
