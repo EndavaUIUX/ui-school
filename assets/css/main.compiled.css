@@ -139,7 +139,7 @@ p {
   height: 150px;
   overflow: hidden;
 }
-.latest__article .article__content .btn.btn--more {
+.latest__article .article__content .last--more {
   margin: 0px 0px 30px 30px;
   height: 43px;
   width: 133px;
@@ -216,7 +216,7 @@ p {
   line-height: 1.2;
 }
 .btn--more {
-  margin: 0px 0px 30px 35px;
+  margin: 10px 0px 30px 35px;
   font-family: 'Lato';
   width: 133px;
   height: 43px;
@@ -379,7 +379,7 @@ article h2:hover {
     line-height: 1.2;
   }
   .article-wrapper article .btn--more {
-    margin: 0px 0px 30px 35px;
+    margin: 30px 0px 30px 35px;
     font-family: 'Lato';
     width: 133px;
     height: 43px;
@@ -466,7 +466,7 @@ article h2:hover {
     line-height: 1.2;
   }
   .article-wrapper article .btn--more {
-    margin: 0px 0px 30px 35px;
+    margin: 25px 0px 30px 35px;
     font-family: 'Lato';
     width: 133px;
     height: 43px;
@@ -638,6 +638,17 @@ article h2:hover {
     box-sizing: border-box;
     padding: 10px 30px 25px 30px;
   }
+  .latest__article .article__content .last--more {
+    margin: 30px 0px 30px 30px;
+    height: 43px;
+    width: 133px;
+    text-align: center;
+    color: #747474;
+    font-size: 18px;
+    border: 1px solid #515151;
+    background-color: #ffffff;
+    font-family: 'Lato';
+  }
   .main {
     position: relative;
   }
@@ -670,6 +681,17 @@ article h2:hover {
   .latest__article .article__content .article_description {
     width: 90%;
     font-size: 13px;
+  }
+  .latest__article .article__content .last--more {
+    margin: 0px 0px 30px 30px;
+    height: 43px;
+    width: 133px;
+    text-align: center;
+    color: #747474;
+    font-size: 18px;
+    border: 1px solid #515151;
+    background-color: #ffffff;
+    font-family: 'Lato';
   }
   .latest__article .article__img {
     display: none;
@@ -714,8 +736,16 @@ article h2:hover {
     height: 111px;
     width: 85%;
   }
-  .latest__article .article__content .btn.btn--more {
-    font-size: 15px;
+  .latest__article .article__content .last--more {
+    margin: 30px 0px 30px 30px;
+    height: 43px;
+    width: 133px;
+    text-align: center;
+    color: #747474;
+    font-size: 18px;
+    border: 1px solid #515151;
+    background-color: #ffffff;
+    font-family: 'Lato';
   }
   .latest__article .article_info {
     padding-bottom: 10px;
@@ -728,7 +758,7 @@ article h2:hover {
 }
 @media all and (min-width: 1024px) and (max-width: 1200px) {
   .latest__article {
-    width: 95%;
+    width: 100%;
   }
   .latest__article .article__content {
     width: 40%;
