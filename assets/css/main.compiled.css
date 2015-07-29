@@ -385,7 +385,8 @@ article h2 {
   color: #515151;
   padding: 30px 30px 20px 30px;
   font-family: 'Lato';
-  height: 4px;
+  height: 30px;
+  line-height: 1.2;
   overflow: hidden;
   margin-bottom: 25px;
 }
@@ -554,7 +555,8 @@ article img:hover{
     color: #515151;
     padding: 30px 30px 20px 30px;
     font-family: 'Lato';
-    height: 0px;
+    height: 25px;
+    line-height: 1.2;
     overflow: hidden;
     margin-bottom: 25px;
   }
@@ -631,7 +633,8 @@ article img:hover{
     color: #515151;
     padding: 30px 30px 20px 30px;
     font-family: 'Lato';
-    height: 0px;
+    height: 25px;
+    line-height: 1.2;
     overflow: hidden;
     margin-bottom: 25px;
   }
@@ -698,7 +701,8 @@ article img:hover{
     color: #515151;
     padding: 30px 30px 20px 30px;
     font-family: 'Lato';
-    height: 0px;
+    height: 25px;
+    line-height: 1.2;
     overflow: hidden;
     margin-bottom: 25px;
   }
