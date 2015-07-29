@@ -386,7 +386,7 @@ article img:hover {
     line-height: 1.2;
   }
   .article-wrapper article .btn--more {
-    margin: 30px 0px 30px 35px;
+    margin: 0px 0px 30px 35px;
     font-family: 'Lato';
     width: 133px;
     height: 43px;
@@ -473,7 +473,7 @@ article img:hover {
     line-height: 1.2;
   }
   .article-wrapper article .btn--more {
-    margin: 25px 0px 30px 35px;
+    margin: 0px 0px 30px 35px;
     font-family: 'Lato';
     width: 133px;
     height: 43px;
@@ -531,7 +531,7 @@ article img:hover {
   .article-info__pill {
     display: inline-block;
     padding-left: 20px;
-    margin-left: 30px;
+    margin-left: 20px;
     line-height: 1.4;
     font-size: 13px;
     margin-bottom: 10px;
@@ -561,19 +561,6 @@ article img:hover {
     height: 0px;
     overflow: hidden;
     margin-bottom: 25px;
-  }
-  .article-wrapper article .btn--more {
-    margin: 30px 0px 30px 35px;
-    font-family: 'Lato';
-    width: 133px;
-    height: 43px;
-    font-size: 18px;
-    color: #515151;
-    text-align: center;
-    border-style: solid;
-    border-width: 1px;
-    border-color: #515151;
-    background-color: #ffffff;
   }
 }
 @media all and (max-width: 298px) {
@@ -673,7 +660,7 @@ article img:hover {
     position: relative;
   }
 }
-@media all and (min-width: 451px) and (max-width: 611px) {
+@media all and (min-width: 451px) and (max-width: 612px) {
   .latest__article {
     height: auto;
     width: 100%;
@@ -729,7 +716,7 @@ article img:hover {
 .latest__article:after {
   clear: both;
 }
-@media all and (min-width: 611px) and (max-width: 1024px) {
+@media all and (min-width: 612px) and (max-width: 1024px) {
   .latest__article {
     width: 100%;
     height: 408px;
