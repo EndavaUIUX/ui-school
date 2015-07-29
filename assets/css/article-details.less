@@ -9,22 +9,54 @@
     overflow: hidden;
     margin: 0 0 30px 0;
     background-color: aliceblue;
+    position: relative;
 
-    img{
+    img {
       margin-left: auto;
       margin-right: auto;
       display: block;
+      height: 100%;
     }
-    .hidden{
+
+    .hidden {
       display: none;
     }
 
     .button__gallery {
       background: #FFFFFF;
-      border: 1px solid #000000;
       border-radius: 5px;
       height: 80px;
+      color: #e1632a;
       width: 215px;
+      font-family: Lato;
+      position: absolute;
+      left: 50%;
+      margin-left: -107px;
+      top: 50%;
+      margin-top: -40px;
+      padding: 28px 28px 28px 0px;
+      box-sizing: border-box;
+      font-size: 21px;
+      -webkit-box-shadow: -2px 1px 51px 5px rgba(0, 0, 0, 0.5);
+      -moz-box-shadow: -2px 1px 51px 5px rgba(0, 0, 0, 0.5);
+      box-shadow: -2px 1px 51px 5px rgba(0, 0, 0, 0.5);
+      text-align: right;
+        
+      &:hover{
+        cursor: pointer;
+        background-color: #eee;
+      }
+      
+      i {
+        background: url("../images/ico/gallery.jpg") no-repeat;
+        display: block;
+        position: absolute;
+        height: 32px;
+        width: 32px;
+        left: 30px;
+        top: 50%;
+        margin-top: -16px;
+      }
     }
   }
 
@@ -32,19 +64,20 @@
     width: 100%;
     height: auto;
     margin-bottom: 70px;
-    div{
+    
+    div {
       color: #828282;
       font-size: 18px;
       font-family: 'Lato';
       line-height: 1.2;
       text-align: justify;
-      a{
+      a {
         float: left;
         margin: 0 15px 15px 0;
       }
     }
-
-    h2{
+    
+    h2 {
       color: #828282;
       font-size: 18px;
       font-family: 'Lato';
@@ -69,12 +102,12 @@
         }
       }
 
-      .size-full{
+      .size-full {
         width:100%;
         height:auto;
       }
-
-      .size-medium{
+  
+      .size-medium {
         width:50%;
         height:auto;
       }

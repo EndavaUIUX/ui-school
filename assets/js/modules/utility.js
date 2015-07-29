@@ -53,7 +53,18 @@
 
     utility.populateArticleDetails = function(articleData, articleBody) {
         articleBody.html(articleData.content);
+        // console.log("articleData: ", articleData);
     };
+
+    utility.populateArticleTitle = function(elementsObject, articleContent) {
+        console.log("articleContent: ", articleContent);
+        // articleContent.author;
+        // console.log("articleData: ", articleData);
+        console.log("elementsObject: ", elementsObject);
+        elementsObject.titleContainer[0].innerHTML = articleContent.title;
+        elementsObject.infoAuthor[0].innerHTML = articleContent.author;
+        elementsObject.infoDate[0].innerHTML = utility.dateFormatter(articleContent.published, 1);
+    };   
 
 
     THUNDERSTORM.modules.utility = utility;

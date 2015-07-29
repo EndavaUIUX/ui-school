@@ -15,11 +15,17 @@
         article = THUNDERSTORM.modules.articles.data['articles'][articleUrlNumber],
         currentArticle = THUNDERSTORM.modules.utility.imageSourceGenerator(article),
         viewMoreButton = $("<div></div>").html("View gallery").addClass("button__gallery"),
+        icoViewMore = $('<i></i>'),
         utility = THUNDERSTORM.modules.utility,
         articleIndex = window.location.href.substr(window.location.href.indexOf("#") + 1),
+
+        titleContainer = $('.title'),
+        infoAuthor = $('.article-informations__author'),
+        infoDate = $('.article-informations__date'),
+        elementsObject = {titleContainer : titleContainer, infoAuthor : infoAuthor, infoDate : infoDate},
         articleContent = THUNDERSTORM.modules.articles.data['articles'][articleIndex],
         articleBody = $(".article__body");
-
+    viewMoreButton.append(icoViewMore);
     if(currentArticle.hasGallery == true){
         var gallery;
         for(var index = 0; index < currentArticle.sources.length; index = index + 1){
@@ -36,6 +42,7 @@
         $(".article__gallery").append(gallery);
     }
 
+    utility.populateArticleTitle(elementsObject, articleContent);
     utility.populateArticleDetails(articleContent, articleBody);
 
 }(window, window.THUNDERSTORM, window.jQuery));
