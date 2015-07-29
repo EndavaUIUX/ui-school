@@ -326,6 +326,9 @@ article h2:hover {
   -moz-animation-iteration-count: infinite;
   -moz-animation-timing-function: linear;
 }
+article img:hover {
+  cursor: pointer;
+}
 @-webkit-keyframes rotate {
   from {
     -webkit-transform: rotate(0deg);
