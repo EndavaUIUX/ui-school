@@ -143,7 +143,7 @@ p {
   padding: 12px 30px 0px 30px;
   font-family: 'Lato';
   line-height: 1.2;
-  height: 150px;
+  height: 126px;
   overflow: hidden;
 }
 .latest__article .article__content .last--more {
@@ -180,7 +180,6 @@ p {
   float: left;
   box-sizing: border-box;
   vertical-align: top;
-  height: 505px;
   margin-bottom: 30px;
   margin-right: 2.565%;
 }
@@ -189,7 +188,6 @@ p {
   border: 1px solid #e7e7e7;
   box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.08);
   color: #828282;
-  height: 100%;
 }
 .article-wrapper article img {
   margin-top: 30px;
@@ -223,7 +221,7 @@ p {
   line-height: 1.2;
 }
 .btn--more {
-  margin: 10px 0px 30px 35px;
+  margin: 20px 0px 30px 30px;
   font-family: 'Lato';
   width: 133px;
   height: 43px;
@@ -331,10 +329,21 @@ article img:hover {
 }
 @-webkit-keyframes rotate {
   from {
+    transition: All 1s ease;
+    -webkit-transition: All 1s ease;
+    -moz-transition: All 1s ease;
+    -o-transition: All 1s ease;
+    transform: rotate(0deg);
     -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
   }
   to {
+    transform: rotate(360deg);
     -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
   }
 }
 @media only screen and (min-width: 1180px) {
@@ -536,6 +545,19 @@ article img:hover {
     font-size: 13px;
     margin-bottom: 10px;
   }
+  .article-wrapper article .btn--more {
+    margin: 25px 0px 30px 35px;
+    font-family: 'Lato';
+    width: 133px;
+    height: 43px;
+    font-size: 18px;
+    color: #515151;
+    text-align: center;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #515151;
+    background-color: #ffffff;
+  }
   .article-info__pill:first-child {
     display: inline-block;
     padding-left: 20px;
@@ -688,17 +710,6 @@ article img:hover {
   .latest__article .article__content .article_description {
     width: 90%;
     font-size: 13px;
-  }
-  .latest__article .article__content .last--more {
-    margin: 0px 0px 30px 30px;
-    height: 43px;
-    width: 133px;
-    text-align: center;
-    color: #747474;
-    font-size: 18px;
-    border: 1px solid #515151;
-    background-color: #ffffff;
-    font-family: 'Lato';
   }
   .latest__article .article__img {
     display: none;
