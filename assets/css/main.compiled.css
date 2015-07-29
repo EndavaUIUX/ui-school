@@ -23,6 +23,7 @@ p {
 }
 .content {
   width: 1170px;
+  max-width: 100%;
   margin: 0px auto;
   height: auto;
 }
@@ -747,6 +748,7 @@ article h2:hover {
   margin-left: auto;
   margin-right: auto;
   display: block;
+  max-width: 100%;
 }
 .article__details .article__gallery .hidden {
   display: none;
@@ -758,30 +760,30 @@ article h2:hover {
   height: 80px;
   width: 215px;
 }
-.article__details .article__content {
+.article__details .article__body {
   width: 100%;
   height: auto;
   margin-bottom: 70px;
 }
-.article__details .article__content div {
+.article__details .article__body div {
   color: #828282;
   font-size: 18px;
   font-family: 'Lato';
   line-height: 1.2;
   text-align: justify;
 }
-.article__details .article__content div a {
+.article__details .article__body div a {
   float: left;
   margin: 0 15px 15px 0;
 }
-.article__details .article__content h2 {
+.article__details .article__body h2 {
   color: #828282;
   font-size: 18px;
   font-family: 'Lato';
   line-height: 1.2;
   text-align: justify;
 }
-.article__details .article__content p {
+.article__details .article__body p {
   font-size: 18px;
   color: #828282;
   font-family: 'Lato';
@@ -789,23 +791,19 @@ article h2:hover {
   text-align: justify;
   margin-bottom: 10px;
 }
-.article__details .article__content p a {
+.article__details .article__body p a {
   text-decoration: none;
   font-weight: bold;
   color: #828282;
 }
-.article__details .article__content p a .wp-image-468 {
+.article__details .article__body p a .wp-image-468 {
   margin-top: 30px;
 }
-.article__details .article__content p .size-full {
+.article__details .article__body p .size-full {
   width: 100%;
   height: auto;
 }
-.article__details .article__content p .size-medium {
-  width: 50%;
-  height: auto;
-}
-.article__details .article__content li {
+.article__details .article__body li {
   color: #828282;
 }
 @media only screen and (min-width: 600px) and (max-width: 1180px) {
