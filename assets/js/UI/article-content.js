@@ -17,24 +17,20 @@
         viewMoreButton = $("<div></div>").html("View gallery").addClass("button__gallery"),
         icoViewMore = $('<i></i>'),
         utility = THUNDERSTORM.modules.utility,
-        articleIndex = window.location.href.substr(window.location.href.indexOf("#") + 1),
-
+        articleContent = $(".article__body"),
         titleContainer = $('.title'),
         infoAuthor = $('.article-informations__author'),
         infoDate = $('.article-informations__date'),
-        elementsObject = {titleContainer : titleContainer, infoAuthor : infoAuthor, infoDate : infoDate},
-        articleContent = THUNDERSTORM.modules.articles.data['articles'][articleIndex],
-        articleBody = $(".article__body");
+        elementsObject = {titleContainer : titleContainer, infoAuthor : infoAuthor, infoDate : infoDate};
     viewMoreButton.append(icoViewMore);
+
     if(currentArticle.hasGallery == true){
         var gallery;
-        for(var index = 0; index < currentArticle.sources.length; index = index + 1){
-            gallery = $("<img>").attr("src", currentArticle.sources[index]);
+        currentArticle.sources.filter(function(item, index){
+            gallery = $("<img>").attr("src", item);
             $(".article__gallery").append(gallery);
-            if(index != 0){
-                gallery.addClass("hidden");
-            }
-        }
+            if(index != 0) gallery.addClass("hidden");
+        });
         $(".article__gallery").append(viewMoreButton);
 
     } else {
@@ -42,7 +38,8 @@
         $(".article__gallery").append(gallery);
     }
 
-    utility.populateArticleTitle(elementsObject, articleContent);
-    utility.populateArticleDetails(articleContent, articleBody);
+
+    utility.populateArticleTitle(elementsObject, article);
+    utility.populateArticleDetails(article, articleContent);
 
 }(window, window.THUNDERSTORM, window.jQuery));
