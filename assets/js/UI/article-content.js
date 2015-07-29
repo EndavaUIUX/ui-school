@@ -22,7 +22,7 @@
         infoAuthor = $('.article-informations__author'),
         infoDate = $('.article-informations__date'),
         elementsObject = {titleContainer : titleContainer, infoAuthor : infoAuthor, infoDate : infoDate};
-    viewMoreButton.append(icoViewMore);
+        viewMoreButton.append(icoViewMore);
 
     if(currentArticle.hasGallery == true){
         var gallery;
@@ -37,7 +37,6 @@
         gallery = $("<img>").attr("src", currentArticle.sources);
         $(".article__gallery").append(gallery);
     }
-
 
     utility.populateArticleTitle(elementsObject, article);
     utility.populateArticleDetails(article, articleContent);
