@@ -736,6 +736,9 @@ article img:hover {
     text-align: justify;
     width: 42%;
   }
+  .latest__article .article__content .article__title {
+    font-size: 18px;
+  }
   .latest__article .article__content .article__informations {
     text-align: left;
   }
