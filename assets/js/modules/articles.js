@@ -72,7 +72,7 @@
         articleInfo.append(articleAuthor);
         articleInfo.append(articleDate);
         if (imageGalleryObj.hasGallery) {
-            articleGallery = $('<span></span>').addClass('article__gallery article_info').html('Photo Gallery');
+            articleGallery = $('<a></a>').addClass('article__gallery article_info').html('Photo Gallery');
             articleInfo.append(articleGallery);
         }
         articleContent.append(articleTitle);
