@@ -308,7 +308,7 @@ p {
   overflow: hidden;
 }
 .latest__article .article__content .btn.btn--more {
-  margin: 0px 0px 30px 30px;
+  margin: 20px 0px 30px 30px;
   height: 43px;
   width: 133px;
   text-align: center;
@@ -556,9 +556,9 @@ article img:hover{
     color: #828282;
     padding: 30px;
     font-family: 'Lato';
-    text-align: left;
     overflow: hidden;
     height: 45px;
+    text-align: justify;
     line-height: 1.2;
   }
   .article-wrapper article .btn--more {
@@ -643,7 +643,6 @@ article img:hover{
     color: #828282;
     padding: 30px;
     font-family: 'Lato';
-    text-align: left;
     overflow: hidden;
     height: 30px;
     line-height: 1.2;
@@ -737,7 +736,6 @@ article img:hover{
     color: #828282;
     padding: 30px;
     font-family: 'Lato';
-    text-align: left;
     overflow: hidden;
     height: 30px;
     line-height: 1.2;
@@ -935,6 +933,7 @@ article img:hover{
   .latest__article .article_info {
     padding-bottom: 10px;
     display: block;
+    padding-top: 3px;
   }
   .latest__article .article__img {
     width: 56%;
@@ -952,7 +951,42 @@ article img:hover{
     display: block;
   }
 }
-/*@import "article-title.less";*/
+/******************************/
+.article__content--full {
+  height: auto;
+  font-family: 'Lato';
+}
+.article__content--full h1 {
+  font-family: 'Lato';
+  font-size: 30px;
+  padding: 80px 0px 20px 0px;
+}
+.article__content--full .article-informations {
+  color: #828282;
+  font-family: 'Lato';
+  font-size: 18px;
+  height: 20px;
+  padding: 0px 20px 20px 0px;
+}
+.article__content--full .article-informations .article-informations__author {
+  background: url("../images/ico/user%20-%20single.png") no-repeat no-repeat;
+  padding-left: 20px;
+  padding-right: 15px;
+  display: inline-block;
+  font-family: 'Lato';
+  font-size: 18px;
+  color: #b1b1b1;
+}
+.article__content--full .article-informations .article-informations__date {
+  background: url("../images/ico/calendar.png") no-repeat no-repeat;
+  padding-left: 20px;
+  padding-right: 15px;
+  display: inline-block;
+  font-family: 'Lato';
+  font-size: 18px;
+  color: #b1b1b1;
+}
+/***********************/
 .article__details {
   width: 100%;
   height: auto;
@@ -964,25 +998,50 @@ article img:hover{
   overflow: hidden;
   margin: 0 0 30px 0;
   background-color: aliceblue;
+  position: relative;
 }
 .article__details .article__gallery img {
   margin-left: auto;
   margin-right: auto;
   display: block;
+  height: 100%;
 }
 .article__details .article__gallery .hidden {
   display: none;
 }
-.article__details .article__gallery img {
-  width: 100%;
-  height: auto;
-}
 .article__details .article__gallery .button__gallery {
   background: #FFFFFF;
-  border: 1px solid #000000;
   border-radius: 5px;
   height: 80px;
+  color: #e1632a;
   width: 215px;
+  font-family: Lato;
+  position: absolute;
+  left: 50%;
+  margin-left: -107px;
+  top: 50%;
+  margin-top: -40px;
+  padding: 28px 28px 28px 0px;
+  box-sizing: border-box;
+  font-size: 21px;
+  -webkit-box-shadow: -2px 1px 51px 5px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: -2px 1px 51px 5px rgba(0, 0, 0, 0.5);
+  box-shadow: -2px 1px 51px 5px rgba(0, 0, 0, 0.5);
+  text-align: right;
+}
+.article__details .article__gallery .button__gallery:hover {
+  cursor: pointer;
+  background-color: #eee;
+}
+.article__details .article__gallery .button__gallery i {
+  background: url("../images/ico/gallery.jpg") no-repeat;
+  display: block;
+  position: absolute;
+  height: 32px;
+  width: 32px;
+  left: 30px;
+  top: 50%;
+  margin-top: -16px;
 }
 .article__details .article__content {
   width: 100%;

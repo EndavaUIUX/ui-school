@@ -1,99 +1,125 @@
 .article__details {
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
 
+  .article__gallery {
+    width: 100%;
+    height: 440px;
+    overflow: hidden;
+    margin: 0 0 30px 0;
+    background-color: aliceblue;
+    position: relative;
+
+    img {
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+      height: 100%;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .button__gallery {
+      background: #FFFFFF;
+      border-radius: 5px;
+      height: 80px;
+      color: #e1632a;
+      width: 215px;
+      font-family: Lato;
+      position: absolute;
+      left: 50%;
+      margin-left: -107px;
+      top: 50%;
+      margin-top: -40px;
+      padding: 28px 28px 28px 0px;
+      box-sizing: border-box;
+      font-size: 21px;
+      -webkit-box-shadow: -2px 1px 51px 5px rgba(0, 0, 0, 0.5);
+      -moz-box-shadow: -2px 1px 51px 5px rgba(0, 0, 0, 0.5);
+      box-shadow: -2px 1px 51px 5px rgba(0, 0, 0, 0.5);
+      text-align: right;
+        
+      &:hover{
+        cursor: pointer;
+        background-color: #eee;
+      }
+      
+      i {
+        background: url("../images/ico/gallery.jpg") no-repeat;
+        display: block;
+        position: absolute;
+        height: 32px;
+        width: 32px;
+        left: 30px;
+        top: 50%;
+        margin-top: -16px;
+      }
+    }
+  }
+
+  .article__content {
     width: 100%;
     height: auto;
-    margin: 0 auto;
-
-    .article__gallery {
-        width: 100%;
-        height: 440px;
-        overflow: hidden;
-        margin: 0 0 30px 0;
-        background-color: aliceblue;
-
-        img{
-            margin-left: auto;
-            margin-right: auto;
-            display: block;
-        }
-        .hidden{
-            display: none;
-        }
-        img{
-            width:100%;
-            height:auto;
-
-        }
-
-        .button__gallery {
-            background: #FFFFFF;
-            border: 1px solid #000000;
-            border-radius: 5px;
-            height: 80px;
-            width: 215px;
-        }
+    margin-bottom: 70px;
+    
+    div {
+      color: #828282;
+      font-size: 18px;
+      font-family: 'Lato';
+      line-height: 1.2;
+      text-align: justify;
+      a {
+        float: left;
+        margin: 0 15px 15px 0;
+      }
+    }
+    
+    h2 {
+      color: #828282;
+      font-size: 18px;
+      font-family: 'Lato';
+      line-height: 1.2;
+      text-align: justify;
     }
 
-    .article__content {
-        width: 100%;
-        height: auto;
-        margin-bottom: 70px;
-        div{
-            color: #828282;
-            font-size: 18px;
-            font-family: 'Lato';
-            line-height: 1.2;
-            text-align: justify;
-            a{
-                float: left;
-                margin: 0 15px 15px 0;
-            }
+    p {
+      font-size: 18px;
+      color: #828282;
+      font-family: 'Lato';
+      line-height: 1.2;
+      text-align: justify;
+      margin-bottom: 10px;
+
+      a {
+        text-decoration: none;
+        font-weight: bold;
+        color: #828282;
+        .wp-image-468 {
+          margin-top: 30px;
         }
+      }
 
-        h2{
-            color: #828282;
-            font-size: 18px;
-            font-family: 'Lato';
-            line-height: 1.2;
-            text-align: justify;
-        }
-
-        p {
-            font-size: 18px;
-            color: #828282;
-            font-family: 'Lato';
-            line-height: 1.2;
-            text-align: justify;
-            margin-bottom: 10px;
-
-            a {
-                text-decoration: none;
-                font-weight: bold;
-                color: #828282;
-                .wp-image-468 {
-                    margin-top: 30px;
-                }
-            }
-
-            .size-full{
-                width:100%;
-                height:auto;
-            }
-
-            .size-medium{
-                width:50%;
-                height:auto;
-            }
-        }
-
-        li{
-            color: #828282;
-
-            &a{
-
-            }
-
-        }
+      .size-full {
+        width:100%;
+        height:auto;
+      }
+  
+      .size-medium {
+        width:50%;
+        height:auto;
+      }
     }
+
+    li{
+      color: #828282;
+
+      &a{
+
+      }
+
+    }
+  }
 }
-
