@@ -826,6 +826,9 @@ article img:hover {
   height: auto;
   margin: 0 auto;
 }
+.article__details .article__body {
+  max-width: 100%;
+}
 .article__details .article__gallery {
   width: 100%;
   height: 440px;
@@ -865,7 +868,7 @@ article img:hover {
 }
 .article__details .article__gallery .button__gallery:hover {
   cursor: pointer;
-  background-color: #eee;
+  background-color: #EEE;
 }
 .article__details .article__gallery .button__gallery i {
   background: url("../images/ico/gallery.jpg") no-repeat;
@@ -927,12 +930,20 @@ article img:hover {
 .article__details .article__content li {
   color: #828282;
 }
-@media only screen and (min-width: 600px) and (max-width: 1180px) {
+@media only screen and (min-width: 600px) and (max-width: 1190px) {
+  .content {
+    width: 100%;
+    margin: 0px auto;
+    height: auto;
+  }
   .article-details .article__content p {
     font-size: 15px;
   }
 }
 @media only screen and (min-width: 1px) and (max-width: 599px) {
+  .content {
+    width: 100%;
+  }
   .article__details .article__content p {
     font-size: 13px;
   }
