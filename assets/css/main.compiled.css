@@ -110,6 +110,7 @@ p {
 }
 .container {
   width: 100%;
+  overflow-x: hidden;
 }
 .content {
   width: 1170px;
@@ -960,17 +961,16 @@ article img:hover{
 }
 .article__details .article__gallery {
   width: 100%;
-  height: 440px;
+  max-height: 440px;
   overflow: hidden;
   margin: 0 0 30px 0;
-  background-color: aliceblue;
   position: relative;
 }
 .article__details .article__gallery img {
   margin-left: auto;
   margin-right: auto;
   display: block;
-  height: 100%;
+  opacity: 0.6;
 }
 .article__details .article__gallery .hidden {
   display: none;
