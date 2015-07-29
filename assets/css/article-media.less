@@ -47,25 +47,31 @@
         color: @article-description-color;
         padding: 30px;
         font-family: 'Lato';
-        text-align: left;
         overflow: hidden;
         height: 45px;
+        text-align: justify;
         line-height: 1.2;
     }
 
-    .article-wrapper article .btn--more {
-        margin: 30px 0px 30px 35px;
-        font-family: 'Lato';
-        width: 133px;
-        height: 43px;
-        font-size: @desktop-font-size;
-        color: @article-header-color;
-        text-align: center;
-        border-style: solid;
-        border-width: 1px;
-        border-color: @article-header-color;
-        background-color: @btn-background-color;
-    }
+.btn--more {
+    margin: 20px 0px 30px 30px;
+    font-family: 'Lato';
+    width: 133px;
+    height: 43px;
+    font-size: @desktop-font-size;
+    color: @article-header-color;
+    text-align: center;
+    border-style: solid;
+    border-width: 1px;
+    border-color: @article-header-color;
+    background-color: @btn-background-color;
+}
+
+.btn--more:hover{
+    color: @load-more-color;
+    border: 1px solid @load-more-color;
+    cursor: pointer;
+}
 
     .article-wrapper article:after {
         clear: both;
@@ -106,7 +112,7 @@
         height: 0px;
         overflow: hidden;
         margin-bottom: 25px;
-    };
+    }
 }
 
 @media only screen and (min-width: 1px) and (max-width: 599px) {
@@ -145,14 +151,13 @@
         color: @article-description-color;
         padding: 30px;
         font-family: 'Lato';
-        text-align: left;
         overflow: hidden;
         height: 30px;
         line-height: 1.2;
     }
 
     .article-wrapper article .btn--more {
-        margin: 25px 0px 30px 35px;
+        margin: 20px 0px 30px 30px;
         font-family: 'Lato';
         width: 133px;
         height: 43px;
@@ -211,7 +216,27 @@
         margin-left: 30px;
         line-height: 1.4;
         font-size: 13px;
-    };
+    }
+
+    .btn--more {
+    margin: 20px 0px 30px 30px;
+    font-family: 'Lato';
+    width: 133px;
+    height: 43px;
+    font-size: @desktop-font-size;
+    color: @article-header-color;
+    text-align: center;
+    border-style: solid;
+    border-width: 1px;
+    border-color: @article-header-color;
+    background-color: @btn-background-color;
+}
+
+.btn--more:hover{
+    color: @load-more-color;
+    border: 1px solid @load-more-color;
+    cursor: pointer;
+}
 }
 
 @media only screen and (max-width: 323px) {
@@ -222,6 +247,19 @@
         line-height: 1.4;
         font-size: 13px;
         margin-bottom: 10px;
+    }
+    .article-wrapper article .btn--more {
+        margin: 25px 0px 30px 35px;
+        font-family: 'Lato';
+        width: 133px;
+        height: 43px;
+        font-size: @desktop-font-size;
+        color: @article-header-color;
+        text-align: center;
+        border-style: solid;
+        border-width: 1px;
+        border-color: @article-header-color;
+        background-color: @btn-background-color;
     }
 
     .article-info__pill:first-child {
@@ -237,7 +275,6 @@
         color: @article-description-color;
         padding: 30px;
         font-family: 'Lato';
-        text-align: left;
         overflow: hidden;
         height: 30px;
         line-height: 1.2;
@@ -251,5 +288,27 @@
         height: 0px;
         overflow: hidden;
         margin-bottom: 25px;
-    };
+    }
+
+    .btn--more {
+    margin: 20px 0px 30px 30px;
+    font-family: 'Lato';
+    width: 133px;
+    height: 43px;
+    font-size: @desktop-font-size;
+    color: @article-header-color;
+    text-align: center;
+    border-style: solid;
+    border-width: 1px;
+    border-color: @article-header-color;
+    background-color: @btn-background-color;
+}
+
+.btn--more:hover{
+    color: @load-more-color;
+    border: 1px solid @load-more-color;
+    cursor: pointer;
+}
+
+
 }

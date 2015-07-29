@@ -30,9 +30,6 @@
             color: @article-header-color;
             padding: 30px 30px 0px 30px;
             height: 25px;
-            &:hover{
-                color: #e1632a;
-            }
         }
         .article__informations{
             padding: 0px 0px 30px 30px;
@@ -64,11 +61,6 @@
                 font-size: 18px;
                 color: @article-author-color;
                 display: inline-block;
-
-                &:hover{
-                  cursor:pointer;
-                  text-decoration: underline;
-                }
             }
         }
         .article_description{
@@ -78,19 +70,25 @@
             padding: 12px 30px 0px 30px;
             font-family: 'Lato';
             line-height: 1.2;
-            height: 150px;
+            height: 126px;
             overflow: hidden;
         }
-       .last--more{
-            margin: 0px 0px 30px 30px;
+        .btn.btn--more{
+            margin: 20px 0px 30px 30px;
             height: 43px;
             width: 133px;
             text-align: center;
-            color: #747474;
+            color: @btn-color;
             font-size: 18px;
-            border: 1px solid #515151;
-            background-color: #ffffff; 
+            border: 1px solid @article-header-color;
+            background-color: @btn-background-color; 
             font-family: 'Lato';
+        }
+
+         .btn.btn--more:hover{
+            color: @load-more-color;
+            border: 1px solid @load-more-color;
+            cursor: pointer;
         }
 
     }

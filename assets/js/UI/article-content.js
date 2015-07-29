@@ -22,9 +22,15 @@
         articleContent = $(".article__body"),
         viewMoreButton = $("<div></div>").html("View gallery").addClass("button__gallery"),
         article = THUNDERSTORM.modules.articles.data['articles'][articleUrlNumber],
-        currentArticle = THUNDERSTORM.modules.utility.imageSourceGenerator(article);
+        currentArticle = THUNDERSTORM.modules.utility.imageSourceGenerator(article),
+        icoViewMore = $('<i></i>'),
+        articleContent = $(".article__body"),
+        titleContainer = $('.title'),
+        infoAuthor = $('.article-informations__author'),
+        infoDate = $('.article-informations__date'),
+        elementsObject = {titleContainer : titleContainer, infoAuthor : infoAuthor, infoDate : infoDate};
 
-
+        viewMoreButton.append(icoViewMore);
 
     if(currentArticle.hasGallery == true){
         var gallery;
@@ -40,6 +46,8 @@
         $(".article__gallery").append(gallery);
     }
 
+
+    utility.populateArticleTitle(elementsObject, article);
     utility.populateArticleDetails(article, articleContent);
 
 }(window, window.THUNDERSTORM, window.jQuery));
