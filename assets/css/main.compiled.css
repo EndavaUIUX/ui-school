@@ -111,30 +111,6 @@
   /* Safari, Android, iOS */
 }
 @font-face {
-  font-family: 'Lato-Medium';
-  src: url('../fonts/Lato-Medium.woff') format('woff');
-  src: url('../fonts/Lato-Medium.eot');
-  /* IE9 Compat Modes */
-  src: url('../fonts/Lato-Medium.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('../fonts/Lato-Medium.woff2') format('woff2'), /* Super Modern Browsers */ url('../fonts/Lato-Medium.woff') format('woff'), /* Pretty Modern Browsers */ url('../fonts/Lato-Medium.ttf') format('truetype');
-  /* Safari, Android, iOS */
-}
-@font-face {
-  font-family: 'Lato-MediumItalic';
-  src: url('../fonts/Lato-Bold.woff') format('woff');
-  src: url('../fonts/Lato-Bold.eot');
-  /* IE9 Compat Modes */
-  src: url('../fonts/Lato-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('../fonts/Lato-Bold.woff2') format('woff2'), /* Super Modern Browsers */ url('../fonts/Lato-Bold.woff') format('woff'), /* Pretty Modern Browsers */ url('../fonts/Lato-Bold.ttf') format('truetype');
-  /* Safari, Android, iOS */
-}
-@font-face {
-  font-family: 'Lato-Bold';
-  src: url('../fonts/Lato-MediumItalic.woff') format('woff');
-  src: url('../fonts/Lato-MediumItalic.eot');
-  /* IE9 Compat Modes */
-  src: url('../fonts/Lato-MediumItalic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('../fonts/Lato-MediumItalic.woff2') format('woff2'), /* Super Modern Browsers */ url('../fonts/Lato-MediumItalic.woff') format('woff'), /* Pretty Modern Browsers */ url('../fonts/Lato-MediumItalic.ttf') format('truetype');
-  /* Safari, Android, iOS */
-}
-@font-face {
   font-family: 'Lato-Regular';
   src: url('../fonts/Lato-Regular.woff') format('woff');
   src: url('../fonts/Lato-Regular.eot');
@@ -995,6 +971,9 @@ article img:hover{
   height: auto;
   margin: 0 auto;
 }
+.article__details .article__body {
+  max-width: 100%;
+}
 .article__details .article__gallery {
   width: 100%;
   height: 440px;
@@ -1034,7 +1013,7 @@ article img:hover{
 }
 .article__details .article__gallery .button__gallery:hover {
   cursor: pointer;
-  background-color: #eee;
+  background-color: #EEE;
 }
 .article__details .article__gallery .button__gallery i {
   background: url("../images/ico/gallery.jpg") no-repeat;
@@ -1096,12 +1075,20 @@ article img:hover{
 .article__details .article__content li {
   color: #828282;
 }
-@media only screen and (min-width: 600px) and (max-width: 1180px) {
+@media only screen and (min-width: 600px) and (max-width: 1190px) {
+  .content {
+    width: 100%;
+    margin: 0px auto;
+    height: auto;
+  }
   .article-details .article__content p {
     font-size: 15px;
   }
 }
 @media only screen and (min-width: 1px) and (max-width: 599px) {
+  .content {
+    width: 100%;
+  }
   .article__details .article__content p {
     font-size: 13px;
   }
