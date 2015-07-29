@@ -67,7 +67,11 @@
         imageGalleryObj = utility.imageSourceGenerator(articleData);
         articleHiddenImage.attr('src', imageGalleryObj.sources[0]);
         articleVisibleImgTag.attr('src', imageGalleryObj.sources[0]);
-        articleText.html(articleData.description);
+        if (articleData.description.length > 400) {
+            articleText.html(clipDescription(articleData.description.substr(0, 400)));
+        } else {
+            articleText.html(articleData.description);
+        }
         /*append the elements*/
         articleInfo.append(articleAuthor);
         articleInfo.append(articleDate);
@@ -109,6 +113,13 @@
         return pages;
     }
     
+    function clipDescription(description){
+      var text = description.split(' ');
+      text[text.length] = " . . .";
+      text = text.join(' ');
+      
+      return text;
+    }
 
     
     articles.createArticle = function (articleData, articleIndex, isFullContent) {
@@ -126,7 +137,16 @@
                  imageGalleryObj;
         imageGalleryObj = utility.imageSourceGenerator(articleData);
         articleImage.attr('src', imageGalleryObj.sources[0]);
-        isFullContent ? articleText.html(articleData.content) : articleText.html(articleData.description);
+        if (isFullContent) {
+            articleText.html(articleData.content);
+        } else {
+            if (articleData.description.length > 130) {
+                articleText.html(clipDescription(articleData.description.substr(0, 130)));
+            } else {
+                articleText.html(articleData.description.substr(0, 130));
+            }
+
+        }
         /*append the elements*/
         articleInfo.append(articleAuthor);
         articleInfo.append(articleDate);
