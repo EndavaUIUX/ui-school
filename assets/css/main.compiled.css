@@ -294,14 +294,11 @@ article h2:hover {
   clear: both;
 }
 .load-moreimg {
-<<<<<<< HEAD
   text-align: left;
-=======
   top: 50%;
   position: absolute;
   left: 20px;
   margin-top: -15px;
->>>>>>> 3b67698ba6eafa165e424837944b1410bf6aaf7c
 }
 .load-more {
   display: inline-block;
