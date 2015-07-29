@@ -72,21 +72,10 @@
         elementsObject.titleContainer[0].innerHTML = articleContent.title;
         elementsObject.infoAuthor[0].innerHTML = utility.nameFormatter(articleContent.author, 1);
         elementsObject.infoDate[0].innerHTML = utility.dateFormatter(articleContent.published, 1);
-    };   
-
-    function getArrayIndex(articles) {
-        var array = [];
-        for (var index in articles) {
-            if (array.hasOwnProperty(index)) continue;
-                array.push(index);
-        }
-        return array;
-    }
+    };
 
     utility.validateURL =  function(url, articles) {
-        var array = getArrayIndex(articles);
-
-        if(url.indexOf("#") === -1 || array.indexOf(url.split("#")[1]) === -1){
+        if(url.indexOf("#") === -1 || url.split("#")[1] === "" || url.split("#")[1] >= articles.length || url.split("#")[1] < 0){
             return false;
         }
 
