@@ -956,7 +956,7 @@ article img:hover{
 }
 .article__details .article__gallery {
   width: 100%;
-  height: 440px;
+  max-height: 440px;
   overflow: hidden;
   margin: 0 0 30px 0;
   position: relative;
@@ -965,7 +965,6 @@ article img:hover{
   margin-left: auto;
   margin-right: auto;
   display: block;
-  height: 100%;
   opacity: 0.6;
 }
 .article__details .article__gallery .hidden {
