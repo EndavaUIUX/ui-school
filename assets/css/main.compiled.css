@@ -98,6 +98,9 @@ p {
   padding: 30px 30px 0px 30px;
   height: 25px;
 }
+.latest__article .article__content .article__title:hover {
+  color: #e1632a;
+}
 .latest__article .article__content .article__informations {
   padding: 0px 0px 30px 30px;
   font-family: 'Lato';
@@ -130,10 +133,13 @@ p {
   color: #b1b1b1;
   display: inline-block;
 }
+.latest__article .article__content .article__informations .article__gallery:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
 .latest__article .article__content .article_description {
   font-size: 18px;
   color: #828282;
-  /*      padding: 10px 30px 25px 30px;*/
   text-align: justify;
   padding: 12px 30px 0px 30px;
   font-family: 'Lato';
@@ -141,7 +147,7 @@ p {
   height: 150px;
   overflow: hidden;
 }
-.latest__article .article__content .btn.btn--more {
+.latest__article .article__content .last--more {
   margin: 0px 0px 30px 30px;
   height: 43px;
   width: 133px;
@@ -218,7 +224,7 @@ p {
   line-height: 1.2;
 }
 .btn--more {
-  margin: 0px 0px 30px 35px;
+  margin: 10px 0px 30px 35px;
   font-family: 'Lato';
   width: 133px;
   height: 43px;
@@ -288,6 +294,13 @@ article h2:hover {
 .clearfix {
   clear: both;
 }
+.load-moreimg {
+  text-align: left;
+  top: 50%;
+  position: absolute;
+  left: 20px;
+  margin-top: -15px;
+}
 .load-more {
   display: inline-block;
   font-family: "Lato regular", "Lato";
@@ -299,12 +312,10 @@ article h2:hover {
   background-color: #ffffff;
   width: 160px;
   height: 50px;
-  text-align: center;
-  /*background: url('../images/ico/load_more.png') no-repeat;
-	background-position: 15px center;
-	text-align: right;
-	padding-right: 15px;
-	outline: none;*/
+  padding: 14px;
+  text-align: right;
+  position: relative;
+  outline: none;
 }
 .load-more:hover img {
   -webkit-animation-name: rotate;
@@ -315,6 +326,9 @@ article h2:hover {
   -moz-animation-duration: 2s;
   -moz-animation-iteration-count: infinite;
   -moz-animation-timing-function: linear;
+}
+article img:hover {
+  cursor: pointer;
 }
 @-webkit-keyframes rotate {
   from {
@@ -373,7 +387,7 @@ article h2:hover {
     line-height: 1.2;
   }
   .article-wrapper article .btn--more {
-    margin: 0px 0px 30px 35px;
+    margin: 30px 0px 30px 35px;
     font-family: 'Lato';
     width: 133px;
     height: 43px;
@@ -460,7 +474,7 @@ article h2:hover {
     line-height: 1.2;
   }
   .article-wrapper article .btn--more {
-    margin: 0px 0px 30px 35px;
+    margin: 25px 0px 30px 35px;
     font-family: 'Lato';
     width: 133px;
     height: 43px;
@@ -632,6 +646,17 @@ article h2:hover {
     box-sizing: border-box;
     padding: 10px 30px 25px 30px;
   }
+  .latest__article .article__content .last--more {
+    margin: 30px 0px 30px 30px;
+    height: 43px;
+    width: 133px;
+    text-align: center;
+    color: #747474;
+    font-size: 18px;
+    border: 1px solid #515151;
+    background-color: #ffffff;
+    font-family: 'Lato';
+  }
   .main {
     position: relative;
   }
@@ -664,6 +689,17 @@ article h2:hover {
   .latest__article .article__content .article_description {
     width: 90%;
     font-size: 13px;
+  }
+  .latest__article .article__content .last--more {
+    margin: 0px 0px 30px 30px;
+    height: 43px;
+    width: 133px;
+    text-align: center;
+    color: #747474;
+    font-size: 18px;
+    border: 1px solid #515151;
+    background-color: #ffffff;
+    font-family: 'Lato';
   }
   .latest__article .article__img {
     display: none;
@@ -708,8 +744,16 @@ article h2:hover {
     height: 111px;
     width: 85%;
   }
-  .latest__article .article__content .btn.btn--more {
-    font-size: 15px;
+  .latest__article .article__content .last--more {
+    margin: 30px 0px 30px 30px;
+    height: 43px;
+    width: 133px;
+    text-align: center;
+    color: #747474;
+    font-size: 18px;
+    border: 1px solid #515151;
+    background-color: #ffffff;
+    font-family: 'Lato';
   }
   .latest__article .article_info {
     padding-bottom: 10px;
@@ -722,7 +766,7 @@ article h2:hover {
 }
 @media all and (min-width: 1024px) and (max-width: 1200px) {
   .latest__article {
-    width: 95%;
+    width: 100%;
   }
   .latest__article .article__content {
     width: 40%;
