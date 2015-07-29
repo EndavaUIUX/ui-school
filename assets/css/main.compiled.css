@@ -240,6 +240,11 @@ p {
   background-color: #ffffff;
   font-family: 'Lato';
 }
+.latest__article .article__content .btn.btn--more:hover {
+  color: #e1632a;
+  border: 1px solid #e1632a;
+  cursor: pointer;
+}
 .latest__article .article__img {
   height: 377px;
   width: 570px;
@@ -315,6 +320,11 @@ p {
   border-width: 1px;
   border-color: #515151;
   background-color: #ffffff;
+}
+.btn--more:hover {
+  color: #e1632a;
+  border: 1px solid #e1632a;
+  cursor: pointer;
 }
 .article-wrapper article:after {
   clear: both;
@@ -483,7 +493,7 @@ article img:hover{
     text-align: justify;
     line-height: 1.2;
   }
-  .article-wrapper article .btn--more {
+  .btn--more {
     margin: 20px 0px 30px 30px;
     font-family: 'Lato';
     width: 133px;
@@ -495,6 +505,11 @@ article img:hover{
     border-width: 1px;
     border-color: #515151;
     background-color: #ffffff;
+  }
+  .btn--more:hover {
+    color: #e1632a;
+    border: 1px solid #e1632a;
+    cursor: pointer;
   }
   .article-wrapper article:after {
     clear: both;
@@ -623,6 +638,24 @@ article img:hover{
     line-height: 1.4;
     font-size: 13px;
   }
+  .btn--more {
+    margin: 20px 0px 30px 30px;
+    font-family: 'Lato';
+    width: 133px;
+    height: 43px;
+    font-size: 18px;
+    color: #515151;
+    text-align: center;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #515151;
+    background-color: #ffffff;
+  }
+  .btn--more:hover {
+    color: #e1632a;
+    border: 1px solid #e1632a;
+    cursor: pointer;
+  }
 }
 @media only screen and (max-width: 323px) {
   .article-info__pill {
@@ -670,6 +703,24 @@ article img:hover{
     height: 0px;
     overflow: hidden;
     margin-bottom: 25px;
+  }
+  .btn--more {
+    margin: 20px 0px 30px 30px;
+    font-family: 'Lato';
+    width: 133px;
+    height: 43px;
+    font-size: 18px;
+    color: #515151;
+    text-align: center;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #515151;
+    background-color: #ffffff;
+  }
+  .btn--more:hover {
+    color: #e1632a;
+    border: 1px solid #e1632a;
+    cursor: pointer;
   }
 }
 @media all and (max-width: 298px) {
