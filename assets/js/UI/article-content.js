@@ -11,12 +11,20 @@
     });
 
     var pageUrl = window.location.href,
-        articleUrlNumber = pageUrl.split("#")[1],
-        article = THUNDERSTORM.modules.articles.data['articles'][articleUrlNumber],
-        currentArticle = THUNDERSTORM.modules.utility.imageSourceGenerator(article),
+        utility = THUNDERSTORM.modules.utility;
+
+    if(!utility.validateURL(pageUrl, THUNDERSTORM.modules.articles.data['articles'])) {
+        window.location.href="/";
+        return;
+    }
+
+    var articleUrlNumber = pageUrl.split("#")[1],
+        articleContent = $(".article__body"),
         viewMoreButton = $("<div></div>").html("View gallery").addClass("button__gallery"),
-        utility = THUNDERSTORM.modules.utility,
-        articleContent = $(".article__body");
+        article = THUNDERSTORM.modules.articles.data['articles'][articleUrlNumber],
+        currentArticle = THUNDERSTORM.modules.utility.imageSourceGenerator(article);
+
+
 
     if(currentArticle.hasGallery == true){
         var gallery;

@@ -55,6 +55,25 @@
         articleBody.html(articleData.content);
     };
 
+    function getArrayIndex(articles) {
+        var array = [];
+        for (var index in articles) {
+            if (array.hasOwnProperty(index)) continue;
+                array.push(index);
+        }
+        return array;
+    }
+
+    utility.validateURL =  function(url, articles) {
+        var array = getArrayIndex(articles);
+
+        if(url.indexOf("#") === -1 || array.indexOf(url.split("#")[1]) === -1){
+            return false;
+        }
+
+        return true;
+    };
+
 
     THUNDERSTORM.modules.utility = utility;
 
