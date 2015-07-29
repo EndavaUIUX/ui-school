@@ -314,38 +314,44 @@ article h2:hover {
   position: relative;
   outline: none;
 }
-.load-more:hover img {
-  -webkit-animation-name: rotate;
-  -webkit-animation-duration: 2s;
-  -webkit-animation-iteration-count: infinite;
-  -webkit-animation-timing-function: linear;
-  -moz-animation-name: rotate;
-  -moz-animation-duration: 2s;
-  -moz-animation-iteration-count: infinite;
-  -moz-animation-timing-function: linear;
+/*.load-more:hover img {
+    -webkit-animation-name: rotate;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-name: rotate;
+    -moz-animation-duration: 2s;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: linear;
 }
-article img:hover {
-  cursor: pointer;
+
+article img:hover{
+    cursor:pointer;
 }
+
 @-webkit-keyframes rotate {
-  from {
-    transition: All 1s ease;
-    -webkit-transition: All 1s ease;
-    -moz-transition: All 1s ease;
-    -o-transition: All 1s ease;
-    transform: rotate(0deg);
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -o-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-  }
-}
+    from {
+        -webkit-transform: rotate(0deg);     
+        transition:All 1s ease;
+        -webkit-transition:All 1s ease;
+        -moz-transition:All 1s ease;
+        -o-transition:All 1s ease;
+        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);  
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+    }
+};
+
+*/
 @media only screen and (min-width: 1180px) {
   .article-wrapper:nth-of-type(3n+3) {
     margin-right: 0;
@@ -395,7 +401,11 @@ article img:hover {
     line-height: 1.2;
   }
   .article-wrapper article .btn--more {
+<<<<<<< HEAD
+    margin: 20px 0px 30px 30px;
+=======
     margin: 0px 0px 30px 35px;
+>>>>>>> ef64fd87e09a316574055763fe74a8d7d7ec3d53
     font-family: 'Lato';
     width: 133px;
     height: 43px;
@@ -482,7 +492,11 @@ article img:hover {
     line-height: 1.2;
   }
   .article-wrapper article .btn--more {
+<<<<<<< HEAD
+    margin: 20px 0px 30px 30px;
+=======
     margin: 0px 0px 30px 35px;
+>>>>>>> ef64fd87e09a316574055763fe74a8d7d7ec3d53
     font-family: 'Lato';
     width: 133px;
     height: 43px;
