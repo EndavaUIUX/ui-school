@@ -97,9 +97,6 @@ p {
   padding: 30px 30px 0px 30px;
   height: 25px;
 }
-.latest__article .article__content .article__title:hover {
-  color: #e1632a;
-}
 .latest__article .article__content .article__informations {
   padding: 0px 0px 30px 30px;
   font-family: 'Lato';
@@ -132,10 +129,6 @@ p {
   color: #b1b1b1;
   display: inline-block;
 }
-.latest__article .article__content .article__informations .article__gallery:hover {
-  cursor: pointer;
-  text-decoration: underline;
-}
 .latest__article .article__content .article_description {
   font-size: 18px;
   color: #828282;
@@ -146,8 +139,8 @@ p {
   height: 126px;
   overflow: hidden;
 }
-.latest__article .article__content .last--more {
-  margin: 0px 0px 30px 30px;
+.latest__article .article__content .btn.btn--more {
+  margin: 20px 0px 30px 30px;
   height: 43px;
   width: 133px;
   text-align: center;
@@ -395,17 +388,13 @@ article img:hover{
     color: #828282;
     padding: 30px;
     font-family: 'Lato';
-    text-align: left;
     overflow: hidden;
     height: 45px;
+    text-align: justify;
     line-height: 1.2;
   }
   .article-wrapper article .btn--more {
-<<<<<<< HEAD
     margin: 20px 0px 30px 30px;
-=======
-    margin: 0px 0px 30px 35px;
->>>>>>> ef64fd87e09a316574055763fe74a8d7d7ec3d53
     font-family: 'Lato';
     width: 133px;
     height: 43px;
@@ -486,17 +475,12 @@ article img:hover{
     color: #828282;
     padding: 30px;
     font-family: 'Lato';
-    text-align: left;
     overflow: hidden;
     height: 30px;
     line-height: 1.2;
   }
   .article-wrapper article .btn--more {
-<<<<<<< HEAD
     margin: 20px 0px 30px 30px;
-=======
-    margin: 0px 0px 30px 35px;
->>>>>>> ef64fd87e09a316574055763fe74a8d7d7ec3d53
     font-family: 'Lato';
     width: 133px;
     height: 43px;
@@ -584,7 +568,6 @@ article img:hover{
     color: #828282;
     padding: 30px;
     font-family: 'Lato';
-    text-align: left;
     overflow: hidden;
     height: 30px;
     line-height: 1.2;
@@ -782,6 +765,7 @@ article img:hover{
   .latest__article .article_info {
     padding-bottom: 10px;
     display: block;
+    padding-top: 3px;
   }
   .latest__article .article__img {
     width: 56%;
