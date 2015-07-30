@@ -793,8 +793,8 @@ article img:hover{
     box-sizing: border-box;
     padding: 10px 30px 25px 30px;
   }
-  .latest__article .article__content .last--more {
-    margin: 30px 0px 30px 30px;
+  .latest__article .article__content .btn--more {
+    margin: 20px 0px 30px 30px;
     height: 43px;
     width: 133px;
     text-align: center;
@@ -880,8 +880,8 @@ article img:hover{
     height: 111px;
     width: 85%;
   }
-  .latest__article .article__content .last--more {
-    margin: 30px 0px 30px 30px;
+  .latest__article .article__content .btn--more {
+    margin: 20px 0px 30px 30px;
     height: 43px;
     width: 133px;
     text-align: center;
