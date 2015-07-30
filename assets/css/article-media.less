@@ -7,7 +7,7 @@
 @media only screen and (min-width: 600px) and (max-width: 1180px) {
     .main {
         width: auto;
-        margin: 50px auto;
+        margin: 0 20px 0 20px;
         display: block;
     }
 
@@ -31,7 +31,7 @@
 		margin-right:0px;}
 */
     .article-wrapper article {
-        margin-bottom: 30px; 
+        margin-bottom: 30px;
         border: 1px solid #cecece;
         color: @article-description-color;
     }
@@ -105,7 +105,7 @@
 @media only screen and (min-width: 1px) and (max-width: 599px) {
     .main {
         width: auto;
-        margin: 50px auto;
+        margin: 0 20px 0 20px;
     }
 
     .article-wrapper:nth-last-child(n) {
@@ -122,8 +122,11 @@
     }
 
     .article-wrapper article {
-        margin-bottom: 30px;
-        border: 1px solid #cecece;
+        border-bottom: 1px solid #cecece;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        box-shadow: none;
         color: @article-description-color;
     }
 
