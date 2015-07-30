@@ -46,9 +46,9 @@
         var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
         date = date.split('-');
         if (hasYear) {
-            return months[parseInt(date[1], 10)] + " " + date[0] + nth(date[0]) + ", " + date[2];
+            return months[parseInt(date[1], 10)] + " " + parseInt(date[0]) + nth(date[0]) + ", " + date[2];
         }
-        return months[parseInt(date[1], 10)] + " " + date[0] + nth(date[0]);
+        return months[parseInt(date[1], 10)] + " " + parseInt(date[0]) + nth(date[0]);
     };
     
     utility.nameFormatter = function (name, stripLast) {

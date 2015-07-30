@@ -116,6 +116,7 @@ p {
   width: 1170px;
   margin: 0px auto;
   height: auto;
+  margin-bottom: 70px;
 }
 .main {
   width: 1170px;
@@ -200,7 +201,7 @@ p {
         }*/
 }
 .latest__article .article__content .article__title {
-  font-family: 'Lato';
+  font-family: 'Lato-Black';
   font-size: 21px;
   color: #515151;
   padding: 30px 30px 0px 30px;
@@ -247,7 +248,7 @@ p {
   color: #828282;
   text-align: justify;
   padding: 12px 30px 0px 30px;
-  font-family: 'Lato';
+  font-family: 'Lato-Regular';
   line-height: 1.2;
   height: 126px;
   overflow: hidden;
@@ -328,7 +329,7 @@ p {
   font-size: 18px;
   color: #828282;
   padding: 30px;
-  font-family: 'Lato';
+  font-family: 'Lato-Regular';
   text-align: justify;
   overflow: hidden;
   height: 55px;
@@ -339,6 +340,7 @@ p {
   font-family: 'Lato';
   width: 133px;
   height: 43px;
+  font-family: 'Lato-Regular';
   font-size: 18px;
   color: #515151;
   text-align: center;
@@ -386,7 +388,7 @@ article h2 {
   font-size: 21px;
   color: #515151;
   padding: 30px 30px 20px 30px;
-  font-family: 'Lato';
+  font-family: 'Lato-Black';
   height: 30px;
   line-height: 1.2;
   overflow: hidden;
@@ -399,6 +401,7 @@ article h2:hover {
 .article-info__pill {
   display: inline-block;
   padding-left: 20px;
+  font-family: 'Lato-Regular';
   margin-left: 20px;
   line-height: 1.2;
 }
@@ -513,7 +516,6 @@ article img:hover{
     font-size: 15px;
     color: #828282;
     padding: 30px;
-    font-family: 'Lato-Bold';
     overflow: hidden;
     height: 45px;
     text-align: justify;
@@ -556,7 +558,6 @@ article img:hover{
     font-size: 18px;
     color: #515151;
     padding: 30px 30px 20px 30px;
-    font-family: 'Lato';
     height: 25px;
     line-height: 1.2;
     overflow: hidden;
@@ -593,7 +594,6 @@ article img:hover{
     font-size: 13px;
     color: #828282;
     padding: 30px;
-    font-family: 'Lato';
     overflow: hidden;
     height: 30px;
     line-height: 1.2;
@@ -634,7 +634,6 @@ article img:hover{
     font-size: 18px;
     color: #515151;
     padding: 30px 30px 20px 30px;
-    font-family: 'Lato';
     height: 25px;
     line-height: 1.2;
     overflow: hidden;
@@ -693,7 +692,6 @@ article img:hover{
     font-size: 13px;
     color: #828282;
     padding: 30px;
-    font-family: 'Lato';
     overflow: hidden;
     height: 30px;
     line-height: 1.2;
@@ -702,7 +700,6 @@ article img:hover{
     font-size: 18px;
     color: #515151;
     padding: 30px 30px 20px 30px;
-    font-family: 'Lato';
     height: 25px;
     line-height: 1.2;
     overflow: hidden;
@@ -970,7 +967,6 @@ article img:hover{
   margin-left: auto;
   margin-right: auto;
   display: block;
-  opacity: 0.6;
 }
 .article__details .article__gallery .hidden {
   display: none;
@@ -1008,6 +1004,9 @@ article img:hover{
   left: 30px;
   top: 50%;
   margin-top: -16px;
+}
+.article__details .hasGallery img {
+  opacity: 0.6;
 }
 .article__details .article__content {
   width: 100%;
