@@ -114,6 +114,7 @@ p {
 }
 .content {
   width: 1170px;
+  max-width: 100%;
   margin: 0px auto;
   height: auto;
   margin-bottom: 70px;
@@ -553,7 +554,7 @@ article img:hover{
 @media only screen and (min-width: 600px) and (max-width: 1180px) {
   .main {
     width: auto;
-    margin: 50px auto;
+    margin: 0 20px 0 20px;
     display: block;
   }
   .article-wrapper {
@@ -632,7 +633,7 @@ article img:hover{
 @media only screen and (min-width: 1px) and (max-width: 599px) {
   .main {
     width: auto;
-    margin: 50px auto;
+    margin: 0 20px 0 20px;
   }
   .article-wrapper:nth-last-child(n) {
     width: 100%;
@@ -646,8 +647,11 @@ article img:hover{
     margin-right: 0px;
   }
   .article-wrapper article {
-    margin-bottom: 30px;
-    border: 1px solid #cecece;
+    border-bottom: 1px solid #cecece;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    box-shadow: none;
     color: #828282;
   }
   .article-wrapper article p {
@@ -839,6 +843,10 @@ article img:hover{
   .latest__article {
     width: 100%;
     height: 507px;
+    box-shadow: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
   }
   .latest__article .article__img {
     display: none;
@@ -1067,7 +1075,63 @@ article img:hover{
   margin: 0 auto;
 }
 .article__details .article__body {
+  font-family: 'Lato' !important;
+}
+.article__details .article__body a {
+  color: #219bce;
+  text-decoration: none;
+}
+.article__details .article__body a:hover {
+  color: #219bce;
+  text-decoration: none;
+}
+.article__details .article__body h2 {
+  color: #515151;
+}
+.article__details .article__body table {
+  border-collapse: collapse;
+}
+.article__details .article__body table td,
+.article__details .article__body table th {
+  border: 1px solid #cecece;
+  padding: 6px 10px;
+}
+.article__details .article__body table td a,
+.article__details .article__body table th a {
+  display: block;
+}
+.article__details .article__body img {
+  margin: 0px auto;
+  display: block;
   max-width: 100%;
+}
+.article__details .article__body code {
+  color: #000;
+}
+.article__details .article__body p {
+  text-align: justify;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  color: #828282;
+}
+.article__details .article__body li {
+  color: #828282;
+  padding: 5px;
+}
+.article__details .article__body .pull-left {
+  text-align: left;
+}
+.article__details .article__body .aligncenter {
+  display: block;
+  margin: 0px auto;
+}
+.article__details .article__body .size-full {
+  max-width: 100%;
+  height: auto;
+}
+.article__details .article__body .size-medium {
+  max-width: 50%;
+  height: auto;
 }
 .article__details .article__gallery {
   width: 100%;
@@ -1080,6 +1144,8 @@ article img:hover{
   margin-left: auto;
   margin-right: auto;
   display: block;
+  max-width: 100%;
+  margin-top: 20px;
 }
 .article__details .article__gallery .hidden {
   display: none;
@@ -1120,56 +1186,6 @@ article img:hover{
 }
 .article__details .hasGallery img {
   opacity: 0.6;
-}
-.article__details .article__content {
-  width: 100%;
-  height: auto;
-  margin-bottom: 70px;
-}
-.article__details .article__content div {
-  color: #828282;
-  font-size: 18px;
-  font-family: 'Lato';
-  line-height: 1.2;
-  text-align: justify;
-}
-.article__details .article__content div a {
-  float: left;
-  margin: 0 15px 15px 0;
-}
-.article__details .article__content h2 {
-  color: #828282;
-  font-size: 18px;
-  font-family: 'Lato';
-  line-height: 1.2;
-  text-align: justify;
-}
-.article__details .article__content p {
-  font-size: 18px;
-  color: #828282;
-  font-family: 'Lato';
-  line-height: 1.2;
-  text-align: justify;
-  margin-bottom: 10px;
-}
-.article__details .article__content p a {
-  text-decoration: none;
-  font-weight: bold;
-  color: #828282;
-}
-.article__details .article__content p a .wp-image-468 {
-  margin-top: 30px;
-}
-.article__details .article__content p .size-full {
-  width: 100%;
-  height: auto;
-}
-.article__details .article__content p .size-medium {
-  width: 50%;
-  height: auto;
-}
-.article__details .article__content li {
-  color: #828282;
 }
 @media only screen and (min-width: 600px) and (max-width: 1190px) {
   .content {

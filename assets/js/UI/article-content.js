@@ -12,6 +12,7 @@
   var pageUrl = window.location.href,
         utility = THUNDERSTORM.modules.utility;
 
+
     if(!utility.validateURL(pageUrl, THUNDERSTORM.modules.articles.data['articles'])) {
         window.location.href="/";
         return;
@@ -22,12 +23,12 @@
         currentArticle = utility.imageSourceGenerator(article),
         viewMoreButton = $("<div></div>").html("View gallery").addClass("button__gallery"),
         icoViewMore = $('<i></i>'),
-        utility = THUNDERSTORM.modules.utility,
         articleContent = $(".article__body"),
         titleContainer = $('.title'),
         infoAuthor = $('.article-informations__author'),
         infoDate = $('.article-informations__date'),
         elementsObject = {titleContainer : titleContainer, infoAuthor : infoAuthor, infoDate : infoDate};
+
         viewMoreButton.append(icoViewMore);
 
     if(currentArticle.hasGallery == true){
