@@ -967,7 +967,6 @@ article img:hover{
   margin-left: auto;
   margin-right: auto;
   display: block;
-  opacity: 0.6;
 }
 .article__details .article__gallery .hidden {
   display: none;
@@ -1005,6 +1004,9 @@ article img:hover{
   left: 30px;
   top: 50%;
   margin-top: -16px;
+}
+.article__details .hasGallery img {
+  opacity: 0.6;
 }
 .article__details .article__content {
   width: 100%;
