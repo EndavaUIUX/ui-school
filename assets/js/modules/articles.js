@@ -111,7 +111,7 @@
         return pages;
     }
     
-    function clipText(description, clipLimit){
+    function clipText(description, clipLimit) {
         var text;
         if (description.length > clipLimit) {
             text = description.substr(0, clipLimit);
@@ -124,7 +124,7 @@
         }
         return text;
     }
-
+    
     
     articles.createArticle = function (articleData, articleIndex, isFullContent) {
         var base = $('<div></div>').addClass('article-wrapper'),
