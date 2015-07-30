@@ -110,12 +110,14 @@ p {
 }
 .container {
   width: 100%;
+  overflow-x: hidden;
 }
 .content {
   width: 1170px;
   max-width: 100%;
   margin: 0px auto;
   height: auto;
+  margin-bottom: 70px;
 }
 .main {
   width: 1170px;
@@ -164,8 +166,9 @@ p {
 /*MIO: To be replaced*/
 .slider {
   width: 100%;
-  background: url('../images/slider.png') no-repeat;
+  background: url('../images/slider.jpg') no-repeat;
   height: 600px;
+  background-size: 100% auto;
 }
 .latest__article {
   margin: 0px auto;
@@ -199,11 +202,11 @@ p {
         }*/
 }
 .latest__article .article__content .article__title {
-  font-family: 'Lato';
+  font-family: 'Lato-Black';
   font-size: 21px;
   color: #515151;
   padding: 30px 30px 0px 30px;
-  height: 25px;
+  height: 45px;
 }
 .latest__article .article__content .article__title:hover {
   color: #e1632a;
@@ -246,7 +249,7 @@ p {
   color: #828282;
   text-align: justify;
   padding: 12px 30px 0px 30px;
-  font-family: 'Lato';
+  font-family: 'Lato-Regular';
   line-height: 1.2;
   height: 126px;
   overflow: hidden;
@@ -327,7 +330,7 @@ p {
   font-size: 18px;
   color: #828282;
   padding: 30px;
-  font-family: 'Lato';
+  font-family: 'Lato-Regular';
   text-align: justify;
   overflow: hidden;
   height: 55px;
@@ -338,6 +341,7 @@ p {
   font-family: 'Lato';
   width: 133px;
   height: 43px;
+  font-family: 'Lato-Regular';
   font-size: 18px;
   color: #515151;
   text-align: center;
@@ -385,8 +389,9 @@ article h2 {
   font-size: 21px;
   color: #515151;
   padding: 30px 30px 20px 30px;
-  font-family: 'Lato';
-  height: 4px;
+  font-family: 'Lato-Black';
+  height: 30px;
+  line-height: 1.2;
   overflow: hidden;
   margin-bottom: 25px;
 }
@@ -397,6 +402,7 @@ article h2:hover {
 .article-info__pill {
   display: inline-block;
   padding-left: 20px;
+  font-family: 'Lato-Regular';
   margin-left: 20px;
   line-height: 1.2;
 }
@@ -555,7 +561,8 @@ article img:hover{
     color: #515151;
     padding: 30px 30px 20px 30px;
     font-family: 'Lato';
-    height: 0px;
+    height: 25px;
+    line-height: 1.2;
     overflow: hidden;
     margin-bottom: 25px;
   }
@@ -632,7 +639,8 @@ article img:hover{
     color: #515151;
     padding: 30px 30px 20px 30px;
     font-family: 'Lato';
-    height: 0px;
+    height: 25px;
+    line-height: 1.2;
     overflow: hidden;
     margin-bottom: 25px;
   }
@@ -699,7 +707,8 @@ article img:hover{
     color: #515151;
     padding: 30px 30px 20px 30px;
     font-family: 'Lato';
-    height: 0px;
+    height: 25px;
+    line-height: 1.2;
     overflow: hidden;
     margin-bottom: 25px;
   }
@@ -953,16 +962,18 @@ article img:hover{
 }
 .article__details .article__gallery {
   width: 100%;
-  height: 440px;
+  max-height: 440px;
   overflow: hidden;
   margin: 0 0 30px 0;
   background-color: aliceblue;
+  position: relative;
 }
 .article__details .article__gallery img {
   margin-left: auto;
   margin-right: auto;
   display: block;
   max-width: 100%;
+  opacity: 0.6;
 }
 .article__details .article__gallery .hidden {
   display: none;
@@ -1042,5 +1053,7 @@ article img:hover{
 footer {
   width: 100%;
   height: 110px;
-  background: url('../images/footer.png') no-repeat;
+  margin: 0 auto;
+  background: url('../images/footer.jpg') no-repeat;
+  background-size: 100% auto;
 }

@@ -46,7 +46,6 @@
         $(".article__gallery").append(gallery);
     }
 
-
     utility.populateArticleTitle(elementsObject, article);
     utility.populateArticleDetails(article, articleContent);
 
