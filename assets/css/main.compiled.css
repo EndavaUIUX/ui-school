@@ -1075,7 +1075,7 @@ article img:hover{
   margin: 0 auto;
 }
 .article__details .article__body {
-  font-family: 'Lato' !important;
+  font-family: 'Lato';
 }
 .article__details .article__body a {
   color: #219bce;
@@ -1205,65 +1205,6 @@ article img:hover{
     font-size: 13px;
   }
 }
-.article__body {
-  font-family: 'Lato' !important;
-}
-.article__body a {
-  color: #219bce;
-  text-decoration: none;
-}
-.article__body a:hover {
-  color: #219bce;
-  text-decoration: none;
-}
-.article__body h2 {
-  color: #515151;
-}
-.article__body table {
-  border-collapse: collapse;
-}
-.article__body table td,
-.article__body table th {
-  border: 1px solid #cecece;
-  padding: 6px 10px;
-}
-.article__body table td a,
-.article__body table th a {
-  display: block;
-}
-.article__body img {
-  margin: 0px auto;
-  display: block;
-  max-width: 100%;
-}
-.article__body code {
-  color: #000;
-}
-.article__body p {
-  text-align: justify;
-  margin-top: 1em;
-  margin-bottom: 1em;
-  color: #828282;
-}
-.article__body li {
-  color: #828282;
-  padding: 5px;
-}
-.article__body .pull-left {
-  text-align: left;
-}
-.article__body .aligncenter {
-  display: block;
-  margin: 0px auto;
-}
-.article__body .size-full {
-  max-width: 100%;
-  height: auto;
-}
-.article__body .size-medium {
-  max-width: 50%;
-  height: auto;
-}
 @media only screen and (min-width: 1200px) and (max-width: 1500px) {
   .content {
     width: 900px;
@@ -1278,6 +1219,9 @@ article img:hover{
   .content {
     padding: 0px 40px;
     box-sizing: border-box;
+  }
+  table:not(.syntaxhighlighter) {
+    display: none;
   }
 }
 @media only screen and (max-width: 599px) {
