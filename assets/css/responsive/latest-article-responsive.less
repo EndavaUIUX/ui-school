@@ -101,13 +101,13 @@ and (max-width: 450px) {
                 box-sizing: border-box;
                 padding: 10px 30px 25px 30px;
             }
-             .last--more{
-            margin: 30px 0px 30px 30px;
-            height: 43px;
-            width: 133px;
+             .btn--more{
+            margin: 20px 0px 30px 30px;
+            height: 30px;
+            width: 109px;
             text-align: center;
             color: #747474;
-            font-size: 18px;
+            font-size: 15px;
             border: 1px solid #515151;
             background-color: #ffffff; 
             font-family: 'Lato';
@@ -131,7 +131,7 @@ and (max-width: 450px) {
 
 @media all
 and (min-width: 451px)
-and (max-width: 612px){
+and (max-width: 611px){
     .latest__article{
         height: 550px;
         width: 100%;
@@ -204,13 +204,13 @@ and (max-width: 1024px) {
                 height: 111px;
                 width: 85%;
             }
-             .last--more{
-            margin: 30px 0px 30px 30px;
-            height: 43px;
-            width: 133px;
+             .btn--more{
+            margin: 10px 0px 30px 30px;
+            height: 35px;
+            width: 119px;
             text-align: center;
             color: #747474;
-            font-size: 18px;
+            font-size: @pad-font-size;
             border: 1px solid #515151;
             background-color: #ffffff; 
             font-family: 'Lato';
@@ -229,8 +229,8 @@ and (max-width: 1024px) {
 }
 
 @media all
-and (min-width: 1024px)
-and (max-width: 1200px){
+and (min-device-width: 1200px) 
+  and (max-device-width: 1600px) {
     .latest__article{
         width: 100%;
         .article__content{
@@ -242,4 +242,15 @@ and (max-width: 1200px){
             }
         }
     }
+    .btn--more{
+            margin: 10px 0px 30px 30px;
+            height: 43px;
+            width: 133px;
+            text-align: center;
+            color: #747474;
+            font-size: 18px;
+            border: 1px solid #515151;
+            background-color: #ffffff; 
+            font-family: 'Lato';
+        }
 }
