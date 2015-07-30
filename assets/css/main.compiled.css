@@ -206,7 +206,7 @@ p {
   font-size: 21px;
   color: #515151;
   padding: 30px 30px 0px 30px;
-  height: 45px;
+  height: 50px;
 }
 .latest__article .article__content .article__title:hover {
   color: #e1632a;
@@ -214,7 +214,7 @@ p {
 }
 .latest__article .article__content .article__informations {
   padding: 0px 0px 30px 30px;
-  font-family: 'Lato';
+  font-family: 'Lato-Regular';
 }
 .latest__article .article__content .article__informations .article__author.article_info {
   font-size: 18px;
@@ -253,14 +253,35 @@ p {
   line-height: 1.2;
   height: 126px;
   overflow: hidden;
+  word-break: break-all;
 }
 .latest__article .article__img {
   height: 377px;
   width: 570px;
   float: right;
   cursor: pointer;
+  opacity: 0.8;
+  -webkit-opacity: 0.8;
+  -moz-opacity: 0.8;
+  transition: 0.5s ease;
+  -webkit-transition: 0.5s ease;
+  -moz-transition: 0.5s ease;
 }
 .latest__article .article__img img {
+  width: 100%;
+  height: 98%;
+}
+.latest__article .article__img:hover {
+  border: 5px solid #d0d0d0;
+  box-sizing: border-box;
+  border-radius: 1%;
+  -webkit-transform: scale(1, 1);
+  -moz-transform: scale(1, 1);
+  opacity: 1 ;
+  -webkit-opacity: 1;
+  -moz-opacity: 1;
+}
+.latest__article .article__img:hover img {
   width: 100%;
   height: 98%;
 }
@@ -335,10 +356,10 @@ p {
   overflow: hidden;
   height: 55px;
   line-height: 1.2;
+  word-break: break-all;
 }
 .btn--more {
   margin: 20px 0px 30px 30px;
-  font-family: 'Lato';
   width: 133px;
   height: 43px;
   font-family: 'Lato-Regular';
@@ -365,7 +386,6 @@ p {
 .article-info__date {
   background: url("../images/ico/calendar.png") no-repeat;
   font-size: 18px;
-  font-family: 'Lato';
   color: #b1b1b1;
   line-height: 1.4;
 }
@@ -373,7 +393,6 @@ p {
   background: url("../images/ico/user%20-%20single.png") no-repeat;
   padding-left: 30px;
   font-size: 18px;
-  font-family: 'Lato';
   color: #b1b1b1;
   line-height: 1.4;
 }
@@ -382,18 +401,18 @@ p {
   padding-left: 30px;
   padding-right: 30px;
   font-size: 18px;
-  font-family: 'Lato';
   color: #b1b1b1;
 }
 article h2 {
   font-size: 21px;
   color: #515151;
   padding: 30px 30px 20px 30px;
-  font-family: 'Lato-Black';
   height: 30px;
   line-height: 1.2;
   overflow: hidden;
   margin-bottom: 25px;
+  font-family: 'Lato-Black';
+  word-break: break-all;
 }
 article h2:hover {
   color: #e1632a;
@@ -402,9 +421,9 @@ article h2:hover {
 .article-info__pill {
   display: inline-block;
   padding-left: 20px;
-  font-family: 'Lato-Regular';
   margin-left: 20px;
   line-height: 1.2;
+  font-family: 'Lato-Regular';
 }
 /*corect*/
 .article-info__pill:first-child {
@@ -437,6 +456,10 @@ article h2:hover {
   text-align: right;
   position: relative;
   outline: none;
+  cursor: pointer;
+}
+.load-more:hover {
+  background-color: #EBEAE8;
 }
 /*.load-more:hover img {
     -webkit-animation-name: rotate;
@@ -517,7 +540,6 @@ article img:hover{
     font-size: 15px;
     color: #828282;
     padding: 30px;
-    font-family: 'Lato-Bold';
     overflow: hidden;
     height: 45px;
     text-align: justify;
@@ -560,7 +582,6 @@ article img:hover{
     font-size: 18px;
     color: #515151;
     padding: 30px 30px 20px 30px;
-    font-family: 'Lato';
     height: 25px;
     line-height: 1.2;
     overflow: hidden;
@@ -597,10 +618,10 @@ article img:hover{
     font-size: 13px;
     color: #828282;
     padding: 30px;
-    font-family: 'Lato';
     overflow: hidden;
     height: 30px;
     line-height: 1.2;
+    word-break: break-all;
   }
   /*
     .article-wrapper article .btn--more {
@@ -638,7 +659,6 @@ article img:hover{
     font-size: 18px;
     color: #515151;
     padding: 30px 30px 20px 30px;
-    font-family: 'Lato';
     height: 25px;
     line-height: 1.2;
     overflow: hidden;
@@ -697,7 +717,6 @@ article img:hover{
     font-size: 13px;
     color: #828282;
     padding: 30px;
-    font-family: 'Lato';
     overflow: hidden;
     height: 30px;
     line-height: 1.2;
@@ -706,7 +725,6 @@ article img:hover{
     font-size: 18px;
     color: #515151;
     padding: 30px 30px 20px 30px;
-    font-family: 'Lato';
     height: 25px;
     line-height: 1.2;
     overflow: hidden;
@@ -776,6 +794,13 @@ article img:hover{
   .latest__article .article__content .article__title {
     font-size: 18px;
   }
+  .latest__article .article__content .article__title {
+    font-family: 'Lato-Black';
+    font-size: 18px;
+    color: #515151;
+    padding: 30px 30px 0px 30px;
+    height: 45px;
+  }
   .latest__article .article__content .article__informations .article_info {
     padding-left: 20px;
     padding-top: 4px;
@@ -814,10 +839,17 @@ article img:hover{
   .main {
     position: relative;
   }
+  .article__title {
+    font-family: 'Lato-Black';
+    font-size: 18px;
+    color: #515151;
+    padding: 30px 30px 0px 30px;
+    height: 45px;
+  }
 }
 @media all and (min-width: 451px) and (max-width: 612px) {
   .latest__article {
-    height: auto;
+    height: 550px;
     width: 100%;
   }
   .latest__article .article__content {
@@ -982,8 +1014,11 @@ article img:hover{
   margin-left: auto;
   margin-right: auto;
   display: block;
+<<<<<<< HEAD
   opacity: 0.6;
   max-width: 100%;
+=======
+>>>>>>> ec87d1958e80901fbc926af353a8048e53c42df1
 }
 .article__details .article__gallery .hidden {
   display: none;
@@ -1022,6 +1057,62 @@ article img:hover{
   top: 50%;
   margin-top: -16px;
 }
+<<<<<<< HEAD
+=======
+.article__details .hasGallery img {
+  opacity: 0.6;
+}
+.article__details .article__content {
+  width: 100%;
+  height: auto;
+  margin-bottom: 70px;
+}
+.article__details .article__content div {
+  color: #828282;
+  font-size: 18px;
+  font-family: 'Lato';
+  line-height: 1.2;
+  text-align: justify;
+}
+.article__details .article__content div a {
+  float: left;
+  margin: 0 15px 15px 0;
+}
+.article__details .article__content h2 {
+  color: #828282;
+  font-size: 18px;
+  font-family: 'Lato';
+  line-height: 1.2;
+  text-align: justify;
+}
+.article__details .article__content p {
+  font-size: 18px;
+  color: #828282;
+  font-family: 'Lato';
+  line-height: 1.2;
+  text-align: justify;
+  margin-bottom: 10px;
+}
+.article__details .article__content p a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #828282;
+}
+.article__details .article__content p a .wp-image-468 {
+  margin-top: 30px;
+}
+.article__details .article__content p .size-full {
+  width: 100%;
+  height: auto;
+}
+.article__details .article__content p .size-medium {
+  width: 50%;
+  height: auto;
+}
+.article__details .article__content li {
+  color: #828282;
+}
+>>>>>>> ec87d1958e80901fbc926af353a8048e53c42df1
 @media only screen and (min-width: 600px) and (max-width: 1190px) {
   .content {
     width: 100%;

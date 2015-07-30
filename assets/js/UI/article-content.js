@@ -9,20 +9,19 @@
         sourceName : 'articles',
         shouldGenerate : false
     });
-
-    var pageUrl = window.location.href,
+  var pageUrl = window.location.href,
         utility = THUNDERSTORM.modules.utility;
+
 
     if(!utility.validateURL(pageUrl, THUNDERSTORM.modules.articles.data['articles'])) {
         window.location.href="/";
         return;
     }
-
-    var articleUrlNumber = pageUrl.split("#")[1],
-        articleContent = $(".article__body"),
-        viewMoreButton = $("<div></div>").html("View gallery").addClass("button__gallery"),
+    
+    var articleUrlNumber = pageUrl.split("?")[1].charAt(0),
         article = THUNDERSTORM.modules.articles.data['articles'][articleUrlNumber],
-        currentArticle = THUNDERSTORM.modules.utility.imageSourceGenerator(article),
+        currentArticle = utility.imageSourceGenerator(article),
+        viewMoreButton = $("<div></div>").html("View gallery").addClass("button__gallery"),
         icoViewMore = $('<i></i>'),
         articleContent = $(".article__body"),
         titleContainer = $('.title'),
@@ -39,6 +38,7 @@
             $(".article__gallery").append(gallery);
             if(index != 0) gallery.addClass("hidden");
         });
+        $(".article__gallery").addClass("hasGallery");
         $(".article__gallery").append(viewMoreButton);
 
     } else {

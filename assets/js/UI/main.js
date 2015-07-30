@@ -21,7 +21,7 @@
         ev.stopPropagation();
         var articleIndex = $(ev.target).closest('article')[0].getAttribute('data-article-index');
         //the actual redirect
-        window.location.href = "/article#" + articleIndex;
+        window.location.href = "/article?" + articleIndex;
     });
 
     function toggleLoadMore(page) {
