@@ -200,7 +200,7 @@ and (max-width: 1024px) {
                 width: 85%;
             }
              .btn--more{
-            margin: 20px 0px 30px 30px;
+            margin: 10px 0px 30px 30px;
             height: 43px;
             width: 133px;
             text-align: center;
@@ -224,8 +224,8 @@ and (max-width: 1024px) {
 }
 
 @media all
-and (min-width: 1024px)
-and (max-width: 1200px){
+and (min-device-width: 1200px) 
+  and (max-device-width: 1600px) {
     .latest__article{
         width: 100%;
         .article__content{
@@ -237,4 +237,15 @@ and (max-width: 1200px){
             }
         }
     }
+    .btn--more{
+            margin: 10px 0px 30px 30px;
+            height: 43px;
+            width: 133px;
+            text-align: center;
+            color: #747474;
+            font-size: 18px;
+            border: 1px solid #515151;
+            background-color: #ffffff; 
+            font-family: 'Lato';
+        }
 }
