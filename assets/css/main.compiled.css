@@ -810,7 +810,7 @@ article img:hover{
 }
 @media all and (min-width: 451px) and (max-width: 612px) {
   .latest__article {
-    height: auto;
+    height: 550px;
     width: 100%;
   }
   .latest__article .article__content {
