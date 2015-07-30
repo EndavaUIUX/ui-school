@@ -333,16 +333,23 @@ p {
   color: #828282;
 }
 .article-wrapper article img {
-  margin-top: 30px;
-  width: 100%;
-  height: 180px;
-  opacity: 0.8;
+  max-width: 100%;
+  max-height: 100%;
   -webkit-opacity: 0.8;
   -moz-opacity: 0.8;
-  transition: 0.5s ease;
   -webkit-transition: 0.5s ease;
   -moz-transition: 0.5s ease;
   cursor: pointer;
+  margin-left: auto;
+  overflow: auto;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin-right: auto;
+  display: block;
 }
 .article-wrapper article img:hover {
   border: 5px solid #d0d0d0;
@@ -358,18 +365,12 @@ p {
   font-size: 18px;
   color: #828282;
   padding: 30px;
-<<<<<<< Updated upstream
   font-family: 'Lato-Regular';
   text-align: justify;
   overflow: hidden;
   height: 55px;
   line-height: 1.2;
   word-break: break-all;
-=======
-  font-family: 'Lato';
-  text-align: left;
-  line-height: 1;
->>>>>>> Stashed changes
 }
 .btn--more {
   margin: 20px 0px 30px 30px;
@@ -383,6 +384,11 @@ p {
   border-width: 1px;
   border-color: #515151;
   background-color: #ffffff;
+}
+.articlePhoto {
+  height: 180px;
+  margin-top: 30px;
+  position: relative;
 }
 .btn--more:hover {
   color: #e1632a;
@@ -544,11 +550,6 @@ article img:hover{
     border: 1px solid #cecece;
     color: #828282;
   }
-  .article-wrapper article img {
-    margin-top: 30px;
-    width: 100%;
-    height: 180px;
-  }
   .article-wrapper article p {
     font-size: 15px;
     color: #828282;
@@ -621,11 +622,6 @@ article img:hover{
     margin-bottom: 30px;
     border: 1px solid #cecece;
     color: #828282;
-  }
-  .article-wrapper article img {
-    margin-top: 30px;
-    width: 100%;
-    height: 180px;
   }
   .article-wrapper article p {
     font-size: 13px;
