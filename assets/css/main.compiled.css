@@ -350,12 +350,18 @@ p {
   font-size: 18px;
   color: #828282;
   padding: 30px;
+<<<<<<< Updated upstream
   font-family: 'Lato-Regular';
   text-align: justify;
   overflow: hidden;
   height: 55px;
   line-height: 1.2;
   word-break: break-all;
+=======
+  font-family: 'Lato';
+  text-align: left;
+  line-height: 1;
+>>>>>>> Stashed changes
 }
 .btn--more {
   margin: 20px 0px 30px 30px;
