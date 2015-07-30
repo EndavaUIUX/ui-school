@@ -31,6 +31,7 @@
             $(".article__gallery").append(gallery);
             if(index != 0) gallery.addClass("hidden");
         });
+        $(".article__gallery").addClass("hasGallery");
         $(".article__gallery").append(viewMoreButton);
 
     } else {

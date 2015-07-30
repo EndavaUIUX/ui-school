@@ -67,11 +67,9 @@
         imageGalleryObj = utility.imageSourceGenerator(articleData);
         articleHiddenImage.attr('src', imageGalleryObj.sources[0]);
         articleVisibleImgTag.attr('src', imageGalleryObj.sources[0]);
-        if (articleData.description.length > 400) {
-            articleText.html(clipDescription(articleData.description.substr(0, 400)));
-        } else {
-            articleText.html(articleData.description);
-        }
+        
+        articleText.html(clipText(articleData.description, 400));
+        
         /*append the elements*/
         articleInfo.append(articleAuthor);
         articleInfo.append(articleDate);
@@ -113,19 +111,25 @@
         return pages;
     }
     
-    function clipDescription(description){
-      var text = description.split(' ');
-      text[text.length] = " . . .";
-      text = text.join(' ');
-      
-      return text;
+    function clipText(description, clipLimit){
+        var text;
+        if (description.length > clipLimit) {
+            text = description.substr(0, clipLimit);
+            text = text.split(' ');
+            text[text.length] = " . . .";
+            text = text.join(' ');
+            return text;
+        } else {
+            text = description.substr(0, clipLimit);
+        }
+        return text;
     }
 
     
     articles.createArticle = function (articleData, articleIndex, isFullContent) {
         var base = $('<div></div>').addClass('article-wrapper'),
                 article = $('<article></article>').attr('data-article-index', articleIndex),
-                articleTitle = $('<h2></h2>').html(articleData.title),
+                articleTitle = $('<h2></h2>').html(clipText(articleData.title, 48)),
                 articleImage = $('<img>'),
                 articleContent = $('<div></div>').addClass('article__content'),
                 articleInfo = $('<div></div>').addClass('article-info'),
@@ -140,12 +144,7 @@
         if (isFullContent) {
             articleText.html(articleData.content);
         } else {
-            if (articleData.description.length > 130) {
-                articleText.html(clipDescription(articleData.description.substr(0, 130)));
-            } else {
-                articleText.html(articleData.description.substr(0, 130));
-            }
-
+            articleText.html(clipText(articleData.description, 130));
         }
         /*append the elements*/
         articleInfo.append(articleAuthor);
