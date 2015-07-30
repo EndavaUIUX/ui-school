@@ -732,6 +732,19 @@ article img:hover{
         cursor: pointer;
     }*/
 }
+@media all and (min-width: 612px) and (max-width: 1024px) {
+  .btn--more {
+    margin: 10px 0px 30px 30px;
+    height: 35px;
+    width: 119px;
+    text-align: center;
+    color: #747474;
+    font-size: 18px;
+    border: 1px solid #515151;
+    background-color: #ffffff;
+    font-family: 'Lato';
+  }
+}
 @media only screen and (max-width: 323px) {
   .article-info__pill {
     display: inline-block;
@@ -969,8 +982,8 @@ article img:hover{
   }
   .latest__article .article__content .btn--more {
     margin: 10px 0px 30px 30px;
-    height: 43px;
-    width: 133px;
+    height: 35px;
+    width: 119px;
     text-align: center;
     color: #747474;
     font-size: 18px;
