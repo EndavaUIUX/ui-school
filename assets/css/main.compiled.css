@@ -1133,6 +1133,14 @@ article img:hover{
   max-width: 50%;
   height: auto;
 }
+.article__details .article__body .toolbar_item {
+  display: none;
+}
+.article__details .article__body .table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid #cecece;
+}
 .article__details .article__gallery {
   width: 100%;
   max-height: 440px;
@@ -1220,8 +1228,11 @@ article img:hover{
     padding: 0px 40px;
     box-sizing: border-box;
   }
-  table:not(.syntaxhighlighter) {
+  td.gutter {
     display: none;
+  }
+  .line {
+    word-break: break-word;
   }
 }
 @media only screen and (max-width: 599px) {
@@ -1229,8 +1240,12 @@ article img:hover{
     padding: 0px 20px;
     box-sizing: border-box;
   }
-  table:not(.syntaxhighlighter) {
+  td.gutter {
     display: none;
+  }
+  .line,
+  a {
+    word-break: break-word;
   }
   .article__body img {
     height: 50%;

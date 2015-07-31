@@ -16,8 +16,11 @@
     padding:0px 40px;
     box-sizing:border-box;
   }
-  table:not(.syntaxhighlighter){
+  td.gutter{
     display:none;
+  }
+  .line{
+    word-break: break-word;
   }
 }
 
@@ -26,11 +29,12 @@
     padding:0px 20px;
     box-sizing:border-box;
   }
-  
-  table:not(.syntaxhighlighter){
-     display:none;
+  td.gutter{
+    display:none;
   }
- 
+  .line, a{
+    word-break: break-word;
+  }
   .article__body img{
      height:50%;
   }
