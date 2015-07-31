@@ -30,6 +30,9 @@
                 articles.pages = pagination(articles.data[key]);
                 articles.generateArticles(articles.pages[0], options.articlesParent);
             }
+            if(options.callback) {
+                options.callback();
+            }
         } else {
             THUNDERSTORM.modules.API.get({
                 url: 'rest/articles',
@@ -39,6 +42,9 @@
                         sourceName: key
                     });
                     articles.data  = persistence.get(options);
+                    if(options.callback) {
+                        options.callback();
+                    }
                     if (options.shouldGenerate) {
                         articles.pages = pagination(articles.data[key]);
                         articles.generateArticles(articles.pages[0], options.articlesParent);
