@@ -62,11 +62,20 @@
     utility.populateArticleDetails = function(articleData, articleBody) {
         articleBody.html(articleData.content);
     };
+
     utility.populateArticleTitle = function(elementsObject, articleContent) {
         elementsObject.titleContainer.html(articleContent.title);
         elementsObject.infoAuthor.html(utility.nameFormatter(articleContent.author, 1));
         elementsObject.infoDate.html(utility.dateFormatter(articleContent.published, 1));
-    };   
+    };
+    
+    utility.validateURL =  function(url, articles) {
+        if(url.indexOf("?") === -1 || url.split("?")[1] === "" || url.split("?")[1] >= articles.length || url.split("?")[1] < 0){
+            return false;
+        }
+
+        return true;
+    };
 
     THUNDERSTORM.modules.utility = utility;
 
