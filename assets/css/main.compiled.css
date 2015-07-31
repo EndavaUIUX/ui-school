@@ -731,6 +731,9 @@ article img:hover{
     border-width: 1px;
     border-color: #515151;
     background-color: #ffffff;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
   }
   /*.btn--more:hover{
         color: @load-more-color;
@@ -906,6 +909,9 @@ article img:hover{
     border: 1px solid #515151;
     background-color: #ffffff;
     font-family: 'Lato';
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
   }
   .main {
     position: relative;

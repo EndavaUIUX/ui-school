@@ -36,7 +36,7 @@
         color: @article-description-color;
     }
 
- 
+
 
     .article-wrapper article p {
         font-size: @pad-font-size;
@@ -128,7 +128,7 @@
         box-shadow: none;
         color: @article-description-color;
     }
- 
+
 
     .article-wrapper article p {
         font-size: @mobile-font-size;
@@ -214,6 +214,9 @@
         border-width: 1px;
         border-color: @article-header-color;
         background-color: @btn-background-color;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
     }
 
 
@@ -227,18 +230,18 @@
 @media all
 and (min-width: 612px)
 and (max-width: 1024px) {
-             .btn--more{
-            margin: 10px 0px 30px 30px;
-            height: 35px;
-            width: 119px;
-            text-align: center;
-            color: #747474;
-            font-size: @pad-font-size;
-            border: 1px solid #515151;
-            background-color: #ffffff; 
-            font-family: 'Lato';
-        }
-        }
+    .btn--more{
+        margin: 10px 0px 30px 30px;
+        height: 35px;
+        width: 119px;
+        text-align: center;
+        color: #747474;
+        font-size: @pad-font-size;
+        border: 1px solid #515151;
+        background-color: #ffffff; 
+        font-family: 'Lato';
+    }
+}
 @media only screen and (max-width: 323px) {
     .article-info__pill {
         display: inline-block;
@@ -248,7 +251,7 @@ and (max-width: 1024px) {
         font-size: 13px;
         margin-bottom: 10px;
     }
-   
+
     /*    .article-wrapper article .btn--more {
             margin: 25px 0px 30px 35px;
             font-family: 'Lato';
