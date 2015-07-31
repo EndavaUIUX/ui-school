@@ -135,6 +135,8 @@
                 articleImage = $('<img>'),
                 articleContent = $('<div></div>').addClass('article__content'),
                 articleInfo = $('<div></div>').addClass('article-info'),
+                //div
+                articlePhoto = $('<div></div>').addClass('articlePhoto'),
                 articleText = $('<p>'),
                 articleAction = $('<button></button>').addClass('btn btn--more').html('Read More'),
                 articleAuthor = $('<span></span>').addClass('article-info__author article-info__pill').html(utility.nameFormatter(articleData.author, 1)),
@@ -151,11 +153,16 @@
         /*append the elements*/
         articleInfo.append(articleAuthor);
         articleInfo.append(articleDate);
+        articleInfo.append(articlePhoto);
+        articlePhoto.append(articleImage);
+        //append div to articleInfo
+//in div append article Image
+
         // if (imageGalleryObj.hasGallery) {
         //     articleGallery = $('<span></span>').addClass('article-info__gallery article-info__pill').html('Photo Gallery');
         //     articleInfo.append(articleGallery);
         // }
-        articleInfo.append(articleImage);
+        // articleInfo.append(articleImage);
         articleContent.append(articleInfo);
         article.append(articleTitle);
         article.append(articleContent);

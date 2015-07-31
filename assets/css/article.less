@@ -23,8 +23,7 @@
     box-sizing: border-box;
     vertical-align: top;
     margin-bottom: 30px;
-    margin-right: 2.565%;
-    //height: 505px;
+    margin-right: 2.565%; 
 }
 
 .article-wrapper article {
@@ -34,17 +33,24 @@
     color: @article-description-color;
 }
 
-.article-wrapper article img {
-    margin-top: 30px;
-    width: 100%;
-    height: 180px;
-    opacity: 0.8;
+.article-wrapper article img {  
+    max-width: 100%;
+    max-height: 100%;
     -webkit-opacity: 0.8;
     -moz-opacity: 0.8;
-    transition: 0.5s ease;
     -webkit-transition: 0.5s ease;
     -moz-transition: 0.5s ease;
     cursor: pointer;
+    margin-left: auto;
+    overflow: auto;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin-right: auto;
+    display: block;
 }
 
 .article-wrapper article img:hover {
@@ -69,7 +75,7 @@
     line-height: 1.2;
     word-break: break-all;
 }
- 
+
 .btn--more {
     margin: 20px 0px 30px 30px;
     width: 133px;
@@ -82,6 +88,12 @@
     border-width: 1px;
     border-color: @article-header-color;
     background-color: @btn-background-color;
+}
+
+.articlePhoto {
+	height: 180px;
+	margin-top: 30px;
+	position: relative;
 }
 
 .btn--more:hover{
@@ -138,7 +150,7 @@ article h2:hover {
     color: @title-hover;
     cursor: pointer;
 }
-	
+
 .article-info__pill {
     display: inline-block;
     padding-left: 20px;
@@ -155,19 +167,21 @@ article h2:hover {
     margin-left: 30px;
 }
 
+
+
 .clearfix {
     clear: both;
 }
 
 .load-moreimg {
- 
-	text-align: left; 
+
+    text-align: left; 
     top: 50%;
     position: absolute;
     left: 20px;
     margin-top: -15px;
 
- 
+
 }
 
 .load-more {
@@ -189,8 +203,38 @@ article h2:hover {
 }
 
 .load-more:hover { 
-  background-color: #EBEAE8;
+    background-color: #EBEAE8;
 }
+@media only screen and (min-width: 1px) and (max-width: 599px) {
+    .load-more {
+        display: inline-block;
+        font-family: "Lato regular", "Lato";
+        font-size: 15px;
+        color: #e1632a;
+        border-style: solid;
+        border-width: 1px;
+        border-color: #e1632a;
+        background-color: #ffffff;
+        width: 109px;
+        height: 30px;
+        padding: 5px;
+        text-align: right;
+        position: relative;
+        outline:none;
+    }
+
+    .load-moreimg {
+        text-align: left; 
+        top: 50%;
+        position: absolute;
+        left: 1px;
+        margin-top: -14px;
+        width: 26px;
+        height: 26px;
+
+    }
+}
+
 
 /*.load-more:hover img {
     -webkit-animation-name: rotate;
