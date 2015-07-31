@@ -810,6 +810,7 @@ article img:hover{
   .latest__article .article__content {
     height: auto;
     position: static;
+    border-bottom: 1px solid #ccc;
   }
   .latest__article .article__content .article__informations .article__author.article_info {
     font-size: 13px;
@@ -861,6 +862,7 @@ article img:hover{
     position: absolute;
     height: auto;
     width: 100%;
+    border-bottom: 1px solid #ccc;
   }
   .latest__article .article__content .article__title {
     font-size: 18px;
