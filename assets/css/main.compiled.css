@@ -187,22 +187,22 @@ p {
   float: left;
   position: absolute;
   /* .btn.btn--more{
-            margin: 20px 0px 30px 30px;
-            height: 43px;
-            width: 133px;
-            text-align: center;
-            color: @btn-color;
-            font-size: 18px;
-            border: 1px solid @article-header-color;
-            background-color: @btn-background-color; 
-            font-family: 'Lato';
-        }
-
-         .btn.btn--more:hover{
-            color: @load-more-color;
-            border: 1px solid @load-more-color;
-            cursor: pointer;
-        }*/
+             margin: 20px 0px 30px 30px;
+             height: 43px;
+             width: 133px;
+             text-align: center;
+             color: @btn-color;
+             font-size: 18px;
+             border: 1px solid @article-header-color;
+             background-color: @btn-background-color; 
+             font-family: 'Lato';
+         }
+ 
+          .btn.btn--more:hover{
+             color: @load-more-color;
+             border: 1px solid @load-more-color;
+             cursor: pointer;
+         }*/
 }
 .latest__article .article__content .article__title {
   font-family: 'Lato-Black';
