@@ -41,8 +41,8 @@
         return true;
     };
 
+    /*Format the article date in this format: //dd mm yyyy*/
     utility.dateFormatter = function (date, hasYear) {
-        //dd mm yyyy
         var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
         date = date.split('-');
         if (hasYear) {
@@ -58,7 +58,7 @@
         }
         return fullName;
     };
-    /*MIO: please move this one in the article.js file and combine the functions into one.*/
+
     utility.populateArticleDetails = function(articleData, articleBody) {
         articleBody.html(articleData.content);
     };

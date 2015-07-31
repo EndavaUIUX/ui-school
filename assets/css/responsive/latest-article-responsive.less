@@ -123,14 +123,12 @@ and (max-width: 450px) {
     }
 
     .article__title{
-        font-family: 'Lato-Black';
-        font-size: 18px;
-        color: @article-header-color;
-        padding: 30px 30px 0px 30px;
-        height: 45px;
-    }
-
-
+            font-family: 'Lato-Black';
+            font-size: 18px;
+            color: @article-header-color;
+            padding: 30px 30px 0px 30px;
+            height: 45px;
+        }
 }
 
 @media all
@@ -178,9 +176,11 @@ and (max-width: 611px){
         }
     }
 }
+
 .latest__article:after {
     clear: both;
 }
+
 @media all
 and (min-width: 612px)
 and (max-width: 1024px) {
@@ -216,9 +216,9 @@ and (max-width: 1024px) {
                 color: #747474;
                 font-size: @pad-font-size;
                 border: 1px solid #515151;
-                background-color: #ffffff; 
+                background-color: #ffffff;
                 font-family: 'Lato';
-            }
+             }
         }
         .article_info{
             padding-bottom: 10px;
@@ -233,17 +233,12 @@ and (max-width: 1024px) {
 }
 
 @media all
-and (min-device-width: 1200px) 
-and (max-device-width: 1600px) {
+and (min-width: 1200px)
+  and (max-width: 1600px) {
     .latest__article{
         width: 100%;
         .article__content{
             width: 40%;
-            .article__informations{
-                .article__gallery{
-                    display: block;
-                }
-            }
         }
     }
     .btn--more{
@@ -254,7 +249,7 @@ and (max-device-width: 1600px) {
         color: #747474;
         font-size: 18px;
         border: 1px solid #515151;
-        background-color: #ffffff; 
+        background-color: #ffffff;
         font-family: 'Lato';
     }
 }
