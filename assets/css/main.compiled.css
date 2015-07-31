@@ -846,7 +846,7 @@ article img:hover{
     height: 45px;
   }
 }
-@media all and (min-width: 451px) and (max-width: 612px) {
+@media all and (min-width: 451px) and (max-width: 611px) {
   .latest__article {
     height: 550px;
     width: 100%;
