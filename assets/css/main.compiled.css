@@ -862,7 +862,6 @@ article img:hover{
     position: absolute;
     height: auto;
     width: 100%;
-    border-bottom: 1px solid #ccc;
   }
   .latest__article .article__content .article__title {
     font-size: 18px;
