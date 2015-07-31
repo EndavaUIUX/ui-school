@@ -55,7 +55,7 @@
     };
     
     function createRecentArticle(articleData, articleIndex) {
-        //TODO needs a simpler structure :(
+        //TODO needs a simpler structure
         var base = $('<article></article>').addClass('latest__article').attr('data-article-index', articleIndex),
                 articleContent = $('<div></div>').addClass('article__content'),
                 articleTitle = $('<h2></h2>').addClass('article__title').html(articleData.title),
@@ -92,6 +92,7 @@
         base.append(articleContent);
         articleVisibleImage.append(articleVisibleImgTag);
         base.append(articleVisibleImage);
+
         return base;
     }
     
@@ -131,7 +132,6 @@
         return text;
     }
 
-    
     articles.createArticle = function (articleData, articleIndex, isFullContent) {
         var base = $('<div></div>').addClass('article-wrapper'),
                 article = $('<article></article>').attr('data-article-index', articleIndex),
@@ -139,14 +139,14 @@
                 articleImage = $('<img>'),
                 articleContent = $('<div></div>').addClass('article__content'),
                 articleInfo = $('<div></div>').addClass('article-info'),
-                //div
-                articlePhoto = $('<div></div>').addClass('articlePhoto'),
+
+                articlePhoto = $('<div></div>').addClass('article__photo'),
                 articleText = $('<p>'),
                 articleAction = $('<button></button>').addClass('btn btn--more').html('Read More'),
                 articleAuthor = $('<span></span>').addClass('article-info__author article-info__pill').html(utility.nameFormatter(articleData.author, 1)),
                 articleDate = $('<span></span>').addClass('article-info__date article-info__pill').html(utility.dateFormatter(articleData.published)),
-                // articleGallery,
                  imageGalleryObj;
+
         imageGalleryObj = utility.imageSourceGenerator(articleData);
         articleImage.attr('src', imageGalleryObj.sources[0]);
         if (isFullContent) {
@@ -159,14 +159,7 @@
         articleInfo.append(articleDate);
         articleInfo.append(articlePhoto);
         articlePhoto.append(articleImage);
-        //append div to articleInfo
-//in div append article Image
 
-        // if (imageGalleryObj.hasGallery) {
-        //     articleGallery = $('<span></span>').addClass('article-info__gallery article-info__pill').html('Photo Gallery');
-        //     articleInfo.append(articleGallery);
-        // }
-        // articleInfo.append(articleImage);
         articleContent.append(articleInfo);
         article.append(articleTitle);
         article.append(articleContent);

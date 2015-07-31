@@ -26,9 +26,9 @@
             elementsObject = {titleContainer : titleContainer, infoAuthor : infoAuthor, infoDate : infoDate};
             viewMoreButton.append(icoViewMore);
 
-            if(currentArticle.hasGallery == true) {
+            if (currentArticle.hasGallery == true) {
                 var gallery;
-                currentArticle.sources.filter(function(item, index){
+                currentArticle.sources.filter(function(item, index) {
                     gallery = $("<img>").attr("src", item);
                     $(".article__gallery").append(gallery);
                     if(index != 0) gallery.addClass("hidden");

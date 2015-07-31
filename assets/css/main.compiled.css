@@ -166,7 +166,6 @@ p {
 .profile:hover {
   cursor: pointer;
 }
-/*MIO: To be replaced*/
 .slider {
   width: 100%;
   background: url('../images/slider.jpg') no-repeat;
@@ -186,23 +185,6 @@ p {
   height: 377px;
   float: left;
   position: absolute;
-  /* .btn.btn--more{
-            margin: 20px 0px 30px 30px;
-            height: 43px;
-            width: 133px;
-            text-align: center;
-            color: @btn-color;
-            font-size: 18px;
-            border: 1px solid @article-header-color;
-            background-color: @btn-background-color; 
-            font-family: 'Lato';
-        }
-
-         .btn.btn--more:hover{
-            color: @load-more-color;
-            border: 1px solid @load-more-color;
-            cursor: pointer;
-        }*/
 }
 .latest__article .article__content .article__title {
   font-family: 'Lato-Black';
@@ -385,7 +367,7 @@ p {
   border-color: #515151;
   background-color: #ffffff;
 }
-.articlePhoto {
+.article__photo {
   height: 180px;
   margin-top: 30px;
   position: relative;
@@ -444,7 +426,6 @@ article h2:hover {
   line-height: 1.2;
   font-family: 'Lato-Regular';
 }
-/*corect*/
 .article-info__pill:first-child {
   display: inline-block;
   padding-left: 20px;
@@ -1003,15 +984,12 @@ article img:hover{
     margin-top: 14px;
   }
 }
-@media all and (min-device-width: 1200px) and (max-device-width: 1600px) {
+@media all and (min-width: 1200px) and (max-width: 1600px) {
   .latest__article {
     width: 100%;
   }
   .latest__article .article__content {
     width: 40%;
-  }
-  .latest__article .article__content .article__informations .article__gallery {
-    display: block;
   }
   .btn--more {
     margin: 10px 0px 30px 30px;
@@ -1025,7 +1003,6 @@ article img:hover{
     font-family: 'Lato';
   }
 }
-/******************************/
 .article__content--full {
   height: auto;
   font-family: 'Lato';
@@ -1189,7 +1166,6 @@ article img:hover{
     font-size: 13px;
   }
 }
-/*MIO: to be replaced*/
 footer {
   width: 100%;
   height: 110px;

@@ -35,7 +35,6 @@
     loadMore.on('click', function (ev) {
         var page = $(this).data('page');
         //salvam index-ul paginii pe care vrem sa-l incarcam. Asta inseamna ca daca am nevoie de pagina x, o sa fie foarte usor sa o incarc.
-        //TODO, daca ai mai putin de 7 articole pe prima pagina, load more-ul o sa ramane vizibil.
         THUNDERSTORM.modules.articles.generateArticles(THUNDERSTORM.modules.articles.pages[page], articlesParent, false);
         page = page + 1;
         toggleLoadMore(page);
