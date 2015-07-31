@@ -366,6 +366,7 @@ p {
   border-width: 1px;
   border-color: #515151;
   background-color: #ffffff;
+  outline: none;
 }
 .article__photo {
   height: 180px;
