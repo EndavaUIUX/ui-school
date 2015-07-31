@@ -19,7 +19,7 @@
 
     utility.imageSourceGenerator = function (articleData) {
         var imageSourceObj = {},
-                index;
+            index;
         imageSourceObj.sources = [];
         if (articleData.gallery.length > 0) {
             imageSourceObj.hasGallery = true;
@@ -70,12 +70,13 @@
     };
 
     utility.validateURL =  function(url, articles) {
-        if(url.indexOf("?") === -1 || url.split("?")[1] === "" || url.split("?")[1] >= articles.length || url.split("?")[1] < 0){
-
-            return false;
+        var articleNumber = url.split("?")[1];
+        if(url.indexOf("?") === -1 || articleNumber === "" || articleNumber >= articles.length || articleNumber < 0){
+            window.location.href="/";
+            return 0;
         }
 
-        return true;
+        return articleNumber;
     };
 
     THUNDERSTORM.modules.utility = utility;
