@@ -118,10 +118,20 @@
         return pages;
     }
     
+    function reduceText(text) {
+      
+    }
+    
     function clipText(description, clipLimit){
         var text;
         if (description.length > clipLimit) {
             text = description.substr(0, clipLimit);
+            for (var i = text.length; i > 0; i = i - 1) {
+                if (text[i] === " ") {
+                    text = text.substr(0, i);
+                    break;
+                }
+            }
             text = text.split(' ');
             text[text.length] = " . . .";
             text = text.join(' ');
@@ -152,7 +162,7 @@
         if (isFullContent) {
             articleText.html(articleData.content);
         } else {
-            articleText.html(clipText(articleData.description, 130));
+            articleText.html(clipText(articleData.description, 120));
         }
         /*append the elements*/
         articleInfo.append(articleAuthor);
