@@ -70,12 +70,6 @@ code{
   height:auto;
 }
 
-/*
-@media only screen and (min-width:610px) and (max-width: 1000px){
-  .article__body img{
-    width:600px;
-  }
-}*/
 @media only screen and (max-width: 599px){
  table{
   display:none;
