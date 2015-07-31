@@ -75,7 +75,6 @@
             window.location.href="/";
             return 0;
         }
-
         return articleNumber;
     };
 
