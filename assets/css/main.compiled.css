@@ -901,6 +901,9 @@ article img:hover{
     border: 1px solid #515151;
     background-color: #ffffff;
     font-family: 'Lato';
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
   }
   .latest__article .article__content .btn--more:hover {
     color: #e1632a;
