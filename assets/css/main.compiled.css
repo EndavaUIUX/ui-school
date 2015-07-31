@@ -923,6 +923,10 @@ article img:hover{
   .latest__article {
     height: 550px;
     width: 100%;
+    border-left: none;
+    box-shadow: none;
+    border-right: none;
+    border-top: none;
   }
   .latest__article .article__content {
     width: 100%;
