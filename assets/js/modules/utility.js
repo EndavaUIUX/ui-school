@@ -77,6 +77,8 @@
         return true;
     };
 
+
+    
     THUNDERSTORM.modules.utility = utility;
 
 }(window, window.THUNDERSTORM, window.jQuery));
