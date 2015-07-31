@@ -897,6 +897,11 @@ article img:hover{
     background-color: #ffffff;
     font-family: 'Lato';
   }
+  .latest__article .article__content .btn--more:hover {
+    color: #e1632a;
+    border: 1px solid #e1632a;
+    cursor: pointer;
+  }
   .main {
     position: relative;
   }
