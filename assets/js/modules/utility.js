@@ -19,7 +19,7 @@
 
     utility.imageSourceGenerator = function (articleData) {
         var imageSourceObj = {},
-                index;
+            index;
         imageSourceObj.sources = [];
         if (articleData.gallery.length > 0) {
             imageSourceObj.hasGallery = true;
@@ -50,7 +50,7 @@
         }
         return months[parseInt(date[1], 10)] + " " + parseInt(date[0]) + nth(date[0]);
     };
-    
+
     utility.nameFormatter = function (name, stripLast) {
         var fullName = name.split(' ');
         if (stripLast) {
@@ -68,13 +68,15 @@
         elementsObject.infoAuthor.html(utility.nameFormatter(articleContent.author, 1));
         elementsObject.infoDate.html(utility.dateFormatter(articleContent.published, 1));
     };
-    
+
     utility.validateURL =  function(url, articles) {
-        if(url.indexOf("?") === -1 || url.split("?")[1] === "" || url.split("?")[1] >= articles.length || url.split("?")[1] < 0){
-            return false;
+        var articleNumber = url.split("?")[1];
+        if(url.indexOf("?") === -1 || articleNumber === "" || articleNumber >= articles.length || articleNumber < 0){
+            window.location.href="/";
+            return 0;
         }
 
-        return true;
+        return articleNumber;
     };
 
     THUNDERSTORM.modules.utility = utility;
