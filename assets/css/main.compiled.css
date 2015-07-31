@@ -114,7 +114,6 @@ p {
 }
 .content {
   width: 1170px;
-  max-width: 100%;
   margin: 0px auto;
   height: auto;
   margin-bottom: 70px;
@@ -186,26 +185,6 @@ p {
   height: 377px;
   float: left;
   position: absolute;
-<<<<<<< HEAD
-=======
-  /* .btn.btn--more{
-             margin: 20px 0px 30px 30px;
-             height: 43px;
-             width: 133px;
-             text-align: center;
-             color: @btn-color;
-             font-size: 18px;
-             border: 1px solid @article-header-color;
-             background-color: @btn-background-color; 
-             font-family: 'Lato';
-         }
- 
-          .btn.btn--more:hover{
-             color: @load-more-color;
-             border: 1px solid @load-more-color;
-             cursor: pointer;
-         }*/
->>>>>>> 212ba09645905754937831f7d36949dc9cd02e05
 }
 .latest__article .article__content .article__title {
   font-family: 'Lato-Black';
@@ -373,7 +352,7 @@ p {
   overflow: hidden;
   height: 55px;
   line-height: 1.2;
-  word-break: break-all;
+  word-break: break-word;
 }
 .btn--more {
   margin: 20px 0px 30px 30px;
@@ -434,7 +413,7 @@ article h2 {
   overflow: hidden;
   margin-bottom: 25px;
   font-family: 'Lato-Black';
-  word-break: break-all;
+  word-break: break-word;
 }
 article h2:hover {
   color: #e1632a;
@@ -509,44 +488,6 @@ article h2:hover {
     height: 26px;
   }
 }
-/*.load-more:hover img {
-    -webkit-animation-name: rotate;
-    -webkit-animation-duration: 2s;
-    -webkit-animation-iteration-count: infinite;
-    -webkit-animation-timing-function: linear;
-    -moz-animation-name: rotate;
-    -moz-animation-duration: 2s;
-    -moz-animation-iteration-count: infinite;
-    -moz-animation-timing-function: linear;
-}
-
-article img:hover{
-    cursor:pointer;
-}
-
-@-webkit-keyframes rotate {
-    from {
-        -webkit-transform: rotate(0deg);     
-        transition:All 1s ease;
-        -webkit-transition:All 1s ease;
-        -moz-transition:All 1s ease;
-        -o-transition:All 1s ease;
-        transform: rotate(0deg);
-        -webkit-transform: rotate(0deg);
-        -moz-transform: rotate(0deg);
-        -ms-transform: rotate(0deg);  
-    }
-    to {
-        -webkit-transform: rotate(360deg);
-        transform: rotate(360deg);
-        -webkit-transform: rotate(360deg);
-        -moz-transform: rotate(360deg);
-        -o-transform: rotate(360deg);
-        -ms-transform: rotate(360deg);
-    }
-};
-
-*/
 @media only screen and (min-width: 1180px) {
   .article-wrapper:nth-of-type(3n+3) {
     margin-right: 0;
@@ -911,6 +852,9 @@ article img:hover{
     border: 1px solid #515151;
     background-color: #ffffff;
     font-family: 'Lato';
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
   }
   .latest__article .article__content .btn--more:hover {
     color: #e1632a;
