@@ -3,7 +3,7 @@ THUNDERSTORM = THUNDERSTORM || {};
 THUNDERSTORM.modules.ajaxCallback = (function() {
 	var errorHandler = function() {
 		console.log('REQUEST ERROR');
-	}
+	};
 
 	var testFct = function(response) {
 	    var returnData = "";
@@ -14,7 +14,7 @@ THUNDERSTORM.modules.ajaxCallback = (function() {
 	        }
 	    } 
 	    return returnData;
-	}
+	};
 
 	return {
 		errorHandler : errorHandler,

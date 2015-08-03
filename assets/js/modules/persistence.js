@@ -49,8 +49,7 @@
         }
         return dataFromLs;
     };
-
-    //MIO: Asta, precum si put, delete, trebuie terminate cand ne mai ramane timp.
+    
     API.delete = function () {
 
     };

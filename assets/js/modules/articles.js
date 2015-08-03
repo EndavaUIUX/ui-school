@@ -30,6 +30,9 @@
                 articles.pages = pagination(articles.data[key]);
                 articles.generateArticles(articles.pages[0], options.articlesParent);
             }
+            if(options.callback) {
+                options.callback();
+            }
         } else {
             THUNDERSTORM.modules.API.get({
                 url: 'rest/articles',
@@ -39,6 +42,9 @@
                         sourceName: key
                     });
                     articles.data  = persistence.get(options);
+                    if(options.callback) {
+                        options.callback();
+                    }
                     if (options.shouldGenerate) {
                         articles.pages = pagination(articles.data[key]);
                         articles.generateArticles(articles.pages[0], options.articlesParent);
@@ -49,7 +55,7 @@
     };
     
     function createRecentArticle(articleData, articleIndex) {
-        //TODO needs a simpler structure :(
+        //TODO needs a simpler structure
         var base = $('<article></article>').addClass('latest__article').attr('data-article-index', articleIndex),
                 articleContent = $('<div></div>').addClass('article__content'),
                 articleTitle = $('<h2></h2>').addClass('article__title').html(articleData.title),
@@ -86,6 +92,7 @@
         base.append(articleContent);
         articleVisibleImage.append(articleVisibleImgTag);
         base.append(articleVisibleImage);
+
         return base;
     }
     
@@ -111,11 +118,20 @@
         return pages;
     }
     
-
+    function reduceText(text) {
+      
+    }
+    
     function clipText(description, clipLimit) {
         var text;
         if (description.length > clipLimit) {
             text = description.substr(0, clipLimit);
+            for (var i = text.length; i > 0; i = i - 1) {
+                if (text[i] === " ") {
+                    text = text.substr(0, i);
+                    break;
+                }
+            }
             text = text.split(' ');
             text[text.length] = " . . .";
             text = text.join(' ');
@@ -124,9 +140,7 @@
             text = description.substr(0, clipLimit);
         }
         return text;
-
     }
-        
     
     articles.createArticle = function (articleData, articleIndex, isFullContent) {
         var base = $('<div></div>').addClass('article-wrapper'),
@@ -135,34 +149,27 @@
                 articleImage = $('<img>'),
                 articleContent = $('<div></div>').addClass('article__content'),
                 articleInfo = $('<div></div>').addClass('article-info'),
-                //div
-                articlePhoto = $('<div></div>').addClass('articlePhoto'),
+
+                articlePhoto = $('<div></div>').addClass('article__photo'),
                 articleText = $('<p>'),
                 articleAction = $('<button></button>').addClass('btn btn--more').html('Read More'),
                 articleAuthor = $('<span></span>').addClass('article-info__author article-info__pill').html(utility.nameFormatter(articleData.author, 1)),
                 articleDate = $('<span></span>').addClass('article-info__date article-info__pill').html(utility.dateFormatter(articleData.published)),
-                // articleGallery,
                  imageGalleryObj;
+
         imageGalleryObj = utility.imageSourceGenerator(articleData);
         articleImage.attr('src', imageGalleryObj.sources[0]);
         if (isFullContent) {
             articleText.html(articleData.content);
         } else {
-            articleText.html(clipText(articleData.description, 130));
+            articleText.html(clipText(articleData.description, 120));
         }
         /*append the elements*/
         articleInfo.append(articleAuthor);
         articleInfo.append(articleDate);
         articleInfo.append(articlePhoto);
         articlePhoto.append(articleImage);
-        //append div to articleInfo
-//in div append article Image
 
-        // if (imageGalleryObj.hasGallery) {
-        //     articleGallery = $('<span></span>').addClass('article-info__gallery article-info__pill').html('Photo Gallery');
-        //     articleInfo.append(articleGallery);
-        // }
-        // articleInfo.append(articleImage);
         articleContent.append(articleInfo);
         article.append(articleTitle);
         article.append(articleContent);
