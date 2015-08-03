@@ -784,18 +784,13 @@ article img:hover{
                 cursor: pointer;
             }*/
 }
-@media all and (min-width: 1px) and (max-width: 298px) {
+@media all and (max-width: 298px) {
   .latest__article {
-    height: 507px;
-    box-shadow: none;
-    border-top: none;
-    border-left: none;
-    border-right: none;
+    height: auto;
   }
   .latest__article .article__content {
     height: auto;
     position: static;
-    border-bottom: 1px solid #ccc;
   }
   .latest__article .article__content .article__informations .article__author.article_info {
     font-size: 13px;
@@ -829,10 +824,6 @@ article img:hover{
   .latest__article {
     width: 100%;
     height: 507px;
-    box-shadow: none;
-    border-top: none;
-    border-left: none;
-    border-right: none;
   }
   .latest__article .article__img {
     display: none;
@@ -908,10 +899,6 @@ article img:hover{
   .latest__article {
     height: 550px;
     width: 100%;
-    border-left: none;
-    box-shadow: none;
-    border-right: none;
-    border-top: none;
   }
   .latest__article .article__content {
     width: 100%;
