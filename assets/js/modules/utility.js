@@ -77,7 +77,6 @@
         return true;
     };
 
-
      // ACCEPT LETTERS / NUMBERS / : / & / - / LENGTH MORE THAN 0
     utility.validateInput = function(inputValue, errorElement) {
             var regex = new RegExp("^[a-zA-Z0-9-& ]+$");
@@ -89,22 +88,18 @@
                 return false;
             }
             return true;
-        
     };
 
     utility.cleanErrors = function(element) {
         element.removeClass('errorSearch');
         element.addClass('hideError');
     }
-
-
     
     $('.searchButton').click(function(e) {
         var inputValue = $('#search')[0].value,
             $errorElement = $('.search p');
         console.log(inputValue);
         utility.validateInput(inputValue, $errorElement);
-
     });  
 
 
@@ -113,15 +108,6 @@
             $('.searchButton').click(); 
         }
     });
-
-
-
-
-
-
-
-    //utility.validateSearch();
-
 
     THUNDERSTORM.modules.utility = utility;
 
