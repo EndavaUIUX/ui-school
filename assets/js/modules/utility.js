@@ -78,8 +78,17 @@
         return articleNumber;
     };
 
+    utility.showModal = function ($modalSelector) {
+        var $overlay = $('.overlay');
+        $overlay.fadeIn();
+        $modalSelector.fadeIn();
+    }
+    utility.dismissModal = function ($modalSelector) {
+        var $overlay = $('.overlay');
+        $overlay.fadeOut();
+        $modalSelector.fadeOut();      
+    }
 
-    
     THUNDERSTORM.modules.utility = utility;
 
 }(window, window.THUNDERSTORM, window.jQuery));
