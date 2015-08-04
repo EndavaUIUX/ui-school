@@ -155,50 +155,51 @@
   z-index: 99;
   .modal{
     background-color: #fff;
-    border: 2px solid #fff;
-    max-width: 70%;
-    margin: 0px auto;
-    top: 50%;
-    position: fixed;
-    margin-top: -350px;
+    border: 1px solid #fff;
     left: 0;
+    margin: 0 auto;
+    max-height: 800px;
+    max-width: 70%;
+    min-height: 150px;
+    position: relative;
     right: 0;
+    top: 15%;
     ul{
       list-style-type: none;
       margin: 0px;
       padding: 0px;
       
     }
-    &__close{
+
+    .modal-control{
+      display: block;
+      position: absolute;
+      background-color: rgba(128, 128, 128, 0.2);
+      z-index:5;
+      height: 78px;
+      width: 54px;
+      top: 50%;
+      margin-top: -39px;
+    }
+
+    &__close.modal-control{
       height: 54px;
       width: 54px;
-      background: url('../images/gallery/close-btn.png') no-repeat top left;
-      display: block;
-      right: 10px;
-      top: 10px;
-      position: absolute;
-    }
-    &__prev{
-      height: 78px;
-      width: 58px;
-      background: url('../images/gallery/prev-btn.png') no-repeat top left;
-      display: block;
-      left: 15px;
-      top: 50%;
-      margin-top: -39px;
-      position: absolute;
-      background-color: rgba(128, 128, 128, 0.35);
-    }
-    &__next{
-      height: 78px;
-      width: 58px;
-      background: url('../images/gallery/next-btn.png') no-repeat top left;
-      display: block;
+      background:rgba(128, 128, 128, 0.2) url('../images/gallery/close-btn.png') no-repeat top left;
       right: 15px;
-      top: 50%;
+      top: 10px;
+      margin-top: 0;
+    }
+    
+    &__prev{
+      background: url('../images/gallery/prev-btn.png') no-repeat -3px 0px;
+      left: 15px;
+    }
+
+    &__next{
+      background: url('../images/gallery/next-btn.png') no-repeat top left;
+      right: 15px;
       margin-top: -39px;
-      position: absolute;
-      background-color: rgba(128, 128, 128, 0.35);
     }
     &__source{
       position: absolute;
@@ -209,6 +210,9 @@
       display: inline-block;
       text-decoration: none;
       color: #828282;
+      &:hover{
+        text-decoration: underline;
+      }
     }
     &__images{
       .active{
@@ -217,15 +221,12 @@
           max-height: 100%;
           min-height: 150px;
           position: relative;
-          z-index: -1;
           left: 0;
           right: 0;
           margin: 0px auto;
           display: block;
-          
         }
       }
-
     }/*\&__images*/
   }/*\ .modal*/
 
@@ -233,7 +234,7 @@
     display:block;
   }
 
-  .modal--open{
-    display:block;
+  .modal--closed{
+    display:none;
   }
-}
+}/*\ .overlay*/
