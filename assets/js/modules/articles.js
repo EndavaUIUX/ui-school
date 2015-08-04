@@ -119,7 +119,16 @@
     }
     
     function reduceText(text) {
-      
+        var windowWidth = $(window).width();
+        if (windowWidth < 400) {
+            clipText(articleData.title, );
+        }
+
+        /*
+            if (window.mathMedia('screen and (max-width: 320px)').matches) {
+                clipText(articleData.title, 116);
+            }
+        */
     }
     
     function clipText(description, clipLimit) {
@@ -141,7 +150,7 @@
         }
         return text;
     }
-    
+
     articles.createArticle = function (articleData, articleIndex, isFullContent) {
         var base = $('<div></div>').addClass('article-wrapper'),
                 article = $('<article></article>').attr('data-article-index', articleIndex),

@@ -238,7 +238,7 @@ p {
   line-height: 1.2;
   height: 126px;
   overflow: hidden;
-  word-break: break-all;
+  word-break: break-word;
 }
 .latest__article .article__img {
   height: 377px;
@@ -554,7 +554,7 @@ article h2:hover {
     overflow: hidden;
     height: 30px;
     line-height: 1.2;
-    word-break: break-all;
+    word-break: break-word;
   }
   .article-wrapper article:after {
     clear: both;
