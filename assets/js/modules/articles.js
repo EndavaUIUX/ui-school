@@ -124,6 +124,7 @@
     }
     
     /*
+
     (function reduceText(text) {
         var windowWidth = $(window).width();
         console.log(windowWidth);
@@ -132,6 +133,7 @@
             clipText(text, 116);
         }
     }) ();
+    
     */
 
     function clipText(description, clipLimit) {

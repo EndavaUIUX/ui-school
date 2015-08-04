@@ -953,7 +953,7 @@ article h2:hover {
   padding: 0px 20px 20px 0px;
 }
 .article__content--full .article-informations .article-informations__author {
-  background: url("../images/ico/user%20-%20single.png") no-repeat no-repeat;
+  background: url("../images/ico/user.png") no-repeat left;
   padding-left: 20px;
   padding-right: 15px;
   display: inline-block;
@@ -962,7 +962,7 @@ article h2:hover {
   color: #b1b1b1;
 }
 .article__content--full .article-informations .article-informations__date {
-  background: url("../images/ico/calendar.png") no-repeat no-repeat;
+  background: url("../images/ico/calendar.png") no-repeat left;
   padding-left: 20px;
   padding-right: 15px;
   display: inline-block;
