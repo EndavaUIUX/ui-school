@@ -183,6 +183,8 @@
             parent.append(myArticle);
         }
     };
+
+
     THUNDERSTORM.modules.articles = articles;
 
 }(window, window.THUNDERSTORM));
