@@ -13,19 +13,14 @@
     var key = 'articles';
     var listOfAccessedArticles = [];
 
-    THUNDERSTORM.modules.articles.init({sourceName : key, articlesParent : articlesParent, shouldGenerate : true});  
+    THUNDERSTORM.modules.articles.mostRecentArticles = {};
+    THUNDERSTORM.modules.articles.init({sourceName : key, articlesParent : articlesParent, shouldGenerate : true});
 
 /* ==========================================================================
    Event listeners
    ========================================================================== */
 
-     function countArticlesAccessed() {
-        var init = 0;
-
-         return function () {
-             init = init + 1;
-         };
-    }
+    //update la THUNDERSTORM.modules.articles.mostRecent
 
     articlesParent.on('click', articleClickTriggers, function (ev) {
         ev.stopPropagation();
@@ -35,31 +30,74 @@
 
         var localStorageArticlesAccessed = persistence.get("latestArticlesAccessed");
 
+        var found = false;
         if (localStorageArticlesAccessed.length > 0) {
+            for (var i = 0; i < localStorageArticlesAccessed.length; i++){
+                if (localStorageArticlesAccessed[i].articleIndex === articleIndex) {
+                    localStorageArticlesAccessed[i].count += 1;
 
-            localStorageArticlesAccessed.push({
-                articleIndex: articleIndex,
-                count: countArticlesAccessed()
-            });
+                    THUNDERSTORM.modules.articles.mostRecentArticles["latestArticlesAccessed"] = localStorageArticlesAccessed;
 
-            persistence.set({
-                data: localStorageArticlesAccessed,
-                sourceName: "latestArticlesAccessed"
-            });
+                    persistence.set({
+                        data: localStorageArticlesAccessed,
+                        sourceName: "latestArticlesAccessed"
+                    });
+
+                    found = true;
+                    break;
+                }
+            }
+
+            if (found === false) {
+                localStorageArticlesAccessed.push({
+                    articleIndex: articleIndex,
+                    count: 1
+                });
+
+                THUNDERSTORM.modules.articles.mostRecentArticles["latestArticlesAccessed"] = localStorageArticlesAccessed;
+
+                persistence.set({
+                    data: localStorageArticlesAccessed,
+                    sourceName: "latestArticlesAccessed"
+                });
+            }
 
         } else {
             persistence.set({
                 data: [{
                     articleIndex: articleIndex,
-                    count: countArticlesAccessed()
+                    count: 1
                 }],
                 sourceName: "latestArticlesAccessed"
             })
         }
 
+        
+        sortArticlesAccessed(localStorageArticlesAccessed);
+
         //the actual redirect
         window.location.href = "/article?" + articleIndex;
+
     });
+
+    function sortArticlesAccessed (latestArticlesAccessed) {
+           var temp,
+            found;
+
+        do {
+            found = false;
+            for(var index = 0; index < latestArticlesAccessed.length - 1; index++) {
+                if(latestArticlesAccessed[index].count < latestArticlesAccessed[index + 1].count) {
+                    temp = latestArticlesAccessed[index].count;
+                    latestArticlesAccessed[index].count = latestArticlesAccessed[index + 1].count;
+                    latestArticlesAccessed[index + 1].count = temp;
+                    found = true;
+                }
+            }
+        } while(found);
+
+        return latestArticlesAccessed;
+    }
 
     function toggleLoadMore(page) {
         if (page < Object.keys(THUNDERSTORM.modules.articles.pages).length) {

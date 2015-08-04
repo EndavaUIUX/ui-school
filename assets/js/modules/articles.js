@@ -6,6 +6,7 @@
     articles.moduleName = "articles";
     
     articles.data = {};
+
     /* ==========================================================================
      function init()
      Verifica daca exista cheia articles in local storage. Daca da, preia datele
