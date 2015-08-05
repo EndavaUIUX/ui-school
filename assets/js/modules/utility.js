@@ -109,6 +109,35 @@
         }
     });
 
+    //function get domain from url
+    utility.takeDomainUrl = function (url) {
+        var domain = "";
+        var page = ""; 
+
+        if (url.indexOf("http://") == 0) {
+            url = url.substr(7);
+        } 
+
+        if (url.indexOf("https://") == 0) {
+            url = url.substr(8);
+        } 
+
+        if (url.indexOf("www.") == 0) {
+            url = url.substr(4);
+        }
+
+        domain = url.split('/')[0].split('.')[0]
+        if (url.split('/').length > 1) {
+            page = url.split('/')[1].split('.')[0];
+        }
+
+        document.write(domain);
+    }
+
+
+
+
+
     THUNDERSTORM.modules.utility = utility;
 
 }(window, window.THUNDERSTORM, window.jQuery));
