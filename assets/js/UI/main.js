@@ -12,7 +12,7 @@
     var loadMore = $('.load-more');
     var key = 'articles';
     
-    THUNDERSTORM.modules.articles.init({sourceName : key, articlesParent : articlesParent, shouldGenerate : true});  
+    THUNDERSTORM.modules.articles.init({sourceName : key, articlesParent : articlesParent, shouldGenerate : true, isMainPage : true});
 
 /* ==========================================================================
    Event listeners

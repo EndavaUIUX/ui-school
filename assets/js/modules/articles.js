@@ -27,8 +27,8 @@
         if (utility.keyInLocalStorage(key)) {
             articles.data = persistence.get(options);
             if (options.shouldGenerate) {
-                articles.pages = pagination(articles.data[key]);
-                articles.generateArticles(articles.pages[0], options.articlesParent);
+                articles.pages = pagination(articles.data[key], options.itemsPerPage);
+                articles.generateArticles(articles.pages[0], options.articlesParent, options.isMainPage);
             }
             if(options.callback) {
                 options.callback();
@@ -45,13 +45,26 @@
                     if(options.callback) {
                         options.callback();
                     }
-                    if (options.shouldGenerate) {
+                    if (options.shouldGenerate) {                        d
                         articles.pages = pagination(articles.data[key]);
                         articles.generateArticles(articles.pages[0], options.articlesParent);
                     } 
                 }
             });
         }
+    };
+
+    articles.filterArticles = function(options){
+        var searchedArticles = [];
+       articles.data = persistence.get(options)['articles'];
+       for(var i = 0, len = articles.data.length; i < len; i++){
+           if(articles.data[i]["title"].toLowerCase().indexOf(options.searchedWord) > -1){
+               searchedArticles.push(articles.data[i]);
+           }
+       }
+        articles.pages = pagination( searchedArticles, options.itemsPerPage);
+        articles.generateArticles(articles.pages[0], options.articlesParent);
+
     };
     
     function createRecentArticle(articleData, articleIndex) {
@@ -96,10 +109,10 @@
         return base;
     }
     
-    function pagination(data) {
+    function pagination(data, param) {
         var pages = {},
           pageNr = 0,
-          itemsPerPage = 7;
+          itemsPerPage =  param || 7;
         data.filter(function (item, index) {
             if (!pages[pageNr]) {
                 pages[pageNr] = [];
@@ -179,12 +192,12 @@
         return base;
     };
 
-    articles.generateArticles = function (data, parent) {
+    articles.generateArticles = function (data, parent, isMainPage) {
         var myArticle,
             recentGenerated = false,
             i;
         for (i = 0; i < data.length; i = i + 1) {
-            if (data.length === 7 && recentGenerated === false) {
+            if (data.length === 7 && recentGenerated === false && isMainPage === true) {
                 myArticle = createRecentArticle(data[i], i);
                 recentGenerated = true;
             } else {
