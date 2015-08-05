@@ -89,6 +89,58 @@
         $modalSelector.fadeOut();      
     }
 
+
+     // ACCEPT LETTERS / NUMBERS / : / & / - / LENGTH MORE THAN 0
+    utility.validateInput = function(inputValue, errorElement) {
+            var regex = new RegExp("^[a-zA-Z0-9-& ]+$");
+
+            utility.cleanErrors(errorElement);
+            if (inputValue.length === 0 || !regex.test(inputValue)) {
+                errorElement.removeClass('hideError');
+                errorElement.addClass('errorSearch');
+                return false;
+            }
+            return true;
+    };
+
+    utility.cleanErrors = function(element) {
+        element.removeClass('errorSearch');
+        element.addClass('hideError');
+    };
+
+    //function get domain from url
+    utility.takeDomainUrl = function (url) {
+        var domain = "";
+        var page = ""; 
+
+        if (url.indexOf("http://") == 0) {
+            url = url.substr(7);
+        } 
+
+        if (url.indexOf("https://") == 0) {
+            url = url.substr(8);
+        } 
+
+        if (url.indexOf("www.") == 0) {
+            url = url.substr(4);
+        }
+
+        return url.split('/')[0];
+
+    }
+    
+    utility.iterateGalleryPhotos = function(article) {
+        var galleryImages = [],
+            indexURL =  [], 
+            galleryImages = article['gallery'];
+
+       for(var j = 0, leng = galleryImages.length; j < leng; j++) {
+            indexURL.push(utility.takeDomainUrl(galleryImages[j]));
+       }
+
+       return indexURL;
+    };
+
     THUNDERSTORM.modules.utility = utility;
 
 }(window, window.THUNDERSTORM, window.jQuery));

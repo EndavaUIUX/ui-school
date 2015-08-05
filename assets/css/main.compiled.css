@@ -114,7 +114,7 @@ p {
 }
 .content {
   width: 1170px;
-  margin: 0px auto;
+  margin: 80px auto;
   height: auto;
   margin-bottom: 70px;
 }
@@ -1479,4 +1479,11 @@ footer {
   margin: 0 auto;
   background: url('../images/footer.jpg') no-repeat;
   background-size: 100% auto;
+}
+.errorSearch {
+  display: inline-block;
+  color: red;
+}
+.hideError {
+  display: none;
 }
