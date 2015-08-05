@@ -6,20 +6,20 @@
         if (d > 3 && d < 21)
             return 'th';
         switch (d % 10) {
-            case 1:
-                return "st";
-            case 2:
-                return "nd";
-            case 3:
-                return "rd";
-            default:
-                return "th";
+        case 1:
+            return "st";
+        case 2:
+            return "nd";
+        case 3:
+            return "rd";
+        default:
+            return "th";
         }
     }
 
     utility.imageSourceGenerator = function (articleData) {
         var imageSourceObj = {},
-                index;
+            index;
         imageSourceObj.sources = [];
         if (articleData.gallery.length > 0) {
             imageSourceObj.hasGallery = true;
@@ -41,16 +41,16 @@
         return true;
     };
 
+    /*Format the article date in this format: //dd mm yyyy*/
     utility.dateFormatter = function (date, hasYear) {
-        //dd mm yyyy
         var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
         date = date.split('-');
         if (hasYear) {
-            return months[parseInt(date[1], 10)] + " " + parseInt(date[0]) + nth(date[0]) + ", " + date[2];
+            return months[parseInt(date[1], 10)] + " " + parseInt(date[0], 10) + nth(date[0]) + ", " + date[2];
         }
-        return months[parseInt(date[1], 10)] + " " + parseInt(date[0]) + nth(date[0]);
+        return months[parseInt(date[1], 10)] + " " + parseInt(date[0], 10) + nth(date[0]);
     };
-    
+
     utility.nameFormatter = function (name, stripLast) {
         var fullName = name.split(' ');
         if (stripLast) {
@@ -58,25 +58,38 @@
         }
         return fullName;
     };
-    /*MIO: please move this one in the article.js file and combine the functions into one.*/
-    utility.populateArticleDetails = function(articleData, articleBody) {
+
+    utility.populateArticleDetails = function (articleData, articleBody) {
         articleBody.html(articleData.content);
     };
 
-    utility.populateArticleTitle = function(elementsObject, articleContent) {
+    utility.populateArticleTitle = function (elementsObject, articleContent) {
         elementsObject.titleContainer.html(articleContent.title);
         elementsObject.infoAuthor.html(utility.nameFormatter(articleContent.author, 1));
         elementsObject.infoDate.html(utility.dateFormatter(articleContent.published, 1));
     };
-    
-    utility.validateURL =  function(url, articles) {
-        if(url.indexOf("?") === -1 || url.split("?")[1] === "" || url.split("?")[1] >= articles.length || url.split("?")[1] < 0){
-            return false;
-        }
 
-        return true;
+    utility.validateURL =  function (url, articles) {
+        var articleNumber = url.split("?")[1];
+        if (url.indexOf("?") === -1 || articleNumber === "" || articleNumber >= articles.length || articleNumber < 0) {
+            window.location.href = "/";
+            return 0;
+        }
+        return articleNumber;
     };
 
+    utility.showModal = function ($modalSelector) {
+        var $overlay = $('.overlay');
+        $overlay.fadeIn();
+        $modalSelector.fadeIn();
+    }
+    utility.dismissModal = function ($modalSelector) {
+        var $overlay = $('.overlay');
+        $overlay.fadeOut();
+        $modalSelector.fadeOut();      
+    }
+
+    
      // ACCEPT LETTERS / NUMBERS / : / & / - / LENGTH MORE THAN 0
     utility.validateInput = function(inputValue, errorElement) {
             var regex = new RegExp("^[a-zA-Z0-9-& ]+$");
@@ -133,10 +146,6 @@
 
         document.write(domain);
     }
-
-
-
-
 
     THUNDERSTORM.modules.utility = utility;
 
