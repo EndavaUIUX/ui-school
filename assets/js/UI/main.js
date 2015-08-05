@@ -29,6 +29,7 @@
         listOfAccessedArticles.push(articleIndex);
 
         var localStorageArticlesAccessed = persistence.get("latestArticlesAccessed");
+        //var localStorageArticlesAccessed = THUNDERSTORM.modules.articles.mostRecentArticles["latestArticlesAccessed"];
 
         var found = false;
         if (localStorageArticlesAccessed.length > 0) {
@@ -36,7 +37,7 @@
                 if (localStorageArticlesAccessed[i].articleIndex === articleIndex) {
                     localStorageArticlesAccessed[i].count += 1;
 
-                    THUNDERSTORM.modules.articles.mostRecentArticles["latestArticlesAccessed"] = localStorageArticlesAccessed;
+                //    THUNDERSTORM.modules.articles.mostRecentArticles["latestArticlesAccessed"] = localStorageArticlesAccessed;
 
                     persistence.set({
                         data: localStorageArticlesAccessed,
@@ -54,7 +55,7 @@
                     count: 1
                 });
 
-                THUNDERSTORM.modules.articles.mostRecentArticles["latestArticlesAccessed"] = localStorageArticlesAccessed;
+             //   THUNDERSTORM.modules.articles.mostRecentArticles["latestArticlesAccessed"] = localStorageArticlesAccessed;
 
                 persistence.set({
                     data: localStorageArticlesAccessed,
@@ -72,16 +73,15 @@
             })
         }
 
-        
-        sortArticlesAccessed(localStorageArticlesAccessed);
-
+        var sortedLatestArticlesAccessed = sortArticlesAccessed(localStorageArticlesAccessed);
+        showLatestArticlesTitle(sortedLatestArticlesAccessed, THUNDERSTORM.modules.articles.data);
         //the actual redirect
         window.location.href = "/article?" + articleIndex;
 
     });
 
     function sortArticlesAccessed (latestArticlesAccessed) {
-           var temp,
+        var temp,
             found;
 
         do {
@@ -97,6 +97,21 @@
         } while(found);
 
         return latestArticlesAccessed;
+    }
+
+    function showLatestArticlesTitle (latestArticlesAccessed, allArticles) {
+        for(var index in allArticles) {
+            var articlesTitles = [];
+            for(var i = 0; i < allArticles[index].length; i++){
+                var articles = allArticles[index];
+                for(var j = 0; j < latestArticlesAccessed.length; j++) {
+                    if(latestArticlesAccessed[j].articleIndex == articles[i].id) {
+                        articlesTitles.push(articles[i].title);
+                    }
+                }
+            }
+        }
+        return articlesTitles;
     }
 
     function toggleLoadMore(page) {
