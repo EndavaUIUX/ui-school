@@ -29,7 +29,7 @@
 				
 				$.ajax(ajaxOptions)
 						.done(options.callback)
-						.error(options.errorHandler);				
+						.error(errorHandler);				
 			};
 			window.THUNDERSTORM.modules.API = ServerData;
 			

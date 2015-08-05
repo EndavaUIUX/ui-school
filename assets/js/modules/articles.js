@@ -179,16 +179,17 @@
         return base;
     };
 
-    articles.generateArticles = function (data, parent) {
+    articles.generateArticles = function (data, parent, carryIndex) {
         var myArticle,
             recentGenerated = false,
-            i;
+            i,
+            additionIndex = carryIndex + 1 || 0;//+1 pentru ca i-ul porneste de la 0;
         for (i = 0; i < data.length; i = i + 1) {
             if (data.length === 7 && recentGenerated === false) {
-                myArticle = createRecentArticle(data[i], i);
+                myArticle = createRecentArticle(data[i], i + additionIndex);
                 recentGenerated = true;
             } else {
-                myArticle = articles.createArticle(data[i], i, 0);
+                myArticle = articles.createArticle(data[i], i + additionIndex, 0);
             }
             parent.append(myArticle);
         }
