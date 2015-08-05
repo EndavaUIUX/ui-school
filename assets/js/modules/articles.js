@@ -6,6 +6,9 @@
     articles.moduleName = "articles";
     
     articles.data = {};
+
+    var articleClickTriggers ='article h2, .article__title, .article-info img, .article__img img, .btn--more, .load-more, .latest__article .article__picture img',
+    loadMore = $('.load-more');
     /* ==========================================================================
      function init()
      Verifica daca exista cheia articles in local storage. Daca da, preia datele
@@ -206,6 +209,35 @@
             parent.append(myArticle);
         }
     };
+
+    /* ==========================================================================
+     Event listeners
+     ========================================================================== */
+    articles.loadMode = function(articlesParent) {
+        articlesParent.on('click', articleClickTriggers, function (ev) {
+            ev.stopPropagation();
+            var articleIndex = $(ev.target).closest('article')[0].getAttribute('data-article-index');
+            //the actual redirect
+            window.location.href = "/article?" + articleIndex;
+        });
+
+        function toggleLoadMore(page) {
+            if (page < Object.keys(THUNDERSTORM.modules.articles.pages).length) {
+                loadMore.data('page', page);
+            } else {
+                loadMore.hide('fast');
+            }
+        }
+
+        loadMore.on('click', function (ev) {
+            var page = $(this).data('page');
+            //salvam index-ul paginii pe care vrem sa-l incarcam. Asta inseamna ca daca am nevoie de pagina x, o sa fie foarte usor sa o incarc.
+            THUNDERSTORM.modules.articles.generateArticles(THUNDERSTORM.modules.articles.pages[page], articlesParent, false);
+            page = page + 1;
+            toggleLoadMore(page);
+        });
+    };
+
     THUNDERSTORM.modules.articles = articles;
 
 }(window, window.THUNDERSTORM));
