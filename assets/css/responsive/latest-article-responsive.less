@@ -8,6 +8,7 @@ and (max-width: 298px) {
         .article__content{
             height: auto;
             position: static;
+            border-bottom: 1px solid #ccc;
             .article__informations{
                 .article__author.article_info{
                     font-size: 13px;
@@ -47,6 +48,11 @@ and (max-width: 450px) {
     .latest__article{
         width: 100%;
         height: 507px;
+        box-shadow: none;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+
         .article__img{
             display: none;
         }
@@ -63,13 +69,15 @@ and (max-width: 450px) {
             .article__title{
                 font-size: 18px;
             }
+
             .article__title{
-            font-family: 'Lato-Black';
-            font-size: 18px;
-            color: @article-header-color;
-            padding: 30px 30px 0px 30px;
-            height: 45px;
-        }
+                font-family: 'Lato-Black';
+                font-size: 18px;
+                color: @article-header-color;
+                padding: 30px 30px 0px 30px;
+                height: 45px;
+            }
+
             .article__informations{
                 .article_info{
                     padding-left: 20px;
@@ -87,6 +95,7 @@ and (max-width: 450px) {
                     margin-top: 10px;
                 }
             }
+
             .article_description{
                 text-align: justify;
                 width: 100%;
@@ -96,7 +105,8 @@ and (max-width: 450px) {
                 box-sizing: border-box;
                 padding: 10px 30px 25px 30px;
             }
-            .btn--more{
+
+             .btn--more{
                 margin: 20px 0px 30px 30px;
                 height: 30px;
                 width: 109px;
@@ -104,9 +114,19 @@ and (max-width: 450px) {
                 color: #747474;
                 font-size: 15px;
                 border: 1px solid #515151;
-                background-color: #ffffff;
+                background-color: #ffffff; 
                 font-family: 'Lato';
-            }
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+             }
+
+             .btn--more:hover{
+                 color: #e1632a;
+                 border: 1px solid #e1632a;
+                 cursor: pointer;
+             }
+
         }
     }
     .main{
@@ -151,6 +171,7 @@ and (max-width: 599px){
                 width: 90%;
                 font-size: 13px;
             }
+
         }
         .article__img{
             display: none;
@@ -208,7 +229,7 @@ and (max-width: 1024px) {
                 border: 1px solid #515151;
                 background-color: #ffffff;
                 font-family: 'Lato';
-        }
+             }
         }
         .article_info{
             padding-bottom: 10px;
