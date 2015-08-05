@@ -8,6 +8,7 @@
     var utility = THUNDERSTORM.modules.utility;
     var persistence = THUNDERSTORM.modules.persistence;
     var articlesParent = $('.main--homepage');
+    var menuRight = $('.menu-right');
     var articleClickTriggers ='article h2, .article__title, .article-info img, .article__img img, .btn--more, .load-more, .latest__article .article__picture img' ;
     var loadMore = $('.load-more');
     var key = 'articles';
@@ -55,8 +56,7 @@
                 titleListParent.append(listItem);
             }
         }
-        //TODO: replace article's parent with right hand menu container
-        articlesParent.append(titleListParent);
+        menuRight.append(titleListParent);
     }
 
     function toggleLoadMore(page) {
