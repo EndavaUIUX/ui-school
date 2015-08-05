@@ -56,7 +56,7 @@
     };
     
     function createRecentArticle(articleData, articleIndex) {
-        //TODO needs a simpler structure
+        // TODO needs a simpler structure
         var base = $('<article></article>').addClass('latest__article').attr('data-article-index', articleIndex),
                 articleContent = $('<div></div>').addClass('article__content'),
                 articleTitle = $('<h2></h2>').addClass('article__title').html(articleData.title),
@@ -70,19 +70,25 @@
                 articleAuthor = $('<span></span>').addClass('article__author article_info').html(articleData.author),
                 articleDate = $('<span></span>').addClass('article__date article_info').html(utility.dateFormatter(articleData.published)),
                 articleGallery,
-                imageGalleryObj;
+                imageGalleryObj,
+                windowWidth = $(window).width();
         imageGalleryObj = utility.imageSourceGenerator(articleData);
         articleHiddenImage.attr('src', imageGalleryObj.sources[0]);
         articleVisibleImgTag.attr('src', imageGalleryObj.sources[0]);
         
         articleText.html(clipText(articleData.description, 400));
         
-        /*append the elements*/
+        /* append the elements */
         articleInfo.append(articleAuthor);
         articleInfo.append(articleDate);
+        
         if (imageGalleryObj.hasGallery) {
             articleGallery = $('<a></a>').addClass('article__gallery article_info').html('Photo Gallery');
             articleInfo.append(articleGallery);
+        }
+        
+        if (windowWidth < 400) {
+            articleText = articleText.html(clipText(articleData.description, 118));
         }
         articleContent.append(articleTitle);
         articleContent.append(articleInfo);
@@ -93,6 +99,7 @@
         base.append(articleContent);
         articleVisibleImage.append(articleVisibleImgTag);
         base.append(articleVisibleImage);
+        console.log(articleText);
 
         return base;
     }
@@ -119,11 +126,20 @@
         return pages;
     }
     
-    function reduceText(text) {
-      
-    }
+    /*
+
+    (function reduceText(text) {
+        var windowWidth = $(window).width();
+        console.log(windowWidth);
+        if (windowWidth < 400) {
+            console.log("< 400");
+            clipText(text, 116);
+        }
+    }) ();
     
-    function clipText(description, clipLimit){
+    */
+
+    function clipText(description, clipLimit) {
         var text;
         if (description.length > clipLimit) {
             text = description.substr(0, clipLimit);
@@ -165,7 +181,7 @@
         } else {
             articleText.html(clipText(articleData.description, 120));
         }
-        /*append the elements*/
+        /* append the elements */
         articleInfo.append(articleAuthor);
         articleInfo.append(articleDate);
         articleInfo.append(articlePhoto);
@@ -200,3 +216,4 @@
     THUNDERSTORM.modules.articles = articles;
 
 }(window, window.THUNDERSTORM));
+
