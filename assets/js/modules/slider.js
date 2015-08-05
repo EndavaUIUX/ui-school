@@ -58,6 +58,9 @@
             move.call(this, travelLength);
         }
     });
+    $('.slider img').on('swipe', function (ev) {
+      console.log('swiped :D')
+    });
     //update slider widths based on window on resize event 
     $(window).resize(function () {
         slideWidth = $(window).width();
