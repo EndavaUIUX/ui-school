@@ -274,6 +274,42 @@ nav a:hover {
 #nav ul.visible {
   display: block;
 }
+ul {
+  padding: 0;
+}
+nav {
+  width: 100%;
+  text-align: center;
+  position: fixed;
+  min-height: 100%;
+}
+nav a {
+  display: block;
+  padding: 15px 0;
+  border-bottom: 1px solid #585858;
+  color: #ffffff;
+  text-decoration: none;
+  font-family: "Lato-Regular";
+  font-size: 18px;
+}
+.menu-right {
+  width: 309px;
+  min-height: 100%;
+  background-color: #333333;
+  text-align: left;
+  right: 0;
+  z-index: 44;
+}
+.user {
+  padding: 0px 6px 0px 24px;
+}
+#userProfile {
+  display: none;
+}
+.show-menu-left {
+  position: fixed;
+  left: 0px;
+}
 .slider {
   max-height: 600px;
   background-color: white;
