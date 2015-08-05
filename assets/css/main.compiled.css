@@ -170,6 +170,10 @@ p {
 .profile:hover {
   cursor: pointer;
 }
+ul {
+  list-style: none;
+  padding: 0;
+}
 nav {
   width: 100%;
   text-align: center;
