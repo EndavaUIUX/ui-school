@@ -89,7 +89,7 @@
         $modalSelector.fadeOut();      
     }
 
-    
+
      // ACCEPT LETTERS / NUMBERS / : / & / - / LENGTH MORE THAN 0
     utility.validateInput = function(inputValue, errorElement) {
             var regex = new RegExp("^[a-zA-Z0-9-& ]+$");
@@ -139,13 +139,26 @@
             url = url.substr(4);
         }
 
-        domain = url.split('/')[0].split('.')[0]
-        if (url.split('/').length > 1) {
-            page = url.split('/')[1].split('.')[0];
-        }
+        return url.split('/')[0];
 
-        document.write(domain);
     }
+    
+    utility.iterateGalleryPhotos = function(article) {
+        debugger;
+        var galleryImages = [],
+            indexURL =  [], 
+            galleryImages = article['gallery'];
+
+       for(var j = 0, leng = galleryImages.length; j < leng; j++) {
+            indexURL.push(utility.takeDomainUrl(galleryImages[j]));
+       }
+
+       return indexURL;
+    };
+
+    window.onload = function(){ 
+        utility.iterateGalleryPhotos(THUNDERSTORM.modules.articles.data['articles'][2]);
+    }    
 
     THUNDERSTORM.modules.utility = utility;
 
