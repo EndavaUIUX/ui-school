@@ -40,7 +40,7 @@
         
         dataFromLs = window.localStorage.getItem(source);
         if (dataFromLs === null) {
-            throw new Error('Sursa nu a fost gasita in localstorage.');
+            return {};
         } else {
             dataFromLs = JSON.parse(dataFromLs);
             if (typeof id !== 'undefined') {

@@ -6,6 +6,7 @@
     articles.moduleName = "articles";
     
     articles.data = {};
+
     /* ==========================================================================
      function init()
      Verifica daca exista cheia articles in local storage. Daca da, preia datele
@@ -194,6 +195,8 @@
             parent.append(myArticle);
         }
     };
+
+
     THUNDERSTORM.modules.articles = articles;
 
 }(window, window.THUNDERSTORM));
