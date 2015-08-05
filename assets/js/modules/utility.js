@@ -108,7 +108,7 @@
         element.addClass('hideError');
     }
     
-    $('.searchButton').click(function(e) {
+    /*$('.searchButton').click(function(e) {
         var inputValue = $('#search')[0].value,
             $errorElement = $('.search p');
         console.log(inputValue);
@@ -120,7 +120,7 @@
         if (e.keyCode == 13) {
             $('.searchButton').click(); 
         }
-    });
+    });*/
 
     //function get domain from url
     utility.takeDomainUrl = function (url) {
