@@ -33,9 +33,14 @@
     }
 
     loadMore.on('click', function (ev) {
+        //cand load more, generate articles nu o sa stie care e indexul de unde sa continue cu generarea
+        //acum se trimite si indexul ultimului articol generat.
         var page = $(this).data('page');
+        var lastArticleIndex = $('.article-wrapper').last();
+        lastArticleIndex = lastArticleIndex.find('article').data('articleIndex');
+        lastArticleIndex = lastArticleIndex || 0;
         //salvam index-ul paginii pe care vrem sa-l incarcam. Asta inseamna ca daca am nevoie de pagina x, o sa fie foarte usor sa o incarc.
-        THUNDERSTORM.modules.articles.generateArticles(THUNDERSTORM.modules.articles.pages[page], articlesParent, false);
+        THUNDERSTORM.modules.articles.generateArticles(THUNDERSTORM.modules.articles.pages[page], articlesParent, lastArticleIndex);
         page = page + 1;
         toggleLoadMore(page);
     });

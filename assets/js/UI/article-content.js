@@ -1,10 +1,6 @@
-/**
- * Created by icojocaru on 7/27/2015.
- */
 
 (function(window, THUNDERSTORM, $) {
     "use strict";
-
     THUNDERSTORM.modules.articles.init({
         sourceName : 'articles',
         shouldGenerate : false,
@@ -17,7 +13,7 @@
             articleUrlNumber = utility.validateURL(pageUrl, THUNDERSTORM.modules.articles.data['articles']),
             article = THUNDERSTORM.modules.articles.data['articles'][articleUrlNumber],
             currentArticle = utility.imageSourceGenerator(article),
-            viewMoreButton = $("<div></div>").html("View gallery").addClass("button__gallery"),
+            viewMoreButton = $("<a></a>").html("View gallery").addClass("button__gallery").attr('href', '#'),
             icoViewMore = $('<i></i>'),
             articleContent = $(".article__body"),
             titleContainer = $('.title'),
@@ -44,4 +40,22 @@
             utility.populateArticleTitle(elementsObject, article);
             utility.populateArticleDetails(article, articleContent);
     }
+    
+    /* ==========================================================================
+      event handlers.
+     ========================================================================== */
+    $('body').on('click', function (ev) {
+            var container = $('.modal');
+            if (!container.is(ev.target)  && container.has(ev.target).length === 0 && !$(ev.target).hasClass('.modal__close') && !$(ev.target).hasClass('button__gallery'))
+              {
+                THUNDERSTORM.modules.utility.dismissModal($('.modal'));
+            }
+        });
+    $('.button__gallery').on('click', function (ev) {
+        THUNDERSTORM.modules.utility.showModal($('.modal'));
+    });
+    
+    $('.modal__close').on('click', function (ev) {
+        THUNDERSTORM.modules.utility.dismissModal($('.modal'));
+    });
 }(window, window.THUNDERSTORM, window.jQuery));
