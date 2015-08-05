@@ -30,7 +30,7 @@
         if (utility.keyInLocalStorage(key)) {
             articles.data = persistence.get(options);
             if (options.shouldGenerate) {
-                articles.pages = pagination(articles.data[key], options.itemsPerPage);
+                articles.pages = articles.pagination(articles.data[key], options.itemsPerPage);
                 articles.generateArticles(articles.pages[0], options.articlesParent, options.isMainPage);
             }
             if(options.callback) {
@@ -48,8 +48,8 @@
                     if(options.callback) {
                         options.callback();
                     }
-                    if (options.shouldGenerate) {                        d
-                        articles.pages = pagination(articles.data[key]);
+                    if (options.shouldGenerate) {
+                        articles.pages = articles.pagination(articles.data[key]);
                         articles.generateArticles(articles.pages[0], options.articlesParent);
                     } 
                 }
@@ -59,15 +59,13 @@
 
     articles.filterArticles = function(options){
         var searchedArticles = [];
-       articles.data = persistence.get(options)['articles'];
-       for(var i = 0, len = articles.data.length; i < len; i++){
-           if(articles.data[i]["title"].toLowerCase().indexOf(options.searchedWord) > -1){
-               searchedArticles.push(articles.data[i]);
+       articles.data = persistence.get(options.sourceName);
+       for(var i = 0, len = articles.data['articles'].length; i < len; i++){
+           if(articles.data['articles'][i]["title"].toLowerCase().indexOf(options.searchedWord) > -1){
+               searchedArticles.push(articles.data['articles'][i]);
            }
        }
-        articles.pages = pagination( searchedArticles, options.itemsPerPage);
-        articles.generateArticles(articles.pages[0], options.articlesParent);
-
+       return searchedArticles;
     };
     
     function createRecentArticle(articleData, articleIndex) {
@@ -111,8 +109,8 @@
 
         return base;
     }
-    
-    function pagination(data, param) {
+
+    articles.pagination = function(data, param) {
         var pages = {},
           pageNr = 0,
           itemsPerPage =  param || 7;
@@ -132,12 +130,12 @@
             }
         });
         return pages;
-    }
+    };
     
     function reduceText(text) {
       
     }
-    
+
     function clipText(description, clipLimit){
         var text;
         if (description.length > clipLimit) {

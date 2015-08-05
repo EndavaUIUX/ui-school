@@ -106,21 +106,7 @@
     utility.cleanErrors = function(element) {
         element.removeClass('errorSearch');
         element.addClass('hideError');
-    }
-    
-    /*$('.searchButton').click(function(e) {
-        var inputValue = $('#search')[0].value,
-            $errorElement = $('.search p');
-        console.log(inputValue);
-        utility.validateInput(inputValue, $errorElement);
-    });  
-
-
-    $('#search').keypress(function(e) {
-        if (e.keyCode == 13) {
-            $('.searchButton').click(); 
-        }
-    });*/
+    };
 
     //function get domain from url
     utility.takeDomainUrl = function (url) {
@@ -144,7 +130,6 @@
     }
     
     utility.iterateGalleryPhotos = function(article) {
-        debugger;
         var galleryImages = [],
             indexURL =  [], 
             galleryImages = article['gallery'];
@@ -156,9 +141,9 @@
        return indexURL;
     };
 
-    window.onload = function(){ 
+    window.onload = function(){
         utility.iterateGalleryPhotos(THUNDERSTORM.modules.articles.data['articles'][2]);
-    }    
+    }
 
     THUNDERSTORM.modules.utility = utility;
 
