@@ -80,10 +80,12 @@
         /* append the elements */
         articleInfo.append(articleAuthor);
         articleInfo.append(articleDate);
+        
         if (imageGalleryObj.hasGallery) {
             articleGallery = $('<a></a>').addClass('article__gallery article_info').html('Photo Gallery');
             articleInfo.append(articleGallery);
         }
+        
         if (windowWidth < 400) {
             articleText = articleText.html(clipText(articleData.description, 118));
         }
