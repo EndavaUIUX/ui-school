@@ -46,18 +46,17 @@
     }
     
     var iterateGalleryPhotos = function(article, utility) {
-        /*var galleryImages = [],
+        /* var galleryImages = [],
             indexURL =  [], 
             galleryImages = article['gallery'];
 
-       for(var j = 0, leng = galleryImages.length; j < leng; j++) {
+       for (var j = 0, leng = galleryImages.length; j < leng; j++) {
             indexURL.push(utility.takeDomainUrl(galleryImages[j]));
        }*/
 
       // return indexURL;
       var indexURL =  [];
-      for(var i = 0; i < article['sources'].length; i++ ) {
-
+      for (var i = 0; i < article['sources'].length; i++) {
         indexURL.push(utility.takeDomainUrl(article['sources'][i]));
       }
       console.log(indexURL);
@@ -68,9 +67,8 @@
         
     }
     
-
     
-
+    
     /* ==========================================================================
       event handlers.                                                            
     ========================================================================== */
