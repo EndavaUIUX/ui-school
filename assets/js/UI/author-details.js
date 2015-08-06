@@ -3,8 +3,10 @@
  */
 $('#userProfile').click(function () {
     if ($('input#userProfile').is(':checked')) {
-        $('nav.menu-right').addClass("show-menu-right");
+        $('.menu-right').addClass("show-menu-right");
+        $('.rightminidiv').addClass("hide-user-icon");
     } else{
-        $('nav.menu-right').removeClass("show-menu-right");
+        $('.menu-right').removeClass("show-menu-right");
+        $('.rightminidiv').removeClass("hide-user-icon");
     }
 });

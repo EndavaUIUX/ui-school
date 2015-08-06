@@ -4,5 +4,4 @@ $('#menuHamburger').click(function () {
     } else{
         $('nav.menu-left').removeClass("show-menu-left");
     }
-}); 
-
+});
