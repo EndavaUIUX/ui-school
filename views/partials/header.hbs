@@ -1,23 +1,25 @@
 <!--header-->
-
 <header class='topheader'>
-    <div class='leftthird'> <label for="menuHamburger"><img class="menu" src="assets/images/header/menu.png" /></label> </div>
+    <div class='leftthird'>
+        <label for="menuHamburger">
+            <img class="menu" src="assets/images/header/menu.png" />
+        </label>
+        <input type="checkbox" id="menuHamburger">
+    </div>
     <div class='righttwothirds'>
-        <div class='centerdiv'>  <a href="/"><img class="logo" src="assets/images/header/logo1.png" /></a></div>
-        <div class='rightminidiv'><img class="profile" src="assets/images/header/profile.png"><input type="checkbox" id="menuHamburger"></div>
+        <div class='centerdiv'>
+            <a href="/">
+                <img class="logo" src="assets/images/header/logo1.png" />
+            </a>
+        </div>
+        <div class='rightminidiv'>
+            <label for="userProfile">
+                <img class="profile" src="assets/images/header/profile.png">
+            </label>
+            <input type="checkbox" id="userProfile">
+        </div>
     </div>
 </header>
 
-<!--left navigation menu -->
-<nav class="menu-left">
-    <ul>
-        <li><label for="menuHamburger"><img class="menu" src="assets/images/left_menu/arrow.png" /></label></li>
-        <li> <input type="search" class="search-article" placeholder=" Search an article"></li>
-        <li><a href="#"><img class="disc" src="assets/images/left_menu/disc.png"/>Editor mode</a></li>
-        <li><a class="bordernone" href="#"><img class="link" src="assets/images/left_menu/link.png" />Reosurces</a></li>
-        <li><a class="left-word" href="#">jQuery</a></li>
-        <li><a class="left-word" href="#">JavaScriptPatterns</a></li>
-    </ul>
-</nav>
-<!--end of left navigation menu-->
- <script src="assets/js/UI/hamburger.js"></script>
+{{>partials/left_menu}}
+{{>partials/right_menu}}
