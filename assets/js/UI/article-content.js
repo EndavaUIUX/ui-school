@@ -32,29 +32,22 @@
                 $(".article__gallery").addClass("hasGallery");
                 $(".article__gallery").append(viewMoreButton);
 
-
-
-
-
             //  populate gallery from article content with modal source url 
-            var imagesHolder = $('.modal .modal__images');
-                imagesHolder.html('');
+                var imagesHolder = $('.modal .modal__images');
+                    imagesHolder.html('');
 
                 for(var i = 0; i < currentArticle.sources.length; i++) {
                     var modalImage = $('<div></div>').addClass('modal__image'),
                         img = $('<img>').attr('src', currentArticle.sources[i]),
-                        sourceUrl = $('<a></a>').addClass('modal__source').attr('href', '#').html(utility.takeDomainUrl(currentArticle.sources[i]));
-            //check if the image property is hide or not            
+                        sourceUrl = $('<a></a>').addClass('modal__source').attr('href', '#').html(utility.takeDomainUrl(currentArticle.sources[i]));      
+                    
                     if(i != 0) {
                         modalImage.hide();
+                    } else { 
+                        modalImage.append(img).append(sourceUrl);
+                        imagesHolder.append(modalImage);
                     }
-            //display the images         
-                    modalImage.append(img).append(sourceUrl);
-                    imagesHolder.append(modalImage);
-                }
-            //i should have the next and prev even create to check     
-
-
+                } 
 
             } else {
                 gallery = $("<img>").attr("src", currentArticle.sources);
@@ -69,37 +62,14 @@
             } 
     }
     
-
-    //iterate photos from gallery article
     var iterateGalleryPhotos = function(article, utility) {
-        /*var galleryImages = [],
-            indexURL =  [], 
-            galleryImages = article['gallery'];
-
-       for(var j = 0, leng = galleryImages.length; j < leng; j++) {
-            indexURL.push(utility.takeDomainUrl(galleryImages[j]));
-       }*/
-
-
-      // return indexURL;
-
-    // save the index of url image  
-    // add  all url's
-    var indexURL =  [];
-    for(var i = 0; i < article['sources'].length; i++ ) {
-        indexURL.push(utility.takeDomainUrl(article['sources'][i]));
+        var indexURL =  [];
+        for(var i = 0; i < article['sources'].length; i++ ) {
+            indexURL.push(utility.takeDomainUrl(article['sources'][i]));
         }
-    //display split url image    
-        console.log(indexURL);
+
         return indexURL;
     };
-
-    // var updateSource = function () {
-        
-    // }
-    
-
-    
 
     /* ==========================================================================
       event handlers.

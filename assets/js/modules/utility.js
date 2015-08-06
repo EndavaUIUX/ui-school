@@ -79,17 +79,6 @@
     };
 
     utility.showModal = function ($modalSelector) {
-        //  var $imagesHolder = $modalSelector.find('.modal__images');
-        // $imagesHolder.html('');
-        
-        // for(var i = 0; i < images.length; i++) {
-        //     var modalImage = $('<div></div>').addClass('modal__image'),
-        //         img = $('<img>').attr('src', images[i]),
-        //         sourceUrl = $('<a></a>').addClass('modal__source').attr('href', '#').html(utility.takeDomainUrl(images[i]));
-
-        //     modalImage.append(img).append(sourceUrl);
-        //     $imagesHolder.append(modalImage);
-        // }
 
         var $overlay = $('.overlay');
         $overlay.fadeIn();
