@@ -24,7 +24,11 @@
         if (e.keyCode == 13) {
             isValueValid = isValueValid || THUNDERSTORM.modules.utility.validateInput(inputValue, $errorElement);
             var searchedArticles = THUNDERSTORM.modules.articles.filterArticles(params);
-            if(!isValueValid || searchedArticles.length === 0 ){
+            if(!isValueValid) {
+                return;
+            }
+            if(searchedArticles.length === 0 ){
+                $(".errorContainer").html("No articles were found to match you search.");
                 $errorElement.removeClass('hideError');
                 $errorElement.addClass('errorSearch');
                 return;

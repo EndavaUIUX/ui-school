@@ -70,12 +70,12 @@
     };
 
     utility.validateURL =  function (url, articles) {
-        var articleNumber = url.split("?")[1];
-        if (url.indexOf("?") === -1 || articleNumber === "" || articleNumber >= articles.length || articleNumber < 0) {
+        var articleNumber = url.split("?")[1],
+            regex = new RegExp("^[0-9]+$");
+        if (url.indexOf("?") === -1 || articleNumber === "" || articleNumber >= articles.length || articleNumber < 0 || !regex.test(articleNumber)) {
             window.location.href = "/";
-            return 0;
         }
-        return articleNumber;
+        return parseInt(articleNumber);
     };
 
     utility.showModal = function ($modalSelector) {
@@ -94,12 +94,12 @@
         var $overlay = $('.overlay');
         $overlay.fadeIn();
         $modalSelector.fadeIn();
-    }
+    };
     utility.dismissModal = function ($modalSelector) {
         var $overlay = $('.overlay');
         $overlay.fadeOut();
         $modalSelector.fadeOut();      
-    }
+    };
 
 
      // ACCEPT LETTERS / NUMBERS / : / & / - / LENGTH MORE THAN 0
@@ -108,6 +108,7 @@
 
             utility.cleanErrors(errorElement);
             if (inputValue.length === 0 || !regex.test(inputValue)) {
+                $(".errorContainer").html("The input value is not valid.");
                 errorElement.removeClass('hideError');
                 errorElement.addClass('errorSearch');
                 return false;
@@ -118,6 +119,7 @@
     utility.cleanErrors = function(element) {
         element.removeClass('errorSearch');
         element.addClass('hideError');
+        $(".errorContainer").html("");
     };
 
    

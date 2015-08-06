@@ -12,15 +12,17 @@
     var articleClickTriggers ='article h2, .article__title, .article-info img, .article__img img, .btn--more, .load-more, .latest__article .article__picture img' ;
     var loadMore = $('.load-more');
     var key = 'articles';
-    
+
     THUNDERSTORM.modules.articles.mostRecentArticles = persistence.get("latestArticlesAccessed");
     var recentArticles = THUNDERSTORM.modules.articles.mostRecentArticles;
     THUNDERSTORM.modules.articles.init({sourceName : key,  articlesParent : articlesParent, shouldGenerate : true, isMainPage : true});
     THUNDERSTORM.modules.articles.loadMode(articlesParent);
 
+
   /* ==========================================================================
      Functions
      ========================================================================== */
+
     //TODO: To refractor in article.js
     function clipText(description, clipLimit){
         var text;
@@ -43,7 +45,6 @@
     }
 
     function sortLatestArticlesAccessed (article) {
-
         var temp,
             found;
 
@@ -89,6 +90,7 @@
     }
 
     sortLatestArticlesAccessed(recentArticles);
+
    /* ==========================================================================
       Event listeners
       Set in local storage an object latest articles accessed with the key "latestArticlesAccessed",
@@ -144,7 +146,7 @@
         window.location.href = "/article?" + articleIndex;
     });
 
-}(window, window.THUNDERSTORM));
 
+}(window, window.THUNDERSTORM));
 
 

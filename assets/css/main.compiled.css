@@ -1553,6 +1553,7 @@ footer {
 .errorSearch {
   display: inline-block;
   color: red;
+  margin: 0 23px;
 }
 .hideError {
   display: none;
