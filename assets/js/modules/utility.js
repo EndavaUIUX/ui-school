@@ -122,8 +122,8 @@
         }
     });
 
-    //function get domain from url
-    utility.takeDomainUrl = function (url) {
+   
+   utility.takeDomainUrl = function (url) {
         var domain = "";
         var page = ""; 
 
@@ -142,23 +142,6 @@
         return url.split('/')[0];
 
     }
-    
-    utility.iterateGalleryPhotos = function(article) {
-        debugger;
-        var galleryImages = [],
-            indexURL =  [], 
-            galleryImages = article['gallery'];
-
-       for(var j = 0, leng = galleryImages.length; j < leng; j++) {
-            indexURL.push(utility.takeDomainUrl(galleryImages[j]));
-       }
-
-       return indexURL;
-    };
-
-    window.onload = function(){ 
-        utility.iterateGalleryPhotos(THUNDERSTORM.modules.articles.data['articles'][2]);
-    }    
 
     THUNDERSTORM.modules.utility = utility;
 

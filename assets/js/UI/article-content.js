@@ -39,8 +39,36 @@
 
             utility.populateArticleTitle(elementsObject, article);
             utility.populateArticleDetails(article, articleContent);
+
+            window.onload = function(){ 
+                iterateGalleryPhotos(currentArticle, utility);
+            } 
     }
     
+    var iterateGalleryPhotos = function(article, utility) {
+        /*var galleryImages = [],
+            indexURL =  [], 
+            galleryImages = article['gallery'];
+
+       for(var j = 0, leng = galleryImages.length; j < leng; j++) {
+            indexURL.push(utility.takeDomainUrl(galleryImages[j]));
+       }*/
+
+      // return indexURL;
+
+
+      var indexURL =  [];
+      for(var i = 0; i < article['sources'].length; i++ ) {
+     
+        indexURL.push(utility.takeDomainUrl(article['sources']));
+        return indexURL;
+      }
+    };
+
+    
+
+    
+
     /* ==========================================================================
       event handlers.
      ========================================================================== */
