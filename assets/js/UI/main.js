@@ -89,6 +89,19 @@
         }
     }
 
+    // show & hide recent article list from right menu
+    $(function() {
+        $('.recent-list').hide();
+
+        $('.title').click(function() {
+            $('.recent-list').toggle();
+        });
+
+    });
+
+    
+
+    
     sortLatestArticlesAccessed(recentArticles);
 
    /* ==========================================================================
