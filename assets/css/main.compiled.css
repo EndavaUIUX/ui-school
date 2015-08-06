@@ -128,7 +128,7 @@ p {
   height: 67px;
   position: fixed;
   background-color: white;
-  z-index: 1;
+  z-index: 2;
   box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.4);
 }
 .leftthird {
@@ -327,6 +327,7 @@ nav {
   margin: 0px auto;
   display: block;
   z-index: 1;
+  text-align: center;
 }
 .slider__controlls .bubble {
   height: 14px;
@@ -1388,10 +1389,12 @@ article h2:hover {
 .overlay .modal__source:hover {
   text-decoration: underline;
 }
+.overlay .modal__images {
+  min-height: 230px;
+}
 .overlay .modal__images img {
   max-width: 100%;
   max-height: 100%;
-  min-height: 150px;
   position: relative;
   left: 0;
   right: 0;
@@ -1466,7 +1469,7 @@ article h2:hover {
     right: -1px;
     border-radius: 0px 0px 0px 3px;
   }
-  .slider__controlls {
+  .slider .slider__controlls {
     display: none;
   }
 }
