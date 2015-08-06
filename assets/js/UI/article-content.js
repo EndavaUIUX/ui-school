@@ -55,8 +55,6 @@
        }*/
 
       // return indexURL;
-
-
       var indexURL =  [];
       for(var i = 0; i < article['sources'].length; i++ ) {
 
@@ -66,6 +64,9 @@
         return indexURL;
     };
 
+    var updateSource = function () {
+        
+    }
     
 
     

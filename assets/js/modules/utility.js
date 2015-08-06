@@ -139,18 +139,6 @@
         return url.split('/')[0];
     }
 
-    // utility.iterateGalleryPhotos = function(article) {
-    //     var galleryImages = [],
-    //         indexURL =  [], 
-    //         galleryImages = article['gallery'];
-
-    //    for(var j = 0, leng = galleryImages.length; j < leng; j++) {
-    //         indexURL.push(utility.takeDomainUrl(galleryImages[j]));
-    //    }
-
-    //    return indexURL;
-    // };
-
 
     THUNDERSTORM.modules.utility = utility;
 
