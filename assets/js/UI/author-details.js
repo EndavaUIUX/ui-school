@@ -1,12 +1,15 @@
 /**
  * Created by icojocaru on 8/5/2015.
  */
-$('#userProfile').click(function () {
-    if ($('input#userProfile').is(':checked')) {
+$('.profile').click(function () {
+    $('.title').html("Most Recent Articles");
+    if (!$('.menu-right').hasClass("show-menu-right")) {
         $('.menu-right').addClass("show-menu-right");
         $('.rightminidiv').addClass("hide-user-icon");
-    } else{
+    }
+
+    $('.user').click(function (){
         $('.menu-right').removeClass("show-menu-right");
         $('.rightminidiv').removeClass("hide-user-icon");
-    }
+    });
 });
