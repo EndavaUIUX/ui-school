@@ -1395,12 +1395,11 @@ article h2:hover {
 .overlay .modal__images img {
   max-width: 100%;
   max-height: 100%;
-  margin: auto;
-  position: absolute;
-  top: 0;
+  position: relative;
   left: 0;
-  bottom: 0;
   right: 0;
+  margin: 0px auto;
+  display: block;
 }
 /* \  .overlay */
 .overlay {
