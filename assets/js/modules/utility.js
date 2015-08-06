@@ -106,21 +106,7 @@
     utility.cleanErrors = function(element) {
         element.removeClass('errorSearch');
         element.addClass('hideError');
-    }
-    
-    $('.searchButton').click(function(e) {
-        var inputValue = $('#search')[0].value,
-            $errorElement = $('.search p');
-        console.log(inputValue);
-        utility.validateInput(inputValue, $errorElement);
-    });  
-
-
-    $('#search').keypress(function(e) {
-        if (e.keyCode == 13) {
-            $('.searchButton').click(); 
-        }
-    });
+    };
 
    
    utility.takeDomainUrl = function (url) {
@@ -142,6 +128,19 @@
         return url.split('/')[0];
 
     }
+
+    utility.iterateGalleryPhotos = function(article) {
+        var galleryImages = [],
+            indexURL =  [], 
+            galleryImages = article['gallery'];
+
+       for(var j = 0, leng = galleryImages.length; j < leng; j++) {
+            indexURL.push(utility.takeDomainUrl(galleryImages[j]));
+       }
+
+       return indexURL;
+    };
+
 
     THUNDERSTORM.modules.utility = utility;
 
