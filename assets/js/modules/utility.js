@@ -79,6 +79,18 @@
     };
 
     utility.showModal = function ($modalSelector) {
+        //  var $imagesHolder = $modalSelector.find('.modal__images');
+        // $imagesHolder.html('');
+        
+        // for(var i = 0; i < images.length; i++) {
+        //     var modalImage = $('<div></div>').addClass('modal__image'),
+        //         img = $('<img>').attr('src', images[i]),
+        //         sourceUrl = $('<a></a>').addClass('modal__source').attr('href', '#').html(utility.takeDomainUrl(images[i]));
+
+        //     modalImage.append(img).append(sourceUrl);
+        //     $imagesHolder.append(modalImage);
+        // }
+
         var $overlay = $('.overlay');
         $overlay.fadeIn();
         $modalSelector.fadeIn();
@@ -110,42 +122,25 @@
         $(".errorContainer").html("");
     };
 
-    //function get domain from url
-    utility.takeDomainUrl = function (url) {
+   
+   utility.takeDomainUrl = function (url) {
         var domain = "";
         var page = ""; 
 
-        if (url.indexOf("http://") == 0) {
+        if (url.indexOf("http://") !== -1) {
             url = url.substr(7);
         } 
 
-        if (url.indexOf("https://") == 0) {
+        if (url.indexOf("https://") !== -1) {
             url = url.substr(8);
         } 
 
-        if (url.indexOf("www.") == 0) {
+        if (url.indexOf("www.")  !== -1) {
             url = url.substr(4);
         }
-
         return url.split('/')[0];
-
     }
-    
-    utility.iterateGalleryPhotos = function(article) {
-        var galleryImages = [],
-            indexURL =  [], 
-            galleryImages = article['gallery'];
 
-       for(var j = 0, leng = galleryImages.length; j < leng; j++) {
-            indexURL.push(utility.takeDomainUrl(galleryImages[j]));
-       }
-
-       return indexURL;
-    };
-
-    window.onload = function(){
-        utility.iterateGalleryPhotos(THUNDERSTORM.modules.articles.data['articles'][2]);
-    }
 
     THUNDERSTORM.modules.utility = utility;
 

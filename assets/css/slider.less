@@ -2,6 +2,7 @@
   max-height:600px;
   background-color:white;
   position:relative;
+  margin-top: 67px;
   img{
     width:100%;
   }
@@ -13,6 +14,7 @@
     right: 0;
     margin: 0px auto;
     display: block;
+    z-index : 1;
     .bubble{
       height: 14px;
       width: 14px;
@@ -23,37 +25,42 @@
       border: 1px solid #cecece;
       transition: 0.2s all ease;
       &:hover{
-        border-radius: 3px;
+        border-radius:0;
       }
     }
     .bubble.bubble--active{
       background-color:#bfbdbd;
     }
   }
-  .slider__slide{
-    position: relative;
-    color: #e1632a;
-    .slider__meta{
-      position: absolute;
-      right: 20%;
-      top: 35%;
-      text-align: justify;
-      h2{
-        background-color: #fff;
-        font-family: "Lato-Black";
-        font-size: 21px;
-        padding: 17px;
-        margin-bottom: 10px;
-        text-transform: capitalize;
-      }
-      p{
-        background-color: #fff;
-        font-family: "Lato-Regular";
-        font-size: 18px;
-        width: 370px;
+  .slider__slides{
+      overflow:hidden;
+      position:relative;
+    .slider__slide{
+      position: relative;
+      color: #e1632a;
+      display: inline-block;
+      .slider__meta{
         position: absolute;
-        padding:17px;
-        right: 0;
+        right: 20%;
+        top: 35%;
+        text-align: justify;
+        h2{
+          background-color: rgba(255, 255, 255, 0.8);
+          font-family: "Lato-Black";
+          font-size: 21px;
+          padding: 17px;
+          margin-bottom: 10px;
+          text-transform: capitalize;
+        }
+        p{
+          background-color: rgba(255, 255, 255, 0.8);
+          font-family: "Lato-Regular";
+          font-size: 18px;
+          width: 370px;
+          position: absolute;
+          padding:17px;
+          right: 0;
+        }
       }
     }
   }

@@ -18,10 +18,11 @@
     THUNDERSTORM.modules.articles.init({sourceName : key,  articlesParent : articlesParent, shouldGenerate : true, isMainPage : true});
     THUNDERSTORM.modules.articles.loadMode(articlesParent);
 
-    /* ==========================================================================
+
+  /* ==========================================================================
      Functions
      ========================================================================== */
-
+    
     function sortLatestArticlesAccessed (article) {
         var temp,
             found;
@@ -68,11 +69,12 @@
     }
 
     sortLatestArticlesAccessed(recentArticles);
-    /* ==========================================================================
-     Event listeners
-     Set in local storage an object latest articles accessed with the key "latestArticlesAccessed",
-     which contains the article index and a counter, representing the number of times an article was clicked.
-     If the object is not in local storage, we create it, otherwise we replace the count property.
+
+   /* ==========================================================================
+      Event listeners
+      Set in local storage an object latest articles accessed with the key "latestArticlesAccessed",
+      which contains the article index and a counter, representing the number of times an article was clicked.
+      If the object is not in local storage, we create it, otherwise we replace the count property.
      ========================================================================== */
 
     articlesParent.on('click', articleClickTriggers, function (ev) {
@@ -123,4 +125,7 @@
         window.location.href = "/article?" + articleIndex;
     });
 
+
 }(window, window.THUNDERSTORM));
+
+
