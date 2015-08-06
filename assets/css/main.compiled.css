@@ -1399,14 +1399,6 @@ article h2:hover {
   .overlay .modal {
     max-width: 80%;
   }
-  .content {
-    width: 100%;
-    margin: 0px auto;
-    height: auto;
-  }
-  .article-details .article__content p {
-    font-size: 15px;
-  }
   .overlay .modal .modal__next,
   .overlay .modal .modal__prev {
     height: 40px;
@@ -1420,8 +1412,19 @@ article h2:hover {
     width: 35px;
     background-size: cover;
   }
-  .overlay .modal .modal__source {
+  .overlay .modal .modal__images {
+    min-height: auto;
+  }
+  .overlay .modal .modal__images .modal__source {
     padding: 5px;
+  }
+  .content {
+    width: 100%;
+    margin: 0px auto;
+    height: auto;
+  }
+  .article-details .article__content p {
+    font-size: 15px;
   }
   .slider .slider__slide .slider__meta h2 {
     font-size: 14px;
@@ -1458,6 +1461,9 @@ article h2:hover {
     bottom: -23px;
     right: -1px;
     border-radius: 0px 0px 0px 3px;
+  }
+  .overlay .modal .modal__images {
+    min-height: auto;
   }
   .slider .slider__controlls {
     display: none;
