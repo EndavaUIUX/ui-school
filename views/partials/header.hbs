@@ -1,7 +1,25 @@
+<!--header-->
 <header class='topheader'>
-    <div class='leftthird'> <img class="menu" src="assets/images/header/menu.png" /></div>
+    <div class='leftthird'>
+        <label for="menuHamburger">
+            <img class="menu" src="assets/images/header/menu.png" />
+        </label>
+        <input type="checkbox" id="menuHamburger">
+    </div>
     <div class='righttwothirds'>
-        <div class='centerdiv'>  <a href="/"><img class="logo" src="assets/images/header/logo1.png" /></a></div>
-        <div class='rightminidiv'><img class="profile" src="assets/images/header/profile.png"></div>
+        <div class='centerdiv'>
+            <a href="/">
+                <img class="logo" src="assets/images/header/logo1.png" />
+            </a>
+        </div>
+        <div class='rightminidiv'>
+            <label for="userProfile">
+                <img class="profile" src="assets/images/header/profile.png">
+            </label>
+            <input type="checkbox" id="userProfile">
+        </div>
     </div>
 </header>
+
+{{>partials/left_menu}}
+{{>partials/right_menu}}
