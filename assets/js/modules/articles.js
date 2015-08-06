@@ -220,7 +220,7 @@
     /* ==========================================================================
      Event listeners
      ========================================================================== */
-    articles.loadMode = function(articlesParent) {
+    articles.loadMode = function (articlesParent) {
         var page = $('.load-more').data('page');
         toggleLoadMore(page);
         articlesParent.on('click', articleClickTriggers, function (ev) {
