@@ -59,10 +59,11 @@
 
       var indexURL =  [];
       for(var i = 0; i < article['sources'].length; i++ ) {
-     
-        indexURL.push(utility.takeDomainUrl(article['sources']));
-        return indexURL;
+
+        indexURL.push(utility.takeDomainUrl(article['sources'][i]));
       }
+      console.log(indexURL);
+        return indexURL;
     };
 
     
