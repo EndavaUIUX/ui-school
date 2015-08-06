@@ -55,7 +55,7 @@
         var $sliderControlls = $('.slider__controlls');
         var $sliders = $('.slider__slides');
         var sliderPos = $sliders.offset().left;
-        
+
         fadeCtrlMeta($sliderMeta, $sliderControlls, 0, 100);
         setActiveBubble($that);
 
@@ -64,6 +64,7 @@
         }, 900, function () {
             fadeCtrlMeta($sliderMeta, $sliderControlls, 1, 500);
         });
+
     }
 
     /* ==========================================================================
