@@ -1,10 +1,13 @@
 .slider{
   max-height:600px;
-  background-color:white;
+  background-color:#fff;
   position:relative;
+  margin-top: 67px;
+
   img{
     width:100%;
   }
+
   &__controlls{
     width: 100px;
     position: absolute;
@@ -13,6 +16,9 @@
     right: 0;
     margin: 0px auto;
     display: block;
+    z-index : 1;
+    text-align: center;
+
     .bubble{
       height: 14px;
       width: 14px;
@@ -20,46 +26,61 @@
       margin-right: 8px;
       background-color: #fff;
       display: inline-block;
-      border: 1px solid #cecece;
+      border: @standard-border;
       transition: 0.2s all ease;
+      
       &:hover{
-        border-radius: 3px;
+        border-radius:0;
       }
     }
+    
     .bubble.bubble--active{
       background-color:#bfbdbd;
     }
   }
-  .slider__slide{
-    position: relative;
-    color: #e1632a;
-    .slider__meta{
-      position: absolute;
-      right: 20%;
-      top: 35%;
-      text-align: justify;
-      h2{
-        background-color: #fff;
-        font-family: "Lato-Black";
-        font-size: 21px;
-        padding: 17px;
-        margin-bottom: 10px;
-        text-transform: capitalize;
-      }
-      p{
-        background-color: #fff;
-        font-family: "Lato-Regular";
-        font-size: 18px;
-        width: 370px;
+  
+  .slider__slides{
+      overflow:hidden;
+      position:relative;
+      
+    .slider__slide{
+      position: relative;
+      color: @load-more-color;
+      display: inline-block;
+      
+      .slider__meta{
         position: absolute;
-        padding:17px;
-        right: 0;
+        right: 20%;
+        top: 35%;
+        text-align: justify;
+        
+        h2{
+          background-color: @slider-meta-bg;
+          font-family: "Lato-Black";
+          font-size: 21px;
+          padding: 17px;
+          margin-bottom: 10px;
+          text-transform: capitalize;
+        }
+        
+        p{
+          background-color: @slider-meta-bg;
+          font-family: "Lato-Regular";
+          font-size: 18px;
+          width: 370px;
+          position: absolute;
+          padding:17px;
+          right: 0;
+        }
       }
     }
   }
 }
 
-@media only screen and (min-width: 1180px) and (max-width: 1800px) {
+@media only screen
+and (min-width: 1180px)
+and (max-width: 1800px) {
+
   .slider .slider__slide{
     h2{
       margin-bottom:5px;

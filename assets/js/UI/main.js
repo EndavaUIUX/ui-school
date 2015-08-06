@@ -12,11 +12,11 @@
     var articleClickTriggers ='article h2, .article__title, .article-info img, .article__img img, .btn--more, .load-more, .latest__article .article__picture img' ;
     var loadMore = $('.load-more');
     var key = 'articles';
-
+    
     THUNDERSTORM.modules.articles.mostRecentArticles = persistence.get("latestArticlesAccessed");
     var recentArticles = THUNDERSTORM.modules.articles.mostRecentArticles;
-
-    THUNDERSTORM.modules.articles.init({sourceName : key, articlesParent : articlesParent, shouldGenerate : true});
+    THUNDERSTORM.modules.articles.init({sourceName : key,  articlesParent : articlesParent, shouldGenerate : true, isMainPage : true});
+    THUNDERSTORM.modules.articles.loadMode(articlesParent);
 
   /* ==========================================================================
      Functions
@@ -42,8 +42,8 @@
         return text;
     }
 
+    function sortLatestArticlesAccessed (article) {
 
-    function sortLatestArticlesAccessed(article) {
         var temp,
             found;
 
@@ -144,16 +144,7 @@
         window.location.href = "/article?" + articleIndex;
     });
 
-    loadMore.on('click', function (ev) {
-        //cand load more, generate articles nu o sa stie care e indexul de unde sa continue cu generarea
-        //acum se trimite si indexul ultimului articol generat.
-        var page = $(this).data('page');
-        var lastArticleIndex = $('.article-wrapper').last();
-        lastArticleIndex = lastArticleIndex.find('article').data('articleIndex');
-        lastArticleIndex = lastArticleIndex || 0;
-        //salvam index-ul paginii pe care vrem sa-l incarcam. Asta inseamna ca daca am nevoie de pagina x, o sa fie foarte usor sa o incarc.
-        THUNDERSTORM.modules.articles.generateArticles(THUNDERSTORM.modules.articles.pages[page], articlesParent, lastArticleIndex);
-        page = page + 1;
-        toggleLoadMore(page);
-    });
 }(window, window.THUNDERSTORM));
+
+
+

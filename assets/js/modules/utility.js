@@ -79,6 +79,18 @@
     };
 
     utility.showModal = function ($modalSelector) {
+        //  var $imagesHolder = $modalSelector.find('.modal__images');
+        // $imagesHolder.html('');
+        
+        // for(var i = 0; i < images.length; i++) {
+        //     var modalImage = $('<div></div>').addClass('modal__image'),
+        //         img = $('<img>').attr('src', images[i]),
+        //         sourceUrl = $('<a></a>').addClass('modal__source').attr('href', '#').html(utility.takeDomainUrl(images[i]));
+
+        //     modalImage.append(img).append(sourceUrl);
+        //     $imagesHolder.append(modalImage);
+        // }
+
         var $overlay = $('.overlay');
         $overlay.fadeIn();
         $modalSelector.fadeIn();
@@ -88,6 +100,45 @@
         $overlay.fadeOut();
         $modalSelector.fadeOut();      
     }
+
+
+     // ACCEPT LETTERS / NUMBERS / : / & / - / LENGTH MORE THAN 0
+    utility.validateInput = function(inputValue, errorElement) {
+            var regex = new RegExp("^[a-zA-Z0-9-& ]+$");
+
+            utility.cleanErrors(errorElement);
+            if (inputValue.length === 0 || !regex.test(inputValue)) {
+                errorElement.removeClass('hideError');
+                errorElement.addClass('errorSearch');
+                return false;
+            }
+            return true;
+    };
+
+    utility.cleanErrors = function(element) {
+        element.removeClass('errorSearch');
+        element.addClass('hideError');
+    };
+
+   
+   utility.takeDomainUrl = function (url) {
+        var domain = "";
+        var page = ""; 
+
+        if (url.indexOf("http://") !== -1) {
+            url = url.substr(7);
+        } 
+
+        if (url.indexOf("https://") !== -1) {
+            url = url.substr(8);
+        } 
+
+        if (url.indexOf("www.")  !== -1) {
+            url = url.substr(4);
+        }
+        return url.split('/')[0];
+    }
+
 
     THUNDERSTORM.modules.utility = utility;
 

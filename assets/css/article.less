@@ -1,23 +1,145 @@
-@article-shadow-color: rgba(0,0,0,0.08);
-@article-border-color: #e7e7e7;
-@article-header-color: #515151;
-@article-author-color: #b1b1b1;
-@article-description-color: #828282;
-@btn-background-color: #ffffff;
-@btn-color: #747474;
-@image-hover: #D0D0D0;
-@desktop-font-size: 18px;
-@pad-font-size: 15px;
-@mobile-font-size: 13px;
-@title-font-size: 21px;
-@title-hover: #e1632a;
-@load-more-color: #e1632a;
-@load-btn-hover: #EBEAE8;
-@btn-more-color: #747474;
-@article-border:#cecece;
+.latest__article{
+    margin: 0px auto;
+    width: 1170px;
+    height: 372px;
+    border: 1px solid @article-border-color;
+    box-shadow: 0px 5px 5px 0px @article-shadow-color;
+    margin-bottom: 50px;
 
-.clearfix {
-    clear: both;
+    .article__content{
+        width: 600px;
+        height: 377px;
+        float:left;
+        position: absolute;
+
+        .article__title{
+            font-family: 'Lato-Black';
+            font-size: 21px;
+            color: @article-header-color;
+            padding: 30px 30px 0px 30px;
+            height: 50px;
+        }
+
+        .article__title:hover{
+            color: @title-hover;
+            cursor: pointer;
+        }
+
+        .article__informations{
+            padding: 0px 0px 14px 30px;
+            font-family: 'Lato-Regular';
+            
+            .article__author.article_info{
+                font-size: 18px;
+                color: @article-author-color;
+                display: inline-block;
+            }
+            
+            .article_info{
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+            
+            .article__date.article_info{
+                font-size: 18px;
+                color: @article-author-color;
+                display: inline-block;
+            }
+            
+            .article__author{
+                background: @author-ico no-repeat;
+                display: inline-block;
+            }
+            
+            .article__date{
+                background: @date-ico no-repeat;
+                display: inline-block;
+            }
+            
+            .article__gallery{
+                background: @gallery-ico no-repeat;
+                font-size: 18px;
+                color: @article-author-color;
+                display: inline-block;
+            }
+        }
+
+        .article_description{
+            font-size: 18px;
+            color: @article-description-color;
+            text-align: justify;
+            padding: 12px 30px 0px 30px;
+            font-family: 'Lato-Regular';
+            line-height: 1.2;
+            height: 126px;
+            overflow: hidden;
+            word-break: break-word;
+        }
+    }
+
+    .article__img{
+        height: 377px;
+        width: 570px;
+        float: right;
+        cursor: pointer; 
+        opacity: 0.8;
+        -webkit-opacity: 0.8;
+        -moz-opacity: 0.8;
+        transition: 0.5s ease;
+        -webkit-transition: 0.5s ease;
+        -moz-transition: 0.5s ease;
+
+        img{
+            height: 98%;
+            margin-right: auto;
+            margin-left: auto;
+            display: block;
+        }
+    }
+
+    .article__img:hover{ 
+        border: 5px solid @image-hover;
+        box-sizing: border-box;
+        border-radius: 1%;
+        -webkit-transform: scale(1,1);
+        -moz-transform: scale(1,1);
+        opacity: 1 ;
+        -webkit-opacity: 1;
+        -moz-opacity: 1;
+
+        img{
+            height: 98%;
+            margin-right: auto;
+            margin-left: auto;
+            display: block;
+        }
+    }
+}
+
+.article__picture img{
+    display: none;
+    cursor: pointer;
+    opacity: 0.8;
+    -webkit-opacity: 0.8;
+    -moz-opacity: 0.8;
+    transition: 0.5s ease;
+    -webkit-transition: 0.5s ease;
+    -moz-transition: 0.5s ease;
+}
+
+.article__picture img:hover{
+    border: 5px solid @image-hover;
+    box-sizing: border-box;
+    border-radius: 1%;
+    -webkit-transform: scale(1,1);
+    -moz-transform: scale(1,1);
+    opacity: 1 ;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+}
+
+.clearfix{
+    clear:both;
 }
 
 .article-wrapper {
