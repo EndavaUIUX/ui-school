@@ -115,12 +115,15 @@
             return true;
     };
 
+    // add & remove paragraph if i have or not invalid text input
     utility.cleanErrors = function(element) {
         element.removeClass('errorSearch');
         element.addClass('hideError');
     };
 
-   
+   // split the current url from gallery[]
+   // check http https www
+   //save the rest url until /
    utility.takeDomainUrl = function (url) {
         var domain = "";
         var page = ""; 

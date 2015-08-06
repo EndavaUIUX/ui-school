@@ -69,6 +69,8 @@
             } 
     }
     
+
+    //iterate photos from gallery article
     var iterateGalleryPhotos = function(article, utility) {
         /*var galleryImages = [],
             indexURL =  [], 
@@ -80,18 +82,21 @@
 
 
       // return indexURL;
+
+    // save the index of url image  
+    // add  all url's
     var indexURL =  [];
     for(var i = 0; i < article['sources'].length; i++ ) {
         indexURL.push(utility.takeDomainUrl(article['sources'][i]));
         }
-        
+    //display split url image    
         console.log(indexURL);
         return indexURL;
     };
 
-    var updateSource = function () {
+    // var updateSource = function () {
         
-    }
+    // }
     
 
     
