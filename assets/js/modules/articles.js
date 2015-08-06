@@ -6,6 +6,9 @@
     articles.moduleName = "articles";
     
     articles.data = {};
+
+    var articleClickTriggers ='article h2, .article__title, .article-info img, .article__img img, .btn--more, .load-more, .latest__article .article__picture img',
+    loadMore = $('.load-more');
     /* ==========================================================================
      function init()
      Verifica daca exista cheia articles in local storage. Daca da, preia datele
@@ -27,8 +30,8 @@
         if (utility.keyInLocalStorage(key)) {
             articles.data = persistence.get(options);
             if (options.shouldGenerate) {
-                articles.pages = pagination(articles.data[key]);
-                articles.generateArticles(articles.pages[0], options.articlesParent);
+                articles.pages = articles.pagination(articles.data[key], options.itemsPerPage);
+                articles.generateArticles(articles.pages[0], options.articlesParent, options.isMainPage);
             }
             if(options.callback) {
                 options.callback();
@@ -46,16 +49,27 @@
                         options.callback();
                     }
                     if (options.shouldGenerate) {
-                        articles.pages = pagination(articles.data[key]);
+                        articles.pages = articles.pagination(articles.data[key]);
                         articles.generateArticles(articles.pages[0], options.articlesParent);
                     } 
                 }
             });
         }
     };
+
+    articles.filterArticles = function(options){
+        var searchedArticles = [];
+       articles.data = persistence.get(options.sourceName);
+       for(var i = 0, len = articles.data['articles'].length; i < len; i++){
+           if(articles.data['articles'][i]["title"].toLowerCase().indexOf(options.searchedWord) > -1){
+               searchedArticles.push(articles.data['articles'][i]);
+           }
+       }
+       return searchedArticles;
+    };
     
     function createRecentArticle(articleData, articleIndex) {
-        //TODO needs a simpler structure
+        // TODO needs a simpler structure
         var base = $('<article></article>').addClass('latest__article').attr('data-article-index', articleIndex),
                 articleContent = $('<div></div>').addClass('article__content'),
                 articleTitle = $('<h2></h2>').addClass('article__title').html(articleData.title),
@@ -69,19 +83,25 @@
                 articleAuthor = $('<span></span>').addClass('article__author article_info').html(articleData.author),
                 articleDate = $('<span></span>').addClass('article__date article_info').html(utility.dateFormatter(articleData.published)),
                 articleGallery,
-                imageGalleryObj;
+                imageGalleryObj,
+                windowWidth = $(window).width();
         imageGalleryObj = utility.imageSourceGenerator(articleData);
         articleHiddenImage.attr('src', imageGalleryObj.sources[0]);
         articleVisibleImgTag.attr('src', imageGalleryObj.sources[0]);
         
         articleText.html(clipText(articleData.description, 400));
         
-        /*append the elements*/
+        /* append the elements */
         articleInfo.append(articleAuthor);
         articleInfo.append(articleDate);
+        
         if (imageGalleryObj.hasGallery) {
             articleGallery = $('<a></a>').addClass('article__gallery article_info').html('Photo Gallery');
             articleInfo.append(articleGallery);
+        }
+        
+        if (windowWidth < 400) {
+            articleText = articleText.html(clipText(articleData.description, 118));
         }
         articleContent.append(articleTitle);
         articleContent.append(articleInfo);
@@ -92,14 +112,15 @@
         base.append(articleContent);
         articleVisibleImage.append(articleVisibleImgTag);
         base.append(articleVisibleImage);
+        console.log(articleText);
 
         return base;
     }
-    
-    function pagination(data) {
+
+    articles.pagination = function(data, param) {
         var pages = {},
           pageNr = 0,
-          itemsPerPage = 7;
+          itemsPerPage =  param || 7;
         data.filter(function (item, index) {
             if (!pages[pageNr]) {
                 pages[pageNr] = [];
@@ -116,12 +137,12 @@
             }
         });
         return pages;
-    }
+    };
     
     function reduceText(text) {
       
     }
-    
+
     function clipText(description, clipLimit){
         var text;
         if (description.length > clipLimit) {
@@ -164,7 +185,7 @@
         } else {
             articleText.html(clipText(articleData.description, 120));
         }
-        /*append the elements*/
+        /* append the elements */
         articleInfo.append(articleAuthor);
         articleInfo.append(articleDate);
         articleInfo.append(articlePhoto);
@@ -179,21 +200,52 @@
         return base;
     };
 
-    articles.generateArticles = function (data, parent, carryIndex) {
+    articles.generateArticles = function (data, parent, isMainPage) {
         var myArticle,
             recentGenerated = false,
-            i,
-            additionIndex = carryIndex + 1 || 0;//+1 pentru ca i-ul porneste de la 0;
+            i;
         for (i = 0; i < data.length; i = i + 1) {
-            if (data.length === 7 && recentGenerated === false) {
-                myArticle = createRecentArticle(data[i], i + additionIndex);
+            if (data.length === 7 && recentGenerated === false && isMainPage === true) {
+                myArticle = createRecentArticle(data[i], i);
                 recentGenerated = true;
             } else {
-                myArticle = articles.createArticle(data[i], i + additionIndex, 0);
+                myArticle = articles.createArticle(data[i], i, 0);
             }
             parent.append(myArticle);
         }
     };
+
+    /* ==========================================================================
+     Event listeners
+     ========================================================================== */
+    articles.loadMode = function(articlesParent) {
+        var page = $('.load-more').data('page');
+        toggleLoadMore(page);
+        articlesParent.on('click', articleClickTriggers, function (ev) {
+            ev.stopPropagation();
+            var articleIndex = $(ev.target).closest('article')[0].getAttribute('data-article-index');
+            //the actual redirect
+            window.location.href = "/article?" + articleIndex;
+        });
+
+        function toggleLoadMore(page) {
+            if (page < Object.keys(THUNDERSTORM.modules.articles.pages).length) {
+                loadMore.data('page', page);
+            } else {
+                loadMore.hide('fast');
+            }
+        }
+
+        loadMore.on('click', function (ev) {
+            var page = $(this).data('page');
+            //salvam index-ul paginii pe care vrem sa-l incarcam. Asta inseamna ca daca am nevoie de pagina x, o sa fie foarte usor sa o incarc.
+            THUNDERSTORM.modules.articles.generateArticles(THUNDERSTORM.modules.articles.pages[page], articlesParent, false);
+            page = page + 1;
+            toggleLoadMore(page);
+        });
+    };
+
     THUNDERSTORM.modules.articles = articles;
 
 }(window, window.THUNDERSTORM));
+
