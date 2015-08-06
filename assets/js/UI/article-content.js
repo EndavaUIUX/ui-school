@@ -60,18 +60,18 @@
     $('.modal__close').on('click', function (ev) {
         THUNDERSTORM.modules.utility.dismissModal($('.modal'));
     });
-
-
-
+    
+    
+    
     var swipeFunction = {
-
+        
         touches : {
             "touchstart": {"x": -1, "y": -1}, 
             "touchmove" : {"x": -1, "y": -1}, 
             "touchend"  : false,
             "direction" : "undetermined"
         },
-
+        
         touchHandler: function(event) {
             var touch;
             if (typeof event !== 'undefined') {  
@@ -101,7 +101,7 @@
                 }
             }
         },
-
+        
         init: function() {
             console.log('init');
             var image = document.querySelector('.modal__images img');
@@ -110,7 +110,7 @@
             image.addEventListener('touchend', swipeFunction.touchHandler, false);
         }
     };
-
+    
     console.log(swipeFunction);
     console.log(swipeFunction.init);
     swipeFunction.init(); 
