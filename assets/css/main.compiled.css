@@ -274,39 +274,77 @@ nav a:hover {
 #nav ul.visible {
   display: block;
 }
-nav {
-  width: 100%;
-  text-align: center;
-  position: fixed;
-  min-height: 100%;
-}
 .menu-right {
-  width: 309px;
   min-height: 100%;
+  width: 309px;
   background-color: #333333;
   text-align: left;
-  right: 0;
   z-index: 44;
-  top: 0;
-  transition: all 0.9s ease-in-out;
-  -webkit-transition: all 0.9s ease-in-out;
-  -moz-transition: all 0.9s ease-in-out;
-  -o-transition: all 0.9s ease-in-out;
+  right: -309px;
+  transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
 }
-.menu-right ul {
-  padding: 0;
+.menu-right .user-details .user {
+  padding: 8px 15px 0px 24px;
 }
-.menu-right li .file {
+.menu-right .user-details .user:hover {
+  cursor: pointer;
+}
+.menu-right .user-details .user-name {
+  font-size: 21px;
+  font-family: 'Lato';
+  top: 10px;
+  left: 55px;
+  position: absolute;
+  color: #ffffff;
+  padding: 8px 0px 0px 0px;
+  margin-left: 32px;
+  line-height: 1.2;
+}
+.menu-right .article-recent .title {
+  font-size: 21px;
+  font-family: 'Lato';
+  color: #ffffff;
+  line-height: 1.2;
+  position: absolute;
+  z-index: 302;
+  top: 90px;
+  left: 46px;
+  padding-left: 10px;
+}
+.menu-right .article-recent .file {
+  position: absolute;
+  width: 17px;
+  height: 19px;
+  z-index: 303;
+  padding-left: 24px;
+  top: 93px;
+}
+.menu-right .article-recent .recent-list {
+  padding: 74px 0px 0px 0px;
+}
+.menu-right .article-recent .recent-list a {
+  font-size: 18px;
+  font-family: "Lato";
+  line-height: 1.66;
+  color: #c7c7c7;
+  border-bottom: none;
+  padding: 10px 54px;
+}
+.menu-right .article-recent .recent-list a:hover {
+  background: #c0c0c0;
   color: #ffffff;
 }
-.user {
-  padding: 0px 6px 0px 24px;
+#userProfile {
+  display: none;
 }
 .show-menu-right {
   position: fixed;
-  right: 0px;
+  right: 0;
 }
-#userProfile {
+.hide-user-icon {
   display: none;
 }
 .slider {
