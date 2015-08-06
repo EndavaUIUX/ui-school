@@ -79,17 +79,6 @@
     };
 
     utility.showModal = function ($modalSelector) {
-        //  var $imagesHolder = $modalSelector.find('.modal__images');
-        // $imagesHolder.html('');
-        
-        // for(var i = 0; i < images.length; i++) {
-        //     var modalImage = $('<div></div>').addClass('modal__image'),
-        //         img = $('<img>').attr('src', images[i]),
-        //         sourceUrl = $('<a></a>').addClass('modal__source').attr('href', '#').html(utility.takeDomainUrl(images[i]));
-
-        //     modalImage.append(img).append(sourceUrl);
-        //     $imagesHolder.append(modalImage);
-        // }
 
         var $overlay = $('.overlay');
         $overlay.fadeIn();
@@ -116,13 +105,16 @@
             return true;
     };
 
+    // add & remove paragraph if i have or not invalid text input
     utility.cleanErrors = function(element) {
         element.removeClass('errorSearch');
         element.addClass('hideError');
         $(".errorContainer").html("");
     };
 
-   
+   // split the current url from gallery[]
+   // check http https www
+   //save the rest url until /
    utility.takeDomainUrl = function (url) {
         var domain = "";
         var page = ""; 

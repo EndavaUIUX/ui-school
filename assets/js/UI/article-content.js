@@ -32,6 +32,23 @@
                 $(".article__gallery").addClass("hasGallery");
                 $(".article__gallery").append(viewMoreButton);
 
+            //  populate gallery from article content with modal source url 
+                var imagesHolder = $('.modal .modal__images');
+                    imagesHolder.html('');
+
+                for(var i = 0; i < currentArticle.sources.length; i++) {
+                    var modalImage = $('<div></div>').addClass('modal__image'),
+                        img = $('<img>').attr('src', currentArticle.sources[i]),
+                        sourceUrl = $('<a></a>').addClass('modal__source').attr('href', '#').html(utility.takeDomainUrl(currentArticle.sources[i]));      
+                    
+                    if(i != 0) {
+                        modalImage.hide();
+                    } else { 
+                        modalImage.append(img).append(sourceUrl);
+                        imagesHolder.append(modalImage);
+                    }
+                } 
+
             } else {
                 gallery = $("<img>").attr("src", currentArticle.sources);
                 $(".article__gallery").append(gallery);
@@ -46,30 +63,13 @@
     }
     
     var iterateGalleryPhotos = function(article, utility) {
-        /*var galleryImages = [],
-            indexURL =  [], 
-            galleryImages = article['gallery'];
+        var indexURL =  [];
+        for(var i = 0; i < article['sources'].length; i++ ) {
+            indexURL.push(utility.takeDomainUrl(article['sources'][i]));
+        }
 
-       for(var j = 0, leng = galleryImages.length; j < leng; j++) {
-            indexURL.push(utility.takeDomainUrl(galleryImages[j]));
-       }*/
-
-      // return indexURL;
-      var indexURL =  [];
-      for(var i = 0; i < article['sources'].length; i++ ) {
-
-        indexURL.push(utility.takeDomainUrl(article['sources'][i]));
-      }
-      console.log(indexURL);
         return indexURL;
     };
-
-    var updateSource = function () {
-        
-    }
-    
-
-    
 
     /* ==========================================================================
       event handlers.                                                            
