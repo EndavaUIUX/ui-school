@@ -33,7 +33,10 @@
                 $(".article__gallery").append(viewMoreButton);
 
 
-            
+
+
+
+            //  populate gallery from article content with modal source url 
             var imagesHolder = $('.modal .modal__images');
                 imagesHolder.html('');
 
@@ -41,15 +44,15 @@
                     var modalImage = $('<div></div>').addClass('modal__image'),
                         img = $('<img>').attr('src', currentArticle.sources[i]),
                         sourceUrl = $('<a></a>').addClass('modal__source').attr('href', '#').html(utility.takeDomainUrl(currentArticle.sources[i]));
-                        
+            //check if the image property is hide or not            
                     if(i != 0) {
                         modalImage.hide();
                     }
-
+            //display the images         
                     modalImage.append(img).append(sourceUrl);
                     imagesHolder.append(modalImage);
                 }
-
+            //i should have the next and prev even create to check     
 
 
 
@@ -75,13 +78,14 @@
             indexURL.push(utility.takeDomainUrl(galleryImages[j]));
        }*/
 
-      // return indexURL;
-      var indexURL =  [];
-      for(var i = 0; i < article['sources'].length; i++ ) {
 
+      // return indexURL;
+    var indexURL =  [];
+    for(var i = 0; i < article['sources'].length; i++ ) {
         indexURL.push(utility.takeDomainUrl(article['sources'][i]));
-      }
-      console.log(indexURL);
+        }
+        
+        console.log(indexURL);
         return indexURL;
     };
 
