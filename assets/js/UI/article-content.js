@@ -32,6 +32,27 @@
                 $(".article__gallery").addClass("hasGallery");
                 $(".article__gallery").append(viewMoreButton);
 
+
+            
+            var imagesHolder = $('.modal .modal__images');
+                imagesHolder.html('');
+
+                for(var i = 0; i < currentArticle.sources.length; i++) {
+                    var modalImage = $('<div></div>').addClass('modal__image'),
+                        img = $('<img>').attr('src', currentArticle.sources[i]),
+                        sourceUrl = $('<a></a>').addClass('modal__source').attr('href', '#').html(utility.takeDomainUrl(currentArticle.sources[i]));
+                        
+                    if(i != 0) {
+                        modalImage.hide();
+                    }
+
+                    modalImage.append(img).append(sourceUrl);
+                    imagesHolder.append(modalImage);
+                }
+
+
+
+
             } else {
                 gallery = $("<img>").attr("src", currentArticle.sources);
                 $(".article__gallery").append(gallery);
