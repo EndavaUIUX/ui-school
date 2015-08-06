@@ -2,6 +2,7 @@
  * Created by icojocaru on 8/5/2015.
  */
 $('#userProfile').click(function () {
+    $('.title').html("Most Recent Articles");
     if ($('input#userProfile').is(':checked')) {
         $('.menu-right').addClass("show-menu-right");
         $('.rightminidiv').addClass("hide-user-icon");

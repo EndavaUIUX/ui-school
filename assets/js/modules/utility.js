@@ -79,27 +79,15 @@
     };
 
     utility.showModal = function ($modalSelector) {
-        //  var $imagesHolder = $modalSelector.find('.modal__images');
-        // $imagesHolder.html('');
-        
-        // for(var i = 0; i < images.length; i++) {
-        //     var modalImage = $('<div></div>').addClass('modal__image'),
-        //         img = $('<img>').attr('src', images[i]),
-        //         sourceUrl = $('<a></a>').addClass('modal__source').attr('href', '#').html(utility.takeDomainUrl(images[i]));
-
-        //     modalImage.append(img).append(sourceUrl);
-        //     $imagesHolder.append(modalImage);
-        // }
-
         var $overlay = $('.overlay');
         $overlay.fadeIn();
         $modalSelector.fadeIn();
-    }
+    };
     utility.dismissModal = function ($modalSelector) {
         var $overlay = $('.overlay');
         $overlay.fadeOut();
         $modalSelector.fadeOut();      
-    }
+    };
 
 
      // ACCEPT LETTERS / NUMBERS / : / & / - / LENGTH MORE THAN 0
@@ -137,8 +125,65 @@
             url = url.substr(4);
         }
         return url.split('/')[0];
-    }
+    };
 
+    utility.clipText = function (description, clipLimit){
+        var text;
+        if (description.length > clipLimit) {
+            text = description.substr(0, clipLimit);
+            for (var i = text.length; i > 0; i = i - 1) {
+                if (text[i] === " ") {
+                    text = text.substr(0, i);
+                    break;
+                }
+            }
+            text = text.split(' ');
+            text[text.length] = " . . .";
+            text = text.join(' ');
+            return text;
+        } else {
+            text = description.substr(0, clipLimit);
+        }
+        return text;
+    };
+
+    utility.sortLatestArticlesAccessed = function (article) {
+        var temp,
+            found;
+
+        do {
+            found = false;
+            for(var index = 0; index < article.length - 1; index++) {
+                if(article[index].count < article[index + 1].count) {
+                    temp = article[index].count;
+                    article[index].count = article[index + 1].count;
+                    article[index + 1].count = temp;
+                    found = true;
+                }
+            }
+        } while(found);
+
+        return utility.generateListHTML(article, THUNDERSTORM.modules.articles.data);
+    };
+
+    utility.generateListHTML = function (latestArticlesAccessed, allArticles) {
+        var menuRight = $('.article-recent'),
+            titleListParent = $("<ul></ul>").addClass('recent-list');
+
+        for(var i = 0; i < latestArticlesAccessed.length; i++) {
+            if(latestArticlesAccessed[i].articleIndex < 10){
+                var listItem = $("<li></li>"),
+                    articleIndex = latestArticlesAccessed[i].articleIndex,
+                    linkRedirect = $('<a></a>').attr("href", "article?" + latestArticlesAccessed[i].articleIndex);
+
+                linkRedirect.html(utility.clipText(allArticles["articles"][articleIndex].title, 20));
+
+                listItem.append(linkRedirect);
+                titleListParent.append(listItem);
+            }
+        }
+        menuRight.append(titleListParent);
+    };
 
     THUNDERSTORM.modules.utility = utility;
 

@@ -7,6 +7,11 @@
         callback: populateArticlePage
     });
 
+    var persistence = THUNDERSTORM.modules.persistence;
+    THUNDERSTORM.modules.articles.mostRecentArticles = persistence.get("latestArticlesAccessed");
+    var recentArticles = THUNDERSTORM.modules.articles.mostRecentArticles,
+        utility = THUNDERSTORM.modules.utility;
+
     function populateArticlePage() {
         var pageUrl = window.location.href,
             utility = THUNDERSTORM.modules.utility,
@@ -42,19 +47,10 @@
 
             window.onload = function(){ 
                 iterateGalleryPhotos(currentArticle, utility);
-            } 
+            };
     }
     
     var iterateGalleryPhotos = function(article, utility) {
-        /*var galleryImages = [],
-            indexURL =  [], 
-            galleryImages = article['gallery'];
-
-       for(var j = 0, leng = galleryImages.length; j < leng; j++) {
-            indexURL.push(utility.takeDomainUrl(galleryImages[j]));
-       }*/
-
-      // return indexURL;
       var indexURL =  [];
       for(var i = 0; i < article['sources'].length; i++ ) {
 
@@ -67,9 +63,6 @@
     var updateSource = function () {
         
     }
-    
-
-    
 
     /* ==========================================================================
       event handlers.                                                            
@@ -143,7 +136,9 @@
     
     console.log(swipeFunction);
     console.log(swipeFunction.init);
-    swipeFunction.init(); 
+    swipeFunction.init();
+
+    utility.sortLatestArticlesAccessed(recentArticles);
 
 } (window, window.THUNDERSTORM, window.jQuery));
 

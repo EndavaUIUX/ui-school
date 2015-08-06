@@ -183,7 +183,7 @@
         if (isFullContent) {
             articleText.html(articleData.content);
         } else {
-            articleText.html(clipText(articleData.description, 120));
+            articleText.html(utility.clipText(articleData.description, 120));
         }
         /* append the elements */
         articleInfo.append(articleAuthor);
