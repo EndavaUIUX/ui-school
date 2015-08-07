@@ -38,15 +38,8 @@
     });
 
 
-    // show & hide resources list from right menu
-    // $(function() {
-    //     $('.recent-list').hide();
 
-    //     $('.title').click(function() {
-    //         $('.recent-list').toggle();
-    //     });
-
-    // });    
+    
 
 
 }());

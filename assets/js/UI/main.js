@@ -30,19 +30,7 @@
             loadMore.hide('fast');
         }
     }
-
-    // show & hide recent article list from right menu
-    $(function() {
-        $('.recent-list').hide();
-
-        $('.title').click(function() {
-            $('.recent-list').toggle();
-        });
-
-    });
-
-
-
+    
     utility.sortLatestArticlesAccessed(recentArticles);
    /* ==========================================================================
       Event listeners
@@ -99,6 +87,8 @@
         window.location.href = "/article?" + articleIndex;
     });
 
+
+    
 
 }(window, window.THUNDERSTORM));
 

@@ -157,6 +157,10 @@
     swipeFunction.init();
 
     utility.sortLatestArticlesAccessed(recentArticles);
+    utility.collapseRecentArticleMenu();
+
+
+
 
 } (window, window.THUNDERSTORM, window.jQuery));
 
