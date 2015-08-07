@@ -45,7 +45,7 @@
 }());
 
 
-
+/*
 $(document).ready(function() {
     $("#menuHamburger").click(function(e) {
         $("nav.menu-left").toggle();
@@ -58,3 +58,4 @@ $(document).ready(function() {
         }
     });
 });
+*/

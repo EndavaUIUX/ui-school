@@ -190,7 +190,7 @@ nav a {
   font-size: 18px;
 }
 nav a:hover {
-  background: #C0C0C0;
+  background: #c0c0c0;
   color: white;
 }
 .left-word {
@@ -238,15 +238,10 @@ nav a:hover {
   margin-left: 24px;
   margin-right: 24px;
   border: 1px solid #bdbdbd;
-  background-color: #fff;
+  background-color: #ffffff;
   text-align: left;
   font-size: 18px;
   outline: none;
-}
-.search-article::-webkit-input-placeholder {
-  background-image: url("/assets/images/left_menu/searchicon.png");
-  background-repeat: no-repeat;
-  background-position: right;
 }
 .search-article::-webkit-input-placeholder {
   background-image: url("/assets/images/left_menu/searchicon.png");
@@ -257,6 +252,7 @@ nav a:hover {
   background-image: url("/assets/images/left_menu/searchicon.png");
   background-repeat: no-repeat;
   background-position: right;
+  background-position-x: 93%;
 }
 .search-article:-moz-placeholder {
   background-image: url("/assets/images/left_menu/searchicon.png");
@@ -306,7 +302,7 @@ nav a:hover {
   line-height: 1.2;
   font-weight: normal;
 }
-.menu-right .article-recent .title {
+.menu-right .article-recent .title-recent {
   font-size: 21px;
   font-family: 'Lato';
   color: #ffffff;
