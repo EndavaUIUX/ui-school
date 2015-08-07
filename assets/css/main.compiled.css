@@ -298,6 +298,7 @@ nav a:hover {
   padding: 8px 0px 0px 0px;
   margin-left: 32px;
   line-height: 1.2;
+  font-weight: normal;
 }
 .menu-right .article-recent .title {
   font-size: 21px;
@@ -308,6 +309,7 @@ nav a:hover {
   z-index: 302;
   top: 90px;
   left: 46px;
+  font-weight: normal;
   padding-left: 10px;
 }
 .menu-right .article-recent .file {
