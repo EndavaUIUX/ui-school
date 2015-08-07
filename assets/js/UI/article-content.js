@@ -98,7 +98,7 @@
       event handlers.                                                            
     ========================================================================== */
 
-    $('body').on('click', function (ev) {
+    $('body').on('click tap touchend', function (ev) {
             var container = $('.modal');
             if (!container.is(ev.target)  && container.has(ev.target).length === 0 && !$(ev.target).hasClass('.modal__close') && !$(ev.target).hasClass('button__gallery'))
               {
@@ -110,6 +110,7 @@
         buttonGallery();
         THUNDERSTORM.modules.utility.showModal($('.modal'));
         $('.modal__prev').hide();
+        resizeModal();
     });
 
     $('.modal__close').on('click', function (ev) {

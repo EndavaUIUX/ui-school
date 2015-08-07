@@ -14,22 +14,14 @@
     var key = 'articles';
 
     THUNDERSTORM.modules.articles.mostRecentArticles = persistence.get("latestArticlesAccessed");
-    var recentArticles = THUNDERSTORM.modules.articles.mostRecentArticles;
-    THUNDERSTORM.modules.articles.init({sourceName : key,  articlesParent : articlesParent, shouldGenerate : true, isMainPage : true});
-    THUNDERSTORM.modules.articles.loadMode(articlesParent);
 
+    THUNDERSTORM.modules.articles.init({sourceName : key,  articlesParent : articlesParent, shouldGenerate : true, isMainPage : true, callback:    THUNDERSTORM.modules.articles.loadMode(articlesParent)});
+
+    var recentArticles = THUNDERSTORM.modules.articles.mostRecentArticles;
 
   /* ==========================================================================
      Functions
      ========================================================================== */
-
-    function toggleLoadMore(page) {
-        if (page < Object.keys(THUNDERSTORM.modules.articles.pages).length) {
-            loadMore.data('page', page);
-        } else {
-            loadMore.hide('fast');
-        }
-    }
 
     utility.sortLatestArticlesAccessed(recentArticles);
 

@@ -122,6 +122,7 @@ p {
   width: 1170px;
   margin: 50px auto;
   display: block;
+  zoom: 95%;
 }
 .topheader {
   width: 100%;
@@ -380,9 +381,6 @@ nav a:hover {
   display: inline-block;
   border: 1px solid #cecece;
   transition: 0.2s all ease;
-}
-.slider__controlls .bubble:hover {
-  border-radius: 0;
 }
 .slider__controlls .bubble.bubble--active {
   background-color: #bfbdbd;
@@ -1474,11 +1472,7 @@ article h2:hover {
     font-size: 14px;
   }
   .slider__controlls {
-    bottom: 10px;
-  }
-  .slider__controlls .bubble {
-    width: 10px;
-    height: 10px;
+    display: none!important;
   }
 }
 @media only screen and (min-width: 1px) and (max-width: 599px) {
@@ -1511,7 +1505,7 @@ article h2:hover {
     min-height: auto;
   }
   .slider .slider__controlls {
-    display: none;
+    display: none!important;
   }
   .content {
     padding: 0px 20px;

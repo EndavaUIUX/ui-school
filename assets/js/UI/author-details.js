@@ -23,7 +23,7 @@
         $rightMinDiv.removeClass("hide-user-icon");
     });
 
-    $(document).on("click", function (e) {
+    $(document).on("click tap touchend", function (e) {
         var targetEl = $(e.target);
 
         if (!targetEl.is('.profile') && !targetEl.is('.menu-right') && !targetEl.is('.article-recent h2')) {
