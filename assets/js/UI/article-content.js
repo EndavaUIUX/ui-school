@@ -82,10 +82,68 @@
             }
         });
     $('.button__gallery').on('click', function (ev) {
+        buttonGallery();
         THUNDERSTORM.modules.utility.showModal($('.modal'));
+        $('.modal__prev').hide();
     });
     
     $('.modal__close').on('click', function (ev) {
         THUNDERSTORM.modules.utility.dismissModal($('.modal'));
     });
+
+
+    /* ==========================================================================
+      || Prev & Next // Buttons ||
+     ========================================================================== */
+    function buttonGallery(){
+        var $allGalleryImages = $(".article__gallery img"),
+           $imgGallery = $("div.modal__image img");
+        $imgGallery[0].src = $allGalleryImages[0].src;
+        $('.modal__image').attr('data-index', 0);
+    }
+    
+
+    $('.modal__next').on("click", function (ev) {
+       var $allGalleryImages = $(".article__gallery img"),
+           $imgGallery = $("div.modal__image img"),
+           imgIndex = document.querySelector('.modal__image');
+           imgIndex = parseInt(imgIndex.getAttribute('data-index'));
+           var count = $allGalleryImages.length;
+           $('.modal__prev').show();
+        imgIndex = imgIndex + 1;
+        if(imgIndex === count-1){
+           // imgIndex = 0;
+            $('.modal__next').hide();           
+        }            
+        //$('.modal__next').show();
+        $('.modal__image').attr('data-index', imgIndex);
+        $imgGallery[0].src = $allGalleryImages[imgIndex].src;
+        
+        
+    });
+  $('.modal__prev').on("click", function (ev) {
+       var $allGalleryImages = $(".article__gallery img"),
+           $imgGallery = $("div.modal__image img"),
+           imgIndex = document.querySelector('.modal__image');
+           imgIndex = parseInt(imgIndex.getAttribute('data-index'));
+           var count = $allGalleryImages.length;
+        imgIndex = imgIndex - 1;
+        if(imgIndex <= 0){
+            //imgIndex = count - 1;
+            $('.modal__prev').hide();
+        }
+        $('.modal__next').show();
+        //$('.modal__prev').show();
+        $('.modal__image').attr('data-index', imgIndex);
+        $imgGallery[0].src = $allGalleryImages[imgIndex].src;
+    });   
+    
+  
+    
+    
 }(window, window.THUNDERSTORM, window.jQuery));
+
+
+
+
+ 

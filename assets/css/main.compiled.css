@@ -258,11 +258,13 @@ nav a:hover {
   background-image: url("/assets/images/left_menu/searchicon.png");
   background-repeat: no-repeat;
   background-position: right;
+  background-position-x: 93%;
 }
 .search-article::-moz-placeholder {
   background-image: url("/assets/images/left_menu/searchicon.png");
   background-repeat: no-repeat;
   background-position: right;
+  background-position-x: 93%;
 }
 #nav ul.sub-nav {
   display: none;
