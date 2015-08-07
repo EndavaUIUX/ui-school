@@ -7,7 +7,7 @@
         $rightMinDiv = $('.rightminidiv'),
         $profile = $('.profile'),
         $user = $('.user'),
-        $title = $('.title');
+        $title = $('.title-recent');
 
     $profile.click(function (e) {
 
@@ -32,3 +32,4 @@
         }
     });
 }());
+

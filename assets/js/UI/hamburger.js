@@ -54,5 +54,25 @@
         }
     });
 
+
+
+    
+
+
 }());
 
+
+/*
+$(document).ready(function() {
+    $("#menuHamburger").click(function(e) {
+        $("nav.menu-left").toggle();
+        e.stopPropagation();
+    });
+
+    $(document).click(function(e) {
+        if (!$(e.target).is('.menu-left')) {
+            $(".menu-left").hide();
+        }
+    });
+});
+*/

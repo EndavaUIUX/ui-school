@@ -7,6 +7,11 @@
         callback: populateArticlePage
     });
 
+    var persistence = THUNDERSTORM.modules.persistence;
+    THUNDERSTORM.modules.articles.mostRecentArticles = persistence.get("latestArticlesAccessed");
+    var recentArticles = THUNDERSTORM.modules.articles.mostRecentArticles,
+        utility = THUNDERSTORM.modules.utility;
+
     function populateArticlePage() {
         var pageUrl = window.location.href,
             utility = THUNDERSTORM.modules.utility,
@@ -32,6 +37,25 @@
                 $(".article__gallery").addClass("hasGallery");
                 $(".article__gallery").append(viewMoreButton);
 
+            //  populate gallery from article content with modal source url 
+                var imagesHolder = $('.modal .modal__images');
+                    imagesHolder.html('');
+
+                for(var i = 0; i < currentArticle.sources.length; i++) {
+                    var modalImage = $('<div></div>').addClass('modal__image'),
+                        img = $('<img>').attr('src', currentArticle.sources[i]),
+                        sourceUrl = $('<a></a>').addClass('modal__source').attr('href', '#').html(utility.takeDomainUrl(currentArticle.sources[i]));      
+                    
+                    if(i !== 0) {
+                        modalImage.hide();
+                    } else { 
+                        modalImage.append(img).append(sourceUrl);
+                        imagesHolder.append(modalImage);
+                    }
+                }
+
+            // Get on screen image
+            resizeModal();
             } else {
                 gallery = $("<img>").attr("src", currentArticle.sources);
                 $(".article__gallery").append(gallery);
@@ -42,34 +66,33 @@
 
             window.onload = function(){ 
                 iterateGalleryPhotos(currentArticle, utility);
-            } 
+            };
     }
-    
+
     var iterateGalleryPhotos = function(article, utility) {
-        /*var galleryImages = [],
-            indexURL =  [], 
-            galleryImages = article['gallery'];
+        var indexURL =  [];
+        for(var i = 0; i < article['sources'].length; i++ ) {
+            indexURL.push(utility.takeDomainUrl(article['sources'][i]));
+        }
 
-       for(var j = 0, leng = galleryImages.length; j < leng; j++) {
-            indexURL.push(utility.takeDomainUrl(galleryImages[j]));
-       }*/
-
-      // return indexURL;
-      var indexURL =  [];
-      for(var i = 0; i < article['sources'].length; i++ ) {
-
-        indexURL.push(utility.takeDomainUrl(article['sources'][i]));
-      }
-      console.log(indexURL);
         return indexURL;
     };
 
-    var updateSource = function () {
+    function resizeModal() {
+        var screenImage = $(".modal__image img");
+        // Create new offscreen image to test
+        var theImage = new Image();
         
+        theImage.src = screenImage.attr("src");
+        
+        // Get accurate measurements from that.
+        var imageWidth = theImage.width;
+        var imageHeight = theImage.height;
+        //$('.modal').css({'width' : (imageWidth+170) + 'px'});
+        $('.modal').animate({
+            height:(imageHeight) + 'px'
+        }, 300);
     }
-    
-
-    
 
     /* ==========================================================================
       event handlers.                                                            
@@ -84,15 +107,15 @@
     });
 
     $('.button__gallery').on('click', function (ev) {
+        buttonGallery();
         THUNDERSTORM.modules.utility.showModal($('.modal'));
+        $('.modal__prev').hide();
     });
-    
+
     $('.modal__close').on('click', function (ev) {
         THUNDERSTORM.modules.utility.dismissModal($('.modal'));
-    });
-    
-    
-    
+    }); 
+
     var swipeFunction = {
         
         touches : {
@@ -140,10 +163,60 @@
             image.addEventListener('touchend', swipeFunction.touchHandler, false);
         }
     };
-    
-    console.log(swipeFunction);
-    console.log(swipeFunction.init);
-    swipeFunction.init(); 
 
-} (window, window.THUNDERSTORM, window.jQuery));
+    swipeFunction.init();
+
+    utility.sortLatestArticlesAccessed(recentArticles);
+
+    /* ==========================================================================
+      || Prev & Next // Buttons ||
+     ========================================================================== */
+    function buttonGallery(){
+        var $allGalleryImages = $(".article__gallery img"),
+           $imgGallery = $("div.modal__image img");
+        $imgGallery[0].src = $allGalleryImages[0].src;
+        $('.modal__image').attr('data-index', 0);
+    }
+    
+
+    $('.modal__next').on("click", function (ev) {
+       var $allGalleryImages = $(".article__gallery img"),
+           $imgGallery = $("div.modal__image img"),
+           imgIndex = document.querySelector('.modal__image');
+           imgIndex = parseInt(imgIndex.getAttribute('data-index'));
+           var count = $allGalleryImages.length;
+           $('.modal__prev').show();
+        imgIndex = imgIndex + 1;
+        if(imgIndex === count-1){
+           // imgIndex = 0;
+            $('.modal__next').hide();           
+        }            
+        //$('.modal__next').show();
+        $('.modal__image').attr('data-index', imgIndex);
+        $imgGallery[0].src = $allGalleryImages[imgIndex].src;
+        resizeModal();
+    });
+
+  $('.modal__prev').on("click", function (ev) {
+       var $allGalleryImages = $(".article__gallery img"),
+           $imgGallery = $("div.modal__image img"),
+           imgIndex = document.querySelector('.modal__image');
+           imgIndex = parseInt(imgIndex.getAttribute('data-index'));
+           var count = $allGalleryImages.length;
+        imgIndex = imgIndex - 1;
+        if(imgIndex <= 0){
+            //imgIndex = count - 1;
+            $('.modal__prev').hide();
+        }
+        $('.modal__next').show();
+        //$('.modal__prev').show();
+        $('.modal__image').attr('data-index', imgIndex);
+        $imgGallery[0].src = $allGalleryImages[imgIndex].src;
+        resizeModal();
+    });   
+    
+  
+    
+    
+}(window, window.THUNDERSTORM, window.jQuery));
 
