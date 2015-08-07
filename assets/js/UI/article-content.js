@@ -53,19 +53,9 @@
                         imagesHolder.append(modalImage);
                     }
                 }
-            console.log($('.modal__image img').width());
-            //$('.modal').css({'width' : $('.modal__image img').width()+'px'});
+
             // Get on screen image
-            var screenImage = $(".modal__image img");
-            
-            // Create new offscreen image to test
-            var theImage = new Image();
-            theImage.src = screenImage.attr("src");
-            
-            // Get accurate measurements from that.
-            var imageWidth = theImage.width;
-            var imageHeight = theImage.height;
-            $('.modal').css({'width' : (imageWidth+170) + 'px'});
+            resizeModal();
             } else {
                 gallery = $("<img>").attr("src", currentArticle.sources);
                 $(".article__gallery").append(gallery);
@@ -92,6 +82,22 @@
         
     }
 
+    function resizeModal() {
+        var screenImage = $(".modal__image img");
+        // Create new offscreen image to test
+        var theImage = new Image();
+        
+        theImage.src = screenImage.attr("src");
+        
+        // Get accurate measurements from that.
+        var imageWidth = theImage.width;
+        var imageHeight = theImage.height;
+        //$('.modal').css({'width' : (imageWidth+170) + 'px'});
+        $('.modal').animate({
+            height:(imageHeight) + 'px'
+        }, 300);
+    }
+
     /* ==========================================================================
       event handlers.                                                            
     ========================================================================== */
@@ -105,15 +111,15 @@
     });
 
     $('.button__gallery').on('click', function (ev) {
+        buttonGallery();
         THUNDERSTORM.modules.utility.showModal($('.modal'));
+        $('.modal__prev').hide();
     });
-    
+
     $('.modal__close').on('click', function (ev) {
         THUNDERSTORM.modules.utility.dismissModal($('.modal'));
-    });
-    
-    
-    
+    }); 
+
     var swipeFunction = {
         
         touches : {
@@ -161,12 +167,60 @@
             image.addEventListener('touchend', swipeFunction.touchHandler, false);
         }
     };
-    
-    console.log(swipeFunction);
-    console.log(swipeFunction.init);
+
     swipeFunction.init();
 
     utility.sortLatestArticlesAccessed(recentArticles);
 
-} (window, window.THUNDERSTORM, window.jQuery));
+    /* ==========================================================================
+      || Prev & Next // Buttons ||
+     ========================================================================== */
+    function buttonGallery(){
+        var $allGalleryImages = $(".article__gallery img"),
+           $imgGallery = $("div.modal__image img");
+        $imgGallery[0].src = $allGalleryImages[0].src;
+        $('.modal__image').attr('data-index', 0);
+    }
+    
+
+    $('.modal__next').on("click", function (ev) {
+       var $allGalleryImages = $(".article__gallery img"),
+           $imgGallery = $("div.modal__image img"),
+           imgIndex = document.querySelector('.modal__image');
+           imgIndex = parseInt(imgIndex.getAttribute('data-index'));
+           var count = $allGalleryImages.length;
+           $('.modal__prev').show();
+        imgIndex = imgIndex + 1;
+        if(imgIndex === count-1){
+           // imgIndex = 0;
+            $('.modal__next').hide();           
+        }            
+        //$('.modal__next').show();
+        $('.modal__image').attr('data-index', imgIndex);
+        $imgGallery[0].src = $allGalleryImages[imgIndex].src;
+        resizeModal();
+    });
+
+  $('.modal__prev').on("click", function (ev) {
+       var $allGalleryImages = $(".article__gallery img"),
+           $imgGallery = $("div.modal__image img"),
+           imgIndex = document.querySelector('.modal__image');
+           imgIndex = parseInt(imgIndex.getAttribute('data-index'));
+           var count = $allGalleryImages.length;
+        imgIndex = imgIndex - 1;
+        if(imgIndex <= 0){
+            //imgIndex = count - 1;
+            $('.modal__prev').hide();
+        }
+        $('.modal__next').show();
+        //$('.modal__prev').show();
+        $('.modal__image').attr('data-index', imgIndex);
+        $imgGallery[0].src = $allGalleryImages[imgIndex].src;
+        resizeModal();
+    });   
+    
+  
+    
+    
+}(window, window.THUNDERSTORM, window.jQuery));
 
