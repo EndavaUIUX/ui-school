@@ -41,14 +41,26 @@
                         img = $('<img>').attr('src', currentArticle.sources[i]),
                         sourceUrl = $('<a></a>').addClass('modal__source').attr('href', '#').html(utility.takeDomainUrl(currentArticle.sources[i]));      
                     
-                    if(i != 0) {
+                    if(i !== 0) {
                         modalImage.hide();
                     } else { 
                         modalImage.append(img).append(sourceUrl);
                         imagesHolder.append(modalImage);
                     }
-                } 
-
+                }
+            console.log($('.modal__image img').width());
+            //$('.modal').css({'width' : $('.modal__image img').width()+'px'});
+            // Get on screen image
+            var screenImage = $(".modal__image img");
+            
+            // Create new offscreen image to test
+            var theImage = new Image();
+            theImage.src = screenImage.attr("src");
+            
+            // Get accurate measurements from that.
+            var imageWidth = theImage.width;
+            var imageHeight = theImage.height;
+            $('.modal').css({'width' : (imageWidth+170) + 'px'});
             } else {
                 gallery = $("<img>").attr("src", currentArticle.sources);
                 $(".article__gallery").append(gallery);
