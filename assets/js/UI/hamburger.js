@@ -18,9 +18,12 @@
     $(document).on("click", function(e) {
         var targetEl = $(e.target);
 
-        if (!targetEl.is('.menu') && !targetEl.is(".menu-left")
-            && !targetEl.is(".menu-left input") && !targetEl.is(".menu-left .search-article")
-            && !targetEl.is(".menu-left .bordernone") && !targetEl.is(".menu-left .editor-mode")) {
+        if (!targetEl.is('.menu')
+            && !targetEl.is(".menu-left")
+            && !targetEl.is(".menu-left .search-article")
+            && !targetEl.is(".menu-left .bordernone")
+            && !targetEl.is(".menu-left .editor-mode")) {
+
             $('nav.menu-left').removeClass('show-menu-left');
         }
 
