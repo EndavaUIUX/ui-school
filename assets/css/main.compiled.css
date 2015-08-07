@@ -146,6 +146,10 @@ p {
   height: 100%;
   color: #fff;
   float: left;
+  text-align: center;
+}
+.centerdiv a {
+  display: inline-block;
 }
 .rightminidiv {
   width: 50%;
@@ -154,7 +158,7 @@ p {
   float: right;
 }
 .menu {
-  padding: 25px 0px 25px 25px;
+  padding: 25px 25px 25px 25px;
 }
 .logo {
   display: block;
@@ -349,7 +353,6 @@ nav a:hover {
   display: none;
 }
 .slider {
-  max-height: 600px;
   background-color: #fff;
   position: relative;
   margin-top: 67px;
