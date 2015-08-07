@@ -1,105 +1,122 @@
-ul {
-    list-style:none;
-    padding:0;
+ul{
+    list-style: none;
+    padding: 0
 }
-nav {
-    width:100%;
-    text-align:center;
-    position:fixed;
-    min-height:100%;
-    a {
-        display:block;
-        padding:15px 0;
-        border-bottom:1px solid #585858;
-        color:#ffffff;
-        text-decoration:none;
-        font-family:"Lato-Regular";
-        font-size:@desktop-font-size;
-    }
-    a:hover {
-        background:#c0c0c0;
-        color:white;
-    }
+nav{
+    width: 100%;
+    text-align: center;
+    position: fixed;
+    min-height: 100%;
 }
-.left-word {
-    padding-left:47px;
+nav a {
+    display: block;
+    padding: 15px 0;
+    border-bottom: 1px solid #585858;
+    color: #ffffff;
+    text-decoration: none;
+    font-family: "Lato-Regular";
+    font-size:@desktop-font-size;
+}
+
+nav a:hover{
+    background: #C0C0C0;
+    color:white;
+}
+.left-word{
+    padding-left: 47px;
     color:#c7c7c7;
-    border-bottom:none;
+    border-bottom: none;
 }
-.bordernone {
-    border-bottom:none;
+
+.bordernone{
+    border-bottom: none;
 }
-.menu-left {
-    color:@btn-background-color;
-    width:309px;
-    min-height:100%;
-    background-color:#333333;
-    text-align:left;
+
+.menu-left{
+    color: @btn-background-color;
+    width: 309px;
+    min-height: 100%;
+    background-color: #333333;
+    text-align: left;
     left:-309px;
-    z-index:44;
+    z-index: 44;
     top:0px;
-    transition:all .9s ease-in-out;
-    -webkit-transition:all .9s ease-in-out;
-    -moz-transition:all .9s ease-in-out;
-    -o-transition:all .9s ease-in-out;
+    transition: all .9s ease-in-out;
+    -webkit-transition: all .9s ease-in-out;
+    -moz-transition: all .9s ease-in-out;
+    -o-transition: all .9s ease-in-out;
 }
-#menuHamburger {
+
+#menuHamburger{
     display:none;
 }
-.show-menu-left {
-    position:fixed;
+.show-menu-left{
+    position: fixed;
     left:0px;
 }
-.disc {
-    padding:0px 6px 0px 24px;
+.disc{
+    padding: 0px 6px 0px 24px;
 }
-.link {
-    padding:0px 6px 0px 24px;
+
+.link{
+    padding: 0px 6px 0px 24px;    
 }
-.search-article {
-    border-right-style:none;
-    border-bottom-style:none;
-    height:48px;
-    width:262px;
-    font-family:"Lato-Regular";
-    box-shadow:none;
-    margin-left:24px;
-    margin-right:24px;
-    border:1px solid #bdbdbd;
-    background-color:#ffffff;
-    text-align:left;
+
+.search-article{
+    border-right-style: none;
+    border-bottom-style: none;
+    height: 48px;
+    width: 262px;
+    font-family: "Lato-Regular";
+    box-shadow: none;
+    margin-left: 24px;
+    margin-right: 24px;
+    border: 1px solid #bdbdbd;
+    background-color: #fff;
+    text-align: left;
     font-size:@desktop-font-size;
-    outline:none;
+    outline: none;
+}
+
+.search-article::-webkit-input-placeholder{
+    background-image: url("/assets/images/left_menu/searchicon.png");
+    background-repeat: no-repeat;
+    background-position: right;
 }
 .search-article::-webkit-input-placeholder {
-    background-image:url("/assets/images/left_menu/searchicon.png");
-    background-image:url("/assets/images/left_menu/searchicon.png");
-    background-repeat:no-repeat;
-    background-repeat:no-repeat;
-    background-position:right;
-    background-position:right;
+    background-image: url("/assets/images/left_menu/searchicon.png");
+    background-repeat: no-repeat;
+    background-position: right;
 }
+
 .search-article:-ms-input-placeholder {
-    background-image:url("/assets/images/left_menu/searchicon.png");
-    background-repeat:no-repeat;
-    background-position:right;
-    background-position-x:93%;
+    background-image: url("/assets/images/left_menu/searchicon.png");
+    background-repeat: no-repeat;
+    background-position: right;
 }
+
 .search-article:-moz-placeholder {
     background-image:url("/assets/images/left_menu/searchicon.png");
     background-repeat:no-repeat;
     background-position:right;
     background-position-x:93%;
 }
+
 .search-article::-moz-placeholder {
     background-image:url("/assets/images/left_menu/searchicon.png");
     background-repeat:no-repeat;
     background-position:right;
     background-position-x:93%;
 }
+
 #nav ul.sub-nav {
-    display:none;
+    display: none;
 }
+
 #nav ul.visible {
-    display:block;
+    display: block;
 }
+
+
+
+

@@ -78,10 +78,6 @@
         return indexURL;
     };
 
-    var updateSource = function () {
-        
-    }
-
     function resizeModal() {
         var screenImage = $(".modal__image img");
         // Create new offscreen image to test
