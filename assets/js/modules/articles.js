@@ -145,7 +145,7 @@
       
     }
 
-    function clipText(description, clipLimit){
+    function clipText(description, clipLimit) {
         var text;
         if (description.length > clipLimit) {
             text = description.substr(0, clipLimit);
@@ -156,7 +156,7 @@
                 }
             }
             text = text.split(' ');
-            text[text.length] = " . . .";
+            text[text.length] = " ...";
             text = text.join(' ');
             return text;
         } else {
@@ -164,7 +164,7 @@
         }
         return text;
     }
-
+    
     articles.createArticle = function (articleData, articleIndex, isFullContent) {
         var base = $('<div></div>').addClass('article-wrapper'),
                 article = $('<article></article>').attr('data-article-index', articleIndex),
@@ -187,6 +187,7 @@
         } else {
             articleText.html(utility.clipText(articleData.description, 120));
         }
+        
         /* append the elements */
         articleInfo.append(articleAuthor);
         articleInfo.append(articleDate);
