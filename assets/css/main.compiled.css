@@ -197,6 +197,10 @@ nav a:hover {
   padding-left: 47px;
   color: #c7c7c7;
   border-bottom: none;
+  -webkit-transition: height 200ms ease-in;
+  -moz-transition: height 200ms ease-in;
+  -o-transition: height 200ms ease-in;
+  transition: height 200ms ease-in;
 }
 .bordernone {
   border-bottom: none;
@@ -217,6 +221,10 @@ nav a:hover {
 }
 #menuHamburger {
   display: none;
+  -webkit-transition: height 200ms ease-in;
+  -moz-transition: height 200ms ease-in;
+  -o-transition: height 200ms ease-in;
+  transition: height 200ms ease-in;
 }
 .show-menu-left {
   position: fixed;
@@ -316,10 +324,6 @@ nav a:hover {
   font-weight: normal;
   padding-left: 10px;
   cursor: pointer;
-  -moz-transition: opacity 0.2s 0.01s ease-in-out, left 0.2s 0.1s ease-out, visibility 0.1s 0.1s linear;
-  -webkit-transition: opacity 0.2s 0.01s ease-in-out, left 0.2s 0.1s ease-out, visibility 0.1s 0.1s linear;
-  -o-transition: opacity 0.2s 0.01s ease-in-out, left 0.2s 0.1s ease-out, visibility 0.1s 0.1s linear;
-  transition: opacity 0.2s 0.01s ease-in-out, left 0.2s 0.1s ease-out, visibility 0.1s 0.1s linear;
 }
 .menu-right .article-recent .file {
   position: absolute;

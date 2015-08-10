@@ -143,9 +143,10 @@
             }
         },
         
-        init: function() {
+        init: function(image) {
             console.log('init');
-            var image = document.querySelector('.modal__images img');
+            //var image = document.querySelector('.modal__images img');
+
             image.addEventListener('touchstart', swipeFunction.touchHandler, false); 
             image.addEventListener('touchmove', swipeFunction.touchHandler, false);  
             image.addEventListener('touchend', swipeFunction.touchHandler, false);
@@ -154,10 +155,13 @@
     
     console.log(swipeFunction);
     console.log(swipeFunction.init);
-    swipeFunction.init();
 
-    utility.sortLatestArticlesAccessed(recentArticles);
-    utility.collapseRecentArticleMenu();
+    var imageGallery = document.querySelector('.modal__images img');
+    swipeFunction.init(imageGallery);
+    var imageSlider = document.querySelector('.slider__slide img');
+    swipeFunction.init(imageSlider);
+    
+    utility.sortLatestArticlesAccessed(recentArticles); 
 
 
 

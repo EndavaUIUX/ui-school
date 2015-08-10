@@ -36,12 +36,7 @@
             window.location.href = "/search-result?" + inputValue;
         }
     });
-
-
-
     
-
-
 }());
 
 
