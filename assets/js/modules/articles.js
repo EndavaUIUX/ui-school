@@ -33,7 +33,7 @@
                 articles.pages = articles.pagination(articles.data[key], options.itemsPerPage);
                 articles.generateArticles(articles.pages[0], options.articlesParent, options.isMainPage);
             }
-            if(options.callback) {
+            if (options.callback) {
                 options.callback();
             }
         } else {

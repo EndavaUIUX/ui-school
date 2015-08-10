@@ -16,15 +16,20 @@
     });
 
     $('body').on("click tap touchend", function(e) {
-        var targetEl = $(e.target);
+        var targetEl = $(e.target),
+            $errorElement = $('.menu-left p');
 
         if (!targetEl.is('.menu')
             && !targetEl.is(".menu-left")
             && !targetEl.is(".menu-left .search-article")
             && !targetEl.is(".menu-left .bordernone")
-            && !targetEl.is(".menu-left .editor-mode")) {
+            && !targetEl.is(".menu-left .editor-mode")
+            && !targetEl.is(".menu-left p")) {
 
             $('nav.menu-left').removeClass('show-menu-left');
+            //clear input search after press enter or submit
+            $('.menu-left input').val('');
+            THUNDERSTORM.modules.utility.cleanErrors($errorElement);
         }
 
     });
@@ -45,7 +50,7 @@
                 return;
             }
             if(searchedArticles.length === 0 ){
-                $(".errorContainer").html("No articles were found to match you search.");
+                $(".errorContainer").html("No articles were found to match your search.");
                 $errorElement.removeClass('hideError');
                 $errorElement.addClass('errorSearch');
                 return;
