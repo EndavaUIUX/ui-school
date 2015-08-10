@@ -73,9 +73,10 @@
     }
 
 
-    var iterateGalleryPhotos = function (article, utility) {
-        var indexURL = [];
-        for (var i = 0; i < article['sources'].length; i++) {
+    var iterateGalleryPhotos = function(article, utility) {
+
+        var indexURL =  [];
+        for(var i = 0; i < article['sources'].length; i++ ) {
 
             indexURL.push(utility.takeDomainUrl(article['sources'][i]));
         }
@@ -83,8 +84,7 @@
         return indexURL;
     };
 
-
-    function resizeModal() {
+  function resizeModal() {
         var screenImage = $(".modal__image img");
         // Create new offscreen image to test
         var theImage = new Image();
@@ -98,6 +98,7 @@
         $('.modal').animate({
             height: (imageHeight) + 'px'
         }, 300);
+
 
     }
 
@@ -119,7 +120,8 @@
     
     $('.modal__close').on('click', function (ev) {
         THUNDERSTORM.modules.utility.dismissModal($('.modal'));
-        
+
+        buttonGallery();
     });
 
     var swipeFunction = {
@@ -175,6 +177,7 @@
 
 
     /* ==========================================================================
+
      || Prev & Next // Buttons ||
      ========================================================================== */
     function buttonGallery() {
@@ -224,9 +227,12 @@
             resizeModal();
         });
     });
-}(window, window.THUNDERSTORM, window.jQuery));
 
+}(window, window.THUNDERSTORM, window.jQuery));
 
  /* ==========================================================================
      || End of Prev & Next // Buttons ||
      ========================================================================== */
+
+
+

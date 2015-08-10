@@ -33,45 +33,54 @@
       <script src="assets/js/UI/main.js"></script>
       <script src="assets/js/modules/slider.js"></script>
       <script>
-function currentFadeOut($arg) {
-    $arg.hide('fast');
+        //MIO: TODo, remove everything from here, just for testing.
+var articlesParent = $('.main--homepage');
+var loadMore = $('.load-more');
+
+function loadMoreLogic($selector) {
+    var page = $('.load-more').data('page');
+    var lastArticleIndex = $('.article-wrapper').last();
+    lastArticleIndex = lastArticleIndex.find('article').data('articleIndex');
+    lastArticleIndex = lastArticleIndex || 0;
+    //salvam index-ul paginii pe care vrem sa-l incarcam. Asta inseamna ca daca am nevoie de pagina x, o sa fie foarte usor sa o incarc.
+    THUNDERSTORM.modules.articles.generateArticles(THUNDERSTORM.modules.articles.pages[page], articlesParent, lastArticleIndex);
+    page = page + 1;
+    if (toggleLoadMore(page)) {
+        $selector.animate({left : 0}, 100);
+    }
 }
 
-function nextFadeIn($arg) {
-    $arg.next().fadeIn(function () {
-        $arg.css({left : 0});
-    });
-    //$arg.css({left:0});
+function toggleLoadMore(page) {
+    if (page < Object.keys(THUNDERSTORM.modules.articles.pages).length) {
+        loadMore.data('page', page);
+        return true;
+    } else {
+        loadMore.hide('fast');
+        return false;
+    }
 }
 
-function prevFadeIn($arg) {
-    $arg.next().fadeIn(function () {
-        $arg.css({left : 0});
-    });
-}
-
-$(".latest__article, .article-wrapper").on("swipeleft", function () {
+$(".main--homepage").on("swipeleft", '.latest__article, .article-wrapper', function () {
     var $this = $(this);
-    console.log('left');
+
     $this.animate({left : '-300px'}, 300, function () {
         if ($this.next().length) {
-          console.log($this.next())
             $this.hide();
             $this.next().css({left:0}).fadeIn();
         } else {
-            $this.animate({left : 0}, 100);
+            loadMoreLogic($this);
         }
     });
 });
 
-$(".latest__article, .article-wrapper").on("swiperight", function () {
+$(".main--homepage").on("swiperight", '.latest__article, .article-wrapper', function () {
     var $this = $(this);
-    console.log('right');
+
     $this.animate({left : '300px'}, 300, function () {
         if ($this.prev().length) {
-          console.log($this.prev())
+
             $this.hide();
-            $this.prev().css({left:0}).fadeIn();
+            $this.prev().css({left : 0}).fadeIn();
         } else {
             $this.animate({left : 0}, 100);
         }
