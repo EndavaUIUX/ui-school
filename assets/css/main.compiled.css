@@ -202,10 +202,6 @@ nav a:hover {
   padding-left: 47px;
   color: #c7c7c7;
   border-bottom: none;
-  -webkit-transition: height 200ms ease-in;
-  -moz-transition: height 200ms ease-in;
-  -o-transition: height 200ms ease-in;
-  transition: height 200ms ease-in;
 }
 .bordernone {
   border-bottom: none;
@@ -226,10 +222,6 @@ nav a:hover {
 }
 #menuHamburger {
   display: none;
-  -webkit-transition: height 200ms ease-in;
-  -moz-transition: height 200ms ease-in;
-  -o-transition: height 200ms ease-in;
-  transition: height 200ms ease-in;
 }
 .show-menu-left {
   position: fixed;
@@ -491,7 +483,7 @@ nav a:hover {
   font-size: 18px;
   color: #828282;
   text-align: justify;
-  padding: 12px 30px 0px 30px;
+  padding: 12px 40px 0px 30px;
   font-family: 'Lato-Regular';
   line-height: 1.2;
   height: 126px;
@@ -716,6 +708,15 @@ article h2:hover {
 }
 .load-more:hover {
   background-color: #ebeae8;
+}
+@media all and (-ms-high-contrast: none) {
+  .latest__article .article__content .article_description {
+    padding: 12px 68px 0px 30px;
+  }
+  ::-ms-backdrop,
+  .latest__article .article__content .article_description {
+    padding: 12px 68px 0px 30px;
+  }
 }
 @media only screen and (min-width: 1180px) {
   .article-wrapper:nth-of-type(3n+3) {
