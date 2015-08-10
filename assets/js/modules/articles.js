@@ -45,13 +45,15 @@
                         sourceName: key
                     });
                     articles.data  = persistence.get(options);
-                    if(options.callback) {
-                        options.callback();
-                    }
+
                     if (options.shouldGenerate) {
                         articles.pages = articles.pagination(articles.data[key]);
-                        articles.generateArticles(articles.pages[0], options.articlesParent);
-                    } 
+                        articles.generateArticles(articles.pages[0], options.articlesParent, options.isMainPage);
+                    }
+
+                    if (options.callback) {
+                        options.callback();
+                    }
                 }
             });
         }
@@ -205,7 +207,7 @@
             recentGenerated = false,
             i,
             additionIndex = carryIndex + 1 || 0;//+1 pentru ca i-ul porneste de la 0;
-
+        var page = $('.load-more').data('page');
         for (i = 0; i < data.length; i = i + 1) {
             if (data.length === 7 && recentGenerated === false && isMainPage === true) {
                 myArticle = createRecentArticle(data[i], i + additionIndex);
@@ -214,29 +216,30 @@
                 myArticle = articles.createArticle(data[i], i + additionIndex, 0);
             }
             parent.append(myArticle);
+            
+            toggleLoadMore(page);
         }
     };
-
+    
+    function toggleLoadMore(page) {
+        if (page < Object.keys(THUNDERSTORM.modules.articles.pages).length) {
+            loadMore.data('page', page);
+        } else {
+            loadMore.hide('fast');
+        }
+    }
     /* ==========================================================================
      Event listeners
      ========================================================================== */
     articles.loadMode = function (articlesParent) {
         var page = $('.load-more').data('page');
-        toggleLoadMore(page);
+        //toggleLoadMore(page);
         articlesParent.on('click', articleClickTriggers, function (ev) {
             ev.stopPropagation();
             var articleIndex = $(ev.target).closest('article')[0].getAttribute('data-article-index');
             //the actual redirect
             window.location.href = "/article?" + articleIndex;
         });
-
-        function toggleLoadMore(page) {
-            if (page < Object.keys(THUNDERSTORM.modules.articles.pages).length) {
-                loadMore.data('page', page);
-            } else {
-                loadMore.hide('fast');
-            }
-        }
 
         loadMore.on('click', function (ev) {
             var page = $(this).data('page');

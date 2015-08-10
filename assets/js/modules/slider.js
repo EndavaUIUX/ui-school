@@ -91,9 +91,6 @@
     });
 
     
-    // var imageSlider = document.querySelector('.slider__slide img');
-    // swipeFunction.init(imageSlider);
-
     
     
 }(window.jQuery))

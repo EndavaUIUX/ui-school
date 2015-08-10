@@ -122,6 +122,7 @@ p {
   width: 1170px;
   margin: 50px auto;
   display: block;
+  zoom: 95%;
 }
 .topheader {
   width: 100%;
@@ -146,6 +147,10 @@ p {
   height: 100%;
   color: #fff;
   float: left;
+  text-align: center;
+}
+.centerdiv a {
+  display: inline-block;
 }
 .rightminidiv {
   width: 50%;
@@ -154,7 +159,7 @@ p {
   float: right;
 }
 .menu {
-  padding: 25px 0px 25px 25px;
+  padding: 25px 25px 25px 25px;
 }
 .logo {
   display: block;
@@ -190,7 +195,7 @@ nav a {
   font-size: 18px;
 }
 nav a:hover {
-  background: #C0C0C0;
+  background: #c0c0c0;
   color: white;
 }
 .left-word {
@@ -246,15 +251,10 @@ nav a:hover {
   margin-left: 24px;
   margin-right: 24px;
   border: 1px solid #bdbdbd;
-  background-color: #fff;
+  background-color: #ffffff;
   text-align: left;
   font-size: 18px;
   outline: none;
-}
-.search-article::-webkit-input-placeholder {
-  background-image: url("/assets/images/left_menu/searchicon.png");
-  background-repeat: no-repeat;
-  background-position: right;
 }
 .search-article::-webkit-input-placeholder {
   background-image: url("/assets/images/left_menu/searchicon.png");
@@ -265,16 +265,19 @@ nav a:hover {
   background-image: url("/assets/images/left_menu/searchicon.png");
   background-repeat: no-repeat;
   background-position: right;
+  background-position-x: 93%;
 }
 .search-article:-moz-placeholder {
   background-image: url("/assets/images/left_menu/searchicon.png");
   background-repeat: no-repeat;
   background-position: right;
+  background-position-x: 93%;
 }
 .search-article::-moz-placeholder {
   background-image: url("/assets/images/left_menu/searchicon.png");
   background-repeat: no-repeat;
   background-position: right;
+  background-position-x: 93%;
 }
 #nav ul.sub-nav {
   display: none;
@@ -312,7 +315,7 @@ nav a:hover {
   line-height: 1.2;
   font-weight: normal;
 }
-.menu-right .article-recent .title {
+.menu-right .article-recent .title-recent {
   font-size: 21px;
   font-family: 'Lato';
   color: #ffffff;
@@ -359,7 +362,6 @@ nav a:hover {
   display: none;
 }
 .slider {
-  max-height: 600px;
   background-color: #fff;
   position: relative;
   margin-top: 67px;
@@ -387,9 +389,6 @@ nav a:hover {
   display: inline-block;
   border: 1px solid #cecece;
   transition: 0.2s all ease;
-}
-.slider__controlls .bubble:hover {
-  border-radius: 0;
 }
 .slider__controlls .bubble.bubble--active {
   background-color: #bfbdbd;
@@ -1381,6 +1380,8 @@ article h2:hover {
   position: relative;
   right: 0;
   top: 15%;
+  padding-top: 50px;
+  padding-bottom: 50px;
   /* \ &__images */
 }
 .overlay .modal ul {
@@ -1479,11 +1480,7 @@ article h2:hover {
     font-size: 14px;
   }
   .slider__controlls {
-    bottom: 10px;
-  }
-  .slider__controlls .bubble {
-    width: 10px;
-    height: 10px;
+    display: none!important;
   }
 }
 @media only screen and (min-width: 1px) and (max-width: 599px) {
@@ -1495,6 +1492,7 @@ article h2:hover {
   }
   .overlay .modal {
     max-width: 100%;
+    height: auto!important;
   }
   .overlay .modal .modal__next,
   .overlay .modal .modal__prev {
@@ -1515,7 +1513,7 @@ article h2:hover {
     min-height: auto;
   }
   .slider .slider__controlls {
-    display: none;
+    display: none!important;
   }
   .content {
     padding: 0px 20px;
