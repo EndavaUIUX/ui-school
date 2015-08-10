@@ -119,6 +119,7 @@
     
     $('.modal__close').on('click', function (ev) {
         THUNDERSTORM.modules.utility.dismissModal($('.modal'));
+        
     });
 
     var swipeFunction = {
@@ -183,6 +184,7 @@
         $('.modal__image').attr('data-index', 0);
     }
 
+    buttonGallery();
     $(function buttonNext() {
         $('.modal__next').on("click", function (ev) {
             var $allGalleryImages = $(".article__gallery img"),
