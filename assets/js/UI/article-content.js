@@ -101,6 +101,7 @@
 
     $('body').on('click', function (ev) {
         var container = $('.modal');
+        
         if (!container.is(ev.target) && container.has(ev.target).length === 0 && !$(ev.target).hasClass('.modal__close') && !$(ev.target).hasClass('button__gallery'))
         {
             THUNDERSTORM.modules.utility.dismissModal($('.modal'));
@@ -108,12 +109,14 @@
     });
 
     $('.button__gallery').on('click', function (ev) {
+        $('.modal__prev').hide();
         THUNDERSTORM.modules.utility.showModal($('.modal'));
     });
     
     $('.modal__close').on('click', function (ev) {
         THUNDERSTORM.modules.utility.dismissModal($('.modal'));
         buttonGallery();
+        
     });
 
     var swipeFunction = {
@@ -178,10 +181,11 @@
                 $imgGallery = $("div.modal__image img");
         $imgGallery[0].src = $allGalleryImages[0].src;
         $('.modal__image').attr('data-index', 0);
+    resetGallery();
     }
 
     buttonGallery();
-    $(function buttonNext() {
+    function buttonNext() {
         $('.modal__next').on("click", function (ev) {
             var $allGalleryImages = $(".article__gallery img"),
                     $imgGallery = $("div.modal__image img").css({display: 'none'}).fadeIn(1000),
@@ -200,8 +204,9 @@
 
             resizeModal();
         });
-    });
-    $(function buttonPrev() {
+    }
+    ;
+    function buttonPrev() {
         $('.modal__prev').on("click", function (ev) {
             var $allGalleryImages = $(".article__gallery img"),
                     $imgGallery = $("div.modal__image img").css({display: 'none'}).fadeIn(1000),
@@ -219,6 +224,20 @@
             $imgGallery[0].src = $allGalleryImages[imgIndex].src;
             resizeModal();
         });
-    });
-}(window, window.THUNDERSTORM, window.jQuery));
+
+  function resetGallery(){
+    $('.modal__prev').hide();
+    $('.modal__next').show();
+    $('.modal').css({height:'auto'});
+ } 
+    buttonPrev();
+    buttonNext();
+    resetGallery();
+
+ /* ==========================================================================
+     || End of Prev & Next // Buttons ||
+     ========================================================================== */
+
+} (window, window.THUNDERSTORM, window.jQuery));
+
 
