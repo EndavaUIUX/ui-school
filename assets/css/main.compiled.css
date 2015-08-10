@@ -1473,7 +1473,7 @@ article h2:hover {
   }
   .content {
     width: 100%;
-    margin: 0px auto;
+    margin: 80px auto;
     height: auto;
   }
   .article-details .article__content p {
@@ -1541,6 +1541,7 @@ article h2:hover {
 @media only screen and (min-width: 800px) and (max-width: 1199px) {
   .content {
     width: 700px;
+    margin: 80px auto;
   }
 }
 @media only screen and (min-width: 599px) and (max-width: 799px) {
