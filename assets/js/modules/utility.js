@@ -97,7 +97,7 @@
 
             utility.cleanErrors(errorElement);
             if (inputValue.length === 0 || !regex.test(inputValue)) {
-                $(".errorContainer").html("The input value is not valid.");
+                $(".errorContainer").html("No articles were found to match your search.");
                 errorElement.removeClass('hideError');
                 errorElement.addClass('errorSearch');
                 return false;
