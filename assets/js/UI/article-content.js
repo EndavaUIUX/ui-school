@@ -10,21 +10,21 @@
     var persistence = THUNDERSTORM.modules.persistence;
     THUNDERSTORM.modules.articles.mostRecentArticles = persistence.get("latestArticlesAccessed");
     var recentArticles = THUNDERSTORM.modules.articles.mostRecentArticles,
-            utility = THUNDERSTORM.modules.utility;
+        utility = THUNDERSTORM.modules.utility;
 
     function populateArticlePage() {
         var pageUrl = window.location.href,
-                utility = THUNDERSTORM.modules.utility,
-                articleUrlNumber = utility.validateURL(pageUrl, THUNDERSTORM.modules.articles.data['articles']),
-                article = THUNDERSTORM.modules.articles.data['articles'][articleUrlNumber],
-                currentArticle = utility.imageSourceGenerator(article),
-                viewMoreButton = $("<a></a>").html("View gallery").addClass("button__gallery").attr('href', '#'),
-                icoViewMore = $('<i></i>'),
-                articleContent = $(".article__body"),
-                titleContainer = $('.title'),
-                infoAuthor = $('.article-informations__author'),
-                infoDate = $('.article-informations__date'),
-                elementsObject = {titleContainer: titleContainer, infoAuthor: infoAuthor, infoDate: infoDate};
+            utility = THUNDERSTORM.modules.utility,
+            articleUrlNumber = utility.validateURL(pageUrl, THUNDERSTORM.modules.articles.data['articles']),
+            article = THUNDERSTORM.modules.articles.data['articles'][articleUrlNumber],
+            currentArticle = utility.imageSourceGenerator(article),
+            viewMoreButton = $("<a></a>").html("View gallery").addClass("button__gallery").attr('href', '#'),
+            icoViewMore = $('<i></i>'),
+            articleContent = $(".article__body"),
+            titleContainer = $('.title'),
+            infoAuthor = $('.article-informations__author'),
+            infoDate = $('.article-informations__date'),
+            elementsObject = {titleContainer: titleContainer, infoAuthor: infoAuthor, infoDate: infoDate};
         viewMoreButton.append(icoViewMore);
 
         if (currentArticle.hasGallery == true) {
@@ -44,8 +44,8 @@
 
             for (var i = 0; i < currentArticle.sources.length; i++) {
                 var modalImage = $('<div></div>').addClass('modal__image'),
-                        img = $('<img>').attr('src', currentArticle.sources[i]),
-                        sourceUrl = $('<a></a>').addClass('modal__source').attr('href', '#').html(utility.takeDomainUrl(currentArticle.sources[i]));
+                    img = $('<img>').attr('src', currentArticle.sources[i]),
+                    sourceUrl = $('<a></a>').addClass('modal__source').attr('href', '#').html(utility.takeDomainUrl(currentArticle.sources[i]));
 
                 if (i !== 0) {
                     modalImage.hide();
@@ -70,10 +70,10 @@
         };
     }
 
-    var iterateGalleryPhotos = function(article, utility) {
+    var iterateGalleryPhotos = function (article, utility) {
 
-        var indexURL =  [];
-        for(var i = 0; i < article['sources'].length; i++ ) {
+        var indexURL = [];
+        for (var i = 0; i < article['sources'].length; i++) {
             indexURL.push(utility.takeDomainUrl(article['sources'][i]));
         }
         return indexURL;
@@ -101,9 +101,8 @@
 
     $('body').on('click', function (ev) {
         var container = $('.modal');
-        
-        if (!container.is(ev.target) && container.has(ev.target).length === 0 && !$(ev.target).hasClass('.modal__close') && !$(ev.target).hasClass('button__gallery'))
-        {
+
+        if (!container.is(ev.target) && container.has(ev.target).length === 0 && !$(ev.target).hasClass('.modal__close') && !$(ev.target).hasClass('button__gallery')) {
             THUNDERSTORM.modules.utility.dismissModal($('.modal'));
         }
     });
@@ -112,11 +111,11 @@
         $('.modal__prev').hide();
         THUNDERSTORM.modules.utility.showModal($('.modal'));
     });
-    
+
     $('.modal__close').on('click', function (ev) {
         THUNDERSTORM.modules.utility.dismissModal($('.modal'));
         buttonGallery();
-        
+
     });
 
     var swipeFunction = {
@@ -163,7 +162,7 @@
             image.addEventListener('touchend', swipeFunction.touchHandler, false);
         }
     };
-    
+
     console.log(swipeFunction);
     console.log(swipeFunction.init);
     swipeFunction.init();
@@ -171,25 +170,25 @@
     utility.sortLatestArticlesAccessed(recentArticles);
 
     /* ==========================================================================
-=======
-/* ==========================================================================
->>>>>>> e8a1f187ddaff9e486d9d993ca1ae74512042ed5
+     =======
+     /* ==========================================================================
+     >>>>>>> e8a1f187ddaff9e486d9d993ca1ae74512042ed5
      || Prev & Next // Buttons ||
      ========================================================================== */
     function buttonGallery() {
         var $allGalleryImages = $(".article__gallery img"),
-                $imgGallery = $("div.modal__image img");
+            $imgGallery = $("div.modal__image img");
         $imgGallery[0].src = $allGalleryImages[0].src;
         $('.modal__image').attr('data-index', 0);
-    resetGallery();
+        resetGallery();
     }
 
     buttonGallery();
     function buttonNext() {
         $('.modal__next').on("click", function (ev) {
             var $allGalleryImages = $(".article__gallery img"),
-                    $imgGallery = $("div.modal__image img").css({display: 'none'}).fadeIn(1000),
-                    imgIndex = document.querySelector('.modal__image');
+                $imgGallery = $("div.modal__image img").css({display: 'none'}).fadeIn(1000),
+                imgIndex = document.querySelector('.modal__image');
             imgIndex = parseInt(imgIndex.getAttribute('data-index'));
             var count = $allGalleryImages.length;
             $('.modal__prev').show();
@@ -205,12 +204,12 @@
             resizeModal();
         });
     }
-    ;
+
     function buttonPrev() {
         $('.modal__prev').on("click", function (ev) {
             var $allGalleryImages = $(".article__gallery img"),
-                    $imgGallery = $("div.modal__image img").css({display: 'none'}).fadeIn(1000),
-                    imgIndex = document.querySelector('.modal__image');
+                $imgGallery = $("div.modal__image img").css({display: 'none'}).fadeIn(1000),
+                imgIndex = document.querySelector('.modal__image');
             imgIndex = parseInt(imgIndex.getAttribute('data-index'));
             var count = $allGalleryImages.length;
             imgIndex = imgIndex - 1;
@@ -225,19 +224,22 @@
             resizeModal();
         });
 
-  function resetGallery(){
-    $('.modal__prev').hide();
-    $('.modal__next').show();
-    $('.modal').css({height:'auto'});
- } 
+        /* ==========================================================================
+         || End of Prev & Next // Buttons ||
+         ========================================================================== */
+    }
+
+    function resetGallery() {
+        $('.modal__prev').hide();
+        $('.modal__next').show();
+        $('.modal').css({height: 'auto'});
+    }
+
     buttonPrev();
     buttonNext();
     resetGallery();
+    
+}(window, window.THUNDERSTORM, window.jQuery));
 
- /* ==========================================================================
-     || End of Prev & Next // Buttons ||
-     ========================================================================== */
-
-} (window, window.THUNDERSTORM, window.jQuery));
 
 
