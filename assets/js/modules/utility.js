@@ -166,7 +166,7 @@
         do {
             found = false;
             for(var index = 0; index < article.length - 1; index++) {
-                if(article[index].count < article[index + 1].count) {
+                if(article[index].count > article[index + 1].count) {
                     temp = article[index].count;
                     article[index].count = article[index + 1].count;
                     article[index + 1].count = temp;
@@ -195,6 +195,7 @@
             }
         }
         menuRight.append(titleListParent);
+        menuRight.prepend(titleListParent);
     };
     utility.deviceGeneration();
     THUNDERSTORM.modules.utility = utility;

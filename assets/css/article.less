@@ -68,7 +68,7 @@
             font-size: 18px;
             color: @article-description-color;
             text-align: justify;
-            padding: 12px 30px 0px 30px;
+            padding: 12px 40px 0px 30px;
             font-family: 'Lato-Regular';
             line-height: 1.2;
             height: 126px;
@@ -324,4 +324,14 @@ article h2:hover {
 
 .load-more:hover { 
     background-color: @load-btn-hover;
+}
+
+@media all and (-ms-high-contrast:none)
+{
+    .latest__article .article__content .article_description{
+        padding: 12px 68px 0px 30px;
+    }
+    ::-ms-backdrop, .latest__article .article__content .article_description{
+        padding: 12px 68px 0px 30px;
+    }
 }
