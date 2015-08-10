@@ -12,25 +12,19 @@
     var articleClickTriggers ='article h2, .article__title, .article-info img, .article__img img, .btn--more, .load-more, .latest__article .article__picture img' ;
     var loadMore = $('.load-more');
     var key = 'articles';
-    
+
     THUNDERSTORM.modules.articles.mostRecentArticles = persistence.get("latestArticlesAccessed");
+
+    THUNDERSTORM.modules.articles.init({sourceName : key,  articlesParent : articlesParent, shouldGenerate : true, isMainPage : true, callback:    THUNDERSTORM.modules.articles.loadMode(articlesParent)});
+
     var recentArticles = THUNDERSTORM.modules.articles.mostRecentArticles;
-    THUNDERSTORM.modules.articles.init({sourceName : key,  articlesParent : articlesParent, shouldGenerate : true, isMainPage : true});
-    THUNDERSTORM.modules.articles.loadMode(articlesParent);
 
   /* ==========================================================================
      Functions
      ========================================================================== */
 
-    function toggleLoadMore(page) {
-        if (page < Object.keys(THUNDERSTORM.modules.articles.pages).length) {
-            loadMore.data('page', page);
-        } else {
-            loadMore.hide('fast');
-        }
-    }
-
     utility.sortLatestArticlesAccessed(recentArticles);
+
    /* ==========================================================================
       Event listeners
       Set in local storage an object latest articles accessed with the key "latestArticlesAccessed",
@@ -86,7 +80,9 @@
         window.location.href = "/article?" + articleIndex;
     });
 
-}(window, window.THUNDERSTORM));
 
+    
+
+}(window, window.THUNDERSTORM));
 
 

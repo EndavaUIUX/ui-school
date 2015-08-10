@@ -70,15 +70,16 @@
     };
 
     utility.validateURL =  function (url, articles) {
-        var articleNumber = url.split("?")[1];
-        if (url.indexOf("?") === -1 || articleNumber === "" || articleNumber >= articles.length || articleNumber < 0) {
+        var articleNumber = url.split("?")[1],
+            regex = new RegExp("^[0-9]+$");
+        if (url.indexOf("?") === -1 || articleNumber === "" || articleNumber >= articles.length || articleNumber < 0 || !regex.test(articleNumber)) {
             window.location.href = "/";
-            return 0;
         }
-        return articleNumber;
+        return parseInt(articleNumber);
     };
 
     utility.showModal = function ($modalSelector) {
+
         var $overlay = $('.overlay');
         $overlay.fadeIn();
         $modalSelector.fadeIn();
@@ -96,6 +97,7 @@
 
             utility.cleanErrors(errorElement);
             if (inputValue.length === 0 || !regex.test(inputValue)) {
+                $(".errorContainer").html("The input value is not valid.");
                 errorElement.removeClass('hideError');
                 errorElement.addClass('errorSearch');
                 return false;
@@ -103,12 +105,16 @@
             return true;
     };
 
+    // add & remove paragraph if i have or not invalid text input
     utility.cleanErrors = function(element) {
         element.removeClass('errorSearch');
         element.addClass('hideError');
+        $(".errorContainer").html("");
     };
 
-   
+   // split the current url from gallery[]
+   // check http https www
+   //save the rest url until /
    utility.takeDomainUrl = function (url) {
         var domain = "";
         var page = ""; 
