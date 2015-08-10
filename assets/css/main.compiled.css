@@ -202,10 +202,6 @@ nav a:hover {
   padding-left: 47px;
   color: #c7c7c7;
   border-bottom: none;
-  -webkit-transition: height 200ms ease-in;
-  -moz-transition: height 200ms ease-in;
-  -o-transition: height 200ms ease-in;
-  transition: height 200ms ease-in;
 }
 .bordernone {
   border-bottom: none;
@@ -226,10 +222,6 @@ nav a:hover {
 }
 #menuHamburger {
   display: none;
-  -webkit-transition: height 200ms ease-in;
-  -moz-transition: height 200ms ease-in;
-  -o-transition: height 200ms ease-in;
-  transition: height 200ms ease-in;
 }
 .show-menu-left {
   position: fixed;
@@ -1530,19 +1522,16 @@ article h2:hover {
     height: 50%;
   }
 }
-
 @media only screen and (min-width: 1200px) and (max-width: 1500px) {
   .content {
     width: 900px;
   }
 }
-
 @media only screen and (min-width: 800px) and (max-width: 1199px) {
   .content {
     width: 700px;
   }
 }
-
 @media only screen and (min-width: 599px) and (max-width: 799px) {
   .content {
     padding: 0px 40px;
@@ -1555,7 +1544,6 @@ article h2:hover {
     word-break: break-word;
   }
 }
-
 .footer {
   width: 100%;
   height: 90px;
@@ -1563,26 +1551,22 @@ article h2:hover {
   border-top: 2px solid #E7E7E7;
   margin: 0 auto;
 }
-
 .footer .footer__content {
   width: 1170px;
   margin: 0 auto;
   height: 90px;
 }
-
 .footer .footer__content .footer__subscribe {
   /* height: 50px; */
   /* width: 310px; */
   float: left;
   margin: 20px 0px;
 }
-
 .footer .footer__content .footer__subscribe .subscribe--input {
   font-family: 'Lato-Regular', 'Lato';
   display: inline-block;
   vertical-align: top;
 }
-
 .footer .footer__content .footer__subscribe .subscribe--input input {
   height: 50px;
   width: 260px;
@@ -1590,7 +1574,6 @@ article h2:hover {
   font-size: 18px;
   padding-left: 8px;
 }
-
 .footer .footer__content .footer__subscribe .subscribe--input .subscribe--action {
   width: 50px;
   height: 56px;
@@ -1600,24 +1583,19 @@ article h2:hover {
   vertical-align: top;
   margin: 0px 0px 0px -4px;
 }
-
 .footer .footer__content .footer__logo {
   float: right;
 }
-
 .footer .footer__content .footer__logo img {
   height: 40px;
   width: 115px;
   margin: 20px 0px;
 }
-
 .errorSearch {
   display: inline-block;
   color: red;
   margin: 0 23px;
 }
-
 .hideError {
   display: none;
 }
-
