@@ -63,7 +63,7 @@ function toggleLoadMore(page) {
 $(".main--homepage").on("swipeleft", '.latest__article, .article-wrapper', function () {
     var $this = $(this);
 
-    $this.animate({left : '-300px'}, 300, function () {
+    $this.animate({left : '-200px'}, 200, function () {
         if ($this.next().length) {
             $this.hide();
             $this.next().css({left:0}).fadeIn();
@@ -76,9 +76,8 @@ $(".main--homepage").on("swipeleft", '.latest__article, .article-wrapper', funct
 $(".main--homepage").on("swiperight", '.latest__article, .article-wrapper', function () {
     var $this = $(this);
 
-    $this.animate({left : '300px'}, 300, function () {
+    $this.animate({left : '200px'}, 200, function () {
         if ($this.prev().length) {
-
             $this.hide();
             $this.prev().css({left : 0}).fadeIn();
         } else {
