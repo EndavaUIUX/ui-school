@@ -113,8 +113,8 @@
     
     $('.modal__close').on('click', function (ev) {
         THUNDERSTORM.modules.utility.dismissModal($('.modal'));
+        buttonGallery();
     });
-
 
     var swipeFunction = {
         touches: {
@@ -168,6 +168,9 @@
     utility.sortLatestArticlesAccessed(recentArticles);
 
     /* ==========================================================================
+=======
+/* ==========================================================================
+>>>>>>> e8a1f187ddaff9e486d9d993ca1ae74512042ed5
      || Prev & Next // Buttons ||
      ========================================================================== */
     function buttonGallery() {
@@ -219,6 +222,3 @@
     });
 }(window, window.THUNDERSTORM, window.jQuery));
 
- /* ==========================================================================
-     || End of Prev & Next // Buttons ||
-     ========================================================================== */

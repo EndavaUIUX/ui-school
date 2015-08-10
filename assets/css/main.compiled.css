@@ -131,6 +131,9 @@ p {
   display: block;
   zoom: 95%;
 }
+.ui-loader {
+  display: none;
+}
 .topheader {
   width: 100%;
   height: 67px;
