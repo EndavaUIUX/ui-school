@@ -45,7 +45,6 @@
             for (var i = 0; i < currentArticle.sources.length; i++) {
                 var modalImage = $('<div></div>').addClass('modal__image'),
                         img = $('<img>').attr('src', currentArticle.sources[i]),
-
                         sourceUrl = $('<a></a>').addClass('modal__source').attr('href', '#').html(utility.takeDomainUrl(currentArticle.sources[i]));
 
                 if (i !== 0) {
@@ -71,17 +70,14 @@
         };
     }
 
-    var iterateGalleryPhotos = function (article, utility) {
-        var indexURL = [];
-        for (var i = 0; i < article['sources'].length; i++) {
+    var iterateGalleryPhotos = function(article, utility) {
+
+        var indexURL =  [];
+        for(var i = 0; i < article['sources'].length; i++ ) {
             indexURL.push(utility.takeDomainUrl(article['sources'][i]));
         }
-
         return indexURL;
     };
-
-
-    var updateSource = function () {
 
     function resizeModal() {
         var screenImage = $(".modal__image img");
@@ -97,7 +93,6 @@
         $('.modal').animate({
             height: (imageHeight) + 'px'
         }, 300);
-
     }
 
     /* ==========================================================================
@@ -119,6 +114,7 @@
     $('.modal__close').on('click', function (ev) {
         THUNDERSTORM.modules.utility.dismissModal($('.modal'));
     });
+
 
     var swipeFunction = {
         touches: {
@@ -171,9 +167,6 @@
 
     utility.sortLatestArticlesAccessed(recentArticles);
 
-
-} (window, window.THUNDERSTORM, window.jQuery));
-
     /* ==========================================================================
      || Prev & Next // Buttons ||
      ========================================================================== */
@@ -184,6 +177,7 @@
         $('.modal__image').attr('data-index', 0);
     }
 
+    buttonGallery();
     $(function buttonNext() {
         $('.modal__next').on("click", function (ev) {
             var $allGalleryImages = $(".article__gallery img"),
