@@ -225,6 +225,7 @@
   function resetGallery(){
     $('.modal__prev').hide();
     $('.modal__next').show();
+    $('.modal').css({height:'auto'});
  } 
     buttonPrev();
     buttonNext();
