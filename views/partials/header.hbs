@@ -22,25 +22,29 @@
 {{>partials/right_menu}}
 
 <script>
-   /* // show & hide recent article list from right menu
-    $(function() {
-        $('.recent-list').hide();
 
-        $('.title').click(function() {
+
+    //show & hide resources list from right menu
+    $(function() {
+        $('.left-word').show();
+
+        $('.bordernone').click(function(ev) {
+             ev.preventDefault()
+            $('.left-word').toggle();
+        });
+
+    });  
+
+
+    // show & hide recent article list from right menu
+    $(function() {
+        $('.recent-list').show();
+
+        $('.title-recent').click(function() {
             $('.recent-list').toggle();
         });
 
     });
     
-
-    //show & hide resources list from right menu
-    $(function() {
-        $('.left-word').hide();
-
-        $('.bordernone').click(function() {
-            $('.left-word').toggle();
-        });
-
-    });  */
 
 </script>

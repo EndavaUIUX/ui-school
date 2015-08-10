@@ -18,5 +18,5 @@
         utility = THUNDERSTORM.modules.utility;
 
     utility.sortLatestArticlesAccessed(recentArticles);
-     utility.collapseRecentArticleMenu();
+    utility.collapseRecentArticleMenu();
 }());

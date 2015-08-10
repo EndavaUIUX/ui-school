@@ -96,6 +96,13 @@
   src: url('../fonts/Lato-ThinItalic.ttf') format('truetype');
   /* Safari, Android, iOS */
 }
+@media only screen and (min-width: 1px) and (max-width: 599px) {
+  .button__gallery {
+    background: red;
+    width: 40px;
+    height: 10px;
+  }
+}
 body,
 p,
 h1,
@@ -276,6 +283,17 @@ nav a:hover {
 }
 #nav ul.visible {
   display: block;
+}
+.errorSearch {
+  display: inline-block;
+  padding-top: 5px;
+  color: #e1632a;
+  margin: 0 23px;
+  text-align: justify;
+  font-family: 'Lato-Regular';
+}
+.hideError {
+  display: none;
 }
 .menu-right {
   min-height: 100%;
@@ -779,6 +797,31 @@ article h2:hover {
     overflow: hidden;
     margin-bottom: 25px;
   }
+  .load-more {
+    display: inline-block;
+    font-family: "Lato regular", "Lato";
+    font-size: 12px;
+    color: #e1632a;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #e1632a;
+    background-color: #ffffff;
+    width: 90px;
+    height: 30px;
+    padding: 7px;
+    text-align: right;
+    position: relative;
+    outline: none;
+  }
+  .load-moreimg {
+    text-align: left;
+    top: 50%;
+    position: absolute;
+    left: 7px;
+    margin-top: -7px;
+    width: 15px;
+    height: 15px;
+  }
   .slider .slider__slide p {
     display: none;
   }
@@ -878,15 +921,15 @@ article h2:hover {
   .load-more {
     display: inline-block;
     font-family: "Lato regular", "Lato";
-    font-size: 15px;
+    font-size: 10px;
     color: #e1632a;
     border-style: solid;
     border-width: 1px;
     border-color: #e1632a;
     background-color: #ffffff;
-    width: 109px;
-    height: 30px;
-    padding: 5px;
+    width: 80px;
+    height: 25px;
+    padding: 6px;
     text-align: right;
     position: relative;
     outline: none;
@@ -895,10 +938,10 @@ article h2:hover {
     text-align: left;
     top: 50%;
     position: absolute;
-    left: 1px;
-    margin-top: -14px;
-    width: 26px;
-    height: 26px;
+    left: 7px;
+    margin-top: -7px;
+    width: 15px;
+    height: 15px;
   }
   .slider .slider__slide h2 {
     display: none;
@@ -1562,12 +1605,4 @@ footer {
   margin: 0 auto;
   background: url('../images/footer.jpg') no-repeat;
   background-size: 100% auto;
-}
-.errorSearch {
-  display: inline-block;
-  color: red;
-  margin: 0 23px;
-}
-.hideError {
-  display: none;
 }
