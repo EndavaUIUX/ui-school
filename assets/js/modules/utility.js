@@ -196,7 +196,6 @@
             }
         }
         menuRight.append(titleListParent);
-        menuRight.prepend(titleListParent);
     };
     utility.deviceGeneration();
     THUNDERSTORM.modules.utility = utility;
