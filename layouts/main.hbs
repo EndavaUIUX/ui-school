@@ -10,6 +10,8 @@
       <link href="assets/css/main.compiled.css" rel="stylesheet">
       <link href="assets/css/reset.css" rel="stylesheet">
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+      <link href="assets/css/mio.css" rel="stylesheet">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>
   </head>
   <body>    
   
@@ -31,6 +33,53 @@
       <script src="assets/js/modules/articles.js"></script>
       <script src="assets/js/UI/main.js"></script>
       <script src="assets/js/modules/slider.js"></script>
+      <script>
+function currentFadeOut($arg) {
+    $arg.hide('fast');
+}
+
+function nextFadeIn($arg) {
+    $arg.next().fadeIn(function () {
+        $arg.css({left : 0});
+    });
+    //$arg.css({left:0});
+}
+
+function prevFadeIn($arg) {
+    $arg.next().fadeIn(function () {
+        $arg.css({left : 0});
+    });
+}
+
+$(".latest__article, .article-wrapper").on("swipeleft", function () {
+    var $this = $(this);
+    console.log('left');
+    $this.animate({left : '-300px'}, 300, function () {
+        if ($this.next().length) {
+          console.log($this.next())
+            $this.hide();
+            $this.next().css({left:0}).fadeIn();
+        } else {
+            $this.animate({left : 0}, 100);
+        }
+    });
+});
+
+$(".latest__article, .article-wrapper").on("swiperight", function () {
+    var $this = $(this);
+    console.log('right');
+    $this.animate({left : '300px'}, 300, function () {
+        if ($this.prev().length) {
+          console.log($this.prev())
+            $this.hide();
+            $this.prev().css({left:0}).fadeIn();
+        } else {
+            $this.animate({left : 0}, 100);
+        }
+
+    });
+});
+      </script>
   </body>
 </html>
 

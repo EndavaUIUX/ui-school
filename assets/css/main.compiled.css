@@ -429,6 +429,7 @@ nav a:hover {
   border: 1px solid #e7e7e7;
   box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.08);
   margin-bottom: 50px;
+  position: relative;
 }
 .latest__article .article__content {
   width: 600px;
@@ -554,6 +555,7 @@ nav a:hover {
   vertical-align: top;
   margin-bottom: 30px;
   margin-right: 2.565%;
+  position: relative;
 }
 .article-wrapper article {
   background-color: #ffffff;
