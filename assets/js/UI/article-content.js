@@ -178,7 +178,7 @@
                 $imgGallery = $("div.modal__image img");
         $imgGallery[0].src = $allGalleryImages[0].src;
         $('.modal__image').attr('data-index', 0);
-       // $('.modal__prev').hide();
+    resetGallery();
     }
     buttonGallery();
     function buttonNext() {
@@ -225,6 +225,7 @@
   function resetGallery(){
     $('.modal__prev').hide();
     $('.modal__next').show();
+    $('.modal').css({height:'auto'});
  } 
     buttonPrev();
     buttonNext();
