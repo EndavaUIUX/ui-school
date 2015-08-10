@@ -46,16 +46,14 @@
                         img = $('<img>').attr('src', currentArticle.sources[i]),
                         sourceUrl = $('<a></a>').addClass('modal__source').attr('href', '#').html(utility.takeDomainUrl(currentArticle.sources[i]));      
                     
-                    if(i !== 0) {
+                    if(i != 0) {
                         modalImage.hide();
                     } else { 
                         modalImage.append(img).append(sourceUrl);
                         imagesHolder.append(modalImage);
                     }
-                }
+                } 
 
-            // Get on screen image
-            resizeModal();
             } else {
                 gallery = $("<img>").attr("src", currentArticle.sources);
                 $(".article__gallery").append(gallery);
@@ -68,8 +66,9 @@
                 iterateGalleryPhotos(currentArticle, utility);
             };
     }
-
+    
     var iterateGalleryPhotos = function(article, utility) {
+
         var indexURL =  [];
         for(var i = 0; i < article['sources'].length; i++ ) {
             indexURL.push(utility.takeDomainUrl(article['sources'][i]));
@@ -78,27 +77,16 @@
         return indexURL;
     };
 
-    function resizeModal() {
-        var screenImage = $(".modal__image img");
-        // Create new offscreen image to test
-        var theImage = new Image();
+
+    var updateSource = function () {
         
-        theImage.src = screenImage.attr("src");
-        
-        // Get accurate measurements from that.
-        var imageWidth = theImage.width;
-        var imageHeight = theImage.height;
-        //$('.modal').css({'width' : (imageWidth+170) + 'px'});
-        $('.modal').animate({
-            height:(imageHeight) + 'px'
-        }, 300);
     }
 
     /* ==========================================================================
       event handlers.                                                            
     ========================================================================== */
 
-    $('body').on('click tap touchend', function (ev) {
+    $('body').on('click', function (ev) {
             var container = $('.modal');
             if (!container.is(ev.target)  && container.has(ev.target).length === 0 && !$(ev.target).hasClass('.modal__close') && !$(ev.target).hasClass('button__gallery'))
               {
@@ -107,16 +95,15 @@
     });
 
     $('.button__gallery').on('click', function (ev) {
-        buttonGallery();
         THUNDERSTORM.modules.utility.showModal($('.modal'));
-        $('.modal__prev').hide();
-        resizeModal();
     });
-
+    
     $('.modal__close').on('click', function (ev) {
         THUNDERSTORM.modules.utility.dismissModal($('.modal'));
-    }); 
-
+    });
+    
+    
+    
     var swipeFunction = {
         
         touches : {
@@ -164,60 +151,14 @@
             image.addEventListener('touchend', swipeFunction.touchHandler, false);
         }
     };
-
+    
+    console.log(swipeFunction);
+    console.log(swipeFunction.init);
     swipeFunction.init();
 
     utility.sortLatestArticlesAccessed(recentArticles);
 
-    /* ==========================================================================
-      || Prev & Next // Buttons ||
-     ========================================================================== */
-    function buttonGallery(){
-        var $allGalleryImages = $(".article__gallery img"),
-           $imgGallery = $("div.modal__image img");
-        $imgGallery[0].src = $allGalleryImages[0].src;
-        $('.modal__image').attr('data-index', 0);
-    }
-    
 
-    $('.modal__next').on("click", function (ev) {
-       var $allGalleryImages = $(".article__gallery img"),
-           $imgGallery = $("div.modal__image img"),
-           imgIndex = document.querySelector('.modal__image');
-           imgIndex = parseInt(imgIndex.getAttribute('data-index'));
-           var count = $allGalleryImages.length;
-           $('.modal__prev').show();
-        imgIndex = imgIndex + 1;
-        if(imgIndex === count-1){
-           // imgIndex = 0;
-            $('.modal__next').hide();           
-        }            
-        //$('.modal__next').show();
-        $('.modal__image').attr('data-index', imgIndex);
-        $imgGallery[0].src = $allGalleryImages[imgIndex].src;
-        resizeModal();
-    });
 
-  $('.modal__prev').on("click", function (ev) {
-       var $allGalleryImages = $(".article__gallery img"),
-           $imgGallery = $("div.modal__image img"),
-           imgIndex = document.querySelector('.modal__image');
-           imgIndex = parseInt(imgIndex.getAttribute('data-index'));
-           var count = $allGalleryImages.length;
-        imgIndex = imgIndex - 1;
-        if(imgIndex <= 0){
-            //imgIndex = count - 1;
-            $('.modal__prev').hide();
-        }
-        $('.modal__next').show();
-        //$('.modal__prev').show();
-        $('.modal__image').attr('data-index', imgIndex);
-        $imgGallery[0].src = $allGalleryImages[imgIndex].src;
-        resizeModal();
-    });   
-    
-  
-    
-    
-}(window, window.THUNDERSTORM, window.jQuery));
+} (window, window.THUNDERSTORM, window.jQuery));
 
