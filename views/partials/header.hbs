@@ -28,7 +28,8 @@
     $(function() {
         $('.left-word').show();
 
-        $('.bordernone').click(function() {
+        $('.bordernone').click(function(ev) {
+             ev.preventDefault()
             $('.left-word').toggle();
         });
 
