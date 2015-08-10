@@ -122,6 +122,7 @@ p {
   width: 1170px;
   margin: 50px auto;
   display: block;
+  zoom: 95%;
 }
 .topheader {
   width: 100%;
@@ -146,6 +147,10 @@ p {
   height: 100%;
   color: #fff;
   float: left;
+  text-align: center;
+}
+.centerdiv a {
+  display: inline-block;
 }
 .rightminidiv {
   width: 50%;
@@ -154,7 +159,7 @@ p {
   float: right;
 }
 .menu {
-  padding: 25px 0px 25px 25px;
+  padding: 25px 25px 25px 25px;
 }
 .logo {
   display: block;
@@ -197,6 +202,10 @@ nav a:hover {
   padding-left: 47px;
   color: #c7c7c7;
   border-bottom: none;
+  -webkit-transition: height 200ms ease-in;
+  -moz-transition: height 200ms ease-in;
+  -o-transition: height 200ms ease-in;
+  transition: height 200ms ease-in;
 }
 .bordernone {
   border-bottom: none;
@@ -217,6 +226,10 @@ nav a:hover {
 }
 #menuHamburger {
   display: none;
+  -webkit-transition: height 200ms ease-in;
+  -moz-transition: height 200ms ease-in;
+  -o-transition: height 200ms ease-in;
+  transition: height 200ms ease-in;
 }
 .show-menu-left {
   position: fixed;
@@ -349,7 +362,6 @@ nav a:hover {
   display: none;
 }
 .slider {
-  max-height: 600px;
   background-color: #fff;
   position: relative;
   margin-top: 67px;
@@ -377,9 +389,6 @@ nav a:hover {
   display: inline-block;
   border: 1px solid #cecece;
   transition: 0.2s all ease;
-}
-.slider__controlls .bubble:hover {
-  border-radius: 0;
 }
 .slider__controlls .bubble.bubble--active {
   background-color: #bfbdbd;
@@ -1471,11 +1480,7 @@ article h2:hover {
     font-size: 14px;
   }
   .slider__controlls {
-    bottom: 10px;
-  }
-  .slider__controlls .bubble {
-    width: 10px;
-    height: 10px;
+    display: none!important;
   }
 }
 @media only screen and (min-width: 1px) and (max-width: 599px) {
@@ -1508,7 +1513,7 @@ article h2:hover {
     min-height: auto;
   }
   .slider .slider__controlls {
-    display: none;
+    display: none!important;
   }
   .content {
     padding: 0px 20px;

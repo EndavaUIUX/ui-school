@@ -15,7 +15,7 @@
         $menuLeft.removeClass("show-menu-left");
     });
 
-    $(document).on("click", function(e) {
+    $('body').on("click tap touchend", function(e) {
         var targetEl = $(e.target);
 
         if (!targetEl.is('.menu')
@@ -53,12 +53,7 @@
             window.location.href = "/search-result?" + inputValue;
         }
     });
-
-
-
     
-
-
 }());
 
 

@@ -79,6 +79,7 @@
     };
 
     utility.showModal = function ($modalSelector) {
+
         var $overlay = $('.overlay');
         $overlay.fadeIn();
         $modalSelector.fadeIn();
