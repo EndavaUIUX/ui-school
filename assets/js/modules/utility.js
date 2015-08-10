@@ -106,7 +106,6 @@
                 $(".errorContainer").html("The input value is not valid.");
                 errorElement.removeClass('hideError');
                 errorElement.addClass('errorSearch');
-                $(this).val() = '';
                 return false;
             }
             return true;
@@ -192,7 +191,8 @@
                 linkRedirect.html(utility.clipText(allArticles["articles"][articleIndex].title, 20));
 
                 listItem.append(linkRedirect);
-                titleListParent.append(listItem);
+               // titleListParent.append(listItem);
+                titleListParent.prepend(listItem);
             }
         }
         menuRight.append(titleListParent);
