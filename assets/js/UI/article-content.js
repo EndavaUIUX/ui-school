@@ -7,6 +7,11 @@
         callback: populateArticlePage
     });
 
+    var persistence = THUNDERSTORM.modules.persistence;
+    THUNDERSTORM.modules.articles.mostRecentArticles = persistence.get("latestArticlesAccessed");
+    var recentArticles = THUNDERSTORM.modules.articles.mostRecentArticles,
+        utility = THUNDERSTORM.modules.utility;
+
     function populateArticlePage() {
         var pageUrl = window.location.href,
             utility = THUNDERSTORM.modules.utility,
@@ -32,6 +37,23 @@
                 $(".article__gallery").addClass("hasGallery");
                 $(".article__gallery").append(viewMoreButton);
 
+            //  populate gallery from article content with modal source url 
+                var imagesHolder = $('.modal .modal__images');
+                    imagesHolder.html('');
+
+                for(var i = 0; i < currentArticle.sources.length; i++) {
+                    var modalImage = $('<div></div>').addClass('modal__image'),
+                        img = $('<img>').attr('src', currentArticle.sources[i]),
+                        sourceUrl = $('<a></a>').addClass('modal__source').attr('href', '#').html(utility.takeDomainUrl(currentArticle.sources[i]));      
+                    
+                    if(i != 0) {
+                        modalImage.hide();
+                    } else { 
+                        modalImage.append(img).append(sourceUrl);
+                        imagesHolder.append(modalImage);
+                    }
+                } 
+
             } else {
                 gallery = $("<img>").attr("src", currentArticle.sources);
                 $(".article__gallery").append(gallery);
@@ -42,33 +64,24 @@
 
             window.onload = function(){ 
                 iterateGalleryPhotos(currentArticle, utility);
-            } 
+            };
     }
     
     var iterateGalleryPhotos = function(article, utility) {
-        /* var galleryImages = [],
-            indexURL =  [], 
-            galleryImages = article['gallery'];
 
-       for (var j = 0, leng = galleryImages.length; j < leng; j++) {
-            indexURL.push(utility.takeDomainUrl(galleryImages[j]));
-       }*/
+        var indexURL =  [];
+        for(var i = 0; i < article['sources'].length; i++ ) {
+            indexURL.push(utility.takeDomainUrl(article['sources'][i]));
+        }
 
-      // return indexURL;
-      var indexURL =  [];
-      for (var i = 0; i < article['sources'].length; i++) {
-        indexURL.push(utility.takeDomainUrl(article['sources'][i]));
-      }
-      console.log(indexURL);
         return indexURL;
     };
+
 
     var updateSource = function () {
         
     }
-    
-    
-    
+
     /* ==========================================================================
       event handlers.                                                            
     ========================================================================== */
@@ -141,7 +154,11 @@
     
     console.log(swipeFunction);
     console.log(swipeFunction.init);
-    swipeFunction.init(); 
+    swipeFunction.init();
+
+    utility.sortLatestArticlesAccessed(recentArticles);
+
+
 
 } (window, window.THUNDERSTORM, window.jQuery));
 

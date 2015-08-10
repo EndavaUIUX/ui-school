@@ -11,4 +11,12 @@
     articles.pages = articles.pagination( searchedArticles, params.itemsPerPage);
     articles.generateArticles(articles.pages[0], params.articlesParent);
     articles.loadMode(articlesParent);
+
+    var persistence = THUNDERSTORM.modules.persistence;
+    THUNDERSTORM.modules.articles.mostRecentArticles = persistence.get("latestArticlesAccessed");
+    var recentArticles = THUNDERSTORM.modules.articles.mostRecentArticles,
+        utility = THUNDERSTORM.modules.utility;
+
+    utility.sortLatestArticlesAccessed(recentArticles);
+     utility.collapseRecentArticleMenu();
 }());

@@ -1,41 +1,96 @@
-nav {
-  width: 100%;
-  text-align: center;
-  position: fixed;
-  min-height: 100%;
-}
+//Variables
+@menu-color: #333333;
+@articles-color: #c7c7c7;
+@article-hover-color: #C0C0C0;
 
-.menu-right {
+.menu-right{
+  min-height: 100%;
   width: 309px;
-  min-height: 100%;
-  background-color: #333333;
+  background-color: @menu-color;
   text-align: left;
-  right: 0;
   z-index: 44;
-  top: 0;
-  transition: all .9s ease-in-out;
-  -webkit-transition: all .9s ease-in-out;
-  -moz-transition: all .9s ease-in-out;
-  -o-transition: all .9s ease-in-out;
+  right: -309px;
+  transition: all .5s ease-in-out;
+  -webkit-transition: all .5s ease-in-out;
+  -moz-transition: all .5s ease-in-out;
+  -o-transition: all .5s ease-in-out;
 
-  ul {
-      padding: 0
+  .user-details{
+    .user{
+      padding: 8px 15px 0px 24px;
+    }
+    .user:hover{
+      cursor: pointer;
+    }
+    .user-name{
+      font-size: @title-font-size;
+      font-family: 'Lato';
+      top: 10px;
+      left: 55px;
+      position: absolute;
+      color: @btn-background-color;
+      padding: 8px 0px 0px 0px;
+      margin-left: 32px;
+      line-height: 1.2;
+      font-weight: normal;
+    }
+  }
+
+  .article-recent{
+    .title-recent{
+      font-size: @title-font-size;
+      font-family: 'Lato';
+      color: @btn-background-color;
+      line-height: 1.2;
+      position: absolute;
+      z-index: 302;
+      top: 90px;
+      left: 46px;
+      font-weight: normal;
+      padding-left: 10px;
+      cursor: pointer;
+  }
+
+    .file{
+      position: absolute;
+      width: 17px;
+      height: 19px;
+      z-index: 303;
+      padding-left: 24px;
+      top: 93px;
     }
 
-  li .file {
-    color: #ffffff;
+
+    .recent-list{
+      padding: 74px 0px 0px 0px;
+    }
+    .recent-list a{
+      font-size: @desktop-font-size;
+      font-family: "Lato";
+      line-height: 1.66;
+      color: @articles-color;
+      border-bottom: none;
+      padding: 10px 54px;
+    }
+
+    .recent-list a:hover{
+      background: @article-hover-color;
+      color: @btn-background-color;
+    }
   }
 }
 
-.user {
-  padding: 0px 6px 0px 24px;
-}
-
-.show-menu-right {
-  position: fixed;
-  right: 0px;
-}
-
-#userProfile {
+#userProfile{
   display: none;
 }
+
+.show-menu-right{
+  position: fixed;
+  right: 0;
+}
+
+.hide-user-icon{
+  display: none;
+}
+
+ 

@@ -8,66 +8,23 @@
     var utility = THUNDERSTORM.modules.utility;
     var persistence = THUNDERSTORM.modules.persistence;
     var articlesParent = $('.main--homepage');
-    var menuRight = $('.menu-right');
+
     var articleClickTriggers ='article h2, .article__title, .article-info img, .article__img img, .btn--more, .load-more, .latest__article .article__picture img' ;
     var loadMore = $('.load-more');
     var key = 'articles';
-    
+
     THUNDERSTORM.modules.articles.mostRecentArticles = persistence.get("latestArticlesAccessed");
+
+    THUNDERSTORM.modules.articles.init({sourceName : key,  articlesParent : articlesParent, shouldGenerate : true, isMainPage : true, callback:    THUNDERSTORM.modules.articles.loadMode(articlesParent)});
+
     var recentArticles = THUNDERSTORM.modules.articles.mostRecentArticles;
-    THUNDERSTORM.modules.articles.init({sourceName : key,  articlesParent : articlesParent, shouldGenerate : true, isMainPage : true});
-    THUNDERSTORM.modules.articles.loadMode(articlesParent);
 
   /* ==========================================================================
      Functions
      ========================================================================== */
-    
-    function sortLatestArticlesAccessed (article) {
-        var temp,
-            found;
 
-        do {
-            found = false;
-            for(var index = 0; index < article.length - 1; index++) {
-                if(article[index].count < article[index + 1].count) {
-                    temp = article[index].count;
-                    article[index].count = article[index + 1].count;
-                    article[index + 1].count = temp;
-                    found = true;
-                }
-            }
-        } while(found);
+    utility.sortLatestArticlesAccessed(recentArticles);
 
-        return generateListHTML(article, THUNDERSTORM.modules.articles.data);
-    }
-
-    function generateListHTML (latestArticlesAccessed, allArticles) {
-        var titleListParent = $("<ul></ul>");
-
-        for(var i = 0; i < latestArticlesAccessed.length; i++) {
-            if(latestArticlesAccessed[i].articleIndex < 10){
-                var listItem = $("<li></li>"),
-                    articleIndex = latestArticlesAccessed[i].articleIndex,
-                    linkRedirect = $('<a></a>').attr("href", "article?" + latestArticlesAccessed[i].articleIndex);
-
-                linkRedirect.html(allArticles["articles"][articleIndex].title);
-
-                listItem.append(linkRedirect);
-                titleListParent.append(listItem);
-            }
-        }
-        menuRight.append(titleListParent);
-    }
-
-    function toggleLoadMore(page) {
-        if (page < Object.keys(THUNDERSTORM.modules.articles.pages).length) {
-            loadMore.data('page', page);
-        } else {
-            loadMore.hide('fast');
-        }
-    }
-
-    sortLatestArticlesAccessed(recentArticles);
    /* ==========================================================================
       Event listeners
       Set in local storage an object latest articles accessed with the key "latestArticlesAccessed",
@@ -123,7 +80,9 @@
         window.location.href = "/article?" + articleIndex;
     });
 
-}(window, window.THUNDERSTORM));
 
+    
+
+}(window, window.THUNDERSTORM));
 
 
