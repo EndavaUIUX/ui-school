@@ -7,7 +7,8 @@
         $rightMinDiv = $('.rightminidiv'),
         $profile = $('.profile'),
         $user = $('.user'),
-        $title = $('.title-recent');
+        $title = $('.title-recent'),
+        $rightMenuBackdrop = $('.right-menu-backdrop');
 
     $profile.click(function (e) {
 
@@ -15,20 +16,23 @@
         if (!$menuRight.hasClass("show-menu-right")) {
             $menuRight.addClass("show-menu-right");
             $rightMinDiv.addClass("hide-user-icon");
+            $rightMenuBackdrop.addClass("show");
         }
     });
 
     $user.click(function () {
         $menuRight.removeClass("show-menu-right");
         $rightMinDiv.removeClass("hide-user-icon");
+        $rightMenuBackdrop.removeClass("show");
     });
 
     $(document).on("click tap touchend", function (e) {
         var targetEl = $(e.target);
 
         if (!targetEl.is('.profile') && !targetEl.is('.menu-right') && !targetEl.is('.article-recent h2')) {
-            $('.menu-right').removeClass("show-menu-right");
-            $('.rightminidiv').removeClass("hide-user-icon");
+            $menuRight.removeClass("show-menu-right");
+            $rightMinDiv.removeClass("hide-user-icon");
+            $rightMenuBackdrop.removeClass("show");
         }
     });
 }());

@@ -353,7 +353,7 @@ nav a:hover {
   background-color: #333333;
   text-align: left;
   z-index: 44;
-  right: -309px;
+  right: -360px;
   transition: all 0.5s ease-in-out;
   -webkit-transition: all 0.5s ease-in-out;
   -moz-transition: all 0.5s ease-in-out;
@@ -385,10 +385,11 @@ nav a:hover {
   position: absolute;
   z-index: 302;
   top: 90px;
-  left: 46px;
+  left: 27px;
   font-weight: normal;
-  padding-left: 10px;
   cursor: pointer;
+  background: url("../images/right_menu/file.png") no-repeat left;
+  padding-left: 27px;
 }
 .menu-right .article-recent .file {
   position: absolute;
@@ -422,6 +423,35 @@ nav a:hover {
 }
 .hide-user-icon {
   display: none;
+}
+@media only screen and (min-width: 1px) and (max-width: 599px) {
+  .right-menu-backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    background-color: rgba(255, 255, 255, 0.56);
+    height: 100%;
+    width: 100%;
+  }
+  .right-menu-backdrop .menu-right {
+    background-color: #f7f7f7;
+    width: 100%;
+    height: auto;
+    min-height: 0%;
+  }
+  .right-menu-backdrop .menu-right .user-details .user-name {
+    color: #000;
+  }
+  .right-menu-backdrop .menu-right .article-recent .title-recent {
+    color: #000;
+    background: url("../images/right_menu/file-black.png") no-repeat left;
+  }
+  .right-menu-backdrop .menu-right .article-recent .recent-list a {
+    color: #000;
+  }
 }
 .slider {
   background-color: #fff;
