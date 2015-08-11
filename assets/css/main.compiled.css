@@ -624,6 +624,7 @@ nav a:hover {
   font-size: 18px;
   color: #b1b1b1;
   display: inline-block;
+  line-height: 1.1;
 }
 .latest__article .article__content .article__informations .article_info {
   padding-left: 20px;
@@ -633,6 +634,7 @@ nav a:hover {
   font-size: 18px;
   color: #b1b1b1;
   display: inline-block;
+  line-height: 1.1;
 }
 .latest__article .article__content .article__informations .article__author {
   background: url("../images/ico/user%20-%20single.png") no-repeat no-repeat;
@@ -1201,6 +1203,7 @@ article h2:hover {
   }
   .latest__article .article__content .article__informations .article__date.article_info {
     font-size: 13px;
+    margin-top: 10px;
   }
   .latest__article .article__content .article__informations .article__gallery.article_info {
     font-size: 13px;
