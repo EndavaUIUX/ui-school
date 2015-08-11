@@ -16,12 +16,6 @@
             return "th";
         }
     }
-    utility.deviceGeneration = function () {
-        var devWidth = $(window).width();
-        var devHeight = $(window).height();
-        //alert(devWidth);//1024, por 768 
-        //alert(devHeight);//704, 960
-    };
     
     utility.clearArticles = function () {
         var articleContainer = $('.main');
@@ -202,7 +196,7 @@
         }
         menuRight.append(titleListParent);
     };
-    utility.deviceGeneration();
+
     THUNDERSTORM.modules.utility = utility;
 
 }(window, window.THUNDERSTORM, window.jQuery));

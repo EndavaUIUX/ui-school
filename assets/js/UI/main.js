@@ -11,7 +11,7 @@
     var articleClickTriggers ='article h2, .article__title, .article-info img, .article__img img, .btn--more, .load-more, .latest__article .article__picture img' ;
     var loadMore = $('.load-more');
     var key = 'articles';
-
+    var recentArticles;
     init();
     
   /* ==========================================================================
@@ -19,8 +19,7 @@
      ========================================================================== */
     function init() {
         var resolutionPaginationObj = paginationOnResolution();
-        var recentArticles;
-        
+       
         THUNDERSTORM.modules.articles.mostRecentArticles = persistence.get("latestArticlesAccessed");
         THUNDERSTORM.modules.articles.init({
             sourceName : key,
