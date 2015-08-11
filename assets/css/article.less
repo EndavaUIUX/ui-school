@@ -98,20 +98,20 @@
     }
 
     .article__img:hover{ 
-        border: 5px solid @image-hover;
         box-sizing: border-box;
         border-radius: 1%;
-        -webkit-transform: scale(1,1);
-        -moz-transform: scale(1,1);
-        opacity: 1 ;
-        -webkit-opacity: 1;
-        -moz-opacity: 1;
+        -webkit-transform: rotateY(360deg);
+        -webkit-transform-style: preserve-3d;
+        transform: rotateY(360deg);
+        transform-style: preserve-3d;
 
         img{
             height: 98%;
             margin-right: auto;
             margin-left: auto;
             display: block;
+            -webkit-transition: all 0.7s ease;
+            transition: all 0.7s ease;
         }
     }
 }
@@ -131,11 +131,11 @@
     border: 5px solid @image-hover;
     box-sizing: border-box;
     border-radius: 1%;
-    -webkit-transform: scale(1,1);
-    -moz-transform: scale(1,1);
-    opacity: 1 ;
-    -webkit-opacity: 1;
-    -moz-opacity: 1;
+        -webkit-transform: rotateY(360deg);
+        -webkit-transform-style: preserve-3d;
+        transform: rotateY(360deg);
+        transform-style: preserve-3d;
+
 }
 
 .clearfix{
@@ -180,14 +180,11 @@
 }
 
 .article-wrapper article img:hover {
-    border: 5px solid @image-hover;
-    box-sizing: border-box;
-    border-radius: 1%;
-    -webkit-transform: scale(1,1);
-    -moz-transform: scale(1,1);
-    opacity: 1 ;
-    -webkit-opacity: 1;
-    -moz-opacity: 1;
+        -webkit-transform: rotateY(360deg);
+        -webkit-transform-style: preserve-3d;
+        transform: rotateY(360deg);
+        transform-style: preserve-3d;
+
 }
 
 .article-wrapper article p {
