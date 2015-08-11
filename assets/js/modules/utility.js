@@ -106,7 +106,6 @@
                 $(".errorContainer").html("The input value is not valid.");
                 errorElement.removeClass('hideError');
                 errorElement.addClass('errorSearch');
-                $(this).val() = '';
                 return false;
             }
             return true;
