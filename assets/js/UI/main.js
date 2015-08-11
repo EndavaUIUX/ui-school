@@ -19,7 +19,8 @@
      ========================================================================== */
     function init() {
         var resolutionPaginationObj = paginationOnResolution();
-       
+
+        
         THUNDERSTORM.modules.articles.mostRecentArticles = persistence.get("latestArticlesAccessed");
         THUNDERSTORM.modules.articles.init({
             sourceName : key,
