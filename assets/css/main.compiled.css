@@ -371,9 +371,6 @@ nav a:hover {
   position: fixed;
   right: 0;
 }
-.hide-user-icon {
-  display: none;
-}
 .slider {
   background-color: #fff;
   position: relative;
