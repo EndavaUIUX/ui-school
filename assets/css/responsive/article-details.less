@@ -71,7 +71,7 @@ and (max-width: 599px) {
         max-width:100%;
         height:auto!important;
         .modal__next, .modal__prev{
-          display:none;
+          display:none!important;
         }
 
         .modal__close{
@@ -139,6 +139,15 @@ and (max-width: 1024px) {
             left:20px;
         }
     }
+        .overlay{
+      .modal{
+        max-width:100%;
+        height:auto!important;
+        .modal__next, .modal__prev{
+          display:none!important;
+        }
+      }
+        }
 }
 
 @media only screen
