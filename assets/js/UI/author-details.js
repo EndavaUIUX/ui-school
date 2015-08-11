@@ -24,6 +24,7 @@
         $menuRight.removeClass("show-menu-right");
         $rightMinDiv.removeClass("hide-user-icon");
         $rightMenuBackdrop.removeClass("show");
+
     });
 
     $(document).on("click tap touchend", function (e) {
