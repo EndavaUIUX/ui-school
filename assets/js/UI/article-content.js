@@ -44,8 +44,10 @@
 
             for (var i = 0; i < currentArticle.sources.length; i++) {
                 var modalImage = $('<div></div>').addClass('modal__image'),
-                    img = $('<img>').attr('src', currentArticle.sources[i]),
-                    sourceUrl = $('<a></a>').addClass('modal__source').attr('href', '#').html(utility.takeDomainUrl(currentArticle.sources[i]));
+
+                        img = $('<img>').attr('src', currentArticle.sources[i]),
+
+                        sourceUrl = $('<a></a>').addClass('modal__source').attr('href', '#').html(utility.takeDomainUrl(currentArticle.sources[i]));
 
                 if (i !== 0) {
                     modalImage.hide();
@@ -62,6 +64,7 @@
             $(".article__gallery").append(gallery);
         }
 
+
         utility.populateArticleTitle(elementsObject, article);
         utility.populateArticleDetails(article, articleContent);
 
@@ -70,16 +73,17 @@
         };
     }
 
-    var iterateGalleryPhotos = function (article, utility) {
 
-        var indexURL = [];
-        for (var i = 0; i < article['sources'].length; i++) {
+
+    var iterateGalleryPhotos = function(article, utility) {
+        var indexURL =  [];
+        for(var i = 0; i < article['sources'].length; i++ ) {
             indexURL.push(utility.takeDomainUrl(article['sources'][i]));
         }
         return indexURL;
     };
 
-    function resizeModal() {
+  function resizeModal() {
         var screenImage = $(".modal__image img");
         // Create new offscreen image to test
         var theImage = new Image();
@@ -93,6 +97,8 @@
         $('.modal').animate({
             height: (imageHeight) + 'px'
         }, 300);
+
+
     }
 
     /* ==========================================================================
@@ -114,6 +120,7 @@
 
     $('.modal__close').on('click', function (ev) {
         THUNDERSTORM.modules.utility.dismissModal($('.modal'));
+
         buttonGallery();
 
     });
@@ -169,10 +176,16 @@
 
     utility.sortLatestArticlesAccessed(recentArticles);
 
+
     /* ==========================================================================
      =======
      /* ==========================================================================
      >>>>>>> e8a1f187ddaff9e486d9d993ca1ae74512042ed5
+=======
+
+    /* ==========================================================================
+
+>>>>>>> e9e11fdd167267c074853bc7a0995d7149ded558
      || Prev & Next // Buttons ||
      ========================================================================== */
     function buttonGallery() {
@@ -229,17 +242,23 @@
          ========================================================================== */
     }
 
-    function resetGallery() {
-        $('.modal__prev').hide();
-        $('.modal__next').show();
-        $('.modal').css({height: 'auto'});
-    }
+    
+  function resetGallery(){
+    $('.modal__prev').hide();
+    $('.modal__next').show();
+    $('.modal').css({height:'auto'});
+ } 
 
     buttonPrev();
     buttonNext();
     resetGallery();
 
 }(window, window.THUNDERSTORM, window.jQuery));
+
+ /* ==========================================================================
+     || End of Prev & Next // Buttons ||
+     ========================================================================== */
+
 
 
 
