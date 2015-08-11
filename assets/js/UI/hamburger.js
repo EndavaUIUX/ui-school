@@ -7,13 +7,15 @@
         $leftMenuBackdrop = $('.left-menu-backdrop');
 
     $menu.click(function (e) {
+        e.stopPropagation();
         if (!$menuLeft.hasClass("show-menu-left")) {
             $menuLeft.addClass("show-menu-left");
             $leftMenuBackdrop.addClass("show");
         }
     });
 
-    $hideMenu.click(function (){
+    $hideMenu.click(function (e){
+        e.stopPropagation();
         $menuLeft.removeClass("show-menu-left");
         $leftMenuBackdrop.removeClass("show");
     });
@@ -36,6 +38,8 @@
             THUNDERSTORM.modules.utility.cleanErrors($errorElement);
 
         }
+
+
 
     });
 
