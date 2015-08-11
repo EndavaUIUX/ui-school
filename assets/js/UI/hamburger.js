@@ -3,16 +3,19 @@
     var $menu = $('.menu'),
         $menuLeft = $('nav.menu-left'),
         $hideMenu = $('.hide-menu'),
-        $menuLeftInput = $('.menu-left input');
+        $menuLeftInput = $('.menu-left input'),
+        $leftMenuBackdrop = $('.left-menu-backdrop');
 
     $menu.click(function (e) {
         if (!$menuLeft.hasClass("show-menu-left")) {
             $menuLeft.addClass("show-menu-left");
+            $leftMenuBackdrop.addClass("show");
         }
     });
 
     $hideMenu.click(function (){
         $menuLeft.removeClass("show-menu-left");
+        $leftMenuBackdrop.removeClass("show");
     });
 
     $('body').on("click tap touchend", function(e) {
@@ -22,14 +25,16 @@
         if (!targetEl.is('.menu')
             && !targetEl.is(".menu-left")
             && !targetEl.is(".menu-left .search-article")
-            && !targetEl.is(".menu-left .bordernone")
+            && !targetEl.is(".menu-left .link")
             && !targetEl.is(".menu-left .editor-mode")
             && !targetEl.is(".menu-left p")) {
 
             $('nav.menu-left').removeClass('show-menu-left');
+            $leftMenuBackdrop.removeClass("show");
             //clear input search after press enter or submit
             $('.menu-left input').val('');
             THUNDERSTORM.modules.utility.cleanErrors($errorElement);
+
         }
 
     });
