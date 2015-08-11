@@ -79,10 +79,6 @@
         //the actual redirect
         window.location.href = "/article?" + articleIndex;
     });
-
-
-    
-
 }(window, window.THUNDERSTORM));
 
 
