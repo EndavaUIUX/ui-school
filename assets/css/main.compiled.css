@@ -453,10 +453,9 @@ nav a:hover {
   position: relative;
 }
 .latest__article .article__content {
-  width: 600px;
+  width: 50%;
   height: 377px;
   float: left;
-  position: absolute;
 }
 .latest__article .article__content .article__title {
   font-family: 'Lato-Black';
@@ -505,16 +504,15 @@ nav a:hover {
   font-size: 18px;
   color: #828282;
   text-align: justify;
-  padding: 12px 40px 0px 30px;
+  padding: 12px 30px 0px 30px;
   font-family: 'Lato-Regular';
   line-height: 1.2;
-  height: 126px;
+  height: 32%;
   overflow: hidden;
   word-break: break-word;
 }
 .latest__article .article__img {
-  height: 377px;
-  width: 570px;
+  width: 50%;
   float: right;
   cursor: pointer;
   opacity: 0.8;
@@ -731,15 +729,6 @@ article h2:hover {
 }
 .load-more:hover {
   background-color: #ebeae8;
-}
-@media all and (-ms-high-contrast: none) {
-  .latest__article .article__content .article_description {
-    padding: 12px 68px 0px 30px;
-  }
-  ::-ms-backdrop,
-  .latest__article .article__content .article_description {
-    padding: 12px 68px 0px 30px;
-  }
 }
 @media only screen and (min-width: 1180px) {
   .article-wrapper:nth-of-type(3n+3) {
@@ -1206,7 +1195,6 @@ article h2:hover {
   }
   .latest__article .article__content .article_description {
     font-size: 15px;
-    height: 111px;
     width: 83%;
   }
   .latest__article .article__content .btn--more {
@@ -1235,7 +1223,7 @@ article h2:hover {
     width: 100%;
   }
   .latest__article .article__content {
-    width: 40%;
+    width: 50%;
   }
   .btn--more {
     margin: 10px 0px 30px 30px;
