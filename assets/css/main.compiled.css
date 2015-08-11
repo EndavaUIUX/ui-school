@@ -513,6 +513,7 @@ nav a:hover {
 }
 .latest__article .article__img {
   width: 50%;
+  height: 100%;
   float: right;
   cursor: pointer;
   opacity: 0.8;
@@ -523,10 +524,11 @@ nav a:hover {
   -moz-transition: 0.5s ease;
 }
 .latest__article .article__img img {
-  height: 98%;
+  height: 100%;
   margin-right: auto;
   margin-left: auto;
   display: block;
+  width: 100%;
 }
 .latest__article .article__img:hover {
   border: 5px solid #d0d0d0;
@@ -1203,7 +1205,6 @@ article h2:hover {
   }
   .latest__article .article__img {
     width: 58%;
-    margin-top: 14px;
   }
 }
 @media all and (min-width: 1200px) and (max-width: 1600px) {
