@@ -15,14 +15,17 @@
 
     THUNDERSTORM.modules.articles.mostRecentArticles = persistence.get("latestArticlesAccessed");
 
-    THUNDERSTORM.modules.articles.init({sourceName : key,  articlesParent : articlesParent, shouldGenerate : true, isMainPage : true, callback:    THUNDERSTORM.modules.articles.loadMode(articlesParent)});
+    THUNDERSTORM.modules.articles.init({sourceName : key,  articlesParent : articlesParent, shouldGenerate : true, needRecent : true, callback:    THUNDERSTORM.modules.articles.loadMode(articlesParent), itemsPerPage : 7});
 
     var recentArticles = THUNDERSTORM.modules.articles.mostRecentArticles;
 
   /* ==========================================================================
      Functions
      ========================================================================== */
-
+    function paginationOnResolution() {
+      
+    }
+    
     utility.sortLatestArticlesAccessed(recentArticles);
 
    /* ==========================================================================
