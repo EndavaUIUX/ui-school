@@ -61,13 +61,13 @@
     });
 
     $menuLeftInput.keypress(function(e) {
-        var inputValue = $menuLeftInput[0].value,
-            $errorElement = $('.menu-left p'),
-            isValueValid = false,
-            searchedWord = inputValue.toLowerCase(),
-            key = 'articles',
-            articlesParent = $('.content'),
-            params = {"sourceName" : key, "articlesParent" : articlesParent, "searchedWord" : searchedWord, isMainPage : false, "itemsPerPage" : 6};
+        var inputValue = $menuLeftInput[0].value;
+        var $errorElement = $('.menu-left p');
+        var isValueValid = false;
+        var searchedWord = inputValue.toLowerCase();
+        var key = 'articles';
+        var articlesParent = $('.content');
+        var params = {"sourceName" : key, "articlesParent" : articlesParent, "searchedWord" : searchedWord, isMainPage : false, "itemsPerPage" : 6};
 
         if (e.keyCode == 13) {
             isValueValid = isValueValid || THUNDERSTORM.modules.utility.validateInput(inputValue, $errorElement);

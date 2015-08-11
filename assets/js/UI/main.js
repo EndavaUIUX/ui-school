@@ -3,80 +3,58 @@
  rest cu localstorage, localstorage cu scriptul de generare, etc.
  ========================================================================== */
 
-(function (window, THUNDERSTORM) {
+(function (window, THUNDERSTORM, $) {
     'use strict';
     var utility = THUNDERSTORM.modules.utility;
     var persistence = THUNDERSTORM.modules.persistence;
+    var articles = THUNDERSTORM.modules.articles;
     var articlesParent = $('.main--homepage');
-    var articleClickTriggers ='article h2, .article__title, .article-info img, .article__img img, .btn--more, .load-more, .latest__article .article__picture img' ;
+    var articleClickTriggers =  'article h2,' +
+                                '.article__title,' +
+                                '.article-info img,' +
+                                '.article__img img,' +
+                                '.btn--more,' +
+                                '.load-more,' +
+                                '.latest__article .article__picture img';
     var loadMore = $('.load-more');
+    var page = loadMore[0].getAttribute('data-page');
     var key = 'articles';
     var recentArticles;
-    init();
-   
-  /* ==========================================================================
-     Functions
-     ========================================================================== */
-    function init() {
-        var resolutionPaginationObj = paginationOnResolution();
 
+  /* ================================================================
+     Functions
+     ==============================================================*/
+    function init() {
+        var resolutionPaginationObj = articles.paginationOnResolution();
         
-        THUNDERSTORM.modules.articles.mostRecentArticles = persistence.get("latestArticlesAccessed");
-        THUNDERSTORM.modules.articles.init({
+        articles.mostRecentArticles = persistence.get("latestArticlesAccessed");
+        articles.init({
             sourceName : key,
             articlesParent : articlesParent,
             shouldGenerate : true,
             needRecent : resolutionPaginationObj.needRecent,
-            //callback:    THUNDERSTORM.modules.articles.loadMode(articlesParent),
+            //callback:THUNDERSTORM.modules.articles.loadMode(articlesParent),
             itemsPerPage : resolutionPaginationObj.itemsPerPage,
             showLoadMore : resolutionPaginationObj.showLoadMore
         });
-        recentArticles = THUNDERSTORM.modules.articles.mostRecentArticles;
+        recentArticles = articles.mostRecentArticles;
         utility.sortLatestArticlesAccessed(recentArticles);
     }
-
-    function paginationOnResolution() {
-        var deviceWidth = $(window).width();
-        //if desktop and large tablet
-        if (deviceWidth > 1200) {
-            return {
-                itemsPerPage : 7,
-                needRecent : true,
-                showLoadMore : true
-            }
-        } else
-        //if tablet portrait and landscape
-        if (deviceWidth > 700) {
-            return {
-                itemsPerPage : 5,
-                needRecent : true,
-                showLoadMore : true
-            }
-        }
-        //if phone landscape
-        if (deviceWidth > 600) {
-            return {
-                itemsPerPage : 3,
-                needRecent : true,
-                showLoadMore : true
-            }
-        }
-        //if phone portrait and very small widths
-        if (deviceWidth > 250) {
-            return {
-                itemsPerPage : 1,
-                needRecent : false,
-                showLoadMore : true
-            }
-        }
-    }
     
-   /* ==========================================================================
-      Event listeners
-      Set in local storage an object latest articles accessed with the key "latestArticlesAccessed",
-      which contains the article index and a counter, representing the number of times an article was clicked.
-      If the object is not in local storage, we create it, otherwise we replace the count property.
-     ========================================================================== */
+  /* ================================================================
+     Calls
+     ==============================================================*/
+
+    init();
+    
+  /* ================================================================
+   * Event listeners Set in local storage an object latest articles
+   * accessed with the key "latestArticlesAccessed", which contains
+   * the article index and a counter, representing the number of
+   * times an article was clicked.
+   * If the object is not in local storage, we create it, otherwise
+   * we replace the count property.
+     ==============================================================*/
 
     articlesParent.on('click', articleClickTriggers, function (ev) {
         ev.stopPropagation();
@@ -103,8 +81,7 @@
                     articleIndex: articleIndex,
                     count: 1
                 });
-
-                THUNDERSTORM.modules.articles.mostRecentArticles["latestArticlesAccessed"] = recentArticles;
+                articles.mostRecentArticles.latestArticlesAccessed = recentArticles;
 
                 persistence.set({
                     data: recentArticles,
@@ -119,21 +96,40 @@
                     count: 1
                 }],
                 sourceName: "latestArticlesAccessed"
-            })
+            });
         }
 
         //the actual redirect
         window.location.href = "/article?" + articleIndex;
     });
+    
+    articlesParent.on('click', articleClickTriggers, function (ev) {
+        ev.stopPropagation();
+        var articleIndex = $(ev.target).closest('article')[0].getAttribute('data-article-index');
+        //the actual redirect
+        window.location.href = "/article?" + articleIndex;
+    });
 
+    loadMore.on('click', function (ev) {
+        var page = $(this)[0].getAttribute('data-page');
+        var lastArticleIndex = $('.article-wrapper').last();
+        lastArticleIndex = lastArticleIndex.find('article').data('articleIndex');
+        lastArticleIndex = lastArticleIndex || 0;
+        //salvam index-ul paginii pe care vrem sa-l incarcam. Asta inseamna ca daca
+        //am nevoie de pagina x, o sa fie foarte usor sa o incarc.
+        articles.generateArticles(articles.pages[page],
+                                  {articlesParent : articlesParent,
+                                  carryIndex : lastArticleIndex});
+        page = parseInt(page, 10) + 1;
+        articles.toggleLoadMore(page);
+    });
+    
     $(window).resize(function () {
         utility.clearArticles();
         loadMore[0].setAttribute('data-page', 1);
         init();
-
     });
-    $('img').on('dragstart', function(event) { event.preventDefault(); });
 
-}(window, window.THUNDERSTORM));
+    $('img').on('dragstart', function (event) { event.preventDefault(); });
 
-
+}(window, window.THUNDERSTORM, window.jQuery));
