@@ -576,6 +576,11 @@ nav a:hover {
     margin-bottom: 5px;
   }
 }
+@media only screen and (min-width: 600px) and (max-width: 1180px) {
+  .slider {
+    margin-top: 48px;
+  }
+}
 @media only screen and (min-width: 1px) and (max-width: 599px) {
   .slider {
     margin-top: 30px;
