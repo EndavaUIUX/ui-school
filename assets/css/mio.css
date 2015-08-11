@@ -1,0 +1,26 @@
+@media only screen
+and (min-width: 1px)
+and (max-width: 599px) {
+  .article-wrapper:nth-of-type(n+1){
+    display:none;
+  }
+  .load-more{
+    display:none;
+  }
+}
+
+@media only screen
+and (min-width: 500px)
+and (max-width: 699px) {
+  .article-wrapper:nth-of-type(n+3){
+    display:none;
+  }
+}
+/*tableta landscape si portrait*/
+@media only screen
+and (min-width: 700px)
+and (max-width: 1024px) {
+  .article-wrapper:nth-of-type(n+5){
+    display:none;
+  }
+}
