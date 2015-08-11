@@ -24,14 +24,15 @@
       id : id
      }
      ========================================================================== */
-    
     articles.init = function (options) {
         var key = options.sourceName;
         if (utility.keyInLocalStorage(key)) {
             articles.data = persistence.get(options);
+            //if vrem sa generam, facem paginarea si generate
             if (options.shouldGenerate) {
                 articles.pages = articles.pagination(articles.data[key], options.itemsPerPage);
-                articles.generateArticles(articles.pages[0], options.articlesParent, options.isMainPage);
+                //articles.generateArticles(articles.pages[0], options.articlesParent, options.isMainPage, options.itemsPerPage);
+                articles.generateArticles(articles.pages[0], options);
             }
             if (options.callback) {
                 options.callback();
@@ -48,7 +49,8 @@
 
                     if (options.shouldGenerate) {
                         articles.pages = articles.pagination(articles.data[key]);
-                        articles.generateArticles(articles.pages[0], options.articlesParent, options.isMainPage);
+                        //articles.generateArticles(articles.pages[0], options.articlesParent, options.isMainPage, options.itemsPerPage);
+                        articles.generateArticles(articles.pages[0], options);
                     }
 
                     if (options.callback) {
@@ -56,6 +58,14 @@
                     }
                 }
             });
+        }
+        //yes, to refactor,just for testing purposes for now.
+        if (options.showLoadMore) {
+            $('.action').show();
+            $('.load-more').show();
+        } else {
+            $('.action').hide();
+            $('.load-more').hide();
         }
     };
 
@@ -203,24 +213,26 @@
         return base;
     };
 
-    articles.generateArticles = function (data, parent, isMainPage, carryIndex) {
+    articles.generateArticles = function (data, options) {
+        //MIO TODO needs refactor as it's very prone to errors plus jquery selector inside it..
+        //articles.generateArticles(articles.pages[0], options.articlesParent, options.isMainPage, options.itemsPerPage);
         var myArticle,
             recentGenerated = false,
             i,
-            additionIndex = carryIndex + 1 || 0;//+1 pentru ca i-ul porneste de la 0;
+            additionIndex = options.carryIndex + 1 || 0;//+1 pentru ca i-ul porneste de la 0;
         var page = $('.load-more').data('page');
         for (i = 0; i < data.length; i = i + 1) {
-            if (data.length === 7 && recentGenerated === false && isMainPage === true) {
+            if (data.length === options.itemsPerPage && recentGenerated === false && options.needRecent === true) {
                 myArticle = createRecentArticle(data[i], i + additionIndex);
                 recentGenerated = true;
             } else {
                 myArticle = articles.createArticle(data[i], i + additionIndex, 0);
             }
-            parent.append(myArticle);
-            
+            options.articlesParent.append(myArticle);
             toggleLoadMore(page);
         }
     };
+    
     
     function toggleLoadMore(page) {
         if (page < Object.keys(THUNDERSTORM.modules.articles.pages).length) {

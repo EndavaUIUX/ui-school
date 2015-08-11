@@ -12,16 +12,71 @@
     var articleClickTriggers ='article h2, .article__title, .article-info img, .article__img img, .btn--more, .load-more, .latest__article .article__picture img' ;
     var loadMore = $('.load-more');
     var key = 'articles';
+    var recentArticles;
+    init();
+    //THUNDERSTORM.modules.articles.mostRecentArticles = persistence.get("latestArticlesAccessed");
 
-    THUNDERSTORM.modules.articles.mostRecentArticles = persistence.get("latestArticlesAccessed");
-
-    THUNDERSTORM.modules.articles.init({sourceName : key,  articlesParent : articlesParent, shouldGenerate : true, isMainPage : true, callback:    THUNDERSTORM.modules.articles.loadMode(articlesParent)});
+    //THUNDERSTORM.modules.articles.init({sourceName : key,  articlesParent : articlesParent, shouldGenerate : true, isMainPage : true, callback:    THUNDERSTORM.modules.articles.loadMode(articlesParent)});
 
     var recentArticles = THUNDERSTORM.modules.articles.mostRecentArticles;
 
   /* ==========================================================================
      Functions
      ========================================================================== */
+
+    function paginationOnResolution() {
+        var deviceWidth = $(window).width();
+        //if desktop and large tablet
+        if (deviceWidth > 1200) {
+            return {
+                itemsPerPage : 7,
+                needRecent : true,
+                showLoadMore : true
+            }
+        } else
+        //if tablet portrait and landscape
+        if (deviceWidth > 700) {
+            return {
+                itemsPerPage : 5,
+                needRecent : true,
+                showLoadMore : true
+            }
+        }
+        //if phone landscape
+        if (deviceWidth > 600) {
+            return {
+                itemsPerPage : 3,
+                needRecent : true,
+                showLoadMore : true
+            }
+        }
+        //if phone portrait and very small widths
+        if (deviceWidth > 250) {
+            return {
+                itemsPerPage : 1,
+                needRecent : false,
+                showLoadMore : false
+            }
+        }
+    }
+    
+    function init() {
+        var resolutionPaginationObj = paginationOnResolution();
+
+        
+        THUNDERSTORM.modules.articles.mostRecentArticles = persistence.get("latestArticlesAccessed");
+        THUNDERSTORM.modules.articles.init({
+            sourceName : key,
+            articlesParent : articlesParent,
+            shouldGenerate : true,
+            needRecent : resolutionPaginationObj.needRecent,
+            callback:    THUNDERSTORM.modules.articles.loadMode(articlesParent),
+            itemsPerPage : resolutionPaginationObj.itemsPerPage,
+            showLoadMore : resolutionPaginationObj.showLoadMore
+        });
+        recentArticles = THUNDERSTORM.modules.articles.mostRecentArticles;
+        utility.sortLatestArticlesAccessed(recentArticles);
+    }
 
     utility.sortLatestArticlesAccessed(recentArticles);
 
