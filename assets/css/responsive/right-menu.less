@@ -1,0 +1,38 @@
+@media only screen
+and (min-width: 1px)
+and (max-width: 599px) {
+
+  .right-menu-backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    background-color: rgba(255, 255, 255, 0.56);
+    height: 100%;
+    width: 100%;
+
+    .menu-right {
+      background-color: #f7f7f7;
+      width: 100%;
+      height: auto;
+      min-height: 0%;
+
+      .user-details .user-name {
+        color: #000;
+      }
+      .article-recent {
+
+        .title-recent {
+          color: #000;
+          background: url("../images/right_menu/file-black.png") no-repeat left;
+        }
+
+        .recent-list a {
+          color: #000;
+        }
+      }
+    }
+  }
+}
