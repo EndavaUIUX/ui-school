@@ -263,10 +263,10 @@ nav a:hover {
   left: -309px;
   z-index: 44;
   top: 0px;
-  transition: all 0.9s ease-in-out;
-  -webkit-transition: all 0.9s ease-in-out;
-  -moz-transition: all 0.9s ease-in-out;
-  -o-transition: all 0.9s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
 }
 .arrow {
   background: url("../images/left_menu/arrow.png") no-repeat left;
@@ -342,6 +342,9 @@ nav a:hover {
 }
 .left-word:hover {
   background-color: #c0c0c0;
+}
+.hideHamburger {
+  display: none;
 }
 @media only screen and (min-width: 1px) and (max-width: 599px) {
   .left-menu-backdrop {
