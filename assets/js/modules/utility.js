@@ -191,8 +191,8 @@
                 linkRedirect.html(utility.clipText(allArticles["articles"][articleIndex].title, 20));
 
                 listItem.append(linkRedirect);
-                titleListParent.append(listItem);
-                //titleListParent.prepend(listItem);
+                //titleListParent.append(listItem);
+                titleListParent.prepend(listItem);
             }
         }
         menuRight.append(titleListParent);
