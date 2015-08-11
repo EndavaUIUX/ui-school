@@ -15,7 +15,6 @@
         $title.html("Most Recent Articles");
         if (!$menuRight.hasClass("show-menu-right")) {
             $menuRight.addClass("show-menu-right");
-            $rightMinDiv.addClass("hide-user-icon");
             $rightMenuBackdrop.addClass("show");
         }
     });
@@ -32,7 +31,6 @@
 
         if (!targetEl.is('.profile') && !targetEl.is('.menu-right') && !targetEl.is('.article-recent h2')) {
             $menuRight.removeClass("show-menu-right");
-            $rightMinDiv.removeClass("hide-user-icon");
             $rightMenuBackdrop.removeClass("show");
         }
     });
