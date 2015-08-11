@@ -188,7 +188,6 @@ nav {
 nav a {
   display: block;
   padding: 15px 0;
-  border-bottom: 1px solid #585858;
   color: #ffffff;
   text-decoration: none;
   font-family: "Lato-Regular";
@@ -230,6 +229,9 @@ nav a:hover {
 .show-menu-left {
   position: fixed;
   left: 0px;
+}
+.menu-left li:nth-of-type(4) {
+  border-bottom: 1px solid #585858;
 }
 .disc {
   background: url("../images/left_menu/disc.png") no-repeat left;
@@ -319,19 +321,18 @@ nav a:hover {
   }
   .left-menu-backdrop nav a:hover,
   .left-menu-backdrop .menu-left a:hover {
-    background: #c0c0c0;
     color: #000;
   }
   .left-menu-backdrop nav .editor-mode,
   .left-menu-backdrop .menu-left .editor-mode {
     background: url("../images/left_menu/disc_black.png") no-repeat left;
-    padding: 15px 6px 15px 24px;
+    padding: 27px 6px 27px 24px;
     margin: 0 0 0 24px;
   }
   .left-menu-backdrop nav .link,
   .left-menu-backdrop .menu-left .link {
     background: url("../images/left_menu/link-black.png") no-repeat left;
-    padding: 15px 6px 15px 24px;
+    padding: 27px 6px 15px 24px;
     margin: 0 0 0 24px;
   }
   .left-menu-backdrop nav .arrow,
