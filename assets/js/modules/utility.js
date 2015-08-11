@@ -191,11 +191,11 @@
                 linkRedirect.html(utility.clipText(allArticles["articles"][articleIndex].title, 20));
 
                 listItem.append(linkRedirect);
-                titleListParent.append(listItem);
+               // titleListParent.append(listItem);
+                titleListParent.prepend(listItem);
             }
         }
         menuRight.append(titleListParent);
-        menuRight.prepend(titleListParent);
     };
     utility.deviceGeneration();
     THUNDERSTORM.modules.utility = utility;
