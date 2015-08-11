@@ -185,6 +185,39 @@ p {
 .profile:hover {
   cursor: pointer;
 }
+@media only screen and (min-width: 600px) and (max-width: 1180px) {
+  .topheader {
+    height: 47px;
+  }
+  .menu {
+    padding: 15px 15px 15px 25px;
+  }
+  .logo {
+    padding-top: 8px;
+    height: 30px;
+  }
+  .profile {
+    padding: 8px 20px 10px 0px;
+    height: 35px;
+  }
+}
+@media only screen and (min-width: 1px) and (max-width: 599px) {
+  .topheader {
+    height: 30px;
+  }
+  .menu {
+    padding: 8px 15px 8px 25px;
+    height: 15px;
+  }
+  .logo {
+    padding-top: 2px;
+    height: 20px;
+  }
+  .profile {
+    padding: 2px 20px 10px 0px;
+    height: 25px;
+  }
+}
 ul {
   list-style: none;
   padding: 0;
@@ -441,6 +474,11 @@ nav a:hover {
 @media only screen and (min-width: 1180px) and (max-width: 1800px) {
   .slider .slider__slide h2 {
     margin-bottom: 5px;
+  }
+}
+@media only screen and (min-width: 1px) and (max-width: 599px) {
+  .slider {
+    margin-top: 30px;
   }
 }
 .latest__article {
