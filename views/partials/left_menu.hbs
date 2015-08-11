@@ -1,15 +1,17 @@
 <!--left navigation menu -->
-<nav class="menu-left">
-    <ul>
-        <li><label for="menuHamburger"><img class="menu hide-menu" src="assets/images/left_menu/arrow.png" /></label></li>
-        <li><input type="search" class="search-article" placeholder=" Search an article" data-role="none"/></li>
-        <li><p class="hideError errorContainer"></p></li>
-        <li><a href="#" class="editor-mode"><img class="disc" src="assets/images/left_menu/disc.png"/>Editor mode</a></li>
-        <li><a class="bordernone" href="#"><img class="link" src="assets/images/left_menu/link.png" />Resources</a></li>
-        <li><a class="left-word" href="/article?0">jQuery</a></li>
-        <li><a class="left-word" href="article?1">JavaScriptPatterns</a></li>
-    </ul>
-</nav>
+<div class="left-menu-backdrop hide">
+    <nav class="menu-left">
+        <ul>
+            <li><div for="menuHamburger" class="menu arrow hide-menu"></div></li>
+            <li><input type="search" class="search-article" placeholder=" Search an article"/></li>
+            <li><p class="hideError errorContainer"></p></li>
+            <li><a href="#" class="editor-mode disc">Editor mode</a></li>
+            <li><a class="link" href="#">Resources</a></li>
+            <li><a class="left-word" href="/article?0">jQuery</a></li>
+            <li><a class="left-word" href="article?1">JavaScriptPatterns</a></li>
+        </ul>
+    </nav>
+</div>
 
 <!--end of left navigation menu-->
 <script src="assets/js/UI/hamburger.js"></script>

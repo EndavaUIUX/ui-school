@@ -1,0 +1,67 @@
+@media only screen
+and (min-width: 1px)
+and (max-width: 599px) {
+
+  .left-menu-backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    background-color: rgba(255, 255, 255, 0.56);
+    height: 100%;
+    width: 100%;
+
+    nav,
+    .menu-left{
+      background-color:#f7f7f7;
+      width: 100%;
+      height: auto;
+      min-height: 0%;
+
+      a{
+        color: #000;
+      }
+
+      a:hover {
+        color:#000;
+      }
+      .editor-mode{
+        background: url("../images/left_menu/disc_black.png") no-repeat left;
+        padding: 27px 6px 27px 24px;
+        margin: 0 0 0 24px;
+      }
+      .link{
+        background: url("../images/left_menu/link-black.png") no-repeat left;
+        padding: 27px 6px 15px 24px;
+        margin: 0 0 0 24px;
+      }
+      .arrow{
+        background: url("../images/left_menu/arrow-black.png") no-repeat left;
+        padding: 25px 25px 25px 25px;
+        margin: 0 0px 0 24px;
+      }
+    }
+  }
+
+  .hide{
+    display:none;
+  }
+
+  .show{
+    display: block;
+  }
+}
+
+@media only screen
+and (min-width: 600px)
+and (max-width: 1180px){
+  .menu-left,
+  nav.menu-right {
+    width: 283px;
+    .search-article {
+      width: 230px;
+    }
+  }
+}

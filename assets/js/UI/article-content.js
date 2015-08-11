@@ -115,7 +115,9 @@
 
     $('.button__gallery').on('click', function (ev) {
         $('.modal__prev').hide();
+        resetGallery();
         THUNDERSTORM.modules.utility.showModal($('.modal'));
+
     });
 
     $('.modal__close').on('click', function (ev) {
