@@ -81,13 +81,13 @@
         height: 100%;
         float: right;
         cursor: pointer; 
-        opacity: 0.8;
+/*        opacity: 0.8;
         -webkit-opacity: 2;
         -moz-opacity: 2;
         transition: 2s ease;
         -webkit-transition:2s ease;
         -moz-transition: 2s ease;
-
+*/
         img{
             height: 100%;
             margin-right: auto;
@@ -97,21 +97,21 @@
         }
     }
 
-    .article__img:hover{ 
-        box-sizing: border-box;
-        border-radius: 1%;
+    .article__img:hover{ /*
+        box-sizing: border-box;*/
+       /* border-radius: 1%;
         -webkit-transform: rotateY(360deg);
         -webkit-transform-style: preserve-3d;
         transform: rotateY(360deg);
-        transform-style: preserve-3d;
+        transform-style: preserve-3d;*/
 
         img{
             height: 98%;
             margin-right: auto;
             margin-left: auto;
             display: block;
-            -webkit-transition: all 2s ease;
-            transition: all 2s ease;
+ /*           -webkit-transition: all 2s ease;
+            transition: all 2s ease;*/
         }
     }
 }
@@ -119,23 +119,27 @@
 .article__picture img{
     display: none;
     cursor: pointer;
-    opacity: 0.8;
+/*    opacity: 0.8;
     -webkit-opacity: 2;
     -moz-opacity: 2;
     -webkit-transition: 2s ease;
-    -moz-transition: 2s ease;
+    -moz-transition: 2s ease;*/
 }
 
 .article__picture img:hover{
     box-sizing: border-box;
-    border-radius: 1%;
-        -webkit-transform: rotateY(360deg);
-        -webkit-transform-style: preserve-3d;
-        transform: rotateY(360deg);
-        transform-style: preserve-3d;
-
+/*    border-radius: 1%;
+    -webkit-transform: rotateY(360deg);
+    -webkit-transform-style: preserve-3d;
+    transform: rotateY(360deg);
+    transform-style: preserve-3d;
+*/
 }
 
+.article__picture img:hover img {
+    /*-webkit-transition: all 2s ease;
+    transition: all 2s ease;*/
+}
 .clearfix{
     clear:both;
 }
@@ -178,10 +182,10 @@
 }
 
 .article-wrapper article img:hover {
-        -webkit-transform: rotateY(360deg);
+/*        -webkit-transform: rotateY(360deg);
         -webkit-transform-style: preserve-3d;
         transform: rotateY(360deg);
-        transform-style: preserve-3d;
+        transform-style: preserve-3d;*/
 
 }
 

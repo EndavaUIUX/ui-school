@@ -7,7 +7,7 @@
     
     articles.data = {};
 
-    var articleClickTriggers ='article h2, .article__title, .article-info img, .article__img img, .btn--more, .load-more, .article__photo, .latest__article .article__picture img',
+    var articleClickTriggers ='article h2, .article__title, .article-info img, .article__img img, .btn--more, .load-more, .article__photo, .latest__article .article__picture img, .latest__article .article__img',
     loadMore = $('.load-more');
     /* ==========================================================================
      function init()
