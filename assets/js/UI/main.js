@@ -8,21 +8,32 @@
     var utility = THUNDERSTORM.modules.utility;
     var persistence = THUNDERSTORM.modules.persistence;
     var articlesParent = $('.main--homepage');
-
     var articleClickTriggers ='article h2, .article__title, .article-info img, .article__img img, .btn--more, .load-more, .latest__article .article__picture img' ;
     var loadMore = $('.load-more');
     var key = 'articles';
     var recentArticles;
     init();
-    //THUNDERSTORM.modules.articles.mostRecentArticles = persistence.get("latestArticlesAccessed");
-
-    //THUNDERSTORM.modules.articles.init({sourceName : key,  articlesParent : articlesParent, shouldGenerate : true, isMainPage : true, callback:    THUNDERSTORM.modules.articles.loadMode(articlesParent)});
-
-    var recentArticles = THUNDERSTORM.modules.articles.mostRecentArticles;
-
+   
   /* ==========================================================================
      Functions
      ========================================================================== */
+    function init() {
+        var resolutionPaginationObj = paginationOnResolution();
+
+        
+        THUNDERSTORM.modules.articles.mostRecentArticles = persistence.get("latestArticlesAccessed");
+        THUNDERSTORM.modules.articles.init({
+            sourceName : key,
+            articlesParent : articlesParent,
+            shouldGenerate : true,
+            needRecent : resolutionPaginationObj.needRecent,
+            //callback:    THUNDERSTORM.modules.articles.loadMode(articlesParent),
+            itemsPerPage : resolutionPaginationObj.itemsPerPage,
+            showLoadMore : resolutionPaginationObj.showLoadMore
+        });
+        recentArticles = THUNDERSTORM.modules.articles.mostRecentArticles;
+        utility.sortLatestArticlesAccessed(recentArticles);
+    }
 
     function paginationOnResolution() {
         var deviceWidth = $(window).width();
@@ -55,31 +66,11 @@
             return {
                 itemsPerPage : 1,
                 needRecent : false,
-                showLoadMore : false
+                showLoadMore : true
             }
         }
     }
     
-    function init() {
-        var resolutionPaginationObj = paginationOnResolution();
-
-        
-        THUNDERSTORM.modules.articles.mostRecentArticles = persistence.get("latestArticlesAccessed");
-        THUNDERSTORM.modules.articles.init({
-            sourceName : key,
-            articlesParent : articlesParent,
-            shouldGenerate : true,
-            needRecent : resolutionPaginationObj.needRecent,
-            callback:    THUNDERSTORM.modules.articles.loadMode(articlesParent),
-            itemsPerPage : resolutionPaginationObj.itemsPerPage,
-            showLoadMore : resolutionPaginationObj.showLoadMore
-        });
-        recentArticles = THUNDERSTORM.modules.articles.mostRecentArticles;
-        utility.sortLatestArticlesAccessed(recentArticles);
-    }
-
-    utility.sortLatestArticlesAccessed(recentArticles);
-
    /* ==========================================================================
       Event listeners
       Set in local storage an object latest articles accessed with the key "latestArticlesAccessed",
@@ -134,6 +125,15 @@
         //the actual redirect
         window.location.href = "/article?" + articleIndex;
     });
+
+    $(window).resize(function () {
+        utility.clearArticles();
+        loadMore[0].setAttribute('data-page', 1);
+        init();
+
+    });
+    $('img').on('dragstart', function(event) { event.preventDefault(); });
+
 }(window, window.THUNDERSTORM));
 
 

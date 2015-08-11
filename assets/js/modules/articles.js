@@ -124,12 +124,11 @@
         base.append(articleContent);
         articleVisibleImage.append(articleVisibleImgTag);
         base.append(articleVisibleImage);
-        console.log(articleText);
-
         return base;
     }
 
-    articles.pagination = function(data, param) {
+    //first page should be +1 bigger than the rest, as it contains most recent article.
+    articles.pagination = function (data, param) {
         var pages = {},
           pageNr = 0,
           itemsPerPage =  param || 7;
@@ -141,7 +140,7 @@
                 pages[pageNr].push(item);
             } else {
                 if (pageNr === 0) {
-                    itemsPerPage = 6;
+                    itemsPerPage = param - 1;
                 }
                 pageNr = pageNr + 1;
                 pages[pageNr] = [];
@@ -220,7 +219,7 @@
             recentGenerated = false,
             i,
             additionIndex = options.carryIndex + 1 || 0;//+1 pentru ca i-ul porneste de la 0;
-        var page = $('.load-more').data('page');
+        var page = $('.load-more')[0].getAttribute('data-page');
         for (i = 0; i < data.length; i = i + 1) {
             if (data.length === options.itemsPerPage && recentGenerated === false && options.needRecent === true) {
                 myArticle = createRecentArticle(data[i], i + additionIndex);
@@ -229,14 +228,15 @@
                 myArticle = articles.createArticle(data[i], i + additionIndex, 0);
             }
             options.articlesParent.append(myArticle);
-            toggleLoadMore(page);
+
         }
+                    toggleLoadMore(page);
     };
     
     
     function toggleLoadMore(page) {
         if (page < Object.keys(THUNDERSTORM.modules.articles.pages).length) {
-            loadMore.data('page', page);
+            loadMore[0].setAttribute('data-page', page);
         } else {
             loadMore.hide('fast');
         }
@@ -244,8 +244,8 @@
     /* ==========================================================================
      Event listeners
      ========================================================================== */
-    articles.loadMode = function (articlesParent) {
-        var page = $('.load-more').data('page');
+        var articlesParent = $('.main--homepage');
+        var page = $('.load-more')[0].getAttribute('data-page');
         //toggleLoadMore(page);
         articlesParent.on('click', articleClickTriggers, function (ev) {
             ev.stopPropagation();
@@ -255,16 +255,15 @@
         });
 
         loadMore.on('click', function (ev) {
-            var page = $(this).data('page');
+            var page = $(this)[0].getAttribute('data-page');
             var lastArticleIndex = $('.article-wrapper').last();
             lastArticleIndex = lastArticleIndex.find('article').data('articleIndex');
             lastArticleIndex = lastArticleIndex || 0;
             //salvam index-ul paginii pe care vrem sa-l incarcam. Asta inseamna ca daca am nevoie de pagina x, o sa fie foarte usor sa o incarc.
-            THUNDERSTORM.modules.articles.generateArticles(THUNDERSTORM.modules.articles.pages[page], articlesParent, lastArticleIndex);
-            page = page + 1;
+            THUNDERSTORM.modules.articles.generateArticles(THUNDERSTORM.modules.articles.pages[page], {articlesParent : articlesParent, carryIndex : lastArticleIndex});
+            page = parseInt(page, 10) + 1;
             toggleLoadMore(page);
         });
-    };
 
     THUNDERSTORM.modules.articles = articles;
 
