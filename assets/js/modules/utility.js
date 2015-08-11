@@ -23,6 +23,11 @@
         //alert(devHeight);//704, 960
     };
     
+    utility.clearArticles = function () {
+        var articleContainer = $('.main');
+        articleContainer.empty();
+    };
+    
     utility.imageSourceGenerator = function (articleData) {
         var imageSourceObj = {},
             index;

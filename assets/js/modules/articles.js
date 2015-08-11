@@ -60,6 +60,14 @@
                 }
             });
         }
+        //yes, to refactor,just for testing purposes for now.
+        if (options.showLoadMore) {
+            $('.action').show();
+            $('.load-more').show();
+        } else {
+            $('.action').hide();
+            $('.load-more').hide();
+        }
     };
 
     articles.filterArticles = function(options){

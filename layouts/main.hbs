@@ -17,11 +17,11 @@
       <!--[if lt IE 7]>
           <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
       <![endif]-->
-  
       <div class="container">
         {{>partials/header}}
         {{>partials/slider}}
         {{>partials/main}}
+        <div class="clearfix"></div>
         {{>partials/footer}}
       </div>
   
@@ -58,7 +58,6 @@ function toggleLoadMore(page) {
 
 $(".main--homepage").on("swipeleft", '.latest__article, .article-wrapper', function () {
     var $this = $(this);
-
     $this.animate({left : '-200px'}, 200, function () {
         if ($this.next().length) {
             $this.hide();
