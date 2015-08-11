@@ -107,7 +107,6 @@
 
     $('body').on('click', function (ev) {
         var container = $('.modal');
-
         if (!container.is(ev.target) && container.has(ev.target).length === 0 && !$(ev.target).hasClass('.modal__close') && !$(ev.target).hasClass('button__gallery')) {
             THUNDERSTORM.modules.utility.dismissModal($('.modal'));
         }
@@ -116,15 +115,13 @@
     $('.button__gallery').on('click', function (ev) {
         $('.modal__prev').hide();
         resetGallery();
+        buttonGallery();
         THUNDERSTORM.modules.utility.showModal($('.modal'));
 
     });
 
     $('.modal__close').on('click', function (ev) {
         THUNDERSTORM.modules.utility.dismissModal($('.modal'));
-
-        buttonGallery();
-
     });
 
     var swipeFunction = {
@@ -182,12 +179,9 @@
     /* ==========================================================================
      =======
      /* ==========================================================================
-     >>>>>>> e8a1f187ddaff9e486d9d993ca1ae74512042ed5
-=======
+
 
     /* ==========================================================================
-
->>>>>>> e9e11fdd167267c074853bc7a0995d7149ded558
      || Prev & Next // Buttons ||
      ========================================================================== */
     function buttonGallery() {
