@@ -14,13 +14,11 @@
         $title.html("Most Recent Articles");
         if (!$menuRight.hasClass("show-menu-right")) {
             $menuRight.addClass("show-menu-right");
-            $rightMinDiv.addClass("hide-user-icon");
         }
     });
 
     $user.click(function () {
         $menuRight.removeClass("show-menu-right");
-        $rightMinDiv.removeClass("hide-user-icon");
     });
 
     $(document).on("click tap touchend", function (e) {

@@ -371,9 +371,6 @@ nav a:hover {
   position: fixed;
   right: 0;
 }
-.hide-user-icon {
-  display: none;
-}
 .slider {
   background-color: #fff;
   position: relative;
@@ -453,10 +450,9 @@ nav a:hover {
   position: relative;
 }
 .latest__article .article__content {
-  width: 600px;
+  width: 50%;
   height: 377px;
   float: left;
-  position: absolute;
 }
 .latest__article .article__content .article__title {
   font-family: 'Lato-Black';
@@ -505,16 +501,16 @@ nav a:hover {
   font-size: 18px;
   color: #828282;
   text-align: justify;
-  padding: 12px 40px 0px 30px;
+  padding: 12px 30px 0px 30px;
   font-family: 'Lato-Regular';
   line-height: 1.2;
-  height: 126px;
+  height: 32%;
   overflow: hidden;
   word-break: break-word;
 }
 .latest__article .article__img {
-  height: 377px;
-  width: 570px;
+  width: 50%;
+  height: 100%;
   float: right;
   cursor: pointer;
   opacity: 0.8;
@@ -525,10 +521,11 @@ nav a:hover {
   -moz-transition: 0.5s ease;
 }
 .latest__article .article__img img {
-  height: 98%;
+  height: 100%;
   margin-right: auto;
   margin-left: auto;
   display: block;
+  width: 100%;
 }
 .latest__article .article__img:hover {
   border: 5px solid #d0d0d0;
@@ -736,15 +733,6 @@ article h2:hover {
   transition: background-color 0.5s ease-out;
   background-color: #fbe9e0;
 }
-@media all and (-ms-high-contrast: none) {
-  .latest__article .article__content .article_description {
-    padding: 12px 68px 0px 30px;
-  }
-  ::-ms-backdrop,
-  .latest__article .article__content .article_description {
-    padding: 12px 68px 0px 30px;
-  }
-}
 @media only screen and (min-width: 1180px) {
   .article-wrapper:nth-of-type(3n+3) {
     margin-right: 0;
@@ -805,25 +793,13 @@ article h2:hover {
     margin-bottom: 25px;
   }
   .load-more {
-    display: inline-block;
-    font-family: "Lato regular", "Lato";
     font-size: 12px;
-    color: #e1632a;
-    border-style: solid;
-    border-width: 1px;
-    border-color: #e1632a;
-    background-color: #ffffff;
     width: 90px;
     height: 30px;
     padding: 7px;
-    text-align: right;
-    position: relative;
-    outline: none;
   }
   .load-moreimg {
-    text-align: left;
     top: 50%;
-    position: absolute;
     left: 7px;
     margin-top: -7px;
     width: 15px;
@@ -1210,7 +1186,6 @@ article h2:hover {
   }
   .latest__article .article__content .article_description {
     font-size: 15px;
-    height: 111px;
     width: 83%;
   }
   .latest__article .article__content .btn--more {
@@ -1231,7 +1206,6 @@ article h2:hover {
   }
   .latest__article .article__img {
     width: 58%;
-    margin-top: 14px;
   }
 }
 @media all and (min-width: 1200px) and (max-width: 1600px) {
@@ -1239,7 +1213,7 @@ article h2:hover {
     width: 100%;
   }
   .latest__article .article__content {
-    width: 40%;
+    width: 50%;
   }
   .btn--more {
     margin: 10px 0px 30px 30px;
@@ -1686,7 +1660,6 @@ article h2:hover {
 }
 .errorSearch {
   display: inline-block;
-  color: red;
   margin: 0 23px;
 }
 .hideError {
