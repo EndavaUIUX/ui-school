@@ -4,7 +4,14 @@
         $menuLeft = $('nav.menu-left'),
         $hideMenu = $('.hide-menu'),
         $menuLeftInput = $('.menu-left input'),
-        $leftMenuBackdrop = $('.left-menu-backdrop');
+        $leftMenuBackdrop = $('.left-menu-backdrop'),
+        $menuRight = $('.menu-right'),
+        $rightMinDiv = $('.rightminidiv'),
+        $profile = $('.profile'),
+        $user = $('.user'),
+        $title = $('.title-recent'),
+        $rightMenuBackdrop = $('.right-menu-backdrop'),
+        $leftthird = $('.leftthird');
 
     $menu.click(function (e) {
         e.stopPropagation();
@@ -24,17 +31,27 @@
         var targetEl = $(e.target),
             $errorElement = $('.menu-left p');
 
-        if (!targetEl.is('.menu')
+        if ((!targetEl.is('.menu')
             && !targetEl.is(".menu-left")
             && !targetEl.is(".menu-left .search-article")
             && !targetEl.is(".menu-left .link")
             && !targetEl.is(".menu-left .editor-mode")
-            && !targetEl.is(".menu-left p")) {
+            && !targetEl.is(".menu-left p")
+            && !targetEl.is('.profile')
+            && !targetEl.is('.menu-right')
+            && !targetEl.is('.article-recent h2')
+            && !targetEl.is('.menu')) || targetEl.is('.right-menu-backdrop.hide.show')) {
 
             $('nav.menu-left').removeClass('show-menu-left');
             $leftMenuBackdrop.removeClass("show");
             //clear input search after press enter or submit
             $('.menu-left input').val('');
+            
+            $menuRight.removeClass("show-menu-right");
+            $rightMenuBackdrop.removeClass("show");
+            $rightMenuBackdrop.hide("fast");
+            $leftthird.removeClass("hideHamburger");
+            
             THUNDERSTORM.modules.utility.cleanErrors($errorElement);
 
         }

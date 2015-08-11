@@ -31,7 +31,7 @@
         $leftthird.removeClass("hideHamburger");
     });
 
-    $('body').on("click tap touchend", function (e) {
+   /* $('body').on("click tap touchend", function (e) {
         var targetEl = $(e.target);
         console.log("ccc",e.target);
 
@@ -44,6 +44,6 @@
             $rightMenuBackdrop.removeClass("show");
             $leftthird.removeClass("hideHamburger");
         }
-    });
+    });*/
 }());
 
