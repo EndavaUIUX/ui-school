@@ -1613,7 +1613,7 @@ article h2:hover {
   height: 90px;
   /* margin-top: 60px; */
   border-top: 2px solid #E7E7E7;
-  margin-top: 110px;
+  margin-top: 60px;
   margin-right: auto;
   margin-bottom: 0px;
   margin-left: auto;
@@ -1779,9 +1779,9 @@ article h2:hover {
     margin: 0px 0px 0px -5px;
   }
   .footer .footer__content .footer__logo {
-    display: none;
+    /* display: none; */
   }
   .footer .footer__content .footer__logo img {
-    display: none;
+    /* display: none; */
   }
 }
