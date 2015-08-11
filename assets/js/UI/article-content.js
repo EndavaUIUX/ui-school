@@ -238,7 +238,7 @@
     buttonPrev();
     buttonNext();
     resetGallery();
-    
+
 }(window, window.THUNDERSTORM, window.jQuery));
 
 
