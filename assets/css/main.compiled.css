@@ -1336,6 +1336,11 @@ article h2:hover {
     width: 58%;
   }
 }
+@media all and (min-width: 1025px) and (max-width: 1999px) {
+  .latest__article {
+    width: 100%;
+  }
+}
 @media all and (min-width: 1200px) and (max-width: 1600px) {
   .latest__article {
     width: 100%;
