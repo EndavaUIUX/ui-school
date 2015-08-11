@@ -1754,7 +1754,7 @@ article h2:hover {
   height: 90px;
   /* margin-top: 60px; */
   border-top: 2px solid #E7E7E7;
-  margin-top: 42px;
+  margin-top: 60px;
   margin-right: auto;
   margin-bottom: 0px;
   margin-left: auto;
@@ -1771,7 +1771,7 @@ article h2:hover {
   width: 50%;
   height: 100%;
   float: left;
-  margin: 20px 0px;
+  margin: 20px 0px -20px 0px;
 }
 .footer .footer__content .footer__subscribe .subscribe--input {
   font-family: 'Lato-Regular', 'Lato';
