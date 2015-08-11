@@ -3,16 +3,19 @@
     var $menu = $('.menu'),
         $menuLeft = $('nav.menu-left'),
         $hideMenu = $('.hide-menu'),
-        $menuLeftInput = $('.menu-left input');
+        $menuLeftInput = $('.menu-left input'),
+        $leftMenuBackdrop = $('.left-menu-backdrop');
 
     $menu.click(function (e) {
         if (!$menuLeft.hasClass("show-menu-left")) {
             $menuLeft.addClass("show-menu-left");
+            $leftMenuBackdrop.addClass("show");
         }
     });
 
     $hideMenu.click(function (){
         $menuLeft.removeClass("show-menu-left");
+        $leftMenuBackdrop.removeClass("show");
     });
 
     $('body').on("click tap touchend", function(e) {
@@ -21,10 +24,11 @@
         if (!targetEl.is('.menu')
             && !targetEl.is(".menu-left")
             && !targetEl.is(".menu-left .search-article")
-            && !targetEl.is(".menu-left .bordernone")
+            && !targetEl.is(".menu-left .link")
             && !targetEl.is(".menu-left .editor-mode")) {
 
             $('nav.menu-left').removeClass('show-menu-left');
+            $leftMenuBackdrop.removeClass("show");
         }
 
     });
