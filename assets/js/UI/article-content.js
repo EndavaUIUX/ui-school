@@ -158,7 +158,11 @@
                                 console.log(swipeFunction.touches.direction);
                             }
                         default:
-                            break;
+                            if (swipeFunction.touches.direction == 'left') {
+                                $('.modal__next').click();
+                            } else {
+                                $('.modal__prev').click();
+                            }
                     }
                 }
             }
@@ -179,15 +183,8 @@
     utility.sortLatestArticlesAccessed(recentArticles);
 
 
-    /* ==========================================================================
-     =======
-     /* ==========================================================================
-     >>>>>>> e8a1f187ddaff9e486d9d993ca1ae74512042ed5
-=======
 
     /* ==========================================================================
-
->>>>>>> e9e11fdd167267c074853bc7a0995d7149ded558
      || Prev & Next // Buttons ||
      ========================================================================== */
     function buttonGallery() {
