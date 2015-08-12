@@ -195,7 +195,7 @@
         }
         $('html, body').animate({
              scrollTop: articlesParent.offset().top -80
-         }, 500);
+         }, 200);
     });
 
     $(window).on('orientationchange', function () {
