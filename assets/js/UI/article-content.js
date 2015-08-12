@@ -237,7 +237,6 @@
          || End of Prev & Next // Buttons ||
          ========================================================================== */
     }
-
     
     function resetGallery() {
         $('.modal__prev').hide();
