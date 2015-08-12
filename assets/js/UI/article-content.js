@@ -156,8 +156,15 @@
                             }
                         default:
                             if (swipeFunction.touches.direction == 'left') {
+                                // if (  article['sources'].length) {
+                                //     returl false;
+                                // }
                                 $('.modal__next').click();
                             } else {
+
+                                // if(  article['sources'].length ) {
+                                //     return false
+                                // }
                                 $('.modal__prev').click();
                             }
                     }
