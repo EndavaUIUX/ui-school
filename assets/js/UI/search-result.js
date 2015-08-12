@@ -15,7 +15,8 @@
     
     articles.mostRecentArticles = persistence.get("latestArticlesAccessed");
 
-    utility.sortLatestArticlesAccessed(articles.mostRecentArticles);
+   // utility.sortLatestArticlesAccessed(articles.mostRecentArticles);
+    utility.generateListHTML(articles.mostRecentArticles, THUNDERSTORM.modules.articles.data);
     
     /* =====================================================================
      * Functions.
@@ -36,10 +37,12 @@
                         "itemsPerPage" : resolutionPaginationObj.itemsPerPage,
                         "showLoadMore" : resolutionPaginationObj.showLoadMore};
 
+    // utility.collapseRecentArticleMenu();
+
         articles.pages = articles.pagination(articles.filterArticles(params), params.itemsPerPage);
         articles.generateArticles(articles.pages[0], params);
-    }
-    
+}
+
     /* =====================================================================
      * Events.
      ==================================================================== */
@@ -64,3 +67,4 @@
         init();
     });
 }(window, window.jQuery, window.THUNDERSTORM));
+

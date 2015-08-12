@@ -414,11 +414,12 @@ nav a:hover {
 @media only screen and (min-width: 600px) and (max-width: 1180px) {
   .menu-left,
   nav.menu-right {
-    width: 283px;
+    width: 250px;
   }
   .menu-left .search-article,
   nav.menu-right .search-article {
-    width: 230px;
+    width: 200px;
+    height: 40px;
   }
 }
 .menu-right {
@@ -881,7 +882,7 @@ article h2:hover {
   background-color: #fbe9e0;
 }
 .article-page {
-  border-bottom: 2px solid #e1632a;
+  transition: 0.5s all ease;
 }
 .article-page:hover {
   cursor: move;
@@ -1218,7 +1219,7 @@ article h2:hover {
   }
   .latest__article .article__content .article__informations .article_info {
     padding-left: 20px;
-    padding-top: 4px;
+    padding-top: 5px;
   }
   .latest__article .article__content .article__informations .article__author.article_info {
     font-size: 13px;
@@ -1738,12 +1739,22 @@ article h2:hover {
     left: 20px;
   }
   .overlay .modal {
-    max-width: 100%;
+    max-width: 46%;
     height: auto!important;
+    padding-top: 30px;
+    padding-bottom: 30px;
   }
-  .overlay .modal .modal__next,
-  .overlay .modal .modal__prev {
+  .overlay .modal .modal__next .modal__prev {
     display: none!important;
+  }
+  .overlay .modal .modal__close {
+    height: 20px;
+    width: 20px;
+    background-size: cover;
+  }
+  .overlay .modal .modal__images .modal__source {
+    padding: 5px;
+    font-size: 10px;
   }
 }
 @media only screen and (min-width: 1200px) and (max-width: 1500px) {
@@ -1783,7 +1794,7 @@ article h2:hover {
 .footer .footer__content {
   width: 1170px;
   margin: 0px auto;
-  height: 90px;
+  height: auto;
 }
 .footer .footer__content .footer__subscribe {
   /* height: 50px; */
@@ -1924,9 +1935,7 @@ article h2:hover {
     width: 96%;
     height: 100%;
     text-align: center;
-    margin: 20px 0px;
-    margin-left: 2%;
-    margin-right: 2px;
+    margin: 20px 2%;
     background-image: url("../images/footer/logo.jpg") no-repeat;
   }
   .footer .footer__content .footer__subscribe .subscribe--input input {
@@ -1939,10 +1948,8 @@ article h2:hover {
     height: 30px;
     margin: 0px 0px 0px -5px;
   }
-  .footer .footer__content .footer__logo {
-    /* display: none; */
-  }
   .footer .footer__content .footer__logo img {
-    /* display: none; */
+    display: block;
+    padding: 0px 100px;
   }
 }

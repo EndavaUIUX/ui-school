@@ -12,7 +12,7 @@
     .footer__content {
         width: 1170px;
         margin: 0px auto;
-        height: 90px;
+        height: auto;
         
         .footer__subscribe {
         /* height: 50px; */
@@ -207,7 +207,8 @@
 }
 
 
-@media only screen and (min-width: 1px) and (max-width:314px) {
+@media only screen and (min-width: 1px) and (max-width: 314px) {
+    
     .footer {
         
         .footer__content {
@@ -218,9 +219,7 @@
                 width: 96%;
                 height: 100%;
                 text-align: center;
-                margin: 20px 0px;
-                margin-left: 2%;
-                margin-right: 2px;
+                margin: 20px 2%;
                 background-image: url("../images/footer/logo.jpg") no-repeat;
                 
                 .subscribe--input {
@@ -242,10 +241,10 @@
             }  
             
             .footer__logo {
-                /* display: none; */
-                
+
                 img {
-                    /* display: none; */
+                    display: block;
+                    padding: 0px 100px;
                 }
             }
         }

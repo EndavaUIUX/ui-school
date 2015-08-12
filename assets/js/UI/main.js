@@ -20,10 +20,22 @@
     var page = loadMore[0].getAttribute('data-page');
     var key = 'articles';
     var recentArticles;
-
+    var articlePages = '.article-page';
+    articles.mostRecentArticles = persistence.get("latestArticlesAccessed");
+    recentArticles = articles.mostRecentArticles;
+    //utility.sortLatestArticlesAccessed(recentArticles);
   /* ================================================================
      Functions
-     ==============================================================*/
+
+     ========================================================================== */
+
+   /* ==========================================================================
+      Event listeners
+      Set in local storage an object latest articles accessed with the key "latestArticlesAccessed",
+      which contains the article index and a counter, representing the number of times an article was clicked.
+      If the object is not in local storage, we create it, otherwise we replace the count property.
+     ========================================================================== */
+
     function init() {
         var resolutionPaginationObj = articles.paginationOnResolution();
         
@@ -37,8 +49,8 @@
             itemsPerPage : resolutionPaginationObj.itemsPerPage,
             showLoadMore : resolutionPaginationObj.showLoadMore
         });
-        recentArticles = articles.mostRecentArticles;
-        utility.sortLatestArticlesAccessed(recentArticles);
+         recentArticles = articles.mostRecentArticles;
+        utility.generateListHTML(recentArticles, THUNDERSTORM.modules.articles.data);
     }
     
   /* ================================================================
@@ -62,9 +74,12 @@
 
         var found = false;
         if (recentArticles.length > 0) {
+
             for (var i = 0; i < recentArticles.length; i++){
                 if (recentArticles[i].articleIndex === articleIndex) {
-                    recentArticles[i].count += 1;
+                    recentArticles.splice(i, 1);
+                    var newObj = {articleIndex : articleIndex};
+                    recentArticles.push(newObj);
 
                     persistence.set({
                         data: recentArticles,
@@ -78,8 +93,7 @@
 
             if (found === false) {
                 recentArticles.push({
-                    articleIndex: articleIndex,
-                    count: 1
+                    articleIndex: articleIndex
                 });
                 articles.mostRecentArticles.latestArticlesAccessed = recentArticles;
 
@@ -92,8 +106,7 @@
         } else {
             persistence.set({
                 data: [{
-                    articleIndex: articleIndex,
-                    count: 1
+                    articleIndex: articleIndex
                 }],
                 sourceName: "latestArticlesAccessed"
             });
@@ -103,17 +116,8 @@
         window.location.href = "/article?" + articleIndex;
     });
 
-    
-    articlesParent.on('click', articleClickTriggers, function (ev) {
-        ev.stopPropagation();
-        var articleIndex = $(ev.target).closest('article')[0].getAttribute('data-article-index');
-        //the actual redirect
-        window.location.href = "/article?" + articleIndex;
-    });
-
-
-    loadMore.on('click', function (ev) {
-        var page = $(this)[0].getAttribute('data-page');
+    function loadNextPage() {
+        var page = loadMore[0].getAttribute('data-page');
         var lastArticleIndex = $('.article-wrapper').last();
         lastArticleIndex = lastArticleIndex.find('article').data('articleIndex');
         lastArticleIndex = lastArticleIndex || 0;
@@ -124,13 +128,51 @@
                                   carryIndex : lastArticleIndex});
         page = parseInt(page, 10) + 1;
         articles.toggleLoadMore(page);
-    });
+    }
     
-    $(window).resize(function () {
+    loadMore.on('click', function (ev) {
+        loadNextPage();
+    });
+
+    articlesParent.on('swipe', articlePages, function (e, Dx, Dy) {
+        var $this = $(this);
+        var generatedPages = $('.article-page').length;
+        if (Dx < 0) {
+            console.log('going to the left');
+
+            if (generatedPages < Object.keys(articles.pages).length) {
+                $(e.target).closest(articlePages).css({'display' : 'none'});
+                loadNextPage();
+            } else {
+                if ($this.next().length) {
+                    $(e.target).closest(articlePages).css({'display' : 'none'});
+                    $this.hide();
+                    $this.next().css({left : 0}).fadeIn();
+                }
+            }
+        }
+        if (Dx === 0) {
+            return;
+        }
+        if (Dx > 0) {
+            console.log('going to the right');
+            $this.animate({left : '200px'}, 200, function () {
+                if ($this.prev().length) {
+                    $this.hide();
+                    $this.prev().css({left : 0}).fadeIn();
+                } else {
+                    $this.animate({left : 0}, 100);
+                }
+            });
+
+        }
+    });
+
+    /*$(window).resize(function () {
         utility.clearArticles();
         loadMore[0].setAttribute('data-page', 1);
         init();
-    });
+    });*/
 
     $('img').on('dragstart', function (event) { event.preventDefault(); });
 
