@@ -174,6 +174,6 @@
         init();
     });*/
 
-    $('img').on('dragstart', function (event) { event.preventDefault(); });
+   /* $('img').on('dragstart', function (event) { event.preventDefault(); });*/
 
 }(window, window.THUNDERSTORM, window.jQuery));

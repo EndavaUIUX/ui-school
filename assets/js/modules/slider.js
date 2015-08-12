@@ -120,6 +120,8 @@
                                 // Continue here for previous and next button
                                 // alert(touches.direction);
                                 console.log(swipeFunction.touches.direction);
+                            } else {
+                              return;
                             }
                         default:
                             if (swipeFunction.touches.direction == 'left') {

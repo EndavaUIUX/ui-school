@@ -10,7 +10,13 @@
     var persistence = THUNDERSTORM.modules.persistence;
     var utility = THUNDERSTORM.modules.utility;
     var loadMore = $('.load-more');
-
+    var articleClickTriggers =  'article h2,' +
+                                '.article__title,' +
+                                '.article-info img,' +
+                                '.article__img img,' +
+                                '.btn--more,' +
+                                '.load-more,' +
+                                '.latest__article .article__picture img';
     init();
     
     articles.mostRecentArticles = persistence.get("latestArticlesAccessed");
@@ -61,10 +67,16 @@
         articles.toggleLoadMore(page);
     });
     
-    $(window).resize(function () {
+    articlesParent.on('click', articleClickTriggers, function (ev) {
+        ev.stopPropagation();
+        var articleIndex = $(ev.target).closest('article')[0].getAttribute('data-article-index');
+        //the actual redirect
+        window.location.href = "/article?" + articleIndex;
+    });
+   /* $(window).resize(function () {
         utility.clearArticles();
         loadMore[0].setAttribute('data-page', 1);
         init();
-    });
+    });*/
 }(window, window.jQuery, window.THUNDERSTORM));
 

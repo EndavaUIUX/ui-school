@@ -679,15 +679,16 @@ nav a:hover {
   word-break: break-word;
 }
 .latest__article .article__img {
-  height: 377px;
-  width: 570px;
+  height: 100%;
+  width: 50%;
   float: right;
   cursor: pointer;
   -webkit-transition: 0.5s ease;
   -moz-transition: 0.5s ease;
 }
 .latest__article .article__img img {
-  height: 98%;
+  height: 100%;
+  width: 100%;
   margin-right: auto;
   margin-left: auto;
   display: block;
