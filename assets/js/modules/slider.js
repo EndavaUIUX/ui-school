@@ -90,7 +90,6 @@
         setActiveBubble();
     });
 
-    
     var swipeFunction = {
         touches: {
             "touchstart": {"x": -1, "y": -1},
@@ -145,9 +144,5 @@
     console.log(swipeFunction);
     console.log(swipeFunction.init);
     swipeFunction.init();
-
-    //utility.sortLatestArticlesAccessed(recentArticles);
-
-
     
 }(window.jQuery))
