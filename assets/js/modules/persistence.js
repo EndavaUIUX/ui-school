@@ -50,7 +50,7 @@
         return dataFromLs;
     };
     
-    API.delete = function () {
+    API.del = function () {
 
     };
 
