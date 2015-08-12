@@ -35,7 +35,7 @@
             imageSourceObj.sources.unshift(articleData.featuredImage);
         } else {
             imageSourceObj.hasGallery = false;
-            imageSourceObj.sources.push(articleData.featuredImage)
+            imageSourceObj.sources.push(articleData.featuredImage);
         }
         return imageSourceObj;
     };
