@@ -1763,7 +1763,7 @@ article h2:hover {
 .footer .footer__content {
   width: 1170px;
   margin: 0px auto;
-  height: 90px;
+  height: auto;
 }
 .footer .footer__content .footer__subscribe {
   /* height: 50px; */
@@ -1904,9 +1904,7 @@ article h2:hover {
     width: 96%;
     height: 100%;
     text-align: center;
-    margin: 20px 0px;
-    margin-left: 2%;
-    margin-right: 2px;
+    margin: 20px 2%;
     background-image: url("../images/footer/logo.jpg") no-repeat;
   }
   .footer .footer__content .footer__subscribe .subscribe--input input {
@@ -1919,10 +1917,8 @@ article h2:hover {
     height: 30px;
     margin: 0px 0px 0px -5px;
   }
-  .footer .footer__content .footer__logo {
-    /* display: none; */
-  }
   .footer .footer__content .footer__logo img {
-    /* display: none; */
+    display: block;
+    padding: 0px 100px;
   }
 }
