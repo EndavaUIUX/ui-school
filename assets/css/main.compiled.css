@@ -118,14 +118,7 @@ p {
 .container {
   width: 100%;
   overflow-x: hidden;
-<<<<<<< HEAD
   overflow-y: hidden;
-=======
-  /* -moz-user-select: none;
-    -khtml-user-select: none;
-    -webkit-user-select: none;
-    user-select: none;*/
->>>>>>> 5c118ccb0790f06c01e440c1fc45243a91009b89
 }
 .content {
   width: 1170px;
@@ -138,9 +131,6 @@ p {
   margin: 50px auto;
   display: block;
   zoom: 95%;
-}
-.ui-loader {
-  /*display:none;*/
 }
 .topheader {
   width: 100%;
