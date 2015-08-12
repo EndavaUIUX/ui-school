@@ -23,7 +23,7 @@
     var articlePages = '.article-page';
     articles.mostRecentArticles = persistence.get("latestArticlesAccessed");
     recentArticles = articles.mostRecentArticles;
-    utility.sortLatestArticlesAccessed(recentArticles);
+    //utility.sortLatestArticlesAccessed(recentArticles);
   /* ================================================================
      Functions
 
@@ -114,15 +114,8 @@
         window.location.href = "/article?" + articleIndex;
     });
     
-    articlesParent.on('click', articleClickTriggers, function (ev) {
-        ev.stopPropagation();
-        var articleIndex = $(ev.target).closest('article')[0].getAttribute('data-article-index');
-        //the actual redirect
-        window.location.href = "/article?" + articleIndex;
-    });
-
     function loadNextPage() {
-        var page = $(this)[0].getAttribute('data-page');
+        var page = loadMore[0].getAttribute('data-page');
         var lastArticleIndex = $('.article-wrapper').last();
         lastArticleIndex = lastArticleIndex.find('article').data('articleIndex');
         lastArticleIndex = lastArticleIndex || 0;
@@ -141,9 +134,24 @@
 
     articlesParent.on('swipe', articlePages, function (e, Dx, Dy) {
         var $this = $(this);
+        var generatedPages = $('.article-page').length;
         if (Dx < 0) {
             console.log('going to the left');
-            $(e.target).closest(articlePages).css({'background-color':'blue'});
+
+            if (generatedPages < Object.keys(articles.pages).length) {
+                $(e.target).closest(articlePages).css({'display' : 'none'});
+                loadNextPage();
+            } else {
+                if ($this.next().length) {
+                    $(e.target).closest(articlePages).css({'display' : 'none'});
+                    $this.hide();
+                    $this.next().css({left : 0}).fadeIn();
+                }
+            }
+  
+        }
+        if (Dx === 0) {
+            return;
         }
         if (Dx > 0) {
             console.log('going to the right');
@@ -154,9 +162,7 @@
                 } else {
                     $this.animate({left : 0}, 100);
                 }
-        
             });
-            $(e.target).closest(articlePages).css({'background-color':'red'});
 
         }
     });
