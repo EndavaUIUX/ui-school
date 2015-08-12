@@ -46,8 +46,9 @@
             itemsPerPage : resolutionPaginationObj.itemsPerPage,
             showLoadMore : resolutionPaginationObj.showLoadMore
         });
-        recentArticles = articles.mostRecentArticles;
-        utility.sortLatestArticlesAccessed(recentArticles);
+         recentArticles = articles.mostRecentArticles;
+      //  utility.sortLatestArticlesAccessed(recentArticles);
+        utility.generateListHTML(recentArticles, THUNDERSTORM.modules.articles.data);
     }
     
   /* ================================================================
@@ -65,8 +66,6 @@
    * we replace the count property.
      ==============================================================*/
 
-    utility.generateListHTML(recentArticles, THUNDERSTORM.modules.articles.data);
-
     articlesParent.on('click', articleClickTriggers, function (ev) {
         ev.stopPropagation();
         var articleIndex = $(ev.target).closest('article')[0].getAttribute('data-article-index');
@@ -76,8 +75,9 @@
 
             for (var i = 0; i < recentArticles.length; i++){
                 if (recentArticles[i].articleIndex === articleIndex) {
-
-                    recentArticles.unshift(recentArticles[articleIndex]);
+                    recentArticles.splice(i, 1);
+                    var newObj = {articleIndex : articleIndex};
+                    recentArticles.push(newObj);
 
                     persistence.set({
                         data: recentArticles,
@@ -113,13 +113,6 @@
         //the actual redirect
         window.location.href = "/article?" + articleIndex;
     });
-    
-    articlesParent.on('click', articleClickTriggers, function (ev) {
-        ev.stopPropagation();
-        var articleIndex = $(ev.target).closest('article')[0].getAttribute('data-article-index');
-        //the actual redirect
-        window.location.href = "/article?" + articleIndex;
-    });
 
     loadMore.on('click', function (ev) {
         var page = $(this)[0].getAttribute('data-page');
@@ -135,11 +128,11 @@
         articles.toggleLoadMore(page);
     });
     
-    $(window).resize(function () {
+    /*$(window).resize(function () {
         utility.clearArticles();
         loadMore[0].setAttribute('data-page', 1);
         init();
-    });
+    });*/
 
     $('img').on('dragstart', function (event) { event.preventDefault(); });
 
