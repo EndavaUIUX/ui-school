@@ -1643,7 +1643,6 @@ article h2:hover {
     background-size: cover;
     margin-top: -12px;
     background-position-y: -2px;
-    display: none!important;
   }
   .overlay .modal .modal__close {
     height: 35px;
