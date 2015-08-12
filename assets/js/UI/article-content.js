@@ -176,8 +176,9 @@
     console.log(swipeFunction.init);
     swipeFunction.init();
 
-    utility.sortLatestArticlesAccessed(recentArticles);
+    //utility.sortLatestArticlesAccessed(recentArticles);
 
+    utility.generateListHTML(recentArticles, THUNDERSTORM.modules.articles.data);
 
     /* ==========================================================================
      =======

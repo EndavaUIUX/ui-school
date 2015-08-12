@@ -159,14 +159,14 @@
         return text;
     };
 
-    utility.sortLatestArticlesAccessed = function (article) {
+   /* utility.sortLatestArticlesAccessed = function (article) {
         var temp,
             found;
 
         do {
             found = false;
             for(var index = 0; index < article.length - 1; index++) {
-                if(article[index].count > article[index + 1].count) {
+                if(article[index].count < article[index + 1].count) {
                     temp = article[index].count;
                     article[index].count = article[index + 1].count;
                     article[index + 1].count = temp;
@@ -176,25 +176,25 @@
         } while(found);
 
         return utility.generateListHTML(article, THUNDERSTORM.modules.articles.data);
-    };
+    };*/
 
     utility.generateListHTML = function (latestArticlesAccessed, allArticles) {
         var menuRight = $('.article-recent'),
             titleListParent = $("<ul></ul>").addClass('recent-list');
 
-        for(var i = 0; i < latestArticlesAccessed.length; i++) {
-            if(latestArticlesAccessed[i].articleIndex < 10){
-                var listItem = $("<li></li>"),
-                    articleIndex = latestArticlesAccessed[i].articleIndex,
-                    linkRedirect = $('<a></a>').attr("href", "article?" + latestArticlesAccessed[i].articleIndex);
+            for(var i = 0; i < latestArticlesAccessed.length; i++) {
+                if(latestArticlesAccessed[i].articleIndex < 10 ) {
+                    var listItem = $("<li></li>"),
+                        articleIndex = latestArticlesAccessed[i].articleIndex,
+                        linkRedirect = $('<a></a>').attr("href", "article?" + latestArticlesAccessed[i].articleIndex);
 
-                linkRedirect.html(utility.clipText(allArticles["articles"][articleIndex].title, 20));
+                    linkRedirect.html(utility.clipText(allArticles["articles"][articleIndex].title, 20));
 
-                listItem.append(linkRedirect);
-                //titleListParent.append(listItem);
-                titleListParent.prepend(listItem);
+                    listItem.append(linkRedirect);
+                    titleListParent.prepend(listItem);
+                }
             }
-        }
+
         menuRight.append(titleListParent);
     };
     utility.deviceGeneration();

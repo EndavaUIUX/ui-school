@@ -17,6 +17,7 @@
     var recentArticles = THUNDERSTORM.modules.articles.mostRecentArticles,
         utility = THUNDERSTORM.modules.utility;
 
-    utility.sortLatestArticlesAccessed(recentArticles);
+    //utility.sortLatestArticlesAccessed(recentArticles);
+    utility.generateListHTML(recentArticles, THUNDERSTORM.modules.articles.data);
     utility.collapseRecentArticleMenu();
 }());
