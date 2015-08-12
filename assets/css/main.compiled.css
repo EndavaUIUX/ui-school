@@ -531,7 +531,7 @@ nav a:hover {
     box-shadow: 0 3px 3px rgba(0, 0, 0, 0.14);
   }
   .right-menu-backdrop .menu-right .user {
-    width: 6%;
+    width: 40px;
   }
   .right-menu-backdrop .menu-right .user-details .user-name {
     color: #000;
