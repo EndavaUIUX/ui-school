@@ -169,11 +169,11 @@
         }
     });
 
-    $(window).resize(function () {
+    /*$(window).resize(function () {
         utility.clearArticles();
         loadMore[0].setAttribute('data-page', 1);
         init();
-    });
+    });*/
 
     $('img').on('dragstart', function (event) { event.preventDefault(); });
 

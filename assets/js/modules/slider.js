@@ -144,7 +144,7 @@
     console.log(swipeFunction.init);
     swipeFunction.init();
 
-    utility.sortLatestArticlesAccessed(recentArticles);
+    //utility.sortLatestArticlesAccessed(recentArticles);
 
 
     
