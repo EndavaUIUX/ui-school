@@ -118,7 +118,7 @@ p {
 .container {
   width: 100%;
   overflow-x: hidden;
-  overflow-y: hidden;
+  /* overflow-y: hidden;*/
 }
 .content {
   width: 1170px;
