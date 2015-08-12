@@ -1,37 +1,37 @@
-(function (window, THUNDERSTORM) {
+(function (window, THUNDERSTORM, $) {
     'use strict';
     var articles = {},
         utility = THUNDERSTORM.modules.utility,
         persistence = THUNDERSTORM.modules.persistence;
     articles.moduleName = "articles";
-    
+    var articlesParent = $('.main');
     articles.data = {};
 
-    var articleClickTriggers ='article h2, .article__title, .article-info img, .article__img img, .btn--more, .load-more, .article__photo, .latest__article .article__picture img',
+    var articleClickTriggers ='article h2, .article__title, .article-info img, .article__img img, .btn--more, .load-more, .article__photo, .latest__article .article__picture img, .latest__article .article__img',
     loadMore = $('.load-more');
-    /* ==========================================================================
+    /* =====================================================================
      function init()
      Verifica daca exista cheia articles in local storage. Daca da, preia datele
      de acolo.
      Daca nu, se apeleaza modulul de request la server care returneaza un json,
      salvat intr-un obiect public(sa poate fi vizibil din orice alta functie).
-     options.shouldGenerate o sa genereze datele. In principiu asta e pentru homepage
-     si eventual search page.
+     options.shouldGenerate o sa genereze datele. In principiu asta e
+     pentru homepage     si eventual search page.
      options: {
       sourceName : 'articles',
       articlesParent : whatever,
       shouldGenerate : false
       id : id
      }
-     ========================================================================== */
-    
+     ==================================================================== */
     articles.init = function (options) {
         var key = options.sourceName;
         if (utility.keyInLocalStorage(key)) {
             articles.data = persistence.get(options);
+            //if vrem sa generam, facem paginarea si generate
             if (options.shouldGenerate) {
                 articles.pages = articles.pagination(articles.data[key], options.itemsPerPage);
-                articles.generateArticles(articles.pages[0], options.articlesParent, options.isMainPage);
+                articles.generateArticles(articles.pages[0], options);
             }
             if (options.callback) {
                 options.callback();
@@ -47,8 +47,8 @@
                     articles.data  = persistence.get(options);
 
                     if (options.shouldGenerate) {
-                        articles.pages = articles.pagination(articles.data[key]);
-                        articles.generateArticles(articles.pages[0], options.articlesParent, options.isMainPage);
+                        articles.pages = articles.pagination(articles.data[key], options.itemsPerPage);
+                        articles.generateArticles(articles.pages[0], options);
                     }
 
                     if (options.callback) {
@@ -57,36 +57,45 @@
                 }
             });
         }
+        //yes, to refactor,just for testing purposes for now.
+        if (options.showLoadMore) {
+            $('.action').show();
+            $('.load-more').show();
+        } else {
+            $('.action').hide();
+            $('.load-more').hide();
+        }
     };
 
-    articles.filterArticles = function(options){
+    articles.filterArticles = function (options) {
         var searchedArticles = [];
-       articles.data = persistence.get(options.sourceName);
-       for(var i = 0, len = articles.data['articles'].length; i < len; i++){
-           if(articles.data['articles'][i]["title"].toLowerCase().indexOf(options.searchedWord) > -1){
-               searchedArticles.push(articles.data['articles'][i]);
-           }
-       }
-       return searchedArticles;
+        articles.data = persistence.get(options.sourceName);
+        for(var i = 0, len = articles.data['articles'].length; i < len; i++) {
+            if(articles.data['articles'][i]["title"].toLowerCase().indexOf(options.searchedWord) > -1){
+                searchedArticles.push(articles.data['articles'][i]);
+            }
+        }
+        return searchedArticles;
     };
     
     function createRecentArticle(articleData, articleIndex) {
         // TODO needs a simpler structure
-        var base = $('<article></article>').addClass('latest__article').attr('data-article-index', articleIndex),
-                articleContent = $('<div></div>').addClass('article__content'),
-                articleTitle = $('<h2></h2>').addClass('article__title').html(articleData.title),
-                articleHiddenImgContainer = $('<div></div>').addClass('article__picture'),
-                articleHiddenImage = $('<img>'),
-                articleVisibleImgTag = $('<img>'),
-                articleVisibleImage = $('<div></div>').addClass('article__img'),
-                articleInfo = $('<div></div>').addClass('article__informations'),
-                articleText = $('<p>').addClass('article_description'),
-                articleAction = $('<button></button>').addClass('btn btn--more').html('Read More'),
-                articleAuthor = $('<span></span>').addClass('article__author article_info').html(articleData.author),
-                articleDate = $('<span></span>').addClass('article__date article_info').html(utility.dateFormatter(articleData.published)),
-                articleGallery,
-                imageGalleryObj,
-                windowWidth = $(window).width();
+        var base = $('<article></article>').addClass('latest__article').attr('data-article-index', articleIndex);
+        var articleContent = $('<div></div>').addClass('article__content');
+        var articleTitle = $('<h2></h2>').addClass('article__title').html(articleData.title);
+        var articleHiddenImgContainer = $('<div></div>').addClass('article__picture');
+        var articleHiddenImage = $('<img>');
+        var articleVisibleImgTag = $('<img>');
+        var articleVisibleImage = $('<div></div>').addClass('article__img');
+        var articleInfo = $('<div></div>').addClass('article__informations');
+        var articleText = $('<p>').addClass('article_description');
+        var articleAction = $('<button></button>').addClass('btn btn--more').html('Read More');
+        var articleAuthor = $('<span></span>').addClass('article__author article_info').html(articleData.author);
+        var articleDate = $('<span></span>').addClass('article__date article_info').html(utility.dateFormatter(articleData.published));
+        var articleGallery;
+        var imageGalleryObj;
+        var windowWidth = $(window).width();
+        
         imageGalleryObj = utility.imageSourceGenerator(articleData);
         articleHiddenImage.attr('src', imageGalleryObj.sources[0]);
         articleVisibleImgTag.attr('src', imageGalleryObj.sources[0]);
@@ -114,12 +123,12 @@
         base.append(articleContent);
         articleVisibleImage.append(articleVisibleImgTag);
         base.append(articleVisibleImage);
-        console.log(articleText);
-
         return base;
     }
 
-    articles.pagination = function(data, param) {
+    //first page should be +1 bigger than the rest, as
+    //it contains most recent article.
+    articles.pagination = function (data, param) {
         var pages = {},
           pageNr = 0,
           itemsPerPage =  param || 7;
@@ -131,7 +140,7 @@
                 pages[pageNr].push(item);
             } else {
                 if (pageNr === 0) {
-                    itemsPerPage = 6;
+                    itemsPerPage = param - 1;
                 }
                 pageNr = pageNr + 1;
                 pages[pageNr] = [];
@@ -165,6 +174,42 @@
         return text;
     }
     
+    articles.paginationOnResolution = function () {
+        var deviceWidth = $(window).width();
+        //if desktop and large tablet
+        if (deviceWidth > 1200) {
+            return {
+                itemsPerPage : 7,
+                needRecent : true,
+                showLoadMore : true
+            };
+        } else
+        //if tablet portrait and landscape
+        if (deviceWidth > 700) {
+            return {
+                itemsPerPage : 5,
+                needRecent : true,
+                showLoadMore : true
+            };
+        }
+        //if phone landscape
+        if (deviceWidth > 600) {
+            return {
+                itemsPerPage : 3,
+                needRecent : true,
+                showLoadMore : true
+            };
+        }
+        //if phone portrait and very small widths
+        if (deviceWidth > 150) {
+            return {
+                itemsPerPage : 1,
+                needRecent : false,
+                showLoadMore : true
+            };
+        }
+    };
+
     articles.createArticle = function (articleData, articleIndex, isFullContent) {
         var base = $('<div></div>').addClass('article-wrapper'),
                 article = $('<article></article>').attr('data-article-index', articleIndex),
@@ -178,7 +223,7 @@
                 articleAction = $('<button></button>').addClass('btn btn--more').html('Read More'),
                 articleAuthor = $('<span></span>').addClass('article-info__author article-info__pill').html(utility.nameFormatter(articleData.author, 1)),
                 articleDate = $('<span></span>').addClass('article-info__date article-info__pill').html(utility.dateFormatter(articleData.published)),
-                 imageGalleryObj;
+                imageGalleryObj;
 
         imageGalleryObj = utility.imageSourceGenerator(articleData);
         articleImage.attr('src', imageGalleryObj.sources[0]);
@@ -203,58 +248,39 @@
         return base;
     };
 
-    articles.generateArticles = function (data, parent, isMainPage, carryIndex) {
+    articles.generateArticles = function (data, options) {
+        /*  MIO TODO needs refactor as it's very prone to errors
+         *  plus jquery selector inside it..*/
         var myArticle,
             recentGenerated = false,
             i,
-            additionIndex = carryIndex + 1 || 0;//+1 pentru ca i-ul porneste de la 0;
-        var page = $('.load-more').data('page');
+            additionIndex = options.carryIndex + 1 || 0;
+            //+1 pentru ca i-ul porneste de la 0;
+        var page = $('.load-more')[0].getAttribute('data-page');
+        var $pageWrapper = $('<div></div>').addClass('article-page clearfix');
         for (i = 0; i < data.length; i = i + 1) {
-            if (data.length === 7 && recentGenerated === false && isMainPage === true) {
+            if (data.length === options.itemsPerPage &&
+                recentGenerated === false && options.needRecent === true) {
                 myArticle = createRecentArticle(data[i], i + additionIndex);
                 recentGenerated = true;
             } else {
                 myArticle = articles.createArticle(data[i], i + additionIndex, 0);
             }
-            parent.append(myArticle);
-            
-            toggleLoadMore(page);
+            $pageWrapper.append(myArticle);
         }
+        options.articlesParent.append($pageWrapper);
+        articles.toggleLoadMore(page);
     };
     
-    function toggleLoadMore(page) {
+    articles.toggleLoadMore = function (page) {
         if (page < Object.keys(THUNDERSTORM.modules.articles.pages).length) {
-            loadMore.data('page', page);
+            loadMore[0].setAttribute('data-page', page);
         } else {
             loadMore.hide('fast');
         }
-    }
-    /* ==========================================================================
-     Event listeners
-     ========================================================================== */
-    articles.loadMode = function (articlesParent) {
-        var page = $('.load-more').data('page');
-        //toggleLoadMore(page);
-        articlesParent.on('click', articleClickTriggers, function (ev) {
-            ev.stopPropagation();
-            var articleIndex = $(ev.target).closest('article')[0].getAttribute('data-article-index');
-            //the actual redirect
-            window.location.href = "/article?" + articleIndex;
-        });
-
-        loadMore.on('click', function (ev) {
-            var page = $(this).data('page');
-            var lastArticleIndex = $('.article-wrapper').last();
-            lastArticleIndex = lastArticleIndex.find('article').data('articleIndex');
-            lastArticleIndex = lastArticleIndex || 0;
-            //salvam index-ul paginii pe care vrem sa-l incarcam. Asta inseamna ca daca am nevoie de pagina x, o sa fie foarte usor sa o incarc.
-            THUNDERSTORM.modules.articles.generateArticles(THUNDERSTORM.modules.articles.pages[page], articlesParent, lastArticleIndex);
-            page = page + 1;
-            toggleLoadMore(page);
-        });
     };
 
     THUNDERSTORM.modules.articles = articles;
 
-}(window, window.THUNDERSTORM));
+}(window, window.THUNDERSTORM, window.jQuery));
 

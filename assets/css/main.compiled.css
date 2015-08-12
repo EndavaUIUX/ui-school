@@ -118,6 +118,10 @@ p {
 .container {
   width: 100%;
   overflow-x: hidden;
+  /* -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;*/
 }
 .content {
   width: 1170px;
@@ -259,10 +263,10 @@ nav a:hover {
   left: -309px;
   z-index: 44;
   top: 0px;
-  transition: all 0.9s ease-in-out;
-  -webkit-transition: all 0.9s ease-in-out;
-  -moz-transition: all 0.9s ease-in-out;
-  -o-transition: all 0.9s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
 }
 .arrow {
   background: url("../images/left_menu/arrow.png") no-repeat left;
@@ -338,6 +342,9 @@ nav a:hover {
 }
 .left-word:hover {
   background-color: #c0c0c0;
+}
+.hideHamburger {
+  display: none;
 }
 @media only screen and (min-width: 1px) and (max-width: 599px) {
   .left-menu-backdrop {
@@ -576,7 +583,7 @@ nav a:hover {
     margin-bottom: 5px;
   }
 }
-@media only screen and (min-width: 600px) and (max-width: 1180px) {
+@media only screen and (min-width: 600px) and (max-width: 1179px) {
   .slider {
     margin-top: 48px;
   }
@@ -659,12 +666,13 @@ nav a:hover {
   height: 100%;
   float: right;
   cursor: pointer;
-  opacity: 0.8;
-  -webkit-opacity: 2;
-  -moz-opacity: 2;
-  transition: 2s ease;
-  -webkit-transition: 2s ease;
-  -moz-transition: 2s ease;
+  /*        opacity: 0.8;
+        -webkit-opacity: 2;
+        -moz-opacity: 2;
+        transition: 2s ease;
+        -webkit-transition:2s ease;
+        -moz-transition: 2s ease;
+*/
 }
 .latest__article .article__img img {
   height: 100%;
@@ -674,37 +682,43 @@ nav a:hover {
   width: 100%;
 }
 .latest__article .article__img:hover {
-  box-sizing: border-box;
-  border-radius: 1%;
-  -webkit-transform: rotateY(360deg);
-  -webkit-transform-style: preserve-3d;
-  transform: rotateY(360deg);
-  transform-style: preserve-3d;
+  /*
+        box-sizing: border-box;*/
+  /* border-radius: 1%;
+        -webkit-transform: rotateY(360deg);
+        -webkit-transform-style: preserve-3d;
+        transform: rotateY(360deg);
+        transform-style: preserve-3d;*/
 }
 .latest__article .article__img:hover img {
   height: 98%;
   margin-right: auto;
   margin-left: auto;
   display: block;
-  -webkit-transition: all 2s ease;
-  transition: all 2s ease;
+  /*           -webkit-transition: all 2s ease;
+            transition: all 2s ease;*/
 }
 .article__picture img {
   display: none;
   cursor: pointer;
-  opacity: 0.8;
-  -webkit-opacity: 2;
-  -moz-opacity: 2;
-  -webkit-transition: 2s ease;
-  -moz-transition: 2s ease;
+  /*    opacity: 0.8;
+    -webkit-opacity: 2;
+    -moz-opacity: 2;
+    -webkit-transition: 2s ease;
+    -moz-transition: 2s ease;*/
 }
 .article__picture img:hover {
   box-sizing: border-box;
-  border-radius: 1%;
-  -webkit-transform: rotateY(360deg);
-  -webkit-transform-style: preserve-3d;
-  transform: rotateY(360deg);
-  transform-style: preserve-3d;
+  /*    border-radius: 1%;
+    -webkit-transform: rotateY(360deg);
+    -webkit-transform-style: preserve-3d;
+    transform: rotateY(360deg);
+    transform-style: preserve-3d;
+*/
+}
+.article__picture img:hover img {
+  /*-webkit-transition: all 2s ease;
+    transition: all 2s ease;*/
 }
 .clearfix {
   clear: both;
@@ -744,10 +758,10 @@ nav a:hover {
   display: block;
 }
 .article-wrapper article img:hover {
-  -webkit-transform: rotateY(360deg);
-  -webkit-transform-style: preserve-3d;
-  transform: rotateY(360deg);
-  transform-style: preserve-3d;
+  /*        -webkit-transform: rotateY(360deg);
+        -webkit-transform-style: preserve-3d;
+        transform: rotateY(360deg);
+        transform-style: preserve-3d;*/
 }
 .article-wrapper article p {
   font-size: 18px;
@@ -871,6 +885,12 @@ article h2:hover {
   -o-transition: background-color 0.5s ease-out;
   transition: background-color 0.5s ease-out;
   background-color: #fbe9e0;
+}
+.article-page {
+  border-bottom: 2px solid #e1632a;
+}
+.article-page:hover {
+  cursor: move;
 }
 @media only screen and (min-width: 1180px) {
   .article-wrapper:nth-of-type(3n+3) {

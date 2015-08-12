@@ -11,16 +11,38 @@
       <link href="assets/css/reset.css" rel="stylesheet">
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
       <link href="assets/css/mio.css" rel="stylesheet">
+      <style>
+.clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+
+.clearfix {
+    display: inline-block;
+}
+
+html[xmlns] .clearfix {
+    display: block;
+}
+
+* html .clearfix {
+    height: 1%;
+}
+      </style>
   </head>
   <body>
       <!--[if lt IE 7]>
           <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
       <![endif]-->
-  
       <div class="container">
         {{>partials/header}}
         {{>partials/slider}}
         {{>partials/main}}
+        <div class="clearfix"></div>
         {{>partials/footer}}
       </div>
   

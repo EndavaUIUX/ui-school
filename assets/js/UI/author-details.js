@@ -8,31 +8,42 @@
         $profile = $('.profile'),
         $user = $('.user'),
         $title = $('.title-recent'),
-        $rightMenuBackdrop = $('.right-menu-backdrop');
+        $rightMenuBackdrop = $('.right-menu-backdrop'),
+        $leftthird = $('.leftthird');
 
     $profile.click(function (e) {
-
+        console.log("aaa",e.target);
+        e.stopPropagation();
         $title.html("Most Recent Articles");
         if (!$menuRight.hasClass("show-menu-right")) {
             $menuRight.addClass("show-menu-right");
             $rightMenuBackdrop.addClass("show");
+            $leftthird.addClass("hideHamburger");
         }
     });
 
-    $user.click(function () {
+    $user.click(function (e) {
+        console.log("bbb",e.target);
+        e.stopPropagation();
         $menuRight.removeClass("show-menu-right");
         $rightMinDiv.removeClass("hide-user-icon");
         $rightMenuBackdrop.removeClass("show");
-
+        $leftthird.removeClass("hideHamburger");
     });
 
-    $(document).on("click tap touchend", function (e) {
+   /* $('body').on("click tap touchend", function (e) {
         var targetEl = $(e.target);
+        console.log("ccc",e.target);
 
-        if (!targetEl.is('.profile') && !targetEl.is('.menu-right') && !targetEl.is('.article-recent h2')) {
+        if (!targetEl.is('.profile')
+            && !targetEl.is('.menu-right')
+            && !targetEl.is('.article-recent h2')
+            && !targetEl.is('.menu')) {
+
             $menuRight.removeClass("show-menu-right");
             $rightMenuBackdrop.removeClass("show");
+            $leftthird.removeClass("hideHamburger");
         }
-    });
+    });*/
 }());
 
