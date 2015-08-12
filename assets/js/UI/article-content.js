@@ -176,7 +176,6 @@
     console.log(swipeFunction);
     console.log(swipeFunction.init);
     swipeFunction.init();
-
     utility.sortLatestArticlesAccessed(recentArticles);
 
 
@@ -261,4 +260,5 @@
  /* ==========================================================================
      || End of Prev & Next // Buttons ||
      ========================================================================== */
+
 
