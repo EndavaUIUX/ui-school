@@ -189,7 +189,7 @@
             return {
                 itemsPerPage : 5,
                 needRecent : true,
-                showLoadMore : true
+                showLoadMore : false
             };
         }
         //if phone landscape
@@ -197,7 +197,7 @@
             return {
                 itemsPerPage : 3,
                 needRecent : true,
-                showLoadMore : true
+                showLoadMore : false
             };
         }
         //if phone portrait and very small widths
@@ -205,7 +205,7 @@
             return {
                 itemsPerPage : 1,
                 needRecent : false,
-                showLoadMore : true
+                showLoadMore : false
             };
         }
     };

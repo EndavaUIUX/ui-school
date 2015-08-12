@@ -150,7 +150,6 @@
                     $this.next().css({left : 0}).fadeIn();
                 }
             }
-  
         }
         if (Dx === 0) {
             return;
