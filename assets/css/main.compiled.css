@@ -400,15 +400,30 @@ nav a:hover {
     display: block;
   }
 }
-@media only screen and (min-width: 600px) and (max-width: 1180px) {
+@media only screen and (min-width: 650px) and (max-width: 1180px) {
   .menu-left,
   nav.menu-right {
-    width: 250px;
+    width: 210px;
+  }
+  .menu-left .article-recent .title-recent,
+  nav.menu-right .article-recent .title-recent,
+  .menu-left .user-details .user-name,
+  nav.menu-right .user-details .user-name,
+  .menu-left .article-recent .recent-list a,
+  nav.menu-right .article-recent .recent-list a,
+  .menu-left a,
+  nav.menu-right a {
+    font-size: 15px;
+  }
+  .menu-left .user,
+  nav.menu-right .user {
+    width: 15%;
   }
   .menu-left .search-article,
   nav.menu-right .search-article {
-    width: 200px;
+    width: 160px;
     height: 40px;
+    font-size: 15px;
   }
 }
 .menu-right {
