@@ -336,6 +336,7 @@ nav a:hover {
   margin: 0 23px;
   text-align: justify;
   font-family: 'Lato-Regular';
+  text-align: center;
 }
 .hideError {
   display: none;
@@ -377,6 +378,12 @@ nav a:hover {
     height: 40px;
     width: 190px;
     font-size: 13px;
+    line-height: 2;
+  }
+  .left-menu-backdrop nav .errorSearch,
+  .left-menu-backdrop .menu-left .errorSearch {
+    width: 190px;
+    text-align: center;
   }
   .left-menu-backdrop nav a:hover,
   .left-menu-backdrop .menu-left a:hover {
@@ -431,6 +438,7 @@ nav a:hover {
     width: 160px;
     height: 40px;
     font-size: 15px;
+    line-height: 2;
   }
 }
 .menu-right {
