@@ -38,7 +38,8 @@
 
     function init() {
         var resolutionPaginationObj = articles.paginationOnResolution();
-
+        
+        articles.mostRecentArticles = persistence.get("latestArticlesAccessed");
         articles.init({
             sourceName : key,
             articlesParent : articlesParent,
@@ -48,6 +49,8 @@
             itemsPerPage : resolutionPaginationObj.itemsPerPage,
             showLoadMore : resolutionPaginationObj.showLoadMore
         });
+         recentArticles = articles.mostRecentArticles;
+        utility.generateListHTML(recentArticles, THUNDERSTORM.modules.articles.data);
     }
     
   /* ================================================================
@@ -65,8 +68,6 @@
    * we replace the count property.
      ==============================================================*/
 
-    utility.generateListHTML(recentArticles, THUNDERSTORM.modules.articles.data);
-
     articlesParent.on('click', articleClickTriggers, function (ev) {
         ev.stopPropagation();
         var articleIndex = $(ev.target).closest('article')[0].getAttribute('data-article-index');
@@ -76,8 +77,9 @@
 
             for (var i = 0; i < recentArticles.length; i++){
                 if (recentArticles[i].articleIndex === articleIndex) {
-
-                    recentArticles.unshift(recentArticles[articleIndex]);
+                    recentArticles.splice(i, 1);
+                    var newObj = {articleIndex : articleIndex};
+                    recentArticles.push(newObj);
 
                     persistence.set({
                         data: recentArticles,
@@ -113,7 +115,7 @@
         //the actual redirect
         window.location.href = "/article?" + articleIndex;
     });
-    
+
     function loadNextPage() {
         var page = loadMore[0].getAttribute('data-page');
         var lastArticleIndex = $('.article-wrapper').last();
