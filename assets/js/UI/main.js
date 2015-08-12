@@ -20,14 +20,16 @@
     var page = loadMore[0].getAttribute('data-page');
     var key = 'articles';
     var recentArticles;
-
+    var articlePages = '.article-page';
+    articles.mostRecentArticles = persistence.get("latestArticlesAccessed");
+    recentArticles = articles.mostRecentArticles;
+    utility.sortLatestArticlesAccessed(recentArticles);
   /* ================================================================
      Functions
      ==============================================================*/
     function init() {
         var resolutionPaginationObj = articles.paginationOnResolution();
-        
-        articles.mostRecentArticles = persistence.get("latestArticlesAccessed");
+
         articles.init({
             sourceName : key,
             articlesParent : articlesParent,
@@ -37,8 +39,6 @@
             itemsPerPage : resolutionPaginationObj.itemsPerPage,
             showLoadMore : resolutionPaginationObj.showLoadMore
         });
-        recentArticles = articles.mostRecentArticles;
-        utility.sortLatestArticlesAccessed(recentArticles);
     }
     
   /* ================================================================
@@ -110,7 +110,7 @@
         window.location.href = "/article?" + articleIndex;
     });
 
-    loadMore.on('click', function (ev) {
+    function loadNextPage() {
         var page = $(this)[0].getAttribute('data-page');
         var lastArticleIndex = $('.article-wrapper').last();
         lastArticleIndex = lastArticleIndex.find('article').data('articleIndex');
@@ -122,8 +122,34 @@
                                   carryIndex : lastArticleIndex});
         page = parseInt(page, 10) + 1;
         articles.toggleLoadMore(page);
-    });
+    }
     
+    loadMore.on('click', function (ev) {
+        loadNextPage();
+    });
+
+    articlesParent.on('swipe', articlePages, function (e, Dx, Dy) {
+        var $this = $(this);
+        if (Dx < 0) {
+            console.log('going to the left');
+            $(e.target).closest(articlePages).css({'background-color':'blue'});
+        }
+        if (Dx > 0) {
+            console.log('going to the right');
+            $this.animate({left : '200px'}, 200, function () {
+                if ($this.prev().length) {
+                    $this.hide();
+                    $this.prev().css({left : 0}).fadeIn();
+                } else {
+                    $this.animate({left : 0}, 100);
+                }
+        
+            });
+            $(e.target).closest(articlePages).css({'background-color':'red'});
+
+        }
+    });
+
     $(window).resize(function () {
         utility.clearArticles();
         loadMore[0].setAttribute('data-page', 1);

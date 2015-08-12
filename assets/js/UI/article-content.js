@@ -142,23 +142,24 @@
                     touch = event.touches[0];
                     // console.log(event.type);
                     switch (event.type) {
-                        case 'touchstart':
-                        case 'touchmove':
-                            swipeFunction.touches[event.type].x = touch.pageX;
-                            swipeFunction.touches[event.type].y = touch.pageY;
-                            break;
-                        case 'touchend':
-                            // console.log('touchend');
-                            swipeFunction.touches[event.type] = true;
-                            if (swipeFunction.touches.touchstart.x > -1 && swipeFunction.touches.touchmove.x > -1) {
-                                swipeFunction.touches.direction = swipeFunction.touches.touchstart.x < swipeFunction.touches.touchmove.x ? "right" : "left";
+                    case 'touchstart':
+                    case 'touchmove':
+                        swipeFunction.touches[event.type].x = touch.pageX;
+                        swipeFunction.touches[event.type].y = touch.pageY;
+                        break;
+                    case 'touchend':
+                        // console.log('touchend');
+                        swipeFunction.touches[event.type] = true;
+                        if (swipeFunction.touches.touchstart.x > -1 && swipeFunction.touches.touchmove.x > -1) {
+                            swipeFunction.touches.direction = swipeFunction.touches.touchstart.x < swipeFunction.touches.touchmove.x ? "right" : "left";
 
-                                // Continue here for previous and next button
-                                // alert(touches.direction);
-                                console.log(swipeFunction.touches.direction);
-                            }
-                        default:
-                            break;
+                            // Continue here for previous and next button
+                            // alert(touches.direction);
+                            console.log(swipeFunction.touches.direction);
+                        }
+                        break;
+                    default:
+                        break;
                     }
                 }
             }
