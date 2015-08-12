@@ -728,23 +728,18 @@ nav a:hover {
   cursor: pointer;
   -webkit-transition: 0.5s ease;
   -moz-transition: 0.5s ease;
+  text-align: center;
 }
 .latest__article .article__img img {
-  height: 100%;
-  width: 100%;
-  margin-right: auto;
-  margin-left: auto;
-  display: block;
+  display: inline-block;
+  vertical-align: middle;
+  max-height: 100%;
+  max-width: 100%;
+  -webkit-transition: 0.5s ease;
 }
 .latest__article .article__img:hover {
   box-sizing: border-box;
   opacity: 0.6;
-}
-.latest__article .article__img:hover img {
-  height: 98%;
-  margin-right: auto;
-  margin-left: auto;
-  display: block;
 }
 .article__picture img {
   display: none;
@@ -947,6 +942,13 @@ article h2:hover {
   /* From IE10 only */
   user-select: none;
   /* Not valid CSS yet, as of July 2012 */
+}
+.article__img:before {
+  content: ' ';
+  display: inline-block;
+  vertical-align: middle;
+  /* vertical alignment of the inline element */
+  height: 100%;
 }
 @media only screen and (min-width: 1180px) {
   .article-wrapper:nth-of-type(3n+3) {
