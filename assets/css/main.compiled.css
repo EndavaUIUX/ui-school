@@ -439,6 +439,9 @@ nav a:hover {
   .menu-left a,
   nav.menu-right a {
     font-size: 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   .menu-left .user,
   nav.menu-right .user {

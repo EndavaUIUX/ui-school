@@ -21,7 +21,6 @@
     init();
     
     articles.mostRecentArticles = persistence.get("latestArticlesAccessed");
-    recentArticles = articles.mostRecentArticles;
     utility.generateListHTML(articles.mostRecentArticles, THUNDERSTORM.modules.articles.data);
     
     /* =====================================================================

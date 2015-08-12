@@ -138,21 +138,36 @@
         var $this = $(this);
         var generatedPages = $('.article-page').length;
         var parentPage = $(e.target).closest(articlePages);
+        var emptyBounce = $(window).width() / 2;
+// the ammount to go to left or right if we don't have
+// any more articles on left or right.
         if (Dx < 0) {
-            console.log('going to the left');
+            console.log('swipe was done to the left, so next article should show from the right');
+            // if we haven't generated everything yet we need to loadNextPage,
+            // otherwise we need to show the next hidden element.
             if (generatedPages < Object.keys(articles.pages).length && $this.next().length === 0) {
-                parentPage.animate({left : '-800px'}, 200, function () {
+                parentPage.animate({left : '-1200px'}, 200, function () {
                     parentPage.css({'display' : 'none'});
                     loadNextPage();
-                    parentPage.next().css({left: '800px'});
-                    parentPage.next().animate({left : '0px'}, 200, function () {
-                    });
+                    parentPage.next().css({left: '1200px'});
+                    parentPage.next().animate({left : '0px'}, 200);
                 });
             } else {
-                if ($this.next().length) {
-                    $(e.target).closest(articlePages).css({'display' : 'none'});
-                    $this.hide();
-                    $this.next().css({left : 0}).fadeIn();
+                if (parentPage.next().length) {
+                 //if we have a hiden article after the current visible one.
+                 //show it and animate it from left, at the end, hide current.
+                    parentPage.next().show();
+                    parentPage.animate({left : '-1200px'}, 200, function () {
+                        parentPage.css({'display' : 'none'});
+                        parentPage.next().css({left: '1200px'});
+                        parentPage.next().animate({left : '0px'}, 200);
+                    });
+                } else {
+                //if we're at the end of the article group, animate
+                //it slightly.
+                    parentPage.animate({left : '-' + emptyBounce + 'px'}, 200, function () {
+                            parentPage.animate({left : 0}, 100);
+                        });
                 }
             }
         }
@@ -160,16 +175,23 @@
             return;
         }
         if (Dx > 0) {
-            console.log('going to the right');
-            $this.animate({left : '200px'}, 200, function () {
-                if ($this.prev().length) {
-                    $this.hide();
-                    $this.prev().css({left : 0}).fadeIn();
-                } else {
-                    $this.animate({left : 0}, 100);
-                }
-            });
-
+            console.log('swipe was done to the right, so next article should show from the left(if any)');
+            if ($this.prev().length) {
+                //parentPage.prev().show();
+                parentPage.animate({left : '1200px'}, 200, function () {
+                    parentPage.css({'display' : 'none'});
+                    //parentPage.prev().css({left: '-800px'});
+                    parentPage.prev().show();
+                    parentPage.prev().animate({left : '0px'}, 200);
+                });
+                
+                //$this.hide();
+               // $this.prev().css({left : 0}).fadeIn();
+            } else {
+                parentPage.animate({left : emptyBounce + 'px'}, 200, function () {
+                            parentPage.animate({left : 0}, 100);
+                        });
+            }
         }
     });
 
