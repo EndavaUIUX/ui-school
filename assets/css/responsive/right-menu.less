@@ -1,6 +1,6 @@
 @media only screen
 and (min-width: 1px)
-and (max-width: 599px) {
+and (max-width: 699px) {
 
   .right-menu-backdrop {
     position: fixed;
@@ -18,19 +18,30 @@ and (max-width: 599px) {
       width: 100%;
       height: auto;
       min-height: 0%;
+      border-bottom: 1px solid #ebebeb;
+      box-shadow: 0 3px 3px rgba(0,0,0,0.14);
+
+      .user {
+        width: 6%;
+      }
 
       .user-details .user-name {
         color: #000;
+        font-size: 13px;
+        margin-left: 25px;
       }
       .article-recent {
 
         .title-recent {
           color: #000;
+          font-size: 13px;
           background: url("../images/right_menu/file-black.png") no-repeat left;
+          background-size: 15px 15px;
         }
 
         .recent-list a {
           color: #000;
+          font-size: 13px;
         }
       }
     }

@@ -354,7 +354,7 @@ nav a:hover {
 .left-word:hover {
   background-color: #c0c0c0;
 }
-@media only screen and (min-width: 1px) and (max-width: 599px) {
+@media only screen and (min-width: 1px) and (max-width: 699px) {
   .left-menu-backdrop {
     position: fixed;
     top: 0;
@@ -380,7 +380,14 @@ nav a:hover {
   }
   .left-menu-backdrop nav a,
   .left-menu-backdrop .menu-left a {
+    font-size: 13px;
     color: #000;
+  }
+  .left-menu-backdrop nav .search-article,
+  .left-menu-backdrop .menu-left .search-article {
+    height: 40px;
+    width: 190px;
+    font-size: 13px;
   }
   .left-menu-backdrop nav a:hover,
   .left-menu-backdrop .menu-left a:hover {
@@ -411,15 +418,30 @@ nav a:hover {
     display: block;
   }
 }
-@media only screen and (min-width: 600px) and (max-width: 1180px) {
+@media only screen and (min-width: 650px) and (max-width: 1180px) {
   .menu-left,
   nav.menu-right {
-    width: 250px;
+    width: 210px;
+  }
+  .menu-left .article-recent .title-recent,
+  nav.menu-right .article-recent .title-recent,
+  .menu-left .user-details .user-name,
+  nav.menu-right .user-details .user-name,
+  .menu-left .article-recent .recent-list a,
+  nav.menu-right .article-recent .recent-list a,
+  .menu-left a,
+  nav.menu-right a {
+    font-size: 15px;
+  }
+  .menu-left .user,
+  nav.menu-right .user {
+    width: 15%;
   }
   .menu-left .search-article,
   nav.menu-right .search-article {
-    width: 200px;
+    width: 160px;
     height: 40px;
+    font-size: 15px;
   }
 }
 .menu-right {
@@ -499,7 +521,7 @@ nav a:hover {
 .hide-user-icon {
   display: none;
 }
-@media only screen and (min-width: 1px) and (max-width: 599px) {
+@media only screen and (min-width: 1px) and (max-width: 699px) {
   .right-menu-backdrop {
     position: fixed;
     top: 0;
@@ -516,16 +538,26 @@ nav a:hover {
     width: 100%;
     height: auto;
     min-height: 0%;
+    border-bottom: 1px solid #ebebeb;
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.14);
+  }
+  .right-menu-backdrop .menu-right .user {
+    width: 6%;
   }
   .right-menu-backdrop .menu-right .user-details .user-name {
     color: #000;
+    font-size: 13px;
+    margin-left: 25px;
   }
   .right-menu-backdrop .menu-right .article-recent .title-recent {
     color: #000;
+    font-size: 13px;
     background: url("../images/right_menu/file-black.png") no-repeat left;
+    background-size: 15px 15px;
   }
   .right-menu-backdrop .menu-right .article-recent .recent-list a {
     color: #000;
+    font-size: 13px;
   }
 }
 .slider {
