@@ -91,15 +91,7 @@
     });
 
     
-    
-    
-}(window.jQuery))
-
-    /* ==========================================================================
-     swipe function                                                            
-     ========================================================================== */
-
-      var swipeFunction = {
+    var swipeFunction = {
         touches: {
             "touchstart": {"x": -1, "y": -1},
             "touchmove": {"x": -1, "y": -1},
@@ -128,27 +120,20 @@
                                 // Continue here for previous and next button
                                 // alert(touches.direction);
                                 console.log(swipeFunction.touches.direction);
-
-                                var activeBubbleIndex = $('bubble--active').data('index');
-
-                                if (swipeFunction.touch.direction == 'left') {
-                                    var travellength = getTravelLength (activeBubbleIndex + 1)
-                                    swipeFunction.init();
-                                } else {
-                                    var travellength = GettTravelLength (activeBubbleIndex - 1)
-                                    swipeFunction.init();
-                                }
-
                             }
                         default:
-                            
+                            if (swipeFunction.touches.direction == 'left') {
+                                $('.modal__next').click();
+                            } else {
+                                $('.modal__prev').click();
+                            }
                     }
                 }
             }
         },
         init: function () {
             console.log('init');
-            var image = document.querySelector('.slider__slide img');
+            var image = document.querySelector('.slider__slides img');
             image.addEventListener('touchstart', swipeFunction.touchHandler, false);
             image.addEventListener('touchmove', swipeFunction.touchHandler, false);
             image.addEventListener('touchend', swipeFunction.touchHandler, false);
@@ -160,3 +145,7 @@
     swipeFunction.init();
 
     utility.sortLatestArticlesAccessed(recentArticles);
+
+
+    
+}(window.jQuery))
