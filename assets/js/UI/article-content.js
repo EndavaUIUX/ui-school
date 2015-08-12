@@ -114,6 +114,7 @@
 
     $('.button__gallery').on('click', function (ev) {
         $('.modal__prev').hide();
+        resetContainer();
         resetGallery();
         buttonGallery();
         THUNDERSTORM.modules.utility.showModal($('.modal'));
@@ -122,6 +123,7 @@
 
     $('.modal__close').on('click', function (ev) {
         THUNDERSTORM.modules.utility.dismissModal($('.modal'));
+        initializeContainer();
     });
 
     var swipeFunction = {
@@ -237,11 +239,19 @@
     }
 
     
-  function resetGallery(){
-    $('.modal__prev').hide();
-    $('.modal__next').show();
-    $('.modal').css({height:'auto'});
- } 
+    function resetGallery() {
+        $('.modal__prev').hide();
+        $('.modal__next').show();
+        $('.modal').css({height: 'auto'});
+    }
+
+    function resetContainer() {
+        $('.container').css({position: 'fixed'});
+    }
+
+    function initializeContainer() {
+        $('.container').css({position: 'initial'});
+    }
 
     buttonPrev();
     buttonNext();
