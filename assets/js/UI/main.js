@@ -26,7 +26,16 @@
     utility.sortLatestArticlesAccessed(recentArticles);
   /* ================================================================
      Functions
-     ==============================================================*/
+
+     ========================================================================== */
+
+   /* ==========================================================================
+      Event listeners
+      Set in local storage an object latest articles accessed with the key "latestArticlesAccessed",
+      which contains the article index and a counter, representing the number of times an article was clicked.
+      If the object is not in local storage, we create it, otherwise we replace the count property.
+     ========================================================================== */
+
     function init() {
         var resolutionPaginationObj = articles.paginationOnResolution();
 
@@ -56,15 +65,19 @@
    * we replace the count property.
      ==============================================================*/
 
+    utility.generateListHTML(recentArticles, THUNDERSTORM.modules.articles.data);
+
     articlesParent.on('click', articleClickTriggers, function (ev) {
         ev.stopPropagation();
         var articleIndex = $(ev.target).closest('article')[0].getAttribute('data-article-index');
 
         var found = false;
         if (recentArticles.length > 0) {
+
             for (var i = 0; i < recentArticles.length; i++){
                 if (recentArticles[i].articleIndex === articleIndex) {
-                    recentArticles[i].count += 1;
+
+                    recentArticles.unshift(recentArticles[articleIndex]);
 
                     persistence.set({
                         data: recentArticles,
@@ -78,8 +91,7 @@
 
             if (found === false) {
                 recentArticles.push({
-                    articleIndex: articleIndex,
-                    count: 1
+                    articleIndex: articleIndex
                 });
                 articles.mostRecentArticles.latestArticlesAccessed = recentArticles;
 
@@ -92,8 +104,7 @@
         } else {
             persistence.set({
                 data: [{
-                    articleIndex: articleIndex,
-                    count: 1
+                    articleIndex: articleIndex
                 }],
                 sourceName: "latestArticlesAccessed"
             });
