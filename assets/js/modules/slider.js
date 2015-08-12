@@ -90,7 +90,6 @@
         setActiveBubble();
     });
 
-    
     var swipeFunction = {
         touches: {
             "touchstart": {"x": -1, "y": -1},
@@ -120,6 +119,8 @@
                                 // Continue here for previous and next button
                                 // alert(touches.direction);
                                 console.log(swipeFunction.touches.direction);
+                            } else {
+                              return;
                             }
                         default:
                             if (swipeFunction.touches.direction == 'left') {
@@ -143,9 +144,5 @@
     console.log(swipeFunction);
     console.log(swipeFunction.init);
     swipeFunction.init();
-
-    //utility.sortLatestArticlesAccessed(recentArticles);
-
-
     
 }(window.jQuery))

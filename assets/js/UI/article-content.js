@@ -27,12 +27,12 @@
             elementsObject = {titleContainer: titleContainer, infoAuthor: infoAuthor, infoDate: infoDate};
         viewMoreButton.append(icoViewMore);
 
-        if (currentArticle.hasGallery === true) {
+        if (currentArticle.hasGallery == true) {
             var gallery;
             currentArticle.sources.filter(function (item, index) {
                 gallery = $("<img>").attr("src", item);
                 $(".article__gallery").append(gallery);
-                if (index !== 0)
+                if (index != 0)
                     gallery.addClass("hidden");
             });
             $(".article__gallery").addClass("hasGallery");
@@ -158,8 +158,22 @@
                             }
                         default:
                             if (swipeFunction.touches.direction == 'left') {
+                                // debugger;
+                                var imgIndex = document.querySelector('.modal__image'),
+                                    $allGalleryImages = $(".article__gallery img");
+                                imgIndex = parseInt(imgIndex.getAttribute('data-index'));
+                                if (imgIndex+1 === $allGalleryImages.length ) {
+                                    return false;
+                                }
                                 $('.modal__next').click();
                             } else {
+                                 var imgIndex = document.querySelector('.modal__image'),
+                                    $allGalleryImages = $(".article__gallery img");
+                                imgIndex = parseInt(imgIndex.getAttribute('data-index'));
+                                   
+                                if (imgIndex === 0) {
+                                    return false;
+                                }
                                 $('.modal__prev').click();
                             }
                     }
@@ -179,7 +193,6 @@
     console.log(swipeFunction.init);
     swipeFunction.init();
 
-    utility.generateListHTML(recentArticles, THUNDERSTORM.modules.articles.data);
 
     /* ==========================================================================
      || Prev & Next // Buttons ||
@@ -238,7 +251,6 @@
          ========================================================================== */
     }
 
-    
     function resetGallery() {
         $('.modal__prev').hide();
         $('.modal__next').show();
@@ -250,7 +262,7 @@
     }
 
     function initializeContainer() {
-        $('.container').css({position: 'initial'});
+        $('.container').css({position: 'static'});
     }
 
     buttonPrev();
@@ -262,3 +274,7 @@
  /* ==========================================================================
      || End of Prev & Next // Buttons ||
      ========================================================================== */
+
+
+
+
