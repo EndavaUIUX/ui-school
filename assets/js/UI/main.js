@@ -134,7 +134,7 @@
         loadNextPage();
     });
 
-    articlesParent.on('swipe', articlePages, function (e, Dx, Dy) {
+    articlesParent.on('swipe dragstart', articlePages, function (e, Dx, Dy) {
         var $this = $(this);
         var generatedPages = $('.article-page').length;
         var parentPage = $(e.target).closest(articlePages);
@@ -193,6 +193,9 @@
                         });
             }
         }
+        $('html, body').animate({
+             scrollTop: articlesParent.offset().top -80
+         }, 500);
     });
 
     $(window).on('orientationchange', function () {

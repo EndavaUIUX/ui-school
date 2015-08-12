@@ -22,7 +22,7 @@
     
     articles.mostRecentArticles = persistence.get("latestArticlesAccessed");
     utility.generateListHTML(articles.mostRecentArticles, THUNDERSTORM.modules.articles.data);
-    
+    recentArticles = articles.mostRecentArticles;
     /* =====================================================================
      * Functions.
      * function callback(). Need to define it here so as to
@@ -46,7 +46,14 @@
 
         articles.pages = articles.pagination(articles.filterArticles(params), params.itemsPerPage);
         articles.generateArticles(articles.pages[0], params);
-}
+        if (params.showLoadMore) {
+            $('.action').show();
+            $('.load-more').show();
+        } else {
+            $('.action').hide();
+            $('.load-more').hide();
+        }
+    }
 
     /* =====================================================================
      * Events.
@@ -113,6 +120,10 @@
         //the actual redirect
         window.location.href = "/article?" + articleIndex;
     });
+  
+  
+    
+  
   
    /* $(window).resize(function () {
         utility.clearArticles();
