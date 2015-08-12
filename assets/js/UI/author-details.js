@@ -30,9 +30,14 @@
     $hideMenu.click(function (e) {
         e.preventDefault();
         e.stopPropagation();
-        $menuRight.removeClass("show-menu-right");
-        $rightMinDiv.removeClass("hide-user-icon");
-        $rightMenuBackdrop.removeClass("show");
+        var targetEl = $(e.target);
+        if(!targetEl.is('.menu-right')
+            && !targetEl.is('.article-recent h2')
+            && !targetEl.is('.recent-list a')) {
+            $menuRight.removeClass("show-menu-right");
+            $rightMinDiv.removeClass("hide-user-icon");
+            $rightMenuBackdrop.removeClass("show");
+        }
     });
 }());
 

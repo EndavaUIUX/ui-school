@@ -28,8 +28,16 @@
     $hideMenu.click(function (e){
         e.preventDefault();
         e.stopPropagation();
-        $menuLeft.removeClass("show-menu-left");
-        $leftMenuBackdrop.removeClass("show");
+        var targetEl = $(e.target);
+        if(!targetEl.is(".menu-left")
+            && !targetEl.is(".menu-left .search-article")
+            && !targetEl.is(".menu-left .link")
+            && !targetEl.is(".menu-left .editor-mode")
+            && !targetEl.is(".menu-left p")
+            && !targetEl.is(".menu-left .left-word")) {
+            $menuLeft.removeClass("show-menu-left");
+            $leftMenuBackdrop.removeClass("show");
+        }
 
     });
 
@@ -53,7 +61,9 @@
             && !targetEl.is('.right-menu-backdrop')
             && !targetEl.is('.menu-right')
             && !targetEl.is('.article-recent h2')
-            && !targetEl.is('.menu')) {
+            && !targetEl.is('.menu')
+            && !targetEl.is('.recent-list a')
+            && !targetEl.is(".menu-left .left-word")) {
 
             $('nav.menu-left').removeClass('show-menu-left');
             $('.left-menu-backdrop').removeClass("show");

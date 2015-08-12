@@ -225,8 +225,6 @@ p {
 ul {
   list-style: none;
   padding: 0;
-  border-bottom: 1px solid #ebebeb;
-  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.14);
 }
 nav {
   width: 100%;
@@ -345,9 +343,6 @@ nav a:hover {
 .left-word:hover {
   background-color: #c0c0c0;
 }
-.hideHamburger {
-  display: none;
-}
 @media only screen and (min-width: 1px) and (max-width: 599px) {
   .left-menu-backdrop {
     position: fixed;
@@ -366,6 +361,11 @@ nav a:hover {
     width: 100%;
     height: auto;
     min-height: 0%;
+  }
+  .left-menu-backdrop nav ul,
+  .left-menu-backdrop .menu-left ul {
+    border-bottom: 1px solid #ebebeb;
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.14);
   }
   .left-menu-backdrop nav a,
   .left-menu-backdrop .menu-left a {
