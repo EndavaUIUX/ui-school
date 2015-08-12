@@ -237,7 +237,7 @@
          || End of Prev & Next // Buttons ||
          ========================================================================== */
     }
-    
+
     function resetGallery() {
         $('.modal__prev').hide();
         $('.modal__next').show();
@@ -249,7 +249,7 @@
     }
 
     function initializeContainer() {
-        $('.container').css({position: 'initial'});
+        $('.container').css({position: 'static'});
     }
 
     buttonPrev();

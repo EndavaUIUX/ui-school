@@ -915,7 +915,8 @@ article h2:hover {
   background-color: #fbe9e0;
 }
 .article-page {
-  transition: 0.5s all ease;
+  position: relative;
+  /* transition:0.5s all ease;*/
 }
 .article-page:hover {
   cursor: move;

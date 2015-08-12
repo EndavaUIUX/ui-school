@@ -10,6 +10,7 @@
     var persistence = THUNDERSTORM.modules.persistence;
     var utility = THUNDERSTORM.modules.utility;
     var loadMore = $('.load-more');
+    var recentArticles;
     var articleClickTriggers =  'article h2,' +
                                 '.article__title,' +
                                 '.article-info img,' +
@@ -20,8 +21,7 @@
     init();
     
     articles.mostRecentArticles = persistence.get("latestArticlesAccessed");
-
-   // utility.sortLatestArticlesAccessed(articles.mostRecentArticles);
+    recentArticles = articles.mostRecentArticles;
     utility.generateListHTML(articles.mostRecentArticles, THUNDERSTORM.modules.articles.data);
     
     /* =====================================================================
@@ -67,12 +67,54 @@
         articles.toggleLoadMore(page);
     });
     
-    articlesParent.on('click', articleClickTriggers, function (ev) {
+  articlesParent.on('click', articleClickTriggers, function (ev) {
         ev.stopPropagation();
         var articleIndex = $(ev.target).closest('article')[0].getAttribute('data-article-index');
+
+        var found = false;
+        if (recentArticles.length > 0) {
+
+            for (var i = 0; i < recentArticles.length; i++){
+                if (recentArticles[i].articleIndex === articleIndex) {
+                    recentArticles.splice(i, 1);
+                    var newObj = {articleIndex : articleIndex};
+                    recentArticles.push(newObj);
+
+                    persistence.set({
+                        data: recentArticles,
+                        sourceName: "latestArticlesAccessed"
+                    });
+
+                    found = true;
+                    break;
+                }
+            }
+
+            if (found === false) {
+                recentArticles.push({
+                    articleIndex: articleIndex
+                });
+                articles.mostRecentArticles.latestArticlesAccessed = recentArticles;
+
+                persistence.set({
+                    data: recentArticles,
+                    sourceName: "latestArticlesAccessed"
+                });
+            }
+
+        } else {
+            persistence.set({
+                data: [{
+                    articleIndex: articleIndex
+                }],
+                sourceName: "latestArticlesAccessed"
+            });
+        }
+
         //the actual redirect
         window.location.href = "/article?" + articleIndex;
     });
+  
    /* $(window).resize(function () {
         utility.clearArticles();
         loadMore[0].setAttribute('data-page', 1);
