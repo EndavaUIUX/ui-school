@@ -27,12 +27,12 @@
             elementsObject = {titleContainer: titleContainer, infoAuthor: infoAuthor, infoDate: infoDate};
         viewMoreButton.append(icoViewMore);
 
-        if (currentArticle.hasGallery === true) {
+        if (currentArticle.hasGallery == true) {
             var gallery;
             currentArticle.sources.filter(function (item, index) {
                 gallery = $("<img>").attr("src", item);
                 $(".article__gallery").append(gallery);
-                if (index !== 0)
+                if (index != 0)
                     gallery.addClass("hidden");
             });
             $(".article__gallery").addClass("hasGallery");
@@ -156,15 +156,22 @@
                             }
                         default:
                             if (swipeFunction.touches.direction == 'left') {
-                                // if (  article['sources'].length) {
-                                //     returl false;
-                                // }
+                                // debugger;
+                                var imgIndex = document.querySelector('.modal__image'),
+                                    $allGalleryImages = $(".article__gallery img");
+                                imgIndex = parseInt(imgIndex.getAttribute('data-index'));
+                                if (imgIndex+1 === $allGalleryImages.length ) {
+                                    return false;
+                                }
                                 $('.modal__next').click();
                             } else {
-
-                                // if(  article['sources'].length ) {
-                                //     return false
-                                // }
+                                 var imgIndex = document.querySelector('.modal__image'),
+                                    $allGalleryImages = $(".article__gallery img");
+                                imgIndex = parseInt(imgIndex.getAttribute('data-index'));
+                                   
+                                if (imgIndex === 0) {
+                                    return false;
+                                }
                                 $('.modal__prev').click();
                             }
                     }
@@ -184,7 +191,6 @@
     console.log(swipeFunction.init);
     swipeFunction.init();
 
-    utility.generateListHTML(recentArticles, THUNDERSTORM.modules.articles.data);
 
     /* ==========================================================================
      || Prev & Next // Buttons ||
@@ -259,3 +265,7 @@
  /* ==========================================================================
      || End of Prev & Next // Buttons ||
      ========================================================================== */
+
+
+
+
