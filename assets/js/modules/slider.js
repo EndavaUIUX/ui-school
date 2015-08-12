@@ -128,6 +128,17 @@
                                 // Continue here for previous and next button
                                 // alert(touches.direction);
                                 console.log(swipeFunction.touches.direction);
+
+                                var activeBubbleIndex = $('bubble--active').data('index');
+
+                                if (swipeFunction.touch.direction == 'left') {
+                                    var travellength = getTravelLength (activeBubbleIndex + 1)
+                                    swipeFunction.init();
+                                } else {
+                                    var travellength = GettTravelLength (activeBubbleIndex - 1)
+                                    swipeFunction.init();
+                                }
+
                             }
                         default:
                             
