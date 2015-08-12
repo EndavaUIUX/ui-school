@@ -47,7 +47,6 @@
             showLoadMore : resolutionPaginationObj.showLoadMore
         });
          recentArticles = articles.mostRecentArticles;
-      //  utility.sortLatestArticlesAccessed(recentArticles);
         utility.generateListHTML(recentArticles, THUNDERSTORM.modules.articles.data);
     }
     

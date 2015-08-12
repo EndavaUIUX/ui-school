@@ -167,7 +167,6 @@
         var menuRight = $('.article-recent'),
             titleListParent = $("<ul></ul>").addClass('recent-list');
 
-
             for(var i = 0; i < latestArticlesAccessed.length; i++) {
                 var listItem = $("<li></li>"),
                     articleIndex = latestArticlesAccessed[i].articleIndex,

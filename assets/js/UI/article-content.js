@@ -18,7 +18,7 @@
             articleUrlNumber = utility.validateURL(pageUrl, THUNDERSTORM.modules.articles.data['articles']),
             article = THUNDERSTORM.modules.articles.data['articles'][articleUrlNumber],
             currentArticle = utility.imageSourceGenerator(article),
-            viewMoreButton = $("<a></a>").html("View gallery").addClass("button__gallery").attr('href', '#'),
+            viewMoreButton = $("<a></a>").html("View gallery").addClass("button__gallery"),
             icoViewMore = $('<i></i>'),
             articleContent = $(".article__body"),
             titleContainer = $('.title'),
@@ -47,7 +47,7 @@
 
                         img = $('<img>').attr('src', currentArticle.sources[i]),
 
-                        sourceUrl = $('<a></a>').addClass('modal__source').attr('href', '#').html(utility.takeDomainUrl(currentArticle.sources[i]));
+                        sourceUrl = $('<a></a>').addClass('modal__source').html(utility.takeDomainUrl(currentArticle.sources[i]));
 
                 if (i !== 0) {
                     modalImage.hide();
