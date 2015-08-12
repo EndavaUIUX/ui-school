@@ -2,62 +2,79 @@
     'use strict';
     var $menu = $('.menu'),
         $menuLeft = $('nav.menu-left'),
-        $hideMenu = $('.hide-menu'),
+        $hideMenu = $('.hide-menu, .left-menu-backdrop'),
         $menuLeftInput = $('.menu-left input'),
-        $leftMenuBackdrop = $('.left-menu-backdrop'),
-        $menuRight = $('.menu-right'),
-        $rightMinDiv = $('.rightminidiv'),
-        $profile = $('.profile'),
-        $user = $('.user'),
-        $title = $('.title-recent'),
-        $rightMenuBackdrop = $('.right-menu-backdrop'),
-        $leftthird = $('.leftthird');
+        $leftMenuBackdrop = $('.left-menu-backdrop');
+
 
     $menu.click(function (e) {
+        e.preventDefault();
         e.stopPropagation();
+
+        var $menuRight = $('.menu-right'),
+            $rightMenuBackdrop = $('.right-menu-backdrop'),
+            $rightMinDiv = $('.rightminidiv');
+
         if (!$menuLeft.hasClass("show-menu-left")) {
             $menuLeft.addClass("show-menu-left");
             $leftMenuBackdrop.addClass("show");
+
+            $menuRight.removeClass("show-menu-right");
+            $rightMinDiv.removeClass("hide-user-icon");
+            $rightMenuBackdrop.removeClass("show");
         }
     });
 
     $hideMenu.click(function (e){
+        e.preventDefault();
         e.stopPropagation();
-        $menuLeft.removeClass("show-menu-left");
-        $leftMenuBackdrop.removeClass("show");
+        var targetEl = $(e.target);
+        if(!targetEl.is(".menu-left")
+            && !targetEl.is(".menu-left .search-article")
+            && !targetEl.is(".menu-left .link")
+            && !targetEl.is(".menu-left .editor-mode")
+            && !targetEl.is(".menu-left p")
+            && !targetEl.is(".menu-left .left-word")) {
+            $menuLeft.removeClass("show-menu-left");
+            $leftMenuBackdrop.removeClass("show");
+        }
+
     });
 
     $('body').on("click tap touchend", function(e) {
         var targetEl = $(e.target),
-            $errorElement = $('.menu-left p');
+            $errorElement = $('.menu-left p'),
+            $menuRight = $('.menu-right'),
+            $rightMenuBackdrop = $('.right-menu-backdrop');
 
-        if ((!targetEl.is('.menu')
+        if (!targetEl.is('.menu')
             && !targetEl.is(".menu-left")
             && !targetEl.is(".menu-left .search-article")
             && !targetEl.is(".menu-left .link")
             && !targetEl.is(".menu-left .editor-mode")
             && !targetEl.is(".menu-left p")
             && !targetEl.is('.profile')
+            && !targetEl.is('.user')
+            && !targetEl.is('.user-name')
+            && !targetEl.is('.user-details')
+            && !targetEl.is('.left-menu-backdrop')
+            && !targetEl.is('.right-menu-backdrop')
             && !targetEl.is('.menu-right')
             && !targetEl.is('.article-recent h2')
-            && !targetEl.is('.menu')) || targetEl.is('.right-menu-backdrop.hide.show')) {
+            && !targetEl.is('.menu')
+            && !targetEl.is('.recent-list a')
+            && !targetEl.is(".menu-left .left-word")) {
 
             $('nav.menu-left').removeClass('show-menu-left');
-            $leftMenuBackdrop.removeClass("show");
-            //clear input search after press enter or submit
-            $('.menu-left input').val('');
-            
+            $('.left-menu-backdrop').removeClass("show");
+
             $menuRight.removeClass("show-menu-right");
             $rightMenuBackdrop.removeClass("show");
-            $rightMenuBackdrop.hide("fast");
-            $leftthird.removeClass("hideHamburger");
-            
+
+            $('.menu-left input').val('');
             THUNDERSTORM.modules.utility.cleanErrors($errorElement);
 
         }
-
-
-
     });
 
     $menuLeftInput.keypress(function(e) {

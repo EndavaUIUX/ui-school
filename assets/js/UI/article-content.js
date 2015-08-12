@@ -107,7 +107,6 @@
 
     $('body').on('click', function (ev) {
         var container = $('.modal');
-
         if (!container.is(ev.target) && container.has(ev.target).length === 0 && !$(ev.target).hasClass('.modal__close') && !$(ev.target).hasClass('button__gallery')) {
             THUNDERSTORM.modules.utility.dismissModal($('.modal'));
         }
@@ -116,16 +115,13 @@
     $('.button__gallery').on('click', function (ev) {
         $('.modal__prev').hide();
         resetGallery();
-        resetContainer();
+        buttonGallery();
         THUNDERSTORM.modules.utility.showModal($('.modal'));
 
     });
 
     $('.modal__close').on('click', function (ev) {
         THUNDERSTORM.modules.utility.dismissModal($('.modal'));
-        initialContainer();
-        buttonGallery();
-
     });
 
     var swipeFunction = {
@@ -143,24 +139,27 @@
                     touch = event.touches[0];
                     // console.log(event.type);
                     switch (event.type) {
-                    case 'touchstart':
-                    case 'touchmove':
-                        swipeFunction.touches[event.type].x = touch.pageX;
-                        swipeFunction.touches[event.type].y = touch.pageY;
-                        break;
-                    case 'touchend':
-                        // console.log('touchend');
-                        swipeFunction.touches[event.type] = true;
-                        if (swipeFunction.touches.touchstart.x > -1 && swipeFunction.touches.touchmove.x > -1) {
-                            swipeFunction.touches.direction = swipeFunction.touches.touchstart.x < swipeFunction.touches.touchmove.x ? "right" : "left";
+                        case 'touchstart':
+                        case 'touchmove':
+                            swipeFunction.touches[event.type].x = touch.pageX;
+                            swipeFunction.touches[event.type].y = touch.pageY;
+                            break;
+                        case 'touchend':
+                            // console.log('touchend');
+                            swipeFunction.touches[event.type] = true;
+                            if (swipeFunction.touches.touchstart.x > -1 && swipeFunction.touches.touchmove.x > -1) {
+                                swipeFunction.touches.direction = swipeFunction.touches.touchstart.x < swipeFunction.touches.touchmove.x ? "right" : "left";
 
-                            // Continue here for previous and next button
-                            // alert(touches.direction);
-                            console.log(swipeFunction.touches.direction);
-                        }
-                        break;
-                    default:
-                        break;
+                                // Continue here for previous and next button
+                                // alert(touches.direction);
+                                console.log(swipeFunction.touches.direction);
+                            }
+                        default:
+                            if (swipeFunction.touches.direction == 'left') {
+                                $('.modal__next').click();
+                            } else {
+                                $('.modal__prev').click();
+                            }
                     }
                 }
             }
@@ -238,19 +237,11 @@
     }
 
     
-    function resetGallery() {
-        $('.modal__prev').hide();
-        $('.modal__next').show();
-        $('.modal').css({height:'auto'});
-    }
-
-    function resetContainer() {
-        $('.container').css({position: 'fixed'});
-    }
-
-    function initialContainer() {
-        $('.container').css({position: 'initial'});
-    } 
+  function resetGallery(){
+    $('.modal__prev').hide();
+    $('.modal__next').show();
+    $('.modal').css({height:'auto'});
+ } 
 
     buttonPrev();
     buttonNext();
@@ -261,5 +252,3 @@
  /* ==========================================================================
      || End of Prev & Next // Buttons ||
      ========================================================================== */
-
-

@@ -9,10 +9,7 @@ p{
 .container{
     width:100%;
     overflow-x:hidden;
-   /* -moz-user-select: none;
-    -khtml-user-select: none;
-    -webkit-user-select: none;
-    user-select: none;*/
+    overflow-y: hidden;
 }
 
 .content{
@@ -28,7 +25,23 @@ p{
     display: block;
     zoom: 95%;
 }
+.clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
 
-.ui-loader{
-  display:none;
+.clearfix {
+    display: inline-block;
+}
+
+html[xmlns] .clearfix {
+    display: block;
+}
+
+* html .clearfix {
+    height: 1%;
 }
