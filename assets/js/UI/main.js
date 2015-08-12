@@ -67,7 +67,6 @@
    * If the object is not in local storage, we create it, otherwise
    * we replace the count property.
      ==============================================================*/
-
     articlesParent.on('click', articleClickTriggers, function (ev) {
         ev.stopPropagation();
         var articleIndex = $(ev.target).closest('article')[0].getAttribute('data-article-index');
@@ -197,7 +196,7 @@
              scrollTop: articlesParent.offset().top -80
          }, 200);
     });
-
+    
     $(window).on('orientationchange', function () {
             setTimeout(function () {
                 utility.clearArticles();
@@ -213,6 +212,6 @@
             alert('test');
     }, false);*/
 
-   /* $('img').on('dragstart', function (event) { event.preventDefault(); });*/
+   /*$('img').on('dragstart', function (event) { event.preventDefault(); });*/
 
 }(window, window.THUNDERSTORM, window.jQuery));
