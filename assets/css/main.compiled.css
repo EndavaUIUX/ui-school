@@ -1737,6 +1737,7 @@ article h2:hover {
     bottom: -23px;
     right: -1px;
     border-radius: 0px 0px 0px 3px;
+    background-color: white;
   }
   .overlay .modal .modal__images {
     min-height: auto;
@@ -1781,22 +1782,26 @@ article h2:hover {
     left: 20px;
   }
   .overlay .modal {
-    max-width: 46%;
+    top: 7%;
+    max-width: 70%;
     height: auto!important;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding-bottom: 21px;
   }
-  .overlay .modal .modal__next .modal__prev {
+  .overlay .modal .modal__next,
+  .overlay .modal .modal__prev {
     display: none!important;
   }
-  .overlay .modal .modal__close {
-    height: 20px;
-    width: 20px;
-    background-size: cover;
+}
+@media only screen and (min-width: 1px) and (max-width: 641px) and (orientation: landscape) {
+  .overlay .modal {
+    top: 7%;
+    max-width: 52%;
+    height: auto!important;
+    padding-bottom: 21px;
   }
-  .overlay .modal .modal__images .modal__source {
-    padding: 5px;
-    font-size: 10px;
+  .overlay .modal .modal__next,
+  .overlay .modal .modal__prev {
+    display: none!important;
   }
 }
 @media only screen and (min-width: 1200px) and (max-width: 1500px) {
