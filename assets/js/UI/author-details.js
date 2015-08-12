@@ -17,7 +17,6 @@
         $title.html("Most Recent Articles");
         if (!$menuRight.hasClass("show-menu-right")) {
             $menuRight.addClass("show-menu-right");
-            $rightMinDiv.addClass("hide-user-icon");
             $rightMenuBackdrop.addClass("show");
             $leftthird.addClass("hideHamburger");
         }
@@ -32,7 +31,7 @@
         $leftthird.removeClass("hideHamburger");
     });
 
-    $('body').on("click tap touchend", function (e) {
+   /* $('body').on("click tap touchend", function (e) {
         var targetEl = $(e.target);
         console.log("ccc",e.target);
 
@@ -42,10 +41,9 @@
             && !targetEl.is('.menu')) {
 
             $menuRight.removeClass("show-menu-right");
-            $rightMinDiv.removeClass("hide-user-icon");
             $rightMenuBackdrop.removeClass("show");
             $leftthird.removeClass("hideHamburger");
         }
-    });
+    });*/
 }());
 

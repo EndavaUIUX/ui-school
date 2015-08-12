@@ -1,22 +1,26 @@
 .footer {
-	width: 100%;
+    width: 100%;
     height: 90px;
-    margin-top: 60px;
+    /* margin-top: 60px; */
     border-top: 2px solid #E7E7E7;
-    margin: 0px auto;
+    margin-top: 42px;
+    margin-right: auto;
+    margin-bottom: 0px;
+    margin-left: auto;
     zoom: 95%;
     
     .footer__content {
         width: 1170px;
-        margin: 0 auto;
+        margin: 0px auto;
         height: 90px;
         
         .footer__subscribe {
         /* height: 50px; */
         /* width: 310px; */
+        width: 50%;
+        height: 100%;
         float: left;
         margin: 20px 0px;
-        
         
             .subscribe--input {
                 font-family: 'Lato-Regular', 'Lato';
@@ -26,6 +30,7 @@
                 input {
                     height: 50px;
                     width: 260px;
+                    box-sizing: border-box;
                     font-family: 'Lato-Regular', 'Lato';
                     font-size: 18px;                    
                     padding-left: 8px;
@@ -33,12 +38,12 @@
                 
                .subscribe--action {
                     width: 50px;
-                    height: 56px;
+                    height: 50px;
                     background: url('../images/footer/arrow.jpg') no-repeat center;
                     background-color: #4D4D4D;
                     display: inline-block;
                     vertical-align: top;
-                    margin: 0px 0px 0px -4px;
+                    margin: 0px 0px 0px -5px;
                 } 
             }
 
@@ -46,12 +51,15 @@
         }
         
         .footer__logo {
-            float: right;
+                width: 50%;
+                height: 100%;
+                float: right;
 
             img {
                 height: 40px;
                 width: 115px;
                 margin: 20px 0px;
+                float: right;
             }       
         }
     }
@@ -64,5 +72,183 @@
 
 .hideError {
 	display: none;
+}
+
+
+@media only screen and (min-width: 600px) and (max-width: 1180px) {
+     
+    .footer {
+        
+        .footer__content {
+            width: 100%; 
+            
+            .footer__subscribe {
+                width: 47%;
+                height: 100%;
+                float: left;
+                margin: 20px 0px;
+                margin-left: 3%;
+
+                .subscribe--input {
+
+                    input {
+                        height: 40px;
+                        width: 200px;
+                        font-size: 15px;    
+                        
+                    }
+
+                    .subscribe--action {
+                        width: 40px;
+                        height: 40px;
+                    }
+                }
+            }  
+            
+            .footer__logo {
+
+                img {
+                    padding-right: 7%;
+                }
+            }
+             
+        }
+        
+    }
+}
+
+
+@media only screen and (min-width: 450px) and (max-width: 599px) {
+     
+    .footer {
+        
+        .footer__content {
+            width: 100%; 
+            
+            .footer__subscribe {
+                width: 57%;
+                height: 100%;
+                float: left;
+                margin: 20px 0px;
+                margin-left: 3%;
+
+                .subscribe--input {
+
+                    input {
+                        height: 40px;
+                        width: 200px;
+                        font-size: 15px;    
+                    }
+
+                    .subscribe--action {
+                        width: 40px;
+                        height: 40px;
+                        margin: 0px 0px 0px -5px;
+                    }
+                    
+                }
+
+            }  
+            
+            .footer__logo {
+                width: 40%;
+                img {
+                    padding-right: 7%;
+                }
+            }
+             
+        }
+        
+    }
+}
+
+
+@media only screen and (min-width: 315px) and (max-width: 449px) {
+     
+    .footer {
+        
+        .footer__content {
+            width: 100%; 
+            
+            .footer__subscribe {
+                width: 67%;
+                height: 100%;
+                float: left;
+                margin: 20px 0px;
+                margin-left: 3%;
+
+                .subscribe--input {
+
+                    input {
+                        height: 30px;
+                        width: 170px;
+                        font-size: 13px;   
+                    }
+
+                    .subscribe--action {
+                        width: 30px;
+                        height: 30px;
+                        margin: 0px 0px 0px -5px;
+                    }
+                }
+            }  
+            
+            .footer__logo {
+                width: 30%;
+                
+                img {
+                    padding-right: 7%;
+                    height: 30px;
+                    width: 90px;
+                }
+            }
+        }
+    }
+}
+
+
+@media only screen and (min-width: 1px) and (max-width:314px) {
+    .footer {
+        
+        .footer__content {
+            width: 100%; 
+            display: block;
+            
+            .footer__subscribe {
+                width: 96%;
+                height: 100%;
+                text-align: center;
+                margin: 20px 0px;
+                margin-left: 2%;
+                margin-right: 2px;
+                background-image: url("../images/footer/logo.jpg") no-repeat;
+                
+                .subscribe--input {
+
+                    input {
+                        height: 30px;
+                        width: 170px;
+                        font-size: 13px;      
+                        
+                    }
+
+                    .subscribe--action {
+                        width: 30px;
+                        height: 30px;
+                        margin: 0px 0px 0px -5px;
+                    }
+                }
+
+            }  
+            
+            .footer__logo {
+                display: none;
+                
+                img {
+                    display: none;
+                }
+            }
+        }
+    }
 }
 

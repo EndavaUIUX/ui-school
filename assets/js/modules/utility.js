@@ -3,8 +3,6 @@
     var utility = {};
 
     function nth(d) {
-        if (d > 3 && d < 21)
-            return 'th';
         switch (d % 10) {
         case 1:
             return "st";
@@ -16,26 +14,26 @@
             return "th";
         }
     }
-    utility.deviceGeneration = function () {
-        var devWidth = $(window).width();
-        var devHeight = $(window).height();
-        //alert(devWidth);//1024, por 768 
-        //alert(devHeight);//704, 960
+    
+    utility.clearArticles = function () {
+        var articleContainer = $('.main, .content--search');
+        articleContainer.empty();
     };
     
     utility.imageSourceGenerator = function (articleData) {
-        var imageSourceObj = {},
-            index;
+        var imageSourceObj = {};
+        var index;
+        var galleryLen = articleData.gallery.length;
         imageSourceObj.sources = [];
-        if (articleData.gallery.length > 0) {
+        if (galleryLen > 0) {
             imageSourceObj.hasGallery = true;
-            for (index = 0; index < articleData.gallery.length; index = index + 1) {
+            for (index = 0; index < galleryLen; index = index + 1) {
                 imageSourceObj.sources.push(articleData.gallery[index]);
             }
             imageSourceObj.sources.unshift(articleData.featuredImage);
         } else {
             imageSourceObj.hasGallery = false;
-            imageSourceObj.sources.push(articleData.featuredImage)
+            imageSourceObj.sources.push(articleData.featuredImage);
         }
         return imageSourceObj;
     };
@@ -49,12 +47,17 @@
 
     /*Format the article date in this format: //dd mm yyyy*/
     utility.dateFormatter = function (date, hasYear) {
-        var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+        var months = ['January', 'February', 'March', 'April',
+                      'May', 'June', 'July', 'August', 'September',
+                      'October', 'November', 'December'];
         date = date.split('-');
         if (hasYear) {
-            return months[parseInt(date[1], 10)] + " " + parseInt(date[0], 10) + nth(date[0]) + ", " + date[2];
+            return  months[parseInt(date[1], 10)] + " " +
+                    parseInt(date[0], 10) +
+                    nth(date[0]) + ", " + date[2];
         }
-        return months[parseInt(date[1], 10)] + " " + parseInt(date[0], 10) + nth(date[0]);
+        return  months[parseInt(date[1], 10)] + " " +
+                parseInt(date[0], 10) + nth(date[0]);
     };
 
     utility.nameFormatter = function (name, stripLast) {
@@ -78,7 +81,11 @@
     utility.validateURL =  function (url, articles) {
         var articleNumber = url.split("?")[1],
             regex = new RegExp("^[0-9]+$");
-        if (url.indexOf("?") === -1 || articleNumber === "" || articleNumber >= articles.length || articleNumber < 0 || !regex.test(articleNumber)) {
+        if (url.indexOf("?") === -1 ||
+                articleNumber === "" ||
+                articleNumber >= articles.length ||
+                articleNumber < 0 ||
+                !regex.test(articleNumber)) {
             window.location.href = "/";
         }
         return parseInt(articleNumber, 10);
@@ -93,26 +100,26 @@
     utility.dismissModal = function ($modalSelector) {
         var $overlay = $('.overlay');
         $overlay.fadeOut();
-        $modalSelector.fadeOut();      
+        $modalSelector.fadeOut();
     };
 
 
      // ACCEPT LETTERS / NUMBERS / : / & / - / LENGTH MORE THAN 0
-    utility.validateInput = function(inputValue, errorElement) {
-            var regex = new RegExp("^[a-zA-Z0-9-& ]+$");
+    utility.validateInput = function (inputValue, errorElement) {
+        var regex = new RegExp("^[a-zA-Z0-9-& ]+$");
 
-            utility.cleanErrors(errorElement);
-            if (inputValue.length === 0 || !regex.test(inputValue)) {
-                $(".errorContainer").html("The input value is not valid.");
-                errorElement.removeClass('hideError');
-                errorElement.addClass('errorSearch');
-                return false;
-            }
-            return true;
+        utility.cleanErrors(errorElement);
+        if (inputValue.length === 0 || !regex.test(inputValue)) {
+            $(".errorContainer").html("The input value is not valid.");
+            errorElement.removeClass('hideError');
+            errorElement.addClass('errorSearch');
+            return false;
+        }
+        return true;
     };
 
     // add & remove paragraph if i have or not invalid text input
-    utility.cleanErrors = function(element) {
+    utility.cleanErrors = function (element) {
         element.removeClass('errorSearch');
         element.addClass('hideError');
         $(".errorContainer").html("");
@@ -121,17 +128,14 @@
    // split the current url from gallery[]
    // check http https www
    //save the rest url until /
-   utility.takeDomainUrl = function (url) {
-        var domain = "";
-        var page = ""; 
-
+    utility.takeDomainUrl = function (url) {
         if (url.indexOf("http://") !== -1) {
             url = url.substr(7);
-        } 
+        }
 
         if (url.indexOf("https://") !== -1) {
             url = url.substr(8);
-        } 
+        }
 
         if (url.indexOf("www.")  !== -1) {
             url = url.substr(4);
@@ -139,7 +143,7 @@
         return url.split('/')[0];
     };
 
-    utility.clipText = function (description, clipLimit){
+    utility.clipText = function (description, clipLimit) {
         var text;
         if (description.length > clipLimit) {
             text = description.substr(0, clipLimit);
@@ -165,15 +169,15 @@
 
         do {
             found = false;
-            for(var index = 0; index < article.length - 1; index++) {
-                if(article[index].count > article[index + 1].count) {
+            for (var index = 0; index < article.length - 1; index = index + 1) {
+                if (article[index].count > article[index + 1].count) {
                     temp = article[index].count;
                     article[index].count = article[index + 1].count;
                     article[index + 1].count = temp;
                     found = true;
                 }
             }
-        } while(found);
+        } while (found);
 
         return utility.generateListHTML(article, THUNDERSTORM.modules.articles.data);
     };
@@ -182,22 +186,22 @@
         var menuRight = $('.article-recent'),
             titleListParent = $("<ul></ul>").addClass('recent-list');
 
-        for(var i = 0; i < latestArticlesAccessed.length; i++) {
-            if(latestArticlesAccessed[i].articleIndex < 10){
+        for (var i = 0; i < latestArticlesAccessed.length; i = i + 1) {
+            if (latestArticlesAccessed[i].articleIndex < 10) {
                 var listItem = $("<li></li>"),
                     articleIndex = latestArticlesAccessed[i].articleIndex,
                     linkRedirect = $('<a></a>').attr("href", "article?" + latestArticlesAccessed[i].articleIndex);
 
-                linkRedirect.html(utility.clipText(allArticles["articles"][articleIndex].title, 20));
+                linkRedirect.html(utility.clipText(allArticles.articles[articleIndex].title, 20));
 
                 listItem.append(linkRedirect);
-                titleListParent.append(listItem);
-                //titleListParent.prepend(listItem);
+                //titleListParent.append(listItem);
+                titleListParent.prepend(listItem);
             }
         }
         menuRight.append(titleListParent);
     };
-    utility.deviceGeneration();
+
     THUNDERSTORM.modules.utility = utility;
 
 }(window, window.THUNDERSTORM, window.jQuery));
