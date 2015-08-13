@@ -189,7 +189,7 @@
             return {
                 itemsPerPage : 5,
                 needRecent : true,
-                showLoadMore : true
+                showLoadMore : false
             };
         }
         //if phone landscape
@@ -197,7 +197,7 @@
             return {
                 itemsPerPage : 3,
                 needRecent : true,
-                showLoadMore : true
+                showLoadMore : false
             };
         }
         //if phone portrait and very small widths
@@ -205,7 +205,7 @@
             return {
                 itemsPerPage : 1,
                 needRecent : false,
-                showLoadMore : true
+                showLoadMore : false
             };
         }
     };
@@ -257,7 +257,7 @@
             additionIndex = options.carryIndex + 1 || 0;
             //+1 pentru ca i-ul porneste de la 0;
         var page = $('.load-more')[0].getAttribute('data-page');
-        var $pageWrapper = $('<div></div>').addClass('article-page clearfix');
+        var $pageWrapper = $('<div></div>').addClass('article-page clearfix').attr('draggable', true);
         for (i = 0; i < data.length; i = i + 1) {
             if (data.length === options.itemsPerPage &&
                 recentGenerated === false && options.needRecent === true) {

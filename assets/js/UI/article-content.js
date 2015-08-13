@@ -10,7 +10,8 @@
     var persistence = THUNDERSTORM.modules.persistence;
     THUNDERSTORM.modules.articles.mostRecentArticles = persistence.get("latestArticlesAccessed");
     var recentArticles = THUNDERSTORM.modules.articles.mostRecentArticles,
-        utility = THUNDERSTORM.modules.utility;
+    utility = THUNDERSTORM.modules.utility;
+    utility.generateListHTML(recentArticles, THUNDERSTORM.modules.articles.data);
 
     function populateArticlePage() {
         var pageUrl = window.location.href,
@@ -18,7 +19,7 @@
             articleUrlNumber = utility.validateURL(pageUrl, THUNDERSTORM.modules.articles.data['articles']),
             article = THUNDERSTORM.modules.articles.data['articles'][articleUrlNumber],
             currentArticle = utility.imageSourceGenerator(article),
-            viewMoreButton = $("<a></a>").html("View gallery").addClass("button__gallery").attr('href', '#'),
+            viewMoreButton = $("<a></a>").html("View gallery").addClass("button__gallery"),
             icoViewMore = $('<i></i>'),
             articleContent = $(".article__body"),
             titleContainer = $('.title'),
@@ -47,7 +48,7 @@
 
                         img = $('<img>').attr('src', currentArticle.sources[i]),
 
-                        sourceUrl = $('<a></a>').addClass('modal__source').attr('href', '#').html(utility.takeDomainUrl(currentArticle.sources[i]));
+                        sourceUrl = $('<a></a>').addClass('modal__source').html(utility.takeDomainUrl(currentArticle.sources[i]));
 
                 if (i !== 0) {
                     modalImage.hide();
@@ -107,7 +108,6 @@
 
     $('body').on('click', function (ev) {
         var container = $('.modal');
-
         if (!container.is(ev.target) && container.has(ev.target).length === 0 && !$(ev.target).hasClass('.modal__close') && !$(ev.target).hasClass('button__gallery')) {
             THUNDERSTORM.modules.utility.dismissModal($('.modal'));
         }
@@ -115,16 +115,16 @@
 
     $('.button__gallery').on('click', function (ev) {
         $('.modal__prev').hide();
+        resetContainer();
         resetGallery();
+        buttonGallery();
         THUNDERSTORM.modules.utility.showModal($('.modal'));
 
     });
 
     $('.modal__close').on('click', function (ev) {
         THUNDERSTORM.modules.utility.dismissModal($('.modal'));
-
-        buttonGallery();
-
+        initializeContainer();
     });
 
     var swipeFunction = {
@@ -158,7 +158,25 @@
                                 console.log(swipeFunction.touches.direction);
                             }
                         default:
-                            break;
+                            if (swipeFunction.touches.direction == 'left') {
+                                // debugger;
+                                var imgIndex = document.querySelector('.modal__image'),
+                                    $allGalleryImages = $(".article__gallery img");
+                                imgIndex = parseInt(imgIndex.getAttribute('data-index'));
+                                if (imgIndex+1 === $allGalleryImages.length ) {
+                                    return false;
+                                }
+                                $('.modal__next').click();
+                            } else {
+                                 var imgIndex = document.querySelector('.modal__image'),
+                                    $allGalleryImages = $(".article__gallery img");
+                                imgIndex = parseInt(imgIndex.getAttribute('data-index'));
+                                   
+                                if (imgIndex === 0) {
+                                    return false;
+                                }
+                                $('.modal__prev').click();
+                            }
                     }
                 }
             }
@@ -175,8 +193,6 @@
     console.log(swipeFunction);
     console.log(swipeFunction.init);
     swipeFunction.init();
-
-    utility.sortLatestArticlesAccessed(recentArticles);
 
 
     /* ==========================================================================
@@ -236,12 +252,19 @@
          ========================================================================== */
     }
 
-    
-  function resetGallery(){
-    $('.modal__prev').hide();
-    $('.modal__next').show();
-    $('.modal').css({height:'auto'});
- } 
+    function resetGallery() {
+        $('.modal__prev').hide();
+        $('.modal__next').show();
+        $('.modal').css({height: 'auto'});
+    }
+
+    function resetContainer() {
+        $('.container').css({position: 'fixed'});
+    }
+
+    function initializeContainer() {
+        $('.container').css({position: 'static'});
+    }
 
     buttonPrev();
     buttonNext();
