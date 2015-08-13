@@ -7,7 +7,7 @@
     margin-bottom: 50px;
     position: relative;
     .article__content{
-        width: 600px;
+        width: 50%;
         height: 377px;
         float:left;
         position: absolute;
@@ -83,31 +83,23 @@
         height: 100%;
         width: 50%;
         float: right;
-        cursor: pointer; 
-
+        cursor: pointer;
         -webkit-transition: 0.5s ease;
         -moz-transition: 0.5s ease;
+        text-align: center;
 
         img{
-            height: 100%;
-            width:100%;
-            margin-right: auto;
-            margin-left: auto;
-            display: block;
+            display: inline-block;
+            vertical-align: middle;
+            max-height: 100%;
+            max-width: 100%;
+            -webkit-transition: 0.5s ease;
         }
     }
 
     .article__img:hover{ 
         box-sizing: border-box;
         opacity: 0.6;
-
-
-        img{
-            height: 98%;
-            margin-right: auto;
-            margin-left: auto;
-            display: block;
-        }
     }
 }
 
@@ -317,9 +309,25 @@ article h2:hover {
 
 .article-page{
     position: relative;
+    -moz-user-select: none; /* These user-select properties are inheritable, used to prevent text selection */
+    -webkit-user-select: none;
+    -ms-user-select: none; /* From IE10 only */
+    user-select: none; /* Not valid CSS yet, as of July 2012 */
    /* transition:0.5s all ease;*/
     &:hover{
         cursor: move;
     }
+    img{
+    -moz-user-select: none; /* These user-select properties are inheritable, used to prevent text selection */
+    -webkit-user-select: none;
+    -ms-user-select: none; /* From IE10 only */
+    user-select: none; /* Not valid CSS yet, as of July 2012 */
+    }
+}
+.article__img:before{
+    content: ' ';
+    display: inline-block;
+    vertical-align: middle;  /* vertical alignment of the inline element */
+    height: 100%;
 }
 
