@@ -16,4 +16,38 @@
 		
 	</div>
 </footer>
+<script>
+(function ($) {
+	$(document).ready(function () {
+				var $input = $('[name =\'newsletter\']');
+				var $footerSubscribe = $('.footer__subscribe');
+				var isSubscribed = THUNDERSTORM.modules.persistence.get({sourceName : 'subscribed'});
+				if (isSubscribed === true) {
+          	$footerSubscribe.hide();
+        }
+				
+				$input.keypress(function (e) {
+						var $this = $(this);
+						var value = $this.val();
+						var emailList;
+						if (e.keyCode === 13) {
+							if (isEmail(value)) {
+									window.localStorage.setItem('subscribed', 'true');
+									emailList = JSON.parse(window.localStorage.getItem('emailList')) || [];
+									emailList.push(value);
+									window.localStorage.setItem('emailList', JSON.stringify(emailList));
+									$footerSubscribe.hide();
+							} else {
+								alert('fail');
+							}
+						}
+				});
+		
+				function isEmail(email) {
+					var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+					return regex.test(email);
+				}
+	});
+}(window.jQuery));
+</script>
 
