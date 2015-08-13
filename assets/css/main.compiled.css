@@ -130,7 +130,6 @@ p {
   width: 1170px;
   margin: 50px auto;
   display: block;
-  zoom: 95%;
 }
 .clearfix:after {
   content: ".";
@@ -548,7 +547,7 @@ nav a:hover {
     background-color: #f7f7f7;
     width: 100%;
     height: auto;
-    min-height: 0%;
+    min-height: 23%;
     border-bottom: 1px solid #ebebeb;
     box-shadow: 0 3px 3px rgba(0, 0, 0, 0.14);
   }
@@ -921,6 +920,7 @@ article h2:hover {
   background-color: #fbe9e0;
 }
 .article-page {
+  width: 100%;
   position: relative;
   -moz-user-select: none;
   /* These user-select properties are inheritable, used to prevent text selection */
@@ -932,7 +932,7 @@ article h2:hover {
   /* transition:0.5s all ease;*/
 }
 .article-page:hover {
-  /* cursor: move;*/
+  cursor: move;
 }
 .article-page img {
   -moz-user-select: none;
@@ -1866,9 +1866,7 @@ article h2:hover {
 .footer {
   width: 100%;
   height: 90px;
-  /* margin-top: 60px; */
   border-top: 2px solid #E7E7E7;
-  margin-top: 60px;
   margin-right: auto;
   margin-bottom: 0px;
   margin-left: auto;
