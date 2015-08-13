@@ -157,4 +157,4 @@
 
     swipeFunction.init();
     
-}(window.jQuery))
+}(window.jQuery));
