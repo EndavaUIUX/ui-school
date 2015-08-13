@@ -932,7 +932,7 @@ article h2:hover {
   /* transition:0.5s all ease;*/
 }
 .article-page:hover {
-  cursor: move;
+  /* cursor: move;*/
 }
 .article-page img {
   -moz-user-select: none;
@@ -1662,6 +1662,7 @@ article h2:hover {
   width: 54px;
   top: 50%;
   margin-top: -39px;
+  cursor: pointer;
 }
 .overlay .modal__close.modal-control {
   height: 54px;

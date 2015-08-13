@@ -136,7 +136,7 @@
         articles.toggleLoadMore(page);
     }
     
-    articlesParent.on('swipe dragstart', articlePages, function (e, Dx, Dy) {
+    articlesParent.on('swipe', articlePages, function (e, Dx, Dy) {
         var $this = $(this);
         var generatedPages = $('.article-page').length;
         var parentPage = $(e.target).closest(articlePages);

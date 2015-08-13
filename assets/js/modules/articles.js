@@ -257,7 +257,7 @@
             additionIndex = options.carryIndex + 1 || 0;
             //+1 pentru ca i-ul porneste de la 0;
         var page = $('.load-more')[0].getAttribute('data-page');
-        var $pageWrapper = $('<div></div>').addClass('article-page clearfix').attr('draggable', true);
+        var $pageWrapper = $('<div></div>').addClass('article-page clearfix');//.attr('draggable', true);
         for (i = 0; i < data.length; i = i + 1) {
             if (data.length === options.itemsPerPage &&
                 recentGenerated === false && options.needRecent === true) {
