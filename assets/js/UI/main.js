@@ -21,8 +21,7 @@
     var key = 'articles';
     var recentArticles;
     var articlePages = '.article-page';
-    articles.mostRecentArticles = persistence.get("latestArticlesAccessed");
-    recentArticles = articles.mostRecentArticles;
+
     //utility.sortLatestArticlesAccessed(recentArticles);
   /* ================================================================
      Functions
@@ -43,7 +42,7 @@
                  scrollTop: articlesParent.offset().top -90
              }, 200);
         }
-        articles.mostRecentArticles = persistence.get("latestArticlesAccessed");
+
         articles.init({
             sourceName : key,
             articlesParent : articlesParent,
@@ -53,8 +52,6 @@
             itemsPerPage : resolutionPaginationObj.itemsPerPage,
             showLoadMore : resolutionPaginationObj.showLoadMore
         });
-         recentArticles = articles.mostRecentArticles;
-        utility.generateListHTML(recentArticles, THUNDERSTORM.modules.articles.data);
     }
     
   /* ================================================================
@@ -63,6 +60,9 @@
 
     init();
     
+    articles.mostRecentArticles = persistence.get("latestArticlesAccessed");
+    recentArticles = articles.mostRecentArticles;
+    utility.generateListHTML(recentArticles, THUNDERSTORM.modules.articles.data);
   /* ================================================================
    * Event listeners Set in local storage an object latest articles
    * accessed with the key "latestArticlesAccessed", which contains
