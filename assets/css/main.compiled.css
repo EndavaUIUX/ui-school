@@ -181,6 +181,14 @@ p {
   margin-right: auto;
   padding-top: 14px;
 }
+.userProfile {
+  float: right;
+  width: 90px;
+}
+.menuHamburger {
+  float: left;
+  width: 90px;
+}
 .profile {
   float: right;
   padding: 10px 20px 10px 0px;
