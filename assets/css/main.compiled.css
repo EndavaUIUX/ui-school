@@ -130,7 +130,6 @@ p {
   width: 1170px;
   margin: 50px auto;
   display: block;
-  zoom: 95%;
 }
 .clearfix:after {
   content: ".";
@@ -932,7 +931,7 @@ article h2:hover {
   /* transition:0.5s all ease;*/
 }
 .article-page:hover {
-  /* cursor: move;*/
+  cursor: move;
 }
 .article-page img {
   -moz-user-select: none;

@@ -87,17 +87,17 @@
     $.event.special.swipe = {
         setup: function(){
             $(this).bind('touchstart', $.event.special.swipe.handler);
-            //$(this).bind('dragstart', $.event.special.swipe.handler);
+            $(this).bind('dragstart', $.event.special.swipe.handler);
         },
 
         teardown: function(){
             $(this).unbind('touchstart', $.event.special.swipe.handler);
-           // $(this).bind('dragstart', $.event.special.swipe.handler);
+						$(this).bind('dragstart', $.event.special.swipe.handler);
         },
 
         handler: function(event){
             var args = [].slice.call( arguments, 1 ), // clone arguments array, remove original event from cloned array
-                touches = event.originalEvent.touches; //|| [{pageX :event.originalEvent.pageX, pageY :event.originalEvent.pageY }],
+                touches = event.originalEvent.touches || [{pageX :event.originalEvent.pageX, pageY :event.originalEvent.pageY }],
                 startX, startY,
                 deltaX = 0, deltaY = 0,
                 that = this;
@@ -108,18 +108,18 @@
                 startX = touches[0].pageX;
                 startY = touches[0].pageY;
                 this.addEventListener('touchmove', onTouchMove, false);
-               // this.addEventListener('drag', onTouchMove, false);
+                this.addEventListener('drag', onTouchMove, false);
             }
 
             function cancelTouch(){
                 that.removeEventListener('touchmove', onTouchMove);
-                //that.removeEventListener('drag', onTouchMove);
+                that.removeEventListener('drag', onTouchMove);
                 startX = startY = null;
             }
 
             function onTouchMove(e){
                 //e.preventDefault();
-                var touches = e.touches;// || [{pageX : e.pageX, pageY : e.pageY}];
+                var touches = e.touches || [{pageX : e.pageX, pageY : e.pageY}];
                 var Dx = startX - touches[0].pageX,
                     Dy = startY - touches[0].pageY;
 

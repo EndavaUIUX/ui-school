@@ -38,7 +38,11 @@
 
     function init() {
         var resolutionPaginationObj = articles.paginationOnResolution();
-        
+        if ($(window).width() > 600 && $(window).width() < 700) {
+            $('html, body').animate({
+                 scrollTop: articlesParent.offset().top -90
+             }, 200);
+        }
         articles.mostRecentArticles = persistence.get("latestArticlesAccessed");
         articles.init({
             sourceName : key,
@@ -67,6 +71,7 @@
    * If the object is not in local storage, we create it, otherwise
    * we replace the count property.
      ==============================================================*/
+    
     articlesParent.on('click', articleClickTriggers, function (ev) {
         ev.stopPropagation();
         var articleIndex = $(ev.target).closest('article')[0].getAttribute('data-article-index');
@@ -133,7 +138,7 @@
         loadNextPage();
     });
 
-    articlesParent.on('swipe', articlePages, function (e, Dx, Dy) {
+    articlesParent.on('swipe dragstart', articlePages, function (e, Dx, Dy) {
         var $this = $(this);
         var generatedPages = $('.article-page').length;
         var parentPage = $(e.target).closest(articlePages);
@@ -203,6 +208,9 @@
                 loadMore[0].setAttribute('data-page', 1);
                 init();
             }, 200);
+            $('html, body').animate({
+                 scrollTop: articlesParent.offset().top +50
+             }, 200);
     });
 
    /* window.addEventListener("orientationchange", function() {
