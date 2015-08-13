@@ -10,7 +10,8 @@
     var persistence = THUNDERSTORM.modules.persistence;
     THUNDERSTORM.modules.articles.mostRecentArticles = persistence.get("latestArticlesAccessed");
     var recentArticles = THUNDERSTORM.modules.articles.mostRecentArticles,
-        utility = THUNDERSTORM.modules.utility;
+    utility = THUNDERSTORM.modules.utility;
+    utility.generateListHTML(recentArticles, THUNDERSTORM.modules.articles.data);
 
     function populateArticlePage() {
         var pageUrl = window.location.href,
