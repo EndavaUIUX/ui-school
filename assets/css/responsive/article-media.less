@@ -233,14 +233,31 @@ and (max-width: 599px) {
     }
     
     .slider{
-      .slider__slide{
-        h2{
-          display:none;
+        .slider__slides{
+            .slider__slide{
+              .slider__meta{
+                  left: 50%;
+                  top: 50%;
+                  text-align: justify;
+                  margin-top: -45px;
+                  margin-left: -77px;
+                  h2{
+                    padding: 5px;
+                    border-radius: 2px;
+                    font-size:13px;
+                    text-align: center;
+                  }
+                  p{
+                    padding: 5px;
+                    border-radius: 2px;
+                    font-size:12px;
+                    text-align: center;
+                    width:auto;
+                  }
+              }
+      
+            }
         }
-        p{
-          display:none;
-        }
-      }
     }
 }
 

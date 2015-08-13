@@ -439,6 +439,9 @@ nav a:hover {
   .menu-left a,
   nav.menu-right a {
     font-size: 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   .menu-left .user,
   nav.menu-right .user {
@@ -657,7 +660,7 @@ nav a:hover {
   position: relative;
 }
 .latest__article .article__content {
-  width: 600px;
+  width: 50%;
   height: 377px;
   float: left;
   position: absolute;
@@ -725,23 +728,18 @@ nav a:hover {
   cursor: pointer;
   -webkit-transition: 0.5s ease;
   -moz-transition: 0.5s ease;
+  text-align: center;
 }
 .latest__article .article__img img {
-  height: 100%;
-  width: 100%;
-  margin-right: auto;
-  margin-left: auto;
-  display: block;
+  display: inline-block;
+  vertical-align: middle;
+  max-height: 100%;
+  max-width: 100%;
+  -webkit-transition: 0.5s ease;
 }
 .latest__article .article__img:hover {
   box-sizing: border-box;
   opacity: 0.6;
-}
-.latest__article .article__img:hover img {
-  height: 98%;
-  margin-right: auto;
-  margin-left: auto;
-  display: block;
 }
 .article__picture img {
   display: none;
@@ -924,10 +922,33 @@ article h2:hover {
 }
 .article-page {
   position: relative;
+  -moz-user-select: none;
+  /* These user-select properties are inheritable, used to prevent text selection */
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  /* From IE10 only */
+  user-select: none;
+  /* Not valid CSS yet, as of July 2012 */
   /* transition:0.5s all ease;*/
 }
 .article-page:hover {
   cursor: move;
+}
+.article-page img {
+  -moz-user-select: none;
+  /* These user-select properties are inheritable, used to prevent text selection */
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  /* From IE10 only */
+  user-select: none;
+  /* Not valid CSS yet, as of July 2012 */
+}
+.article__img:before {
+  content: ' ';
+  display: inline-block;
+  vertical-align: middle;
+  /* vertical alignment of the inline element */
+  height: 100%;
 }
 @media only screen and (min-width: 1180px) {
   .article-wrapper:nth-of-type(3n+3) {
@@ -1122,11 +1143,25 @@ article h2:hover {
     width: 15px;
     height: 15px;
   }
-  .slider .slider__slide h2 {
-    display: none;
+  .slider .slider__slides .slider__slide .slider__meta {
+    left: 50%;
+    top: 50%;
+    text-align: justify;
+    margin-top: -45px;
+    margin-left: -77px;
   }
-  .slider .slider__slide p {
-    display: none;
+  .slider .slider__slides .slider__slide .slider__meta h2 {
+    padding: 5px;
+    border-radius: 2px;
+    font-size: 13px;
+    text-align: center;
+  }
+  .slider .slider__slides .slider__slide .slider__meta p {
+    padding: 5px;
+    border-radius: 2px;
+    font-size: 12px;
+    text-align: center;
+    width: auto;
   }
 }
 @media only screen and (min-width: 612px) and (max-width: 1024px) {

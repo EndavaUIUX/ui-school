@@ -90,6 +90,7 @@
         setActiveBubble();
     });
 
+    
     var swipeFunction = {
         touches: {
             "touchstart": {"x": -1, "y": -1},
@@ -105,44 +106,55 @@
                     touch = event.touches[0];
                     // console.log(event.type);
                     switch (event.type) {
-                        case 'touchstart':
-                        case 'touchmove':
-                            swipeFunction.touches[event.type].x = touch.pageX;
-                            swipeFunction.touches[event.type].y = touch.pageY;
-                            break;
-                        case 'touchend':
-                            // console.log('touchend');
-                            swipeFunction.touches[event.type] = true;
-                            if (swipeFunction.touches.touchstart.x > -1 && swipeFunction.touches.touchmove.x > -1) {
-                                swipeFunction.touches.direction = swipeFunction.touches.touchstart.x < swipeFunction.touches.touchmove.x ? "right" : "left";
+                    case 'touchstart':
+                    case 'touchmove':
+                        swipeFunction.touches[event.type].x = touch.pageX;
+                        swipeFunction.touches[event.type].y = touch.pageY;
+                        break;
+                    case 'touchend':
+                        swipeFunction.touches[event.type] = true;
+                        if (swipeFunction.touches.touchstart.x > -1 && swipeFunction.touches.touchmove.x > -1) {
+                            swipeFunction.touches.direction = swipeFunction.touches.touchstart.x < swipeFunction.touches.touchmove.x ? "right" : "left";
 
-                                // Continue here for previous and next button
-                                // alert(touches.direction);
-                                console.log(swipeFunction.touches.direction);
+                            //hardcodat
+                            var activeBubbleIndex = $('.bubble--active').data('index');
+                            if (swipeFunction.touches.direction === 'left') {
+                                if (activeBubbleIndex === $('.bubble').length) {
+                                    return false;
+                                }
+                                var travelLength = getTravelLength(activeBubbleIndex + 1);
+                                if (travelLength) {
+                                    move.call($('[data-index="' + (activeBubbleIndex + 1) + '"]'), travelLength);
+                                    swipeFunction.init();
+                                }
                             } else {
-                              return;
+                                if (activeBubbleIndex === 1) {
+                                    return false;
+                                }
+                               var travelLength = getTravelLength(activeBubbleIndex - 1);
+                                if (travelLength) {
+                                    move.call($('[data-index="' + (activeBubbleIndex - 1) + '"]'), travelLength);
+                                    swipeFunction.init();
+                                }
                             }
-                        default:
-                            if (swipeFunction.touches.direction == 'left') {
-                                $('.modal__next').click();
-                            } else {
-                                $('.modal__prev').click();
-                            }
+                        }
+                    default:
+                        break;
                     }
                 }
             }
         },
         init: function () {
             console.log('init');
-            var image = document.querySelector('.slider__slides img');
-            image.addEventListener('touchstart', swipeFunction.touchHandler, false);
-            image.addEventListener('touchmove', swipeFunction.touchHandler, false);
-            image.addEventListener('touchend', swipeFunction.touchHandler, false);
+            var images = document.querySelectorAll('.slider__slide img');
+            for(var i = 0; i < images.length; i++) {
+                images[i].addEventListener('touchstart', swipeFunction.touchHandler, false);
+                images[i].addEventListener('touchmove', swipeFunction.touchHandler, false);
+                images[i].addEventListener('touchend', swipeFunction.touchHandler, false);
+            }
         }
     };
 
-    console.log(swipeFunction);
-    console.log(swipeFunction.init);
     swipeFunction.init();
     
 }(window.jQuery))
