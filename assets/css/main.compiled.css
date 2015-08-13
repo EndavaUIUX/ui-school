@@ -161,6 +161,7 @@ html[xmlns] .clearfix {
   width: 33%;
   height: 100%;
   float: left;
+  cursor: pointer;
 }
 .righttwothirds {
   width: 67%;

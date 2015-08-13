@@ -118,31 +118,30 @@
                             if (swipeFunction.touches.touchstart.x > -1 && swipeFunction.touches.touchmove.x > -1) {
                                 swipeFunction.touches.direction = swipeFunction.touches.touchstart.x < swipeFunction.touches.touchmove.x ? "right" : "left";
 
-
                                 console.log(swipeFunction.touches.direction);
 
                                 //hardcodat
+                                
                                 var activeBubbleIndex = $('.bubble--active').data('index');
                                 if(swipeFunction.touches.direction == 'left') {
-                                    if(activeBubbleIndex == $('.bubble').length) {
+                                    if(activeBubbleIndex === $('.bubble').length) {
                                         return false;
                                     }
                                     var travelLength = getTravelLength(activeBubbleIndex + 1);
                                     if (travelLength) {
                                         move.call($('[data-index="' + (activeBubbleIndex + 1) + '"]'), travelLength);
-                                        swipeFunction.init();
                                     }
                                 } else {
-                                    if(activeBubbleIndex == 1) {
+                                    if(activeBubbleIndex === 1) {
                                         return false;
                                     }
                                    var travelLength = getTravelLength(activeBubbleIndex - 1);
                                     if (travelLength) {
                                         move.call($('[data-index="' + (activeBubbleIndex - 1) + '"]'), travelLength);
-                                        swipeFunction.init();
                                     }
                                 }
                             }
+
                         default:
                             break;
                     }
@@ -161,5 +160,7 @@
     };
 
     swipeFunction.init();
+
+    
     
 }(window.jQuery))
