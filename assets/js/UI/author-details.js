@@ -28,7 +28,7 @@
     });
 
     $hideMenu.click(function (e) {
-        e.preventDefault();
+        //e.preventDefault();
         e.stopPropagation();
         var targetEl = $(e.target);
         if(!targetEl.is('.menu-right')

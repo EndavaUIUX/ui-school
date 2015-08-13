@@ -106,44 +106,45 @@
                     touch = event.touches[0];
                     // console.log(event.type);
                     switch (event.type) {
-                        case 'touchstart':
-                            console.log('touchstart');
-                        case 'touchmove':
-                            swipeFunction.touches[event.type].x = touch.pageX;
-                            swipeFunction.touches[event.type].y = touch.pageY;
-                            break;
-                        case 'touchend':
-                             console.log('touchend');
-                            swipeFunction.touches[event.type] = true;
-                            if (swipeFunction.touches.touchstart.x > -1 && swipeFunction.touches.touchmove.x > -1) {
-                                swipeFunction.touches.direction = swipeFunction.touches.touchstart.x < swipeFunction.touches.touchmove.x ? "right" : "left";
+                    case 'touchstart':
+                    case 'touchmove':
+                        swipeFunction.touches[event.type].x = touch.pageX;
+                        swipeFunction.touches[event.type].y = touch.pageY;
+                        break;
+                    case 'touchend':
+                        swipeFunction.touches[event.type] = true;
+                        if (swipeFunction.touches.touchstart.x > -1 && swipeFunction.touches.touchmove.x > -1) {
+                            swipeFunction.touches.direction = swipeFunction.touches.touchstart.x < swipeFunction.touches.touchmove.x ? "right" : "left";
+
 
                                 console.log(swipeFunction.touches.direction);
 
-                                //hardcodat
                                 
-                                var activeBubbleIndex = $('.bubble--active').data('index');
-                                if(swipeFunction.touches.direction == 'left') {
-                                    if(activeBubbleIndex === $('.bubble').length) {
-                                        return false;
-                                    }
-                                    var travelLength = getTravelLength(activeBubbleIndex + 1);
-                                    if (travelLength) {
-                                        move.call($('[data-index="' + (activeBubbleIndex + 1) + '"]'), travelLength);
-                                    }
-                                } else {
-                                    if(activeBubbleIndex === 1) {
-                                        return false;
-                                    }
-                                   var travelLength = getTravelLength(activeBubbleIndex - 1);
-                                    if (travelLength) {
-                                        move.call($('[data-index="' + (activeBubbleIndex - 1) + '"]'), travelLength);
-                                    }
+                            //hardcodat
+                            var activeBubbleIndex = $('.bubble--active').data('index');
+                            if (swipeFunction.touches.direction === 'left') {
+                                if (activeBubbleIndex === $('.bubble').length) {
+                                    return false;
+                                }
+                                var travelLength = getTravelLength(activeBubbleIndex + 1);
+                                if (travelLength) {
+                                    move.call($('[data-index="' + (activeBubbleIndex + 1) + '"]'), travelLength);
+                                    swipeFunction.init();
+                                }
+                            } else {
+                                if (activeBubbleIndex === 1) {
+                                    return false;
+                                }
+                               var travelLength = getTravelLength(activeBubbleIndex - 1);
+                                if (travelLength) {
+                                    move.call($('[data-index="' + (activeBubbleIndex - 1) + '"]'), travelLength);
+                                    swipeFunction.init();
                                 }
                             }
+                        }
+                    default:
+                        break;
 
-                        default:
-                            break;
                     }
                 }
             }
@@ -163,4 +164,4 @@
 
     
     
-}(window.jQuery))
+}(window.jQuery));

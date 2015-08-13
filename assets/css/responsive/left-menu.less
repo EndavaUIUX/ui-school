@@ -1,6 +1,6 @@
 @media only screen
 and (min-width: 1px)
-and (max-width: 599px) {
+and (max-width: 699px) {
 
   .left-menu-backdrop {
     position: fixed;
@@ -26,7 +26,20 @@ and (max-width: 599px) {
       }
 
       a{
+        font-size: 13px;
         color: #000;
+      }
+
+      .search-article {
+        height: 40px;
+        width: 190px;
+        font-size: 13px;
+        line-height: 2;
+      }
+
+      .errorSearch {
+        width: 190px;
+        text-align: center;
       }
 
       a:hover {
@@ -60,14 +73,31 @@ and (max-width: 599px) {
 }
 
 @media only screen
-and (min-width: 600px)
+and (min-width: 650px)
 and (max-width: 1180px){
   .menu-left,
   nav.menu-right {
-    width: 250px;
+    width: 210px;
+
+    .article-recent .title-recent,
+    .user-details .user-name,
+    .article-recent .recent-list a,
+    a{
+      font-size: 15px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .user {
+      width: 15%;
+    }
+
     .search-article {
-      width: 200px;
+      width: 160px;
       height: 40px;
+      font-size: 15px;
+      line-height: 2;
     }
   }
 }

@@ -348,6 +348,7 @@ nav a:hover {
   margin: 0 23px;
   text-align: justify;
   font-family: 'Lato-Regular';
+  text-align: center;
 }
 .hideError {
   display: none;
@@ -355,7 +356,7 @@ nav a:hover {
 .left-word:hover {
   background-color: #c0c0c0;
 }
-@media only screen and (min-width: 1px) and (max-width: 599px) {
+@media only screen and (min-width: 1px) and (max-width: 699px) {
   .left-menu-backdrop {
     position: fixed;
     top: 0;
@@ -381,7 +382,20 @@ nav a:hover {
   }
   .left-menu-backdrop nav a,
   .left-menu-backdrop .menu-left a {
+    font-size: 13px;
     color: #000;
+  }
+  .left-menu-backdrop nav .search-article,
+  .left-menu-backdrop .menu-left .search-article {
+    height: 40px;
+    width: 190px;
+    font-size: 13px;
+    line-height: 2;
+  }
+  .left-menu-backdrop nav .errorSearch,
+  .left-menu-backdrop .menu-left .errorSearch {
+    width: 190px;
+    text-align: center;
   }
   .left-menu-backdrop nav a:hover,
   .left-menu-backdrop .menu-left a:hover {
@@ -412,15 +426,34 @@ nav a:hover {
     display: block;
   }
 }
-@media only screen and (min-width: 600px) and (max-width: 1180px) {
+@media only screen and (min-width: 650px) and (max-width: 1180px) {
   .menu-left,
   nav.menu-right {
-    width: 250px;
+    width: 210px;
+  }
+  .menu-left .article-recent .title-recent,
+  nav.menu-right .article-recent .title-recent,
+  .menu-left .user-details .user-name,
+  nav.menu-right .user-details .user-name,
+  .menu-left .article-recent .recent-list a,
+  nav.menu-right .article-recent .recent-list a,
+  .menu-left a,
+  nav.menu-right a {
+    font-size: 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .menu-left .user,
+  nav.menu-right .user {
+    width: 15%;
   }
   .menu-left .search-article,
   nav.menu-right .search-article {
-    width: 200px;
+    width: 160px;
     height: 40px;
+    font-size: 15px;
+    line-height: 2;
   }
 }
 .menu-right {
@@ -500,7 +533,7 @@ nav a:hover {
 .hide-user-icon {
   display: none;
 }
-@media only screen and (min-width: 1px) and (max-width: 599px) {
+@media only screen and (min-width: 1px) and (max-width: 699px) {
   .right-menu-backdrop {
     position: fixed;
     top: 0;
@@ -517,16 +550,26 @@ nav a:hover {
     width: 100%;
     height: auto;
     min-height: 0%;
+    border-bottom: 1px solid #ebebeb;
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.14);
+  }
+  .right-menu-backdrop .menu-right .user {
+    width: 40px;
   }
   .right-menu-backdrop .menu-right .user-details .user-name {
     color: #000;
+    font-size: 13px;
+    margin-left: 25px;
   }
   .right-menu-backdrop .menu-right .article-recent .title-recent {
     color: #000;
+    font-size: 13px;
     background: url("../images/right_menu/file-black.png") no-repeat left;
+    background-size: 15px 15px;
   }
   .right-menu-backdrop .menu-right .article-recent .recent-list a {
     color: #000;
+    font-size: 13px;
   }
 }
 .slider {
@@ -618,7 +661,7 @@ nav a:hover {
   position: relative;
 }
 .latest__article .article__content {
-  width: 600px;
+  width: 50%;
   height: 377px;
   float: left;
   position: absolute;
@@ -680,28 +723,24 @@ nav a:hover {
   word-break: break-word;
 }
 .latest__article .article__img {
-  height: 377px;
-  width: 570px;
+  height: 100%;
+  width: 50%;
   float: right;
   cursor: pointer;
   -webkit-transition: 0.5s ease;
   -moz-transition: 0.5s ease;
+  text-align: center;
 }
 .latest__article .article__img img {
-  height: 98%;
-  margin-right: auto;
-  margin-left: auto;
-  display: block;
+  display: inline-block;
+  vertical-align: middle;
+  max-height: 100%;
+  max-width: 100%;
+  -webkit-transition: 0.5s ease;
 }
 .latest__article .article__img:hover {
   box-sizing: border-box;
   opacity: 0.6;
-}
-.latest__article .article__img:hover img {
-  height: 98%;
-  margin-right: auto;
-  margin-left: auto;
-  display: block;
 }
 .article__picture img {
   display: none;
@@ -883,10 +922,34 @@ article h2:hover {
   background-color: #fbe9e0;
 }
 .article-page {
-  transition: 0.5s all ease;
+  position: relative;
+  -moz-user-select: none;
+  /* These user-select properties are inheritable, used to prevent text selection */
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  /* From IE10 only */
+  user-select: none;
+  /* Not valid CSS yet, as of July 2012 */
+  /* transition:0.5s all ease;*/
 }
 .article-page:hover {
   cursor: move;
+}
+.article-page img {
+  -moz-user-select: none;
+  /* These user-select properties are inheritable, used to prevent text selection */
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  /* From IE10 only */
+  user-select: none;
+  /* Not valid CSS yet, as of July 2012 */
+}
+.article__img:before {
+  content: ' ';
+  display: inline-block;
+  vertical-align: middle;
+  /* vertical alignment of the inline element */
+  height: 100%;
 }
 @media only screen and (min-width: 1180px) {
   .article-wrapper:nth-of-type(3n+3) {
@@ -1081,11 +1144,25 @@ article h2:hover {
     width: 15px;
     height: 15px;
   }
-  .slider .slider__slide h2 {
-    display: none;
+  .slider .slider__slides .slider__slide .slider__meta {
+    left: 50%;
+    top: 50%;
+    text-align: justify;
+    margin-top: -45px;
+    margin-left: -77px;
   }
-  .slider .slider__slide p {
-    display: none;
+  .slider .slider__slides .slider__slide .slider__meta h2 {
+    padding: 5px;
+    border-radius: 2px;
+    font-size: 13px;
+    text-align: center;
+  }
+  .slider .slider__slides .slider__slide .slider__meta p {
+    padding: 5px;
+    border-radius: 2px;
+    font-size: 12px;
+    text-align: center;
+    width: auto;
   }
 }
 @media only screen and (min-width: 612px) and (max-width: 1024px) {
@@ -1696,6 +1773,7 @@ article h2:hover {
     bottom: -23px;
     right: -1px;
     border-radius: 0px 0px 0px 3px;
+    background-color: white;
   }
   .overlay .modal .modal__images {
     min-height: auto;
@@ -1740,22 +1818,26 @@ article h2:hover {
     left: 20px;
   }
   .overlay .modal {
-    max-width: 46%;
+    top: 7%;
+    max-width: 70%;
     height: auto!important;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding-bottom: 21px;
   }
-  .overlay .modal .modal__next .modal__prev {
+  .overlay .modal .modal__next,
+  .overlay .modal .modal__prev {
     display: none!important;
   }
-  .overlay .modal .modal__close {
-    height: 20px;
-    width: 20px;
-    background-size: cover;
+}
+@media only screen and (min-width: 1px) and (max-width: 641px) and (orientation: landscape) {
+  .overlay .modal {
+    top: 7%;
+    max-width: 52%;
+    height: auto!important;
+    padding-bottom: 21px;
   }
-  .overlay .modal .modal__images .modal__source {
-    padding: 5px;
-    font-size: 10px;
+  .overlay .modal .modal__next,
+  .overlay .modal .modal__prev {
+    display: none!important;
   }
 }
 @media only screen and (min-width: 1200px) and (max-width: 1500px) {
