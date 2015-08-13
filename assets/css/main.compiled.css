@@ -192,6 +192,14 @@ html[xmlns] .clearfix {
   margin-right: auto;
   padding-top: 14px;
 }
+.userProfile {
+  float: right;
+  width: 90px;
+}
+.menuHamburger {
+  float: left;
+  width: 90px;
+}
 .profile {
   float: right;
   padding: 10px 20px 10px 0px;
@@ -548,7 +556,7 @@ nav a:hover {
     background-color: #f7f7f7;
     width: 100%;
     height: auto;
-    min-height: 0%;
+    min-height: 40%;
     border-bottom: 1px solid #ebebeb;
     box-shadow: 0 3px 3px rgba(0, 0, 0, 0.14);
   }

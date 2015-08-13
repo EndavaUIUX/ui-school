@@ -5,7 +5,7 @@
     'use strict';
     var $menuRight = $('.menu-right'),
         $rightMinDiv = $('.rightminidiv'),
-        $profile = $('.profile'),
+        $profile = $('.userProfile'),
         $hideMenu = $('.user, .right-menu-backdrop'),
         $title = $('.title-recent'),
         $rightMenuBackdrop = $('.right-menu-backdrop');

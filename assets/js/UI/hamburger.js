@@ -1,6 +1,6 @@
 (function(){
     'use strict';
-    var $menu = $('.menu'),
+    var $menu = $('.menuHamburger'),
         $menuLeft = $('nav.menu-left'),
         $hideMenu = $('.hide-menu, .left-menu-backdrop'),
         $menuLeftInput = $('.menu-left input'),
