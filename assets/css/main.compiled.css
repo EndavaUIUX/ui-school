@@ -660,7 +660,7 @@ nav a:hover {
   position: relative;
 }
 .latest__article .article__content {
-  width: 600px;
+  width: 50%;
   height: 377px;
   float: left;
   position: absolute;
