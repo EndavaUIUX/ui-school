@@ -107,7 +107,6 @@
 
     $('body').on('click', function (ev) {
         var container = $('.modal');
-
         if (!container.is(ev.target) && container.has(ev.target).length === 0 && !$(ev.target).hasClass('.modal__close') && !$(ev.target).hasClass('button__gallery')) {
             THUNDERSTORM.modules.utility.dismissModal($('.modal'));
         }
@@ -115,16 +114,16 @@
 
     $('.button__gallery').on('click', function (ev) {
         $('.modal__prev').hide();
+        resetContainer();
         resetGallery();
+        buttonGallery();
         THUNDERSTORM.modules.utility.showModal($('.modal'));
 
     });
 
     $('.modal__close').on('click', function (ev) {
         THUNDERSTORM.modules.utility.dismissModal($('.modal'));
-
-        buttonGallery();
-
+        initializeContainer();
     });
 
     var swipeFunction = {
@@ -158,7 +157,25 @@
                                 console.log(swipeFunction.touches.direction);
                             }
                         default:
-                            break;
+                            if (swipeFunction.touches.direction == 'left') {
+                                // debugger;
+                                var imgIndex = document.querySelector('.modal__image'),
+                                    $allGalleryImages = $(".article__gallery img");
+                                imgIndex = parseInt(imgIndex.getAttribute('data-index'));
+                                if (imgIndex+1 === $allGalleryImages.length ) {
+                                    return false;
+                                }
+                                $('.modal__next').click();
+                            } else {
+                                 var imgIndex = document.querySelector('.modal__image'),
+                                    $allGalleryImages = $(".article__gallery img");
+                                imgIndex = parseInt(imgIndex.getAttribute('data-index'));
+                                   
+                                if (imgIndex === 0) {
+                                    return false;
+                                }
+                                $('.modal__prev').click();
+                            }
                     }
                 }
             }
@@ -176,9 +193,6 @@
     console.log(swipeFunction.init);
     swipeFunction.init();
 
-    //utility.sortLatestArticlesAccessed(recentArticles);
-
-    utility.generateListHTML(recentArticles, THUNDERSTORM.modules.articles.data);
 
     /* ==========================================================================
      || Prev & Next // Buttons ||
@@ -237,12 +251,19 @@
          ========================================================================== */
     }
 
-    
-  function resetGallery(){
-    $('.modal__prev').hide();
-    $('.modal__next').show();
-    $('.modal').css({height:'auto'});
- } 
+    function resetGallery() {
+        $('.modal__prev').hide();
+        $('.modal__next').show();
+        $('.modal').css({height: 'auto'});
+    }
+
+    function resetContainer() {
+        $('.container').css({position: 'fixed'});
+    }
+
+    function initializeContainer() {
+        $('.container').css({position: 'static'});
+    }
 
     buttonPrev();
     buttonNext();

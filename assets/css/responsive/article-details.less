@@ -85,6 +85,7 @@ and (max-width: 599px) {
           bottom: -23px;
           right: -1px;
           border-radius: 0px 0px 0px 3px;
+          background-color: white;
           
         }
 
@@ -139,17 +140,34 @@ and (max-width: 1024px) {
             left:20px;
         }
     }
-        .overlay{
-      .modal{
-        max-width:100%;
-        height:auto!important;
-        .modal__next, .modal__prev{
-          display:none!important;
+    .overlay{
+        .modal{
+            top:7%;
+            max-width:70%;
+            height:auto!important;
+            padding-bottom: 21px;
+            .modal__next, .modal__prev{
+                display:none!important;
+            }
         }
-      }
-        }
+    }
 }
-
+@media only screen
+and (min-width: 1px)
+and (max-width: 641px)and (orientation : landscape) {
+        .overlay{
+        .modal{
+            top:7%;
+            max-width:52%;
+            height:auto!important;
+            padding-bottom: 21px;
+            .modal__next, .modal__prev{
+                display:none!important;
+            }
+        }
+    }
+    
+}
 @media only screen
 and (min-width:1200px)
 and (max-width: 1500px){
