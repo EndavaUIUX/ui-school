@@ -807,6 +807,7 @@ nav a:hover {
   word-break: break-word;
 }
 .btn--more {
+  transition: 0.5s all ease;
   margin: 20px 0px 30px 30px;
   width: 133px;
   height: 43px;
