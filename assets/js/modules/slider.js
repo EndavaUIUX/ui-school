@@ -147,14 +147,28 @@
         init: function () {
             console.log('init');
             var images = document.querySelectorAll('.slider__slide img');
+            var paras = document.querySelectorAll('.slider__slide p');
+            var titles = document.querySelectorAll('.slider__slide h2');
             for(var i = 0; i < images.length; i++) {
                 images[i].addEventListener('touchstart', swipeFunction.touchHandler, false);
                 images[i].addEventListener('touchmove', swipeFunction.touchHandler, false);
                 images[i].addEventListener('touchend', swipeFunction.touchHandler, false);
+            }
+            
+            for(var i = 0; i < paras.length; i++) {
+                paras[i].addEventListener('touchstart', swipeFunction.touchHandler, false);
+                paras[i].addEventListener('touchmove', swipeFunction.touchHandler, false);
+                paras[i].addEventListener('touchend', swipeFunction.touchHandler, false);
+            }
+            
+            for(var i = 0; i < titles.length; i++) {
+                titles[i].addEventListener('touchstart', swipeFunction.touchHandler, false);
+                titles[i].addEventListener('touchmove', swipeFunction.touchHandler, false);
+                titles[i].addEventListener('touchend', swipeFunction.touchHandler, false);
             }
         }
     };
 
     swipeFunction.init();
     
-}(window.jQuery))
+}(window.jQuery));

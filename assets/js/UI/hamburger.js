@@ -1,6 +1,6 @@
 (function(){
     'use strict';
-    var $menu = $('.menuHamburger'),
+    var $menu = $('.menu'),
         $menuLeft = $('nav.menu-left'),
         $hideMenu = $('.hide-menu, .left-menu-backdrop'),
         $menuLeftInput = $('.menu-left input'),
@@ -13,7 +13,7 @@
 
         var $menuRight = $('.menu-right'),
             $rightMenuBackdrop = $('.right-menu-backdrop'),
-            $rightMinDiv = $('.rightminidiv');
+            $rightMinDiv = $('.user');
 
         if (!$menuLeft.hasClass("show-menu-left")) {
             $menuLeft.addClass("show-menu-left");
@@ -53,7 +53,7 @@
             && !targetEl.is(".menu-left .link")
             && !targetEl.is(".menu-left .editor-mode")
             && !targetEl.is(".menu-left p")
-            && !targetEl.is('.profile')
+            && !targetEl.is('.user-icon')
             && !targetEl.is('.user')
             && !targetEl.is('.user-name')
             && !targetEl.is('.user-details')
@@ -61,7 +61,7 @@
             && !targetEl.is('.right-menu-backdrop')
             && !targetEl.is('.menu-right')
             && !targetEl.is('.article-recent h2')
-            && !targetEl.is('.menu')
+            && !targetEl.is('.menu-icon')
             && !targetEl.is('.recent-list a')
             && !targetEl.is(".menu-left .left-word")) {
 

@@ -21,8 +21,7 @@
     var key = 'articles';
     var recentArticles;
     var articlePages = '.article-page';
-    articles.mostRecentArticles = persistence.get("latestArticlesAccessed");
-    recentArticles = articles.mostRecentArticles;
+
     //utility.sortLatestArticlesAccessed(recentArticles);
   /* ================================================================
      Functions
@@ -38,8 +37,12 @@
 
     function init() {
         var resolutionPaginationObj = articles.paginationOnResolution();
-        
-        articles.mostRecentArticles = persistence.get("latestArticlesAccessed");
+        if ($(window).width() > 600 && $(window).width() < 700) {
+            $('html, body').animate({
+                 scrollTop: articlesParent.offset().top -90
+             }, 200);
+        }
+
         articles.init({
             sourceName : key,
             articlesParent : articlesParent,
@@ -49,8 +52,6 @@
             itemsPerPage : resolutionPaginationObj.itemsPerPage,
             showLoadMore : resolutionPaginationObj.showLoadMore
         });
-         recentArticles = articles.mostRecentArticles;
-        utility.generateListHTML(recentArticles, THUNDERSTORM.modules.articles.data);
     }
     
   /* ================================================================
@@ -59,6 +60,9 @@
 
     init();
     
+    articles.mostRecentArticles = persistence.get("latestArticlesAccessed");
+    recentArticles = articles.mostRecentArticles;
+    utility.generateListHTML(recentArticles, THUNDERSTORM.modules.articles.data);
   /* ================================================================
    * Event listeners Set in local storage an object latest articles
    * accessed with the key "latestArticlesAccessed", which contains
@@ -67,6 +71,7 @@
    * If the object is not in local storage, we create it, otherwise
    * we replace the count property.
      ==============================================================*/
+    
     articlesParent.on('click', articleClickTriggers, function (ev) {
         ev.stopPropagation();
         var articleIndex = $(ev.target).closest('article')[0].getAttribute('data-article-index');
@@ -203,6 +208,9 @@
                 loadMore[0].setAttribute('data-page', 1);
                 init();
             }, 200);
+            $('html, body').animate({
+                 scrollTop: articlesParent.offset().top +50
+             }, 200);
     });
 
    /* window.addEventListener("orientationchange", function() {

@@ -130,7 +130,6 @@ p {
   width: 1170px;
   margin: 50px auto;
   display: block;
-  zoom: 95%;
 }
 .clearfix:after {
   content: ".";
@@ -149,96 +148,98 @@ html[xmlns] .clearfix {
 * html .clearfix {
   height: 1%;
 }
-.topheader {
+header {
   width: 100%;
   height: 67px;
   position: fixed;
-  background-color: #fff;
+  background-color: #ffffff;
   z-index: 2;
   box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.4);
 }
-.leftthird {
+header .menu-hamburger {
   width: 33%;
   height: 100%;
   float: left;
 }
-.righttwothirds {
+header .menu-hamburger .menu {
+  float: left;
+  width: 90px;
+}
+header .menu-hamburger .menu .menu-icon {
+  margin: 25px 25px 25px 25px;
+}
+header .menu-hamburger .menu .menu-icon:hover {
+  cursor: pointer;
+}
+header .logo-user {
   width: 67%;
   height: 100%;
   float: right;
 }
-.centerdiv {
+header .logo-user .logo {
   width: 50%;
   height: 100%;
-  color: #fff;
+  color: #ffffff;
   float: left;
   text-align: center;
 }
-.centerdiv a {
+header .logo-user .logo a {
   display: inline-block;
 }
-.rightminidiv {
-  width: 50%;
-  height: 100%;
-  color: #fff;
-  float: right;
-}
-.menu {
-  padding: 25px 25px 25px 25px;
-}
-.logo {
+header .logo-user .logo a .logo-icon {
   display: block;
   margin-left: auto;
   margin-right: auto;
   padding-top: 14px;
 }
-.userProfile {
+header .logo-user .user {
+  width: 50%;
+  height: 100%;
+  color: #ffffff;
+  float: right;
+}
+header .logo-user .user .user-profile {
   float: right;
   width: 90px;
 }
-.menuHamburger {
-  float: left;
-  width: 90px;
-}
-.profile {
+header .logo-user .user .user-profile .user-icon {
   float: right;
-  padding: 10px 20px 10px 0px;
+  margin: 10px 20px 10px 0px;
 }
-.menu:hover,
-.profile:hover {
+header .logo-user .user .user-profile .user-icon:hover {
   cursor: pointer;
 }
-@media only screen and (min-width: 600px) and (max-width: 1180px) {
-  .topheader {
-    height: 47px;
-  }
-  .menu {
-    padding: 15px 15px 15px 25px;
-  }
-  .logo {
-    padding-top: 8px;
-    height: 30px;
-  }
-  .profile {
-    padding: 8px 20px 10px 0px;
-    height: 35px;
-  }
-}
 @media only screen and (min-width: 1px) and (max-width: 599px) {
-  .topheader {
+  header {
     height: 30px;
   }
-  .menu {
-    padding: 8px 15px 8px 25px;
+  header .menu-hamburger .menu .menu-icon {
+    margin: 8px 15px 8px 25px;
     height: 15px;
   }
-  .logo {
+  header .logo-user .logo a .logo-icon {
     padding-top: 2px;
     height: 20px;
   }
-  .profile {
-    padding: 2px 20px 10px 0px;
+  header .logo-user .user .user-profile .user-icon {
+    margin: 2px 20px 10px 0px;
     height: 25px;
+  }
+}
+@media only screen and (min-width: 600px) and (max-width: 1180px) {
+  header {
+    height: 47px;
+  }
+  header .menu-hamburger .menu .menu-icon {
+    margin: 15px 15px 15px 25px;
+  }
+  header .logo-user .logo a .logo-icon {
+    padding-top: 8px;
+    height: 30px;
+  }
+  header .logo-user .user .user-profile .user-icon {
+    margin: 8px 20px 10px 0px;
+    height: 35px;
   }
 }
 ul {
@@ -530,7 +531,7 @@ nav a:hover {
   background: #c0c0c0;
   color: #ffffff;
 }
-#userProfile {
+#user-profile {
   display: none;
 }
 .show-menu-right {
@@ -556,7 +557,7 @@ nav a:hover {
     background-color: #f7f7f7;
     width: 100%;
     height: auto;
-    min-height: 40%;
+    min-height: 23%;
     border-bottom: 1px solid #ebebeb;
     box-shadow: 0 3px 3px rgba(0, 0, 0, 0.14);
   }
@@ -816,6 +817,7 @@ nav a:hover {
   word-break: break-word;
 }
 .btn--more {
+  transition: 0.5s all ease;
   margin: 20px 0px 30px 30px;
   width: 133px;
   height: 43px;
@@ -929,6 +931,7 @@ article h2:hover {
   background-color: #fbe9e0;
 }
 .article-page {
+  width: 100%;
   position: relative;
   -moz-user-select: none;
   /* These user-select properties are inheritable, used to prevent text selection */
@@ -1670,6 +1673,7 @@ article h2:hover {
   width: 54px;
   top: 50%;
   margin-top: -39px;
+  cursor: pointer;
 }
 .overlay .modal__close.modal-control {
   height: 54px;
@@ -1873,9 +1877,7 @@ article h2:hover {
 .footer {
   width: 100%;
   height: 90px;
-  /* margin-top: 60px; */
   border-top: 2px solid #E7E7E7;
-  margin-top: 60px;
   margin-right: auto;
   margin-bottom: 0px;
   margin-left: auto;

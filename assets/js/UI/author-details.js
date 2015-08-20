@@ -4,8 +4,8 @@
 (function() {
     'use strict';
     var $menuRight = $('.menu-right'),
-        $rightMinDiv = $('.rightminidiv'),
-        $profile = $('.userProfile'),
+        $rightMinDiv = $('.user'),
+        $profile = $('.user-profile'),
         $hideMenu = $('.user, .right-menu-backdrop'),
         $title = $('.title-recent'),
         $rightMenuBackdrop = $('.right-menu-backdrop');

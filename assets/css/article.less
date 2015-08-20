@@ -130,7 +130,7 @@
 }
 
 .article-wrapper article {
-    background-color: @btn-background-color;
+    background-color: @white-color;
     border: 1px solid @article-border-color;
     box-shadow: 0px 5px 5px 0px @article-shadow-color;
     color: @article-description-color;
@@ -178,6 +178,7 @@
 }
 
 .btn--more {
+    transition:0.5s all ease;
     margin: 20px 0px 30px 30px;
     width: 133px;
     height: 43px;
@@ -188,7 +189,7 @@
     border-style: solid;
     border-width: 1px;
     border-color: @article-header-color;
-    background-color: @btn-background-color;
+    background-color: @white-color;
     outline:none;
 }
 
@@ -287,7 +288,7 @@ article h2:hover {
     border-style: solid;
     border-width: 1px;
     border-color: @load-more-color;
-    background-color: @btn-background-color;
+    background-color: @white-color;
     width: 160px;
     height: 50px;
     padding: 14px;
@@ -308,6 +309,7 @@ article h2:hover {
 }
 
 .article-page{
+    width:100%;
     position: relative;
     -moz-user-select: none; /* These user-select properties are inheritable, used to prevent text selection */
     -webkit-user-select: none;
@@ -315,7 +317,7 @@ article h2:hover {
     user-select: none; /* Not valid CSS yet, as of July 2012 */
    /* transition:0.5s all ease;*/
     &:hover{
-        cursor: move;
+       cursor: move;
     }
     img{
     -moz-user-select: none; /* These user-select properties are inheritable, used to prevent text selection */

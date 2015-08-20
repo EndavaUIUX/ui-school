@@ -13,6 +13,8 @@
     utility = THUNDERSTORM.modules.utility;
     utility.generateListHTML(recentArticles, THUNDERSTORM.modules.articles.data);
 
+    utility.generateListHTML(recentArticles, THUNDERSTORM.modules.articles.data);
+
     function populateArticlePage() {
         var pageUrl = window.location.href,
             utility = THUNDERSTORM.modules.utility,
@@ -47,8 +49,8 @@
                 var modalImage = $('<div></div>').addClass('modal__image'),
 
                         img = $('<img>').attr('src', currentArticle.sources[i]),
-
-                        sourceUrl = $('<a></a>').addClass('modal__source').html(utility.takeDomainUrl(currentArticle.sources[i]));
+                        strippedUrl = utility.takeDomainUrl(currentArticle.sources[i]),
+                        sourceUrl = $('<a></a>').addClass('modal__source').html(strippedUrl).attr('href', currentArticle.sources[i]);
 
                 if (i !== 0) {
                     modalImage.hide();

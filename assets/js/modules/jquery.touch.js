@@ -92,7 +92,7 @@
 
         teardown: function(){
             $(this).unbind('touchstart', $.event.special.swipe.handler);
-            $(this).bind('dragstart', $.event.special.swipe.handler);
+						$(this).bind('dragstart', $.event.special.swipe.handler);
         },
 
         handler: function(event){
