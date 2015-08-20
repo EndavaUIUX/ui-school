@@ -39,5 +39,27 @@
             $rightMenuBackdrop.removeClass("show");
         }
     });
+
+    //show & hide resources list from right menu
+    $(function() {
+        $('.left-word').show();
+
+        $('.bordernone').click(function(ev) {
+            ev.preventDefault()
+            $('.left-word').toggle();
+        });
+
+    });
+
+
+    // show & hide recent article list from right menu
+    $(function() {
+        $('.recent-list').show();
+
+        $('.title-recent').click(function() {
+            $('.recent-list').toggle();
+        });
+
+    });
 }());
 
