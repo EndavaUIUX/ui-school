@@ -2,9 +2,8 @@
     'use strict';
     var $menu = $('.menu'),
         $menuLeft = $('nav.menu-left'),
-        $hideMenu = $('.hide-menu, .left-menu-backdrop'),
-        $menuLeftInput = $('.menu-left input'),
-        $leftMenuBackdrop = $('.left-menu-backdrop');
+        $hideMenu = $('.hide-menu, .slider-backdrop'),
+        $menuLeftInput = $('.menu-left input');
 
 
     $menu.click(function (e) {
@@ -12,23 +11,25 @@
         e.stopPropagation();
 
         var $menuRight = $('.menu-right'),
-            $rightMenuBackdrop = $('.right-menu-backdrop'),
-            $rightMinDiv = $('.user');
+            $rightMinDiv = $('.user'),
+            $sliderBackdrop = $('.slider-backdrop');
 
         if (!$menuLeft.hasClass("show-menu-left")) {
             $menuLeft.addClass("show-menu-left");
-            $leftMenuBackdrop.addClass("show");
+            $sliderBackdrop.addClass("show");
 
             $menuRight.removeClass("show-menu-right");
             $rightMinDiv.removeClass("hide-user-icon");
-            $rightMenuBackdrop.removeClass("show");
         }
     });
 
     $hideMenu.click(function (e){
         e.preventDefault();
         e.stopPropagation();
-        var targetEl = $(e.target);
+
+        var targetEl = $(e.target),
+            $sliderBackdrop = $('.slider-backdrop');
+
         if(!targetEl.is(".menu-left")
             && !targetEl.is(".menu-left .search-article")
             && !targetEl.is(".menu-left .link")
@@ -36,7 +37,7 @@
             && !targetEl.is(".menu-left p")
             && !targetEl.is(".menu-left .left-word")) {
             $menuLeft.removeClass("show-menu-left");
-            $leftMenuBackdrop.removeClass("show");
+            $sliderBackdrop.removeClass("show");
         }
 
     });
@@ -45,7 +46,7 @@
         var targetEl = $(e.target),
             $errorElement = $('.menu-left p'),
             $menuRight = $('.menu-right'),
-            $rightMenuBackdrop = $('.right-menu-backdrop');
+            $sliderBackdrop = $('.slider-backdrop');
 
         if (!targetEl.is('.menu')
             && !targetEl.is(".menu-left")
@@ -57,8 +58,7 @@
             && !targetEl.is('.user')
             && !targetEl.is('.user-name')
             && !targetEl.is('.user-details')
-            && !targetEl.is('.left-menu-backdrop')
-            && !targetEl.is('.right-menu-backdrop')
+            && !targetEl.is('.slider-backdrop')
             && !targetEl.is('.menu-right')
             && !targetEl.is('.article-recent h2')
             && !targetEl.is('.menu-icon')
@@ -66,10 +66,10 @@
             && !targetEl.is(".menu-left .left-word")) {
 
             $('nav.menu-left').removeClass('show-menu-left');
-            $('.left-menu-backdrop').removeClass("show");
+            $sliderBackdrop.removeClass("show");
 
             $menuRight.removeClass("show-menu-right");
-            $rightMenuBackdrop.removeClass("show");
+            $sliderBackdrop.removeClass("show");
 
             $('.menu-left input').val('');
             THUNDERSTORM.modules.utility.cleanErrors($errorElement);
