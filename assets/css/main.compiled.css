@@ -242,6 +242,41 @@ header .logo-user .user .user-profile .user-icon:hover {
     height: 35px;
   }
 }
+.slider-menu {
+  color: #ffffff;
+  width: 309px;
+  min-height: 100%;
+  background-color: #333333;
+  text-align: left;
+  z-index: 44;
+  top: 0px;
+  position: fixed;
+  transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+}
+.slider-menu h2 {
+  font-size: 21px;
+  font-family: 'Lato';
+  color: #ffffff;
+  font-weight: normal;
+  cursor: pointer;
+  margin: 0 0 0 24px;
+  padding: 15px 6px 15px 24px;
+}
+.slider-menu a {
+  display: block;
+  padding: 15px 0 15px 70px;
+  color: #ffffff;
+  text-decoration: none;
+  font-family: "Lato-Regular";
+  font-size: 18px;
+}
+.slider-menu a:hover {
+  color: #ffffff;
+  background-color: #c0c0c0;
+}
 @media only screen and (min-width: 1px) and (max-width: 699px) {
   .slider-backdrop {
     position: fixed;
@@ -255,127 +290,49 @@ header .logo-user .user .user-profile .user-icon:hover {
     width: 100%;
   }
 }
-ul {
-  list-style: none;
-  padding: 0;
-}
-nav {
-  width: 100%;
-  text-align: center;
-  position: fixed;
-  min-height: 100%;
-}
-nav a {
-  display: block;
-  padding: 15px 0;
-  color: #ffffff;
-  text-decoration: none;
-  font-family: "Lato-Regular";
-  font-size: 18px;
-}
-nav a:hover {
-  color: white;
-}
-.left-word {
-  padding-left: 47px;
-  color: #c7c7c7;
-  border-bottom: none;
-}
-.link {
-  border-bottom: none;
-  background: url("../images/left_menu/link.png") no-repeat left;
-  padding: 15px 6px 15px 24px;
-  margin: 0 0 0 24px;
-}
 .menu-left {
-  color: #ffffff;
-  width: 309px;
-  min-height: 100%;
-  background-color: #333333;
-  text-align: left;
   left: -360px;
-  z-index: 44;
-  top: 0px;
-  transition: all 0.5s ease-in-out;
-  -webkit-transition: all 0.5s ease-in-out;
-  -moz-transition: all 0.5s ease-in-out;
-  -o-transition: all 0.5s ease-in-out;
 }
-.arrow {
+.menu-left .left-arrow {
   background: url("../images/left_menu/arrow.png") no-repeat left;
-  padding: 25px 25px 25px 25px;
-  margin: 0 0px 0 24px;
-}
-.show-menu-left {
-  position: fixed;
-  left: 0px;
-}
-.menu-left li:nth-of-type(4) {
-  border-bottom: 1px solid #585858;
-}
-.disc {
-  background: url("../images/left_menu/disc.png") no-repeat left;
-  padding: 15px 6px 15px 24px;
+  padding: 25px 0;
   margin: 0 0 0 24px;
 }
-.search-article {
-  border-right-style: none;
-  border-bottom-style: none;
+.menu-left .search-article {
   height: 48px;
   width: 262px;
   font-family: "Lato-Regular";
-  box-shadow: none;
-  margin-left: 24px;
-  margin-right: 24px;
-  border: 1px solid #bdbdbd;
-  background-color: #ffffff;
-  text-align: left;
+  margin: 0 24px;
+  background: #ffffff url("../images/left_menu/searchicon.png") no-repeat left;
+  background-position: 5px;
   font-size: 18px;
-  outline: none;
+  padding: 0 0 0 30px;
 }
-.search-article::-webkit-input-placeholder {
-  background-image: url("/assets/images/left_menu/searchicon.png");
-  background-repeat: no-repeat;
-  background-position: right;
-}
-.search-article:-ms-input-placeholder {
-  background-image: url("/assets/images/left_menu/searchicon.png");
-  background-repeat: no-repeat;
-  background-position: right;
-  background-position-x: 93%;
-}
-.search-article:-moz-placeholder {
-  background-image: url("/assets/images/left_menu/searchicon.png");
-  background-repeat: no-repeat;
-  background-position: right;
-  background-position-x: 93%;
-}
-.search-article::-moz-placeholder {
-  background-image: url("/assets/images/left_menu/searchicon.png");
-  background-repeat: no-repeat;
-  background-position: right;
-  background-position-x: 93%;
-}
-#nav ul.sub-nav {
+.menu-left p {
   display: none;
+  /*&.showError {
+          display: inline-block;
+          padding-top: 5px;
+          color: #e1632a;;
+          margin: 0 23px;
+          text-align: justify;
+          font-family: 'Lato-Regular';
+          text-align: center;
+
+        }*/
 }
-#nav ul.visible {
-  display: block;
+.menu-left .editor-list {
+  border-bottom: 1px solid #585858;
 }
-.errorSearch {
-  display: inline-block;
-  padding-top: 5px;
-  color: #e1632a;
-  margin: 0 23px;
-  text-align: justify;
-  font-family: 'Lato-Regular';
-  text-align: center;
+.menu-left .editor-list h2 {
+  background: url("../images/left_menu/disc.png") no-repeat left;
 }
-.hideError {
-  display: none;
+.menu-left .resources-list h2 {
+  background: url("../images/left_menu/link.png") no-repeat left;
 }
-.left-word:hover {
-  background-color: #c0c0c0;
+.menu-left.show-menu-left {
+  position: fixed;
+  left: 0px;
 }
 @media only screen and (min-width: 1px) and (max-width: 699px) {
   nav,
@@ -423,8 +380,8 @@ nav a:hover {
     padding: 27px 6px 15px 24px;
     margin: 0 0 0 24px;
   }
-  nav .arrow,
-  .menu-left .arrow {
+  nav .left-arrow,
+  .menu-left .left-arrow {
     background: url("../images/left_menu/arrow-black.png") no-repeat left;
     padding: 25px 25px 25px 25px;
     margin: 0 0px 0 24px;
@@ -467,82 +424,87 @@ nav a:hover {
   }
 }
 .menu-right {
-  min-height: 100%;
-  width: 309px;
-  background-color: #333333;
-  text-align: left;
-  z-index: 44;
   right: -360px;
-  transition: all 0.5s ease-in-out;
-  -webkit-transition: all 0.5s ease-in-out;
-  -moz-transition: all 0.5s ease-in-out;
-  -o-transition: all 0.5s ease-in-out;
 }
-.menu-right .user-details .user {
-  padding: 8px 15px 0px 24px;
-}
-.menu-right .user-details .user:hover {
-  cursor: pointer;
-}
-.menu-right .user-details .user-name {
-  font-size: 21px;
-  font-family: 'Lato';
-  top: 10px;
-  left: 55px;
-  position: absolute;
-  color: #ffffff;
-  padding: 8px 0px 0px 0px;
-  margin-left: 32px;
-  line-height: 1.2;
-  font-weight: normal;
-}
-.menu-right .article-recent .title-recent {
-  font-size: 21px;
-  font-family: 'Lato';
-  color: #ffffff;
-  line-height: 1.2;
-  position: absolute;
-  z-index: 302;
-  top: 90px;
-  left: 27px;
-  font-weight: normal;
-  cursor: pointer;
-  background: url("../images/right_menu/file.png") no-repeat left;
-  padding-left: 27px;
-}
-.menu-right .article-recent .file {
-  position: absolute;
-  width: 17px;
-  height: 19px;
-  z-index: 303;
-  padding-left: 24px;
-  top: 93px;
-}
-.menu-right .article-recent .recent-list {
-  padding: 74px 0px 0px 0px;
-}
-.menu-right .article-recent .recent-list a {
-  font-size: 18px;
-  font-family: "Lato";
-  line-height: 1.66;
-  color: #c7c7c7;
-  border-bottom: none;
-  padding: 10px 54px;
-}
-.menu-right .article-recent .recent-list a:hover {
-  background: #c0c0c0;
-  color: #ffffff;
-}
-#user-profile {
-  display: none;
-}
-.show-menu-right {
+.menu-right.show-menu-right {
   position: fixed;
   right: 0;
 }
-.hide-user-icon {
+/*.user-details{
+    .user{
+      padding: 8px 15px 0px 24px;
+    }
+    .user:hover{
+      cursor: pointer;
+    }
+    .user-name{
+      font-size: @h2-font-size;
+      font-family: 'Lato';
+      top: 10px;
+      left: 55px;
+      position: absolute;
+      color: @white-color;
+      padding: 8px 0px 0px 0px;
+      margin-left: 32px;
+      line-height: 1.2;
+      font-weight: normal;
+    }
+  }
+
+  .article-recent{
+    .title-recent{
+     */
+/* font-size: @h2-font-size;
+      font-family: 'Lato';
+      color: @white-color;
+      line-height: 1.2;
+      position: absolute;
+      z-index: 302;
+      top: 90px;
+      left: 27px;
+      font-weight: normal;
+      cursor: pointer;
+      background: url("../images/right_menu/file.png") no-repeat left;
+      padding-left: 27px;*/
+/*
+    }
+
+    .file{
+      position: absolute;
+      width: 17px;
+      height: 19px;
+      z-index: 303;
+      padding-left: 24px;
+      top: 93px;
+    }
+
+    .recent-list{
+      padding: 74px 0px 0px 0px;
+    }
+    .recent-list a{
+      font-size: @desktop-font-size;
+      font-family: "Lato";
+      line-height: 1.66;
+      color: @articles-color;
+      border-bottom: none;
+      padding: 10px 54px;
+    }
+
+    .recent-list a:hover{
+      background: @article-hover-color;
+      color: @white-color;
+    }
+  }*/
+/*}*/
+/*#user-profile{
   display: none;
 }
+
+
+
+.hide-user-icon{
+  display: none;
+}*/
 @media only screen and (min-width: 1px) and (max-width: 699px) {
   .menu-right {
     background-color: #f7f7f7;
