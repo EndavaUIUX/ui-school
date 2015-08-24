@@ -79,7 +79,6 @@
     };
     
     function createRecentArticle(articleData, articleIndex) {
-        // TODO needs a simpler structure
         var base = $('<article></article>').addClass('latest__article').attr('data-article-index', articleIndex);
         var articleContent = $('<div></div>').addClass('article__content');
         var articleTitle = $('<h2></h2>').addClass('article__title').html(articleData.title);
@@ -149,10 +148,6 @@
         });
         return pages;
     };
-    
-    function reduceText(text) {
-      
-    }
 
     function clipText(description, clipLimit) {
         var text;
