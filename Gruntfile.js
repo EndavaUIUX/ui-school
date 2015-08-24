@@ -1,5 +1,5 @@
 module.exports = function(grunt) {
-
+  require('jit-grunt')(grunt);
   // Project configuration.
   // Will need to be updated when structure available.
   grunt.initConfig({
@@ -12,13 +12,41 @@ module.exports = function(grunt) {
         src: 'src/<%= pkg.name %>.js',
         dest: 'build/<%= pkg.name %>.min.js'
       }
+    },
+	less: {
+      development: {
+        options: {
+          compress: true,
+          yuicompress: true,
+          optimization: 2
+        },
+        files: {
+          "assets/css/main.compiled.css": "assets/css/imports.less" // destination file and source file
+        }
+      },
+	  production: {
+		 options: {
+			 paths: ["assets/css"],
+			 cleancss: true
+		 },
+		 files: {"assets/css/main.compiled.css": "assets/css/imports.less"}
+	  }
+    },
+    watch: {
+        styles: {
+            files: ['**/*.less'], // which files to watch
+            tasks: ['less'],
+            options: {
+                nospawn: true
+            }
+        }
     }
   });
 
   // Load the plugin that provides the "uglify" task.
-  grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-uglify', 'grunt-contrib-less', 'grunt-contrib-watch');
 
   // Default task(s).
-  grunt.registerTask('default', ['uglify']);
+  grunt.registerTask('default', ['uglify', 'less', 'watch']);
 
 };
