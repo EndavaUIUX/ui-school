@@ -1,12 +1,21 @@
-//Variables
-@articles-color: #c7c7c7;
-@article-hover-color: #C0C0C0;
 
 .menu-right {
     right: -360px;
 
-    .user-profile {
-      padding: 40px;
+    .user-details {
+        h2 {
+            background: @user-profile-ico;
+            padding-left: 60px;
+            margin-top: 7px;
+        }
+    }
+
+    .article-recent {
+        margin-top: 20px;
+
+        .title-recent {
+            background: @title-recent-ico;
+        }
     }
 
     &.show-menu-right{
@@ -14,81 +23,5 @@
         right: 0;
     }
 }
-
-  /*.user-details{
-    .user{
-      padding: 8px 15px 0px 24px;
-    }
-    .user:hover{
-      cursor: pointer;
-    }
-    .user-name{
-      font-size: @h2-font-size;
-      font-family: 'Lato';
-      top: 10px;
-      left: 55px;
-      position: absolute;
-      color: @white-color;
-      padding: 8px 0px 0px 0px;
-      margin-left: 32px;
-      line-height: 1.2;
-      font-weight: normal;
-    }
-  }
-
-  .article-recent{
-    .title-recent{
-     *//* font-size: @h2-font-size;
-      font-family: 'Lato';
-      color: @white-color;
-      line-height: 1.2;
-      position: absolute;
-      z-index: 302;
-      top: 90px;
-      left: 27px;
-      font-weight: normal;
-      cursor: pointer;
-      background: url("../images/right_menu/file.png") no-repeat left;
-      padding-left: 27px;*//*
-    }
-
-    .file{
-      position: absolute;
-      width: 17px;
-      height: 19px;
-      z-index: 303;
-      padding-left: 24px;
-      top: 93px;
-    }
-
-    .recent-list{
-      padding: 74px 0px 0px 0px;
-    }
-    .recent-list a{
-      font-size: @desktop-font-size;
-      font-family: "Lato";
-      line-height: 1.66;
-      color: @articles-color;
-      border-bottom: none;
-      padding: 10px 54px;
-    }
-
-    .recent-list a:hover{
-      background: @article-hover-color;
-      color: @white-color;
-    }
-  }*/
-/*}*/
-
-
-/*#user-profile{
-  display: none;
-}
-
-
-
-.hide-user-icon{
-  display: none;
-}*/
 
 

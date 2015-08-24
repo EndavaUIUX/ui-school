@@ -265,7 +265,10 @@ header .logo-user .user .user-profile .user-icon:hover {
   margin: 0 0 0 24px;
   padding: 15px 6px 15px 24px;
 }
-.slider-menu a {
+.slider-menu ul {
+  list-style: none;
+}
+.slider-menu ul a {
   display: block;
   padding: 15px 0 15px 70px;
   color: #ffffff;
@@ -273,7 +276,7 @@ header .logo-user .user .user-profile .user-icon:hover {
   font-family: "Lato-Regular";
   font-size: 18px;
 }
-.slider-menu a:hover {
+.slider-menu ul a:hover {
   color: #ffffff;
   background-color: #c0c0c0;
 }
@@ -297,6 +300,7 @@ header .logo-user .user .user-profile .user-icon:hover {
   background: url("../images/left_menu/arrow.png") no-repeat left;
   padding: 25px 0;
   margin: 0 0 0 24px;
+  cursor: pointer;
 }
 .menu-left .search-article {
   height: 48px;
@@ -426,85 +430,21 @@ header .logo-user .user .user-profile .user-icon:hover {
 .menu-right {
   right: -360px;
 }
+.menu-right .user-details h2 {
+  background: url("../images/right_menu/user.png") no-repeat left;
+  padding-left: 60px;
+  margin-top: 7px;
+}
+.menu-right .article-recent {
+  margin-top: 20px;
+}
+.menu-right .article-recent .title-recent {
+  background: url("../images/right_menu/file.png") no-repeat left;
+}
 .menu-right.show-menu-right {
   position: fixed;
   right: 0;
 }
-/*.user-details{
-    .user{
-      padding: 8px 15px 0px 24px;
-    }
-    .user:hover{
-      cursor: pointer;
-    }
-    .user-name{
-      font-size: @h2-font-size;
-      font-family: 'Lato';
-      top: 10px;
-      left: 55px;
-      position: absolute;
-      color: @white-color;
-      padding: 8px 0px 0px 0px;
-      margin-left: 32px;
-      line-height: 1.2;
-      font-weight: normal;
-    }
-  }
-
-  .article-recent{
-    .title-recent{
-     */
-/* font-size: @h2-font-size;
-      font-family: 'Lato';
-      color: @white-color;
-      line-height: 1.2;
-      position: absolute;
-      z-index: 302;
-      top: 90px;
-      left: 27px;
-      font-weight: normal;
-      cursor: pointer;
-      background: url("../images/right_menu/file.png") no-repeat left;
-      padding-left: 27px;*/
-/*
-    }
-
-    .file{
-      position: absolute;
-      width: 17px;
-      height: 19px;
-      z-index: 303;
-      padding-left: 24px;
-      top: 93px;
-    }
-
-    .recent-list{
-      padding: 74px 0px 0px 0px;
-    }
-    .recent-list a{
-      font-size: @desktop-font-size;
-      font-family: "Lato";
-      line-height: 1.66;
-      color: @articles-color;
-      border-bottom: none;
-      padding: 10px 54px;
-    }
-
-    .recent-list a:hover{
-      background: @article-hover-color;
-      color: @white-color;
-    }
-  }*/
-/*}*/
-/*#user-profile{
-  display: none;
-}
-
-
-
-.hide-user-icon{
-  display: none;
-}*/
 @media only screen and (min-width: 1px) and (max-width: 699px) {
   .menu-right {
     background-color: #f7f7f7;
