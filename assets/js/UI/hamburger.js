@@ -2,7 +2,7 @@
     'use strict';
     var $menu = $('.menu'),
         $menuLeft = $('nav.menu-left'),
-        $hideMenu = $('.hide-menu, .slider-backdrop'),
+        $hideMenu = $('.left-arrow'),
         $menuLeftInput = $('.menu-left input');
 
 
@@ -12,11 +12,11 @@
 
         var $menuRight = $('.menu-right'),
             $rightMinDiv = $('.user'),
-            $sliderBackdrop = $('.slider-backdrop');
+            $mainContainer = $('.container');
 
         if (!$menuLeft.hasClass("show-menu-left")) {
             $menuLeft.addClass("show-menu-left");
-            $sliderBackdrop.addClass("show");
+            $mainContainer.addClass("show-fixed");
 
             $menuRight.removeClass("show-menu-right");
             $rightMinDiv.removeClass("hide-user-icon");
@@ -28,7 +28,7 @@
         e.stopPropagation();
 
         var targetEl = $(e.target),
-            $sliderBackdrop = $('.slider-backdrop');
+            $mainContainer = $('.container');
 
         if(!targetEl.is(".menu-left")
             && !targetEl.is(".menu-left .search-article")
@@ -37,7 +37,7 @@
             && !targetEl.is(".menu-left p")
             && !targetEl.is(".menu-left .left-word")) {
             $menuLeft.removeClass("show-menu-left");
-            $sliderBackdrop.removeClass("show");
+            $mainContainer.removeClass("show-fixed");
         }
 
     });
@@ -46,7 +46,7 @@
         var targetEl = $(e.target),
             $errorElement = $('.menu-left p'),
             $menuRight = $('.menu-right'),
-            $sliderBackdrop = $('.slider-backdrop');
+            $mainContainer = $('.container');
 
         if (!targetEl.is('.menu')
             && !targetEl.is(".menu-left")
@@ -66,10 +66,8 @@
             && !targetEl.is(".menu-left .left-word")) {
 
             $('nav.menu-left').removeClass('show-menu-left');
-            $sliderBackdrop.removeClass("show");
-
+            $mainContainer.removeClass("show-fixed");
             $menuRight.removeClass("show-menu-right");
-            $sliderBackdrop.removeClass("show");
 
             $('.menu-left input').val('');
             THUNDERSTORM.modules.utility.cleanErrors($errorElement);

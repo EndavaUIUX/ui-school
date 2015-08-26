@@ -1,16 +1,51 @@
 @media only screen
 and (min-width: 1px)
-and (max-width: 699px) {
+and (max-width: 480px) {
 
-    .slider-backdrop {
-        position: fixed;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        z-index: 2;
-        background-color: rgba(255, 255, 255, 0.56);
-        height: 100%;
+    .slider-menu {
+        background-color: #f7f7f7;
         width: 100%;
+        min-height: 100%;
+        border-bottom: 1px solid #ebebeb;
+        box-shadow: 0 3px 3px rgba(0,0,0,0.14);
+
+
+        ul a,
+        ul a:hover {
+            font-size: 13px;
+            color: @black-color;
+            padding: 15px 0 15px 62px;
+        }
+
+    }
+    .show-fixed {
+        position: fixed;
+    }
+}
+
+@media only screen
+and (min-width: 650px)
+and (max-width: 1180px){
+    .slider-menu {
+        width: 210px;
+
+      .search-article {
+        width: 160px;
+        height: 40px;
+        font-size: 15px;
+        line-height: 2;
+      }
+
+      h2 {
+        font-size: 17px;
+      }
+
+      ul a {
+        font-size: 15px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding: 15px 0px 15px 62px;
+      }
     }
 }

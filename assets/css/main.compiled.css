@@ -299,17 +299,43 @@ header .logo-user .user .user-profile .user-icon:hover {
   color: #ffffff;
   background-color: #c0c0c0;
 }
-@media only screen and (min-width: 1px) and (max-width: 699px) {
-  .slider-backdrop {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 2;
-    background-color: rgba(255, 255, 255, 0.56);
-    height: 100%;
+@media only screen and (min-width: 1px) and (max-width: 480px) {
+  .slider-menu {
+    background-color: #f7f7f7;
     width: 100%;
+    min-height: 100%;
+    border-bottom: 1px solid #ebebeb;
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.14);
+  }
+  .slider-menu ul a,
+  .slider-menu ul a:hover {
+    font-size: 13px;
+    color: #000000;
+    padding: 15px 0 15px 62px;
+  }
+  .show-fixed {
+    position: fixed;
+  }
+}
+@media only screen and (min-width: 650px) and (max-width: 1180px) {
+  .slider-menu {
+    width: 210px;
+  }
+  .slider-menu .search-article {
+    width: 160px;
+    height: 40px;
+    font-size: 15px;
+    line-height: 2;
+  }
+  .slider-menu h2 {
+    font-size: 17px;
+  }
+  .slider-menu ul a {
+    font-size: 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 15px 0px 15px 62px;
   }
 }
 .menu-left {
@@ -333,7 +359,7 @@ header .logo-user .user .user-profile .user-icon:hover {
 }
 .menu-left p {
   display: none;
-  /*&.showError {
+  /*&.show-error {
           display: inline-block;
           padding-top: 5px;
           color: #e1632a;;
@@ -354,92 +380,38 @@ header .logo-user .user .user-profile .user-icon:hover {
   background: url("../images/left_menu/link.png") no-repeat left;
 }
 .menu-left.show-menu-left {
-  position: fixed;
   left: 0px;
 }
-@media only screen and (min-width: 1px) and (max-width: 699px) {
-  nav,
-  .menu-left {
-    background-color: #f7f7f7;
-    width: 100%;
-    height: auto;
-    min-height: 0%;
+@media only screen and (min-width: 1px) and (max-width: 480px) {
+  .menu-left .left-arrow {
+    background: url("../images/left_menu/arrow-black.png") no-repeat left;
   }
-  nav ul,
-  .menu-left ul {
-    border-bottom: 1px solid #ebebeb;
-    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.14);
-  }
-  nav a,
-  .menu-left a {
-    font-size: 13px;
-    color: #000;
-  }
-  nav .search-article,
   .menu-left .search-article {
     height: 40px;
     width: 190px;
     font-size: 13px;
     line-height: 2;
+    background-size: 15px 15px;
   }
-  nav .errorSearch,
-  .menu-left .errorSearch {
+  .menu-left .show-error {
     width: 190px;
     text-align: center;
   }
-  nav a:hover,
-  .menu-left a:hover {
-    color: #000;
-  }
-  nav .editor-mode,
-  .menu-left .editor-mode {
+  .menu-left .editor-list h2 {
     background: url("../images/left_menu/disc_black.png") no-repeat left;
-    padding: 27px 6px 27px 24px;
-    margin: 0 0 0 24px;
+    background-size: 15px 15px;
+    color: #000000;
+    font-size: 15px;
   }
-  nav .link,
-  .menu-left .link {
+  .menu-left .resources-list h2 {
     background: url("../images/left_menu/link-black.png") no-repeat left;
-    padding: 27px 6px 15px 24px;
-    margin: 0 0 0 24px;
-  }
-  nav .left-arrow,
-  .menu-left .left-arrow {
-    background: url("../images/left_menu/arrow-black.png") no-repeat left;
-    padding: 25px 25px 25px 25px;
-    margin: 0 0px 0 24px;
-  }
-  .hide {
-    display: none;
-  }
-  .show {
-    display: block;
+    background-size: 15px 15px;
+    color: #000000;
+    font-size: 15px;
   }
 }
 @media only screen and (min-width: 650px) and (max-width: 1180px) {
-  .menu-left,
-  nav.menu-right {
-    width: 210px;
-  }
-  .menu-left .article-recent .title-recent,
-  nav.menu-right .article-recent .title-recent,
-  .menu-left .user-details .user-name,
-  nav.menu-right .user-details .user-name,
-  .menu-left .article-recent .recent-list a,
-  nav.menu-right .article-recent .recent-list a,
-  .menu-left a,
-  nav.menu-right a {
-    font-size: 15px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  .menu-left .user,
-  nav.menu-right .user {
-    width: 15%;
-  }
-  .menu-left .search-article,
-  nav.menu-right .search-article {
+  .menu-left .search-article {
     width: 160px;
     height: 40px;
     font-size: 15px;
@@ -461,35 +433,28 @@ header .logo-user .user .user-profile .user-icon:hover {
   background: url("../images/right_menu/file.png") no-repeat left;
 }
 .menu-right.show-menu-right {
-  position: fixed;
   right: 0;
 }
-@media only screen and (min-width: 1px) and (max-width: 699px) {
-  .menu-right {
-    background-color: #f7f7f7;
-    width: 100%;
-    height: auto;
-    min-height: 23%;
-    border-bottom: 1px solid #ebebeb;
-    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.14);
-  }
-  .menu-right .user {
-    width: 40px;
-  }
-  .menu-right .user-details .user-name {
-    color: #000;
-    font-size: 13px;
-    margin-left: 25px;
+@media only screen and (min-width: 1px) and (max-width: 480px) {
+  .menu-right .user-details h2 {
+    color: #000000;
+    font-size: 15px;
+    background-size: 40px 40px;
   }
   .menu-right .article-recent .title-recent {
-    color: #000;
-    font-size: 13px;
+    color: #000000;
+    font-size: 15px;
     background: url("../images/right_menu/file-black.png") no-repeat left;
     background-size: 15px 15px;
   }
   .menu-right .article-recent .recent-list a {
-    color: #000;
+    color: #000000;
     font-size: 13px;
+  }
+}
+@media only screen and (min-width: 650px) and (max-width: 1180px) {
+  .menu-right .user-details h2 {
+    background-size: 40px 40px;
   }
 }
 .slider {

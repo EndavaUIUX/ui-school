@@ -7,21 +7,19 @@
         $rightMinDiv = $('.user'),
         $profile = $('.user-profile'),
         $hideMenu = $('.user, .slider-backdrop'),
-        $title = $('.title-recent'),
-        $sliderBackdrop = $('.slider-backdrop');
+        $title = $('.title-recent');
 
     $profile.click(function (e) {
         e.preventDefault();
         e.stopPropagation();
 
         var  $menuLeft = $('nav.menu-left'),
-            $sliderBackdrop = $('.slider-backdrop');
+            $mainContainer = $('.container');
 
         $title.html("Most Recent Articles");
         if (!$menuRight.hasClass("show-menu-right")) {
             $menuRight.addClass("show-menu-right");
-            $sliderBackdrop.addClass("show");
-
+            $mainContainer.addClass("show-fixed");
             $menuLeft.removeClass("show-menu-left");
         }
     });
@@ -30,23 +28,23 @@
         //e.preventDefault();
         e.stopPropagation();
         var targetEl = $(e.target),
-            $sliderBackdrop = $('.slider-backdrop');
+            $mainContainer = $('.container');
         if(!targetEl.is('.menu-right')
             && !targetEl.is('.article-recent h2')
             && !targetEl.is('.recent-list a')) {
             $menuRight.removeClass("show-menu-right");
             $rightMinDiv.removeClass("hide-user-icon");
-            $sliderBackdrop.removeClass("show");
+            $mainContainer.removeClass("show-fixed");
         }
     });
 
     //show & hide resources list from right menu
     $(function() {
-        $('.left-word').show();
+        $('.resources-list h2').show();
 
-        $('.bordernone').click(function(ev) {
-            ev.preventDefault()
-            $('.left-word').toggle();
+        $('.resources-list ul').click(function(ev) {
+            ev.preventDefault();
+            $('.resources-list h2').toggle('slow');
         });
 
     });
@@ -57,7 +55,7 @@
         $('.recent-list').show();
 
         $('.title-recent').click(function() {
-            $('.recent-list').toggle();
+            $('.recent-list').toggle('slow');
         });
 
     });

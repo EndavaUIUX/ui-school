@@ -1,38 +1,39 @@
+
 @media only screen
 and (min-width: 1px)
-and (max-width: 699px) {
-
+and (max-width: 480px) {
 
     .menu-right {
-      background-color: #f7f7f7;
-      width: 100%;
-      height: auto;
-      min-height: 23%;
-      border-bottom: 1px solid #ebebeb;
-      box-shadow: 0 3px 3px rgba(0,0,0,0.14);
 
-      .user {
-        width: 40px;
-      }
-
-      .user-details .user-name {
-        color: #000;
-        font-size: 13px;
-        margin-left: 25px;
-      }
-      .article-recent {
-
-        .title-recent {
-          color: #000;
-          font-size: 13px;
-          background: url("../images/right_menu/file-black.png") no-repeat left;
-          background-size: 15px 15px;
+        .user-details h2 {
+            color: @black-color;
+            font-size: 15px;
+            background-size: 40px 40px;
         }
 
-        .recent-list a {
-          color: #000;
-          font-size: 13px;
+        .article-recent {
+
+            .title-recent {
+                color: @black-color;
+                font-size: 15px;
+                background: @title-recent-black-ico;
+                background-size: 15px 15px;
+            }
+
+            .recent-list a {
+                color: @black-color;
+                font-size: 13px;
+            }
         }
-      }
+    }
+}
+
+@media only screen
+and (min-width: 650px)
+and (max-width: 1180px){
+    .menu-right {
+        .user-details h2 {
+            background-size: 40px 40px;
+        }
     }
 }
