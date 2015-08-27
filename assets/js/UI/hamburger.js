@@ -3,8 +3,20 @@
     var $menu = $('.menu'),
         $menuLeft = $('nav.menu-left'),
         $hideMenu = $('.left-arrow'),
-        $menuLeftInput = $('.menu-left input');
+        $menuLeftInput = $('.menu-left input'),
+        $scrollingContainer = $('.scrolling');
 
+// set height for scrolling div in order to window resize/size
+    $(document).ready(function(){
+        for(var i in $scrollingContainer){
+            $($scrollingContainer[i]).css({ height: $(window).innerHeight() });
+        }
+        $(window).resize(function(){
+            for(var i in $scrollingContainer){
+                $($scrollingContainer[i]).css({ height: $(window).innerHeight() });
+            }
+        });
+    });
 
     $menu.click(function (e) {
         e.preventDefault();
@@ -16,7 +28,7 @@
 
         if (!$menuLeft.hasClass("show-menu-left")) {
             $menuLeft.addClass("show-menu-left");
-            $mainContainer.addClass("show-fixed");
+            //$mainContainer.addClass("show-fixed");
 
             $menuRight.removeClass("show-menu-right");
             $rightMinDiv.removeClass("hide-user-icon");
@@ -37,7 +49,7 @@
             && !targetEl.is(".menu-left p")
             && !targetEl.is(".menu-left .left-word")) {
             $menuLeft.removeClass("show-menu-left");
-            $mainContainer.removeClass("show-fixed");
+            //$mainContainer.removeClass("show-fixed");
         }
 
     });
@@ -66,7 +78,7 @@
             && !targetEl.is(".menu-left .left-word")) {
 
             $('nav.menu-left').removeClass('show-menu-left');
-            $mainContainer.removeClass("show-fixed");
+            //$mainContainer.removeClass("show-fixed");
             $menuRight.removeClass("show-menu-right");
 
             $('.menu-left input').val('');
@@ -99,4 +111,5 @@
             window.location.href = "/search-result?" + inputValue;
         }
     });
+
 }());
