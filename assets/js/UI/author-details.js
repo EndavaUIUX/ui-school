@@ -1,6 +1,4 @@
-/**
- * Created by icojocaru on 8/5/2015.
- */
+
 (function() {
     'use strict';
     var $menuRight = $('.menu-right'),
@@ -19,7 +17,9 @@
         $title.html("Most Recent Articles");
         if (!$menuRight.hasClass("show-menu-right")) {
             $menuRight.addClass("show-menu-right");
-            $mainContainer.addClass("show-fixed");
+            if($(window).innerWidth() < 569) {
+                $mainContainer.addClass("show-fixed");
+            }
             $menuLeft.removeClass("show-menu-left");
         }
     });
@@ -34,7 +34,9 @@
             && !targetEl.is('.recent-list a')) {
             $menuRight.removeClass("show-menu-right");
             $rightMinDiv.removeClass("hide-user-icon");
-            $mainContainer.removeClass("show-fixed");
+            if($(window).innerWidth() < 569) {
+                $mainContainer.removeClass("show-fixed");
+            }
         }
     });
 

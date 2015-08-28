@@ -28,7 +28,9 @@
 
         if (!$menuLeft.hasClass("show-menu-left")) {
             $menuLeft.addClass("show-menu-left");
-            //$mainContainer.addClass("show-fixed");
+            if($(window).innerWidth() < 569) {
+                $mainContainer.addClass("show-fixed");
+            }
 
             $menuRight.removeClass("show-menu-right");
             $rightMinDiv.removeClass("hide-user-icon");
@@ -49,7 +51,9 @@
             && !targetEl.is(".menu-left p")
             && !targetEl.is(".menu-left .left-word")) {
             $menuLeft.removeClass("show-menu-left");
-            //$mainContainer.removeClass("show-fixed");
+            if($(window).innerWidth() < 569) {
+                $mainContainer.removeClass("show-fixed");
+            }
         }
 
     });
@@ -78,7 +82,9 @@
             && !targetEl.is(".menu-left .left-word")) {
 
             $('nav.menu-left').removeClass('show-menu-left');
-            //$mainContainer.removeClass("show-fixed");
+            if($(window).innerWidth() < 569) {
+                $mainContainer.removeClass("show-fixed");
+            }
             $menuRight.removeClass("show-menu-right");
 
             $('.menu-left input').val('');
