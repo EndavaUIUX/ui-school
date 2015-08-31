@@ -45,7 +45,6 @@
                         "showLoadMore" : resolutionPaginationObj.showLoadMore};
 
     // utility.collapseRecentArticleMenu();
-
         articles.pages = articles.pagination(articles.filterArticles(params), params.itemsPerPage);
         articles.generateArticles(articles.pages[0], params);
         if (params.showLoadMore) {

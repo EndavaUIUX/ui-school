@@ -69,6 +69,7 @@
 
     articles.filterArticles = function (options) {
         var searchedArticles = [];
+
         articles.data = persistence.get(options.sourceName);
         for(var i = 0, len = articles.data['articles'].length; i < len; i++) {
             if(articles.data['articles'][i]["title"].toLowerCase().indexOf(options.searchedWord) > -1){

@@ -5,18 +5,16 @@
     /* ****** VARIABLES ******** */
 
     var $hamburgerMenu = $( '.menu' ),
-        $leftArrow = $( '.left-arrow' ),
         $scrollingContainer = $( '.scrolling'),
-        $searchInput = $( '.menu-left input' ),
-        $menuRight = $('.menu-right'),
-        $headerUserProfile = $('header .user-profile'),
-        $userDetailsUserProfile = $('.user-details .user-profile');
+        $searchInput = $( '.menu-left input'),
+        $headerUserProfile = $('header .user-profile');
 
 
     /* ****** EVENTS ******** */
 
-    // set height for scrolling div in order to window size/resize
     $( document ).ready(function() {
+
+        // set height for scrolling div in order to window size/resize
         setScrollingDivHeight($scrollingContainer);
 
         $( window ).resize(function() {
@@ -32,6 +30,7 @@
         $('.article-recent h2').on('click', function() {
             $('.article-recent ul').slideToggle(500);
         });
+
     });
 
     $hamburgerMenu.on('click', function (evt) {
@@ -81,27 +80,32 @@
     });
 
     $searchInput.keypress(function(e) {
-        var inputValue = $searchInput[0].value;
-        var $errorElement = $('.menu-left p');
-        var isValueValid = false;
-        var searchedWord = inputValue.toLowerCase();
-        var key = 'articles';
-        var articlesParent = $('.content');
-        var params = {"sourceName" : key, "articlesParent" : articlesParent, "searchedWord" : searchedWord, isMainPage : false, "itemsPerPage" : 6};
 
-        if (e.keyCode == 13) {
+        var inputValue = $searchInput[0].value,
+            $errorElement = $('.menu-left p'),
+            isValueValid = false,
+            searchedWord = inputValue.toLowerCase(),
+            key = 'articles',
+            articlesParent = $('.content'),
+            searchedArticles = [],
+            params = {"sourceName" : key, "articlesParent" : articlesParent, "searchedWord" : searchedWord, isMainPage : false, "itemsPerPage" : 6};
+
+        if (e.keyCode === 13) {
+
             isValueValid = isValueValid || THUNDERSTORM.modules.utility.validateInput(inputValue, $errorElement);
-            var searchedArticles = THUNDERSTORM.modules.articles.filterArticles(params);
+            searchedArticles = THUNDERSTORM.modules.articles.filterArticles(params);
+
             if(!isValueValid) {
                 return;
             }
             if(searchedArticles.length === 0 ){
-                $(".errorContainer").html("No articles were found to match your search.");
-                $errorElement.removeClass('hideError');
-                $errorElement.addClass('errorSearch');
+                $errorElement.html("No articles were found to match your search.");
+                $errorElement.addClass('show-error');
                 return;
             }
+
             window.location.href = "/search-result?" + inputValue;
+
         }
     });
 

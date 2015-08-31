@@ -277,7 +277,21 @@ header .logo-user .user .user-profile .user-icon:hover {
 }
 .slider-menu .scrolling {
   overflow-y: scroll;
+  overflow-x: hidden;
   -webkit-overflow-scrolling: "touch";
+  /******* custom scrollbar *****/
+  /******************************/
+}
+.slider-menu .scrolling::-webkit-scrollbar {
+  width: 10px;
+}
+.slider-menu .scrolling::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+.slider-menu .scrolling::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
 }
 .slider-menu .scrolling h2 {
   font-size: 21px;
@@ -360,16 +374,15 @@ header .logo-user .user .user-profile .user-icon:hover {
 }
 .menu-left p {
   display: none;
-  /*&.show-error {
-          display: inline-block;
-          padding-top: 5px;
-          color: #e1632a;;
-          margin: 0 23px;
-          text-align: justify;
-          font-family: 'Lato-Regular';
-          text-align: center;
-
-        }*/
+}
+.menu-left p.show-error {
+  display: inline-block;
+  padding-top: 5px;
+  color: #e1632a;
+  margin: 0 23px;
+  text-align: justify;
+  font-family: 'Lato-Regular';
+  text-align: center;
 }
 .menu-left .editor-list {
   border-bottom: 1px solid #585858;

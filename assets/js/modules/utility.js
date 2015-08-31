@@ -104,25 +104,24 @@
     };
 
 
-     // ACCEPT LETTERS / NUMBERS / : / & / - / LENGTH MORE THAN 0
+    // ACCEPT LETTERS / NUMBERS / ! / = / & / - / LENGTH MORE THAN 0
     utility.validateInput = function (inputValue, errorElement) {
-        var regex = new RegExp("^[a-zA-Z0-9-& ]+$");
+
+        var regex = new RegExp("^[a-zA-Z0-9-!&= ]+$");
 
         utility.cleanErrors(errorElement);
         if (inputValue.length === 0 || !regex.test(inputValue)) {
-            $(".errorContainer").html("The input value is not valid.");
-            errorElement.removeClass('hideError');
-            errorElement.addClass('errorSearch');
+            errorElement.html("The input value is not valid.");
+            errorElement.addClass('show-error');
             return false;
         }
         return true;
     };
 
-    // add & remove paragraph if i have or not invalid text input
+    // add & remove paragraph if I have or not invalid text input
     utility.cleanErrors = function (element) {
-        element.removeClass('errorSearch');
-        element.addClass('hideError');
-        $(".errorContainer").html("");
+        element.removeClass('show-error');
+        element.html("");
     };
 
    // split the current url from gallery[]
