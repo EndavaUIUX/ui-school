@@ -308,7 +308,6 @@ header .logo-user .user .user-profile .user-icon:hover {
 }
 @media only screen and (max-width: 568px) {
   .slider-menu {
-    background-color: #f7f7f7;
     min-height: 100%;
     border-bottom: 1px solid #ebebeb;
     box-shadow: 0 3px 3px rgba(0, 0, 0, 0.14);
@@ -316,7 +315,6 @@ header .logo-user .user .user-profile .user-icon:hover {
   .slider-menu .scrolling ul a,
   .slider-menu .scrolling ul a:hover {
     font-size: 13px;
-    color: #000000;
     padding: 15px 0 15px 62px;
   }
 }
@@ -387,7 +385,7 @@ header .logo-user .user .user-profile .user-icon:hover {
 }
 @media only screen and (min-width: 1px) and (max-width: 568px) {
   .menu-left .left-arrow {
-    background: url("../images/left_menu/arrow-black.png") no-repeat left;
+    background: url("../images/left_menu/arrow.png") no-repeat left;
   }
   .menu-left .search-article {
     height: 40px;
@@ -401,15 +399,13 @@ header .logo-user .user .user-profile .user-icon:hover {
     text-align: center;
   }
   .menu-left .editor-list h2 {
-    background: url("../images/left_menu/disc_black.png") no-repeat left;
+    background: url("../images/left_menu/disc.png") no-repeat left;
     background-size: 15px 15px;
-    color: #000000;
     font-size: 15px;
   }
   .menu-left .resources-list h2 {
-    background: url("../images/left_menu/link-black.png") no-repeat left;
+    background: url("../images/left_menu/link.png") no-repeat left;
     background-size: 15px 15px;
-    color: #000000;
     font-size: 15px;
   }
   .menu-left.show-menu-left {
@@ -443,18 +439,15 @@ header .logo-user .user .user-profile .user-icon:hover {
 }
 @media only screen and (max-width: 568px) {
   .menu-right .user-details h2 {
-    color: #000000;
     font-size: 15px;
     background-size: 40px 40px;
   }
   .menu-right .article-recent .title-recent {
-    color: #000000;
     font-size: 15px;
-    background: url("../images/right_menu/file-black.png") no-repeat left;
+    background: url("../images/right_menu/file.png") no-repeat left;
     background-size: 15px 15px;
   }
   .menu-right .article-recent .recent-list a {
-    color: #000000;
     font-size: 13px;
   }
   .menu-right.show-menu-right {
