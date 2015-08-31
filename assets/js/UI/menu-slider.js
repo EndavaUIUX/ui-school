@@ -49,7 +49,8 @@
 
     });
 
-    $('body').on("click touchend", function(e) {
+    $('body').on("click", function(e) {
+        
         var targetEl = $(e.target),
             $errorElement = $('.menu-left p'),
             $menuRight = $('.menu-right'),
@@ -59,6 +60,7 @@
 
         if (!targetEl.is('.menu-icon')
             && !targetEl.is(".menu")
+            && !targetEl.is(".menu img")
             && !targetEl.is(".scrolling")
             && !targetEl.is(".menu-left .search-article")
             && !targetEl.is(".menu-left p")
@@ -66,6 +68,8 @@
             && !targetEl.is(".menu-left .resources-list h2")
             && !targetEl.is(".menu-left a")
             && !targetEl.is('.article-recent h2')
+            && !targetEl.is('.user-profile')
+            && !targetEl.is('.user-profile img')
             ) {
 
             $menuLeft.removeClass('show-menu-left');
