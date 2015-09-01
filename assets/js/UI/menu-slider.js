@@ -50,7 +50,7 @@
     });
 
     $('body').on("click", function(e) {
-        
+
         var targetEl = $(e.target),
             $errorElement = $('.menu-left p'),
             $menuRight = $('.menu-right'),

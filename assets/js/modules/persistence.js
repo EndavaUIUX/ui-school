@@ -6,14 +6,14 @@
    ========================================================================== */
 (function (window, THUNDERSTORM) {
     'use strict';
+
     var API = {};
     API.moduleName = "persistence";
-    
     API.data = {};
     
     API.set = function (options) {
-        var data = options.data;
-        var sourceName = options.sourceName;
+        var data = options.data,
+        sourceName = options.sourceName;
 
         if (typeof data !== 'object') {
             throw new Error('Arg data {object} nu este definit sau nu este obiect.');

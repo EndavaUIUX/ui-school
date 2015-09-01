@@ -5,22 +5,23 @@
 
 (function (window, THUNDERSTORM, $) {
     'use strict';
-    var utility = THUNDERSTORM.modules.utility;
-    var persistence = THUNDERSTORM.modules.persistence;
-    var articles = THUNDERSTORM.modules.articles;
-    var articlesParent = $('.main--homepage');
-    var articleClickTriggers =  'article h2,' +
+
+    var utility = THUNDERSTORM.modules.utility,
+        persistence = THUNDERSTORM.modules.persistence,
+        articles = THUNDERSTORM.modules.articles,
+        articlesParent = $('.main--homepage'),
+        articleClickTriggers =  'article h2,' +
                                 '.article__title,' +
                                 '.article-info img,' +
                                 '.article__img img,' +
                                 '.btn--more,' +
                                 '.load-more,' +
-                                '.latest__article .article__picture img';
-    var loadMore = $('.load-more');
-    var page = loadMore[0].getAttribute('data-page');
-    var key = 'articles';
-    var recentArticles;
-    var articlePages = '.article-page';
+                                '.latest__article .article__picture img',
+        loadMore = $('.load-more'),
+        page = loadMore[0].getAttribute('data-page'),
+        key = 'articles',
+        recentArticles,
+        articlePages = '.article-page';
 
     //utility.sortLatestArticlesAccessed(recentArticles);
   /* ================================================================

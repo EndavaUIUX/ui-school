@@ -5,15 +5,14 @@
      ========================================================================== */
 (function ($) {
     'use strict';
-    var bubble = $('.bubble');
-    var $slider = $('.slider__slides');
-    var $slide = $('.slider__slide');
-    var slideWidth = $(window).width();
-    var sliderWidth = slideWidth * $slide.length;
 
-    /*  Get window size and set slider widths based on that
-    **/
-    $slide.css({width: slideWidth});
+    var bubble = $('.bubble'),
+        $slider = $('.slider__slides'),
+        $slide = $('.slider__slide'),
+        sliderWidth = $( window ).width() * $slide.length;
+
+    /* Get window size and set slider widths based on that**/
+    $slide.css({width: $( window ).width()});
     $slider.css({width: sliderWidth});
 
     /* ==========================================================================
@@ -26,8 +25,9 @@
      *  It will also return the direction, as a plus or minus sign.
      **/
     function getTravelLength(current) {
-        var index = $('.bubble.bubble--active').data('index');
-        var difference = current - index;
+        var previous = $('.bubble.bubble--active').data('index'),
+            difference = current - previous;
+
         return difference * slideWidth;
     }
 
@@ -42,27 +42,31 @@
     
     /*  ctrl is toggled as we don't want users to be able to click
      *  while the slider is moving(even though opacity is 0);
+     *  meta - text inside of slider
+     *  ctrl - slider bubbles
      **/
-    function fadeCtrlMeta($meta, $ctrl, opacity, time) {
+    function fadeCtrlsAndMeta($meta, $ctrl, opacity, time) {
         $meta.animate({opacity : opacity}, time);
         $ctrl.animate({opacity : opacity}, time);
         $ctrl.toggle();
     }
     
     function move(travellength) {
-        var $that = $(this);
-        var $sliderMeta = $('.slider__meta');
-        var $sliderControlls = $('.slider__controlls');
-        var $sliders = $('.slider__slides');
-        var sliderPos = $sliders.offset().left;
+        var $that = $(this),
+            $sliderMeta = $('.slider__meta'), // text inside of the slider
+            $sliderTransitionControlls = $('.slider__controlls'), // slider bubbles
+            $sliders = $('.slider__slides'),
+            sliderPos = $sliders.offset().left;
 
-        fadeCtrlMeta($sliderMeta, $sliderControlls, 0, 100);
+        //hide meta and ctrls
+        fadeCtrlsAndMeta($sliderMeta, $sliderTransitionControlls, 0, 100);
         setActiveBubble($that);
 
+        //show meta and ctrls after a time
         $sliders.animate({
             left: sliderPos - travellength
         }, 900, function () {
-            fadeCtrlMeta($sliderMeta, $sliderControlls, 1, 500);
+            fadeCtrlsAndMeta($sliderMeta, $sliderTransitionControlls, 1, 500);
         });
 
     }
@@ -72,20 +76,21 @@
      ========================================================================== */
 
     bubble.on('click', function (ev) {
-        var goTo = $(this).data('index');
-        var travelLength = getTravelLength(goTo);
+
+        var goTo = $(this).data('index'), //slide index corresponding to clicked bubble
+            travelLength = getTravelLength(goTo);
+
         ev.preventDefault();
         if (travelLength) {
-            move.call(this, travelLength);
+            move.call(this, travelLength);// has as parameter the context
         }
     });
 
     /*  Update slider widths based on window on resize event
      **/
     $(window).resize(function () {
-        slideWidth = $(window).width();
-        sliderWidth = slideWidth * $slide.length;
-        $slide.css({width: slideWidth});
+        sliderWidth =  $(window).width() * $slide.length;
+        $slide.css({width: $(window).width()});
         $slider.css({width: sliderWidth, left : 0});
         setActiveBubble();
     });

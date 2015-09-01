@@ -1,14 +1,15 @@
 (function (window, THUNDERSTORM, $) {
     'use strict';
+
     var articles = {},
         utility = THUNDERSTORM.modules.utility,
-        persistence = THUNDERSTORM.modules.persistence;
+        persistence = THUNDERSTORM.modules.persistence,
+        articlesParent = $('.main'),
+        articleClickTriggers ='article h2, .article__title, .article-info img, .article__img img, .btn--more, .load-more, .article__photo, .latest__article .article__picture img, .latest__article .article__img',
+        loadMore = $('.load-more');
     articles.moduleName = "articles";
-    var articlesParent = $('.main');
     articles.data = {};
 
-    var articleClickTriggers ='article h2, .article__title, .article-info img, .article__img img, .btn--more, .load-more, .article__photo, .latest__article .article__picture img, .latest__article .article__img',
-    loadMore = $('.load-more');
     /* =====================================================================
      function init()
      Verifica daca exista cheia articles in local storage. Daca da, preia datele
@@ -25,7 +26,9 @@
      }
      ==================================================================== */
     articles.init = function (options) {
+
         var key = options.sourceName;
+
         if (utility.keyInLocalStorage(key)) {
             articles.data = persistence.get(options);
             //if vrem sa generam, facem paginarea si generate
