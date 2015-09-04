@@ -1,8 +1,166 @@
-    /* ==========================================================================
+/*==========================================================================
+ * slider.js, to hold the homepage slider implementation.
+ ==========================================================================*/
+
+(function(window, THUNDERSTORM, $) {
+    'use strict';
+
+    var slider = {},
+        bubble = $('.bubble'),
+        utility = THUNDERSTORM.modules.utility,
+        persistence = THUNDERSTORM.modules.persistence;
+
+    /*==========================================================================
+     * functions
+    ==========================================================================*/
+
+    slider.init = function(opt) {
+
+        var key = opt.sourceName;
+
+        if (utility.keyInLocalStorage(key)) {
+            slider.images = persistence.get(opt);
+            createSlider(slider.images);
+        }else{
+
+            THUNDERSTORM.modules.API.get({
+                url: 'rest/slider',
+                callback: function (data) {
+                    persistence.set({
+                        data: data,
+                        sourceName: key
+                    });
+                    slider.images  = persistence.get(opt);
+                    createSlider(slider.images);
+                }
+            });
+        }
+    };
+
+    function createSlider(data) {
+
+        var $li, $img, $meta, $h2, $p,
+            $slides = $(".slider__slides ul");
+
+
+        for(var i = 0, len = data.images.length; i < len; i++){
+            $li = $("<li>");
+            $meta = $("<div>", {class: "slider__meta"});
+            $img = $("<img>", {src: data.images[i].src, alt: data.images[i].name});
+            $h2 = $("<h2>");
+            $p = $("<p>");
+
+
+            $slides.append($li);
+            $li.append($meta);
+            $li.append($img);
+            $meta.append($h2);
+            $meta.append($p);
+
+            $h2.html(data.images[i].meta_title);
+            $p.html(data.images[i].meta_message);
+        }
+
+    }
+
+    /*getTravelLength {function}, current {number}
+    *  Returns the travel length between the sliders based on position of clicked
+    *  element and active slider.
+    *  It will also return the direction, as a plus or minus sign.
+    */
+    function getTravelLength(current, sliderWidth) {
+        var previous = $('.bubble.bubble--active').data('index'),
+            difference = current - previous;
+
+        return difference * $( window ).width();
+    }
+
+    function move(travellength) {
+        var $that = $(this),
+            $sliderTransitionControlls = $('.slider__controlls'), // slider bubbles
+            $sliders = $('.slider__slides'),
+            $sliderMeta = $('.slider__meta'), // text inside of the slider
+            sliderPos = $sliders.offset().left;
+
+        //hide meta and ctrls
+        fadeCtrlsAndMeta($sliderMeta, $sliderTransitionControlls, 0, 100);
+        setActiveBubble($that);
+
+        //show meta and ctrls after a time
+        $sliders.animate({
+            left: sliderPos - travellength
+        }, 900, function () {
+            fadeCtrlsAndMeta($sliderMeta, $sliderTransitionControlls, 1, 500);
+        });
+    }
+
+    /*ctrl is toggled as we don't want users to be able to click
+    *  while the slider is moving(even though opacity is 0);
+    *  meta - text inside of slider
+    *  ctrl - slider bubbles
+    */
+    function fadeCtrlsAndMeta($meta, $ctrl, opacity, time) {
+        $meta.animate({opacity : opacity}, time);
+        $ctrl.animate({opacity : opacity}, time);
+        $ctrl.toggle();
+    }
+
+
+    function setActiveBubble($target) {
+        $('.bubble--active').removeClass('bubble--active');
+        if (!$target) {
+            $('.bubble').first().addClass('bubble--active');
+        } else {
+            $target.addClass('bubble--active');
+        }
+    }
+
+    /*==========================================================================
+    * event handlers.
+    * ==========================================================================*/
+    bubble.on('click', function (ev) {
+
+        var goTo = $(this).data('index'), //slide index corresponding to clicked bubble
+            $slide = $('.slider li'),
+            sliderWidth = $( window ).width() * $slide.length,
+            travelLength = getTravelLength(goTo, sliderWidth);
+
+        ev.preventDefault();
+        if (travelLength) {
+            move.call(this, travelLength);
+        }
+    });
+
+    $('document').load( function() {
+        var $slide = $('.slider__slides li'),
+            $slider = $('.slider__slides'),
+            sliderWidth = $(window).width() * $slide.length;
+
+
+        /*Get window size and set slider widths based on that*/
+        $slide.css({width: $( window ).width()});
+        $slider.css({width: sliderWidth});
+
+        /*Update slider widths based on window on resize event*/
+        $(window).resize(function () {
+            sliderWidth =  $(window).width() * $slide.length;
+            $slide.css({width: $(window).width()});
+            $slider.css({width: sliderWidth, left : 0});
+            setActiveBubble();
+        });
+    });
+
+
+    THUNDERSTORM.modules.slider = slider;
+}(window, window.THUNDERSTORM, window.jQuery));
+
+
+/* *//*==========================================================================
      * slider.js, to hold the homepage slider implementation.
      * If there are some functions done here neeeded somewhere else, go ahead and
      * save it in the namespace :d
-     ========================================================================== */
+     ==========================================================================*//*
+
 (function ($) {
     'use strict';
 
@@ -11,19 +169,22 @@
         $slide = $('.slider__slide'),
         sliderWidth = $( window ).width() * $slide.length;
 
-    /* Get window size and set slider widths based on that**/
-    $slide.css({width: $( window ).width()});
-    $slider.css({width: sliderWidth});
+ *//*Get window size and set slider widths based on that*//*
 
-    /* ==========================================================================
+ $slide.css({width: $( window ).width()});
+ $slider.css({width: sliderWidth});
+
+ *//*==========================================================================
       functions
-     ========================================================================== */
+     ==========================================================================*//*
 
-    /*  getTravelLength {function}, current {number}
+
+    *//*getTravelLength {function}, current {number}
      *  Returns the travel length between the sliders based on position of clicked
      *  element and active slider.
      *  It will also return the direction, as a plus or minus sign.
-     **/
+     *//*
+
     function getTravelLength(current) {
         var previous = $('.bubble.bubble--active').data('index'),
             difference = current - previous;
@@ -40,11 +201,12 @@
         }
     }
     
-    /*  ctrl is toggled as we don't want users to be able to click
+  *//*ctrl is toggled as we don't want users to be able to click
      *  while the slider is moving(even though opacity is 0);
      *  meta - text inside of slider
      *  ctrl - slider bubbles
-     **/
+     *//*
+
     function fadeCtrlsAndMeta($meta, $ctrl, opacity, time) {
         $meta.animate({opacity : opacity}, time);
         $ctrl.animate({opacity : opacity}, time);
@@ -71,9 +233,10 @@
 
     }
 
-    /* ==========================================================================
+ *//*==========================================================================
       event handlers.
-     ========================================================================== */
+     ==========================================================================*//*
+
 
     bubble.on('click', function (ev) {
 
@@ -86,8 +249,9 @@
         }
     });
 
-    /*  Update slider widths based on window on resize event
-     **/
+  *//*Update slider widths based on window on resize event
+     *//*
+
     $(window).resize(function () {
         sliderWidth =  $(window).width() * $slide.length;
         $slide.css({width: $(window).width()});
@@ -176,4 +340,5 @@
 
     swipeFunction.init();
     
-}(window.jQuery));
+}(window.jQuery));*/
+

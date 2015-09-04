@@ -9,8 +9,8 @@
 
   &__controlls{
     width: 100px;
-    position: absolute;
     bottom: 30px;
+    position: absolute;
     left: 0;
     right: 0;
     margin: 0px auto;
@@ -37,48 +37,54 @@
       background-color:#bfbdbd;
     }
   }
-  
-  .slider__slides{
-      overflow:hidden;
-      position:relative;
 
-    .slider__slide{
+  .slider__slides {
       position: relative;
-      color: @load-more-color;
-      display: inline-block;
 
-      .slider__meta{
-        position: absolute;
-        right: 20%;
-        top: 35%;
-        text-align: justify;
+      ul {
+          list-style: none;
+        display: -webkit-box;
 
-        h2{
-          background-color: @slider-meta-bg;
-          font-family: "Lato-Black";
-          font-size: 21px;
-          padding: 17px;
-          margin-bottom: 10px;
-          text-transform: capitalize;
-        }
+          li {
+              position: relative;
+              color: @load-more-color;
 
-        p{
-          background-color: @slider-meta-bg;
-          font-family: "Lato-Regular";
-          font-size: 18px;
-          width: 370px;
-          position: absolute;
-          padding:17px;
-          right: 0;
-        }
+              .slider__meta{
+                  position: absolute;
+                  right: 20%;
+                  top: 35%;
+                  width: 405px;
+
+                  h2{
+                      background-color: @slider-meta-bg;
+                      font-family: "Lato-Black";
+                      font-size: 21px;
+                      padding: 17px;
+                      margin-bottom: 10px;
+                      text-transform: capitalize;
+                      width: 67%;
+                      float: right;
+                      text-align: center;
+                  }
+
+                  p{
+                      background-color: @slider-meta-bg;
+                      font-family: "Lato-Regular";
+                      font-size: 18px;
+                      padding:17px;
+                      right: 0;
+                      clear: both;
+                      text-align: justify;
+                  }
+              }
+          }
       }
-    }
   }
 }
 
 @media only screen and (min-width: 1180px) and (max-width: 1800px) {
 
-  .slider .slider__slide{
+  .slider .slider__slides ul li .slider__meta {
     h2{
       margin-bottom:5px;
     }
@@ -96,5 +102,23 @@
 
    .slider {
     margin-top: 30px;
+
+     .slider__slides ul li .slider__meta {
+       width: 75%;
+       right: 10%;
+       top: 20%;
+
+       h2 {
+         font-size: 13px;
+         padding: 9px;
+       }
+       p {
+         font-size: 13px;
+         padding: 9px;
+         text-overflow: ellipsis;
+         white-space: nowrap;
+         overflow: hidden;
+       }
+     }
   }
 }

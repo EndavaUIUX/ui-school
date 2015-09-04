@@ -26,7 +26,6 @@
 					throw new Error('Callback type is not a function.');
 				}
 				ajaxOptions = $.extend(ajaxOptions, options);
-				
 				$.ajax(ajaxOptions)
 						.done(options.callback)
 						.error(errorHandler);				

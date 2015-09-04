@@ -43,6 +43,7 @@
             THUNDERSTORM.modules.API.get({
                 url: 'rest/articles',
                 callback: function (data) {
+                    debugger;
                     persistence.set({
                         data: data,
                         sourceName: key

@@ -9,6 +9,7 @@
     var utility = THUNDERSTORM.modules.utility,
         persistence = THUNDERSTORM.modules.persistence,
         articles = THUNDERSTORM.modules.articles,
+        slider = THUNDERSTORM.modules.slider,
         articlesParent = $('.main--homepage'),
         articleClickTriggers =  'article h2,' +
                                 '.article__title,' +
@@ -38,6 +39,7 @@
 
     function init() {
         var resolutionPaginationObj = articles.paginationOnResolution();
+
         if ($(window).width() > 600 && $(window).width() < 700) {
             $('html, body').animate({
                  scrollTop: articlesParent.offset().top -90
@@ -52,6 +54,10 @@
             //callback:THUNDERSTORM.modules.articles.loadMode(articlesParent),
             itemsPerPage : resolutionPaginationObj.itemsPerPage,
             showLoadMore : resolutionPaginationObj.showLoadMore
+        });
+
+        slider.init({
+            sourceName : 'slider'
         });
     }
     

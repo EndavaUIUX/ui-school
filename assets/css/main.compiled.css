@@ -482,8 +482,8 @@ header .logo-user .user .user-profile .user-icon:hover {
 }
 .slider__controlls {
   width: 100px;
-  position: absolute;
   bottom: 30px;
+  position: absolute;
   left: 0;
   right: 0;
   margin: 0px auto;
@@ -505,39 +505,44 @@ header .logo-user .user .user-profile .user-icon:hover {
   background-color: #bfbdbd;
 }
 .slider .slider__slides {
-  overflow: hidden;
   position: relative;
 }
-.slider .slider__slides .slider__slide {
+.slider .slider__slides ul {
+  list-style: none;
+  display: -webkit-box;
+}
+.slider .slider__slides ul li {
   position: relative;
   color: #e1632a;
-  display: inline-block;
 }
-.slider .slider__slides .slider__slide .slider__meta {
+.slider .slider__slides ul li .slider__meta {
   position: absolute;
   right: 20%;
   top: 35%;
-  text-align: justify;
+  width: 405px;
 }
-.slider .slider__slides .slider__slide .slider__meta h2 {
+.slider .slider__slides ul li .slider__meta h2 {
   background-color: rgba(255, 255, 255, 0.8);
   font-family: "Lato-Black";
   font-size: 21px;
   padding: 17px;
   margin-bottom: 10px;
   text-transform: capitalize;
+  width: 67%;
+  float: right;
+  text-align: center;
 }
-.slider .slider__slides .slider__slide .slider__meta p {
+.slider .slider__slides ul li .slider__meta p {
   background-color: rgba(255, 255, 255, 0.8);
   font-family: "Lato-Regular";
   font-size: 18px;
-  width: 370px;
-  position: absolute;
   padding: 17px;
   right: 0;
+  clear: both;
+  text-align: justify;
 }
 @media only screen and (min-width: 1180px) and (max-width: 1800px) {
-  .slider .slider__slide h2 {
+  .slider .slider__slides ul li .slider__meta h2 {
     margin-bottom: 5px;
   }
 }
@@ -549,6 +554,22 @@ header .logo-user .user .user-profile .user-icon:hover {
 @media only screen and (min-width: 1px) and (max-width: 599px) {
   .slider {
     margin-top: 30px;
+  }
+  .slider .slider__slides ul li .slider__meta {
+    width: 75%;
+    right: 10%;
+    top: 20%;
+  }
+  .slider .slider__slides ul li .slider__meta h2 {
+    font-size: 13px;
+    padding: 9px;
+  }
+  .slider .slider__slides ul li .slider__meta p {
+    font-size: 13px;
+    padding: 9px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
   }
 }
 .latest__article {
