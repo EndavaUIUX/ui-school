@@ -1,124 +1,81 @@
+
 .slider{
-  background-color:#fff;
-  position:relative;
-  margin-top: 67px;
+    background-color:#fff;
+    position:relative;
+    margin-top: 67px;
 
-  img{
-    width:100%;
-  }
-
-  &__controlls{
-    width: 100px;
-    bottom: 30px;
-    position: absolute;
-    left: 0;
-    right: 0;
-    margin: 0px auto;
-    display: block;
-    z-index : 1;
-    text-align: center;
-
-    .bubble{
-      height: 14px;
-      width: 14px;
-      border-radius: 30px;
-      margin-right: 8px;
-      background-color: #fff;
-      display: inline-block;
-      border: @standard-border;
-      transition: 0.2s all ease;
-      
-      &:hover{
-        
-      }
+    img{
+        width:100%;
     }
-    
-    .bubble.bubble--active{
-      background-color:#bfbdbd;
+
+    &__controlls{
+        width: 100%;
+        bottom: 30px;
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: 0px auto;
+        display: block;
+        z-index : 1;
+        text-align: center;
+
+        .bubble{
+            height: 14px;
+            width: 14px;
+            border-radius: 30px;
+            margin-right: 8px;
+            background-color: #fff;
+            display: inline-block;
+            border: @standard-border;
+            transition: 0.2s all ease;
+        }
+
+        .bubble.bubble--active{
+            background-color:#bfbdbd;
+        }
     }
-  }
 
-  .slider__slides {
-      position: relative;
+    .slider__slides {
+        position: relative;
 
-      ul {
-          list-style: none;
-        display: -webkit-box;
+        ul {
+            list-style: none;
+            display: -webkit-box;
 
-          li {
-              position: relative;
-              color: @load-more-color;
+            li {
+                position: relative;
+                color: @load-more-color;
 
-              .slider__meta{
-                  position: absolute;
-                  right: 20%;
-                  top: 35%;
-                  width: 405px;
+                .slider__meta{
+                    position: absolute;
+                    right: 20%;
+                    top: 35%;
+                    width: 405px;
 
-                  h2{
-                      background-color: @slider-meta-bg;
-                      font-family: "Lato-Black";
-                      font-size: 21px;
-                      padding: 17px;
-                      margin-bottom: 10px;
-                      text-transform: capitalize;
-                      width: 67%;
-                      float: right;
-                      text-align: center;
-                  }
+                    h2{
+                        background-color: @slider-meta-bg;
+                        font-family: "Lato-Black";
+                        font-size: 21px;
+                        padding: 17px;
+                        margin-bottom: 10px;
+                        text-transform: capitalize;
+                        width: 67%;
+                        float: right;
+                        text-align: center;
+                    }
 
-                  p{
-                      background-color: @slider-meta-bg;
-                      font-family: "Lato-Regular";
-                      font-size: 18px;
-                      padding:17px;
-                      right: 0;
-                      clear: both;
-                      text-align: justify;
-                  }
-              }
-          }
-      }
-  }
-}
-
-@media only screen and (min-width: 1180px) and (max-width: 1800px) {
-
-  .slider .slider__slides ul li .slider__meta {
-    h2{
-      margin-bottom:5px;
+                    p{
+                        background-color: @slider-meta-bg;
+                        font-family: "Lato-Regular";
+                        font-size: 18px;
+                        padding:17px;
+                        right: 0;
+                        clear: both;
+                        text-align: justify;
+                    }
+                }
+            }
+        }
     }
-  }
 }
 
-@media only screen and (min-width: 600px) and (max-width: 1179px) {
-
-  .slider {
-    margin-top: 48px;
-  }
-}
-
-@media only screen and (min-width: 1px) and (max-width: 599px) {
-
-   .slider {
-    margin-top: 30px;
-
-     .slider__slides ul li .slider__meta {
-       width: 75%;
-       right: 10%;
-       top: 20%;
-
-       h2 {
-         font-size: 13px;
-         padding: 9px;
-       }
-       p {
-         font-size: 13px;
-         padding: 9px;
-         text-overflow: ellipsis;
-         white-space: nowrap;
-         overflow: hidden;
-       }
-     }
-  }
-}

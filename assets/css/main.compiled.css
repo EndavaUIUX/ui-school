@@ -481,7 +481,7 @@ header .logo-user .user .user-profile .user-icon:hover {
   width: 100%;
 }
 .slider__controlls {
-  width: 100px;
+  width: 100%;
   bottom: 30px;
   position: absolute;
   left: 0;
@@ -541,22 +541,26 @@ header .logo-user .user .user-profile .user-icon:hover {
   clear: both;
   text-align: justify;
 }
-@media only screen and (min-width: 1180px) and (max-width: 1800px) {
-  .slider .slider__slides ul li .slider__meta h2 {
-    margin-bottom: 5px;
-  }
-}
-@media only screen and (min-width: 600px) and (max-width: 1179px) {
+@media only screen and (min-width: 570px) and (max-width: 1180px) {
   .slider {
     margin-top: 48px;
   }
+  .slider .slider__slides ul li .slider__meta {
+    right: 10%;
+    top: 25%;
+  }
+  .slider .slider__slides ul li .slider__meta h2 {
+    font-size: 18px;
+  }
+  .slider .slider__slides ul li .slider__meta p {
+    font-size: 18px;
+  }
 }
-@media only screen and (min-width: 1px) and (max-width: 599px) {
+@media only screen and (max-width: 569px) {
   .slider {
     margin-top: 30px;
   }
   .slider .slider__slides ul li .slider__meta {
-    width: 75%;
     right: 10%;
     top: 20%;
   }
@@ -570,6 +574,17 @@ header .logo-user .user .user-profile .user-icon:hover {
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+  }
+}
+@media screen and (orientation: portrait) and (max-width: 1180px) {
+  .slider .slider__slides ul li .slider__meta {
+    width: 70%;
+  }
+}
+@media screen and (orientation: landscape) and (max-width: 1180px) {
+  .slider .slider__slides ul li .slider__meta {
+    width: 50%;
+    top: 25%;
   }
 }
 .latest__article {

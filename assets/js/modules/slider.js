@@ -6,7 +6,6 @@
     'use strict';
 
     var slider = {},
-        bubble = $('.bubble'),
         utility = THUNDERSTORM.modules.utility,
         persistence = THUNDERSTORM.modules.persistence;
 
@@ -39,26 +38,36 @@
 
     function createSlider(data) {
 
-        var $li, $img, $meta, $h2, $p,
-            $slides = $(".slider__slides ul");
+        var $li, $img, $meta, $h2, $p, $a,
+            $slides = $(".slider__slides ul"),
+            $sliderControlls = $(".slider__controlls");
+
 
 
         for(var i = 0, len = data.images.length; i < len; i++){
+
+            if(i > 39) {
+                return;
+            }
+
             $li = $("<li>");
             $meta = $("<div>", {class: "slider__meta"});
             $img = $("<img>", {src: data.images[i].src, alt: data.images[i].name});
             $h2 = $("<h2>");
             $p = $("<p>");
-
+            $a = $("<a>", {href: "#", class: "bubble", "data-index": i+1});
 
             $slides.append($li);
             $li.append($meta);
             $li.append($img);
             $meta.append($h2);
             $meta.append($p);
+            $sliderControlls.append($a);
+            $('.bubble').first().addClass('bubble--active');
 
             $h2.html(data.images[i].meta_title);
             $p.html(data.images[i].meta_message);
+
         }
 
     }
@@ -118,22 +127,12 @@
     /*==========================================================================
     * event handlers.
     * ==========================================================================*/
-    bubble.on('click', function (ev) {
 
-        var goTo = $(this).data('index'), //slide index corresponding to clicked bubble
-            $slide = $('.slider li'),
-            sliderWidth = $( window ).width() * $slide.length,
-            travelLength = getTravelLength(goTo, sliderWidth);
+     $('document').ready( function() {
 
-        ev.preventDefault();
-        if (travelLength) {
-            move.call(this, travelLength);
-        }
-    });
-
-    $('document').load( function() {
         var $slide = $('.slider__slides li'),
             $slider = $('.slider__slides'),
+            bubble = $('.bubble'),
             sliderWidth = $(window).width() * $slide.length;
 
 
@@ -148,8 +147,20 @@
             $slider.css({width: sliderWidth, left : 0});
             setActiveBubble();
         });
-    });
 
+         bubble.on('click', function (ev) {
+
+             var goTo = $(this).data('index'), //slide index corresponding to clicked bubble
+                 $slide = $('.slider li'),
+                 sliderWidth = $( window ).width() * $slide.length,
+                 travelLength = getTravelLength(goTo, sliderWidth);
+
+             ev.preventDefault();
+             if (travelLength) {
+                 move.call(this, travelLength);
+             }
+         });
+    });
 
     THUNDERSTORM.modules.slider = slider;
 }(window, window.THUNDERSTORM, window.jQuery));
