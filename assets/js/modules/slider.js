@@ -124,6 +124,87 @@
         }
     }
 
+
+    var swipeFunction = {
+        touches: {
+            "touchstart": {"x": -1, "y": -1},
+            "touchmove": {"x": -1, "y": -1},
+            "touchend": false,
+            "direction": "undetermined"
+        },
+        touchHandler: function (event) {
+            var touch;
+            if (typeof event !== 'undefined') {
+                event.preventDefault();
+                if (typeof event.touches !== 'undefined') {
+                    touch = event.touches[0];
+
+                    switch (event.type) {
+                        case 'touchstart':
+                        case 'touchmove':
+                            swipeFunction.touches[event.type].x = touch.pageX;
+                            swipeFunction.touches[event.type].y = touch.pageY;
+                            break;
+                        case 'touchend':
+                            swipeFunction.touches[event.type] = true;
+                            if (swipeFunction.touches.touchstart.x > -1 && swipeFunction.touches.touchmove.x > -1) {
+                                swipeFunction.touches.direction = swipeFunction.touches.touchstart.x < swipeFunction.touches.touchmove.x ? "right" : "left";
+
+                                //hardcodat
+                                var activeBubbleIndex = $('.bubble--active').data('index');
+                                if (swipeFunction.touches.direction === 'left') {
+                                    if (activeBubbleIndex === $('.bubble').length) {
+                                        return false;
+                                    }
+                                    var travelLength = getTravelLength(activeBubbleIndex + 1);
+                                    if (travelLength) {
+                                        move.call($('[data-index="' + (activeBubbleIndex + 1) + '"]'), travelLength);
+                                        swipeFunction.init();
+                                    }
+                                } else {
+                                    if (activeBubbleIndex === 1) {
+                                        return false;
+                                    }
+                                    var travelLength = getTravelLength(activeBubbleIndex - 1);
+                                    if (travelLength) {
+                                        move.call($('[data-index="' + (activeBubbleIndex - 1) + '"]'), travelLength);
+                                        swipeFunction.init();
+                                    }
+                                }
+                            }
+                        default:
+                            break;
+                    }
+                }
+            }
+        },
+        init: function () {
+            debugger;
+            var images = document.querySelectorAll('.slider__slides img');
+            var paras = document.querySelectorAll('.slider__slides p');
+            var titles = document.querySelectorAll('.slider__slides h2');
+
+            for(var i = 0; i < images.length; i++) {
+                images[i].addEventListener('touchstart', swipeFunction.touchHandler, false);
+                images[i].addEventListener('touchmove', swipeFunction.touchHandler, false);
+                images[i].addEventListener('touchend', swipeFunction.touchHandler, false);
+            }
+
+            for(var i = 0; i < paras.length; i++) {
+                paras[i].addEventListener('touchstart', swipeFunction.touchHandler, false);
+                paras[i].addEventListener('touchmove', swipeFunction.touchHandler, false);
+                paras[i].addEventListener('touchend', swipeFunction.touchHandler, false);
+            }
+
+            for(var i = 0; i < titles.length; i++) {
+                titles[i].addEventListener('touchstart', swipeFunction.touchHandler, false);
+               titles[i].addEventListener('touchmove', swipeFunction.touchHandler, false);
+                titles[i].addEventListener('touchend', swipeFunction.touchHandler, false);
+            }
+        }
+    };
+
+
     /*==========================================================================
     * event handlers.
     * ==========================================================================*/
@@ -160,6 +241,8 @@
                  move.call(this, travelLength);
              }
          });
+
+         swipeFunction.init();
     });
 
     THUNDERSTORM.modules.slider = slider;
