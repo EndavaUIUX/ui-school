@@ -229,6 +229,6 @@ glob("*", {'cwd': 'rest'}, function (er, files) {
 });
 
 // Start our app server
-var serverPort = 3000;
+var serverPort = 3001;
 app.listen(serverPort);
 console.log("Server started on port " + serverPort);
