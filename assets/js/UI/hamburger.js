@@ -1,4 +1,4 @@
-(function(){
+(function($){
     'use strict';
     var $menu = $('.menu'),
         $menuLeft = $('nav.menu-left'),
@@ -101,4 +101,4 @@
             window.location.href = "/search-result?" + inputValue;
         }
     });
-}());
+}(window.jQuery));

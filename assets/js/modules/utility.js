@@ -1,8 +1,13 @@
 (function (window, THUNDERSTORM, $) {
     'use strict';
+    var THUNDERSTORM = THUNDERSTORM || {};
+    THUNDERSTORM.modules = THUNDERSTORM.modules || {};
     var utility = {};
 
-    function nth(d) {
+    utility.nth = function (d) {
+        if (d >=10 && d <= 20) {
+            return 'th';
+        }
         switch (d % 10) {
         case 1:
             return "st";
@@ -15,9 +20,8 @@
         }
     }
     
-    utility.clearArticles = function () {
-        var articleContainer = $('.main, .content--search');
-        articleContainer.empty();
+    utility.clearArticles = function (container) {
+        container.empty();
     };
     
     utility.imageSourceGenerator = function (articleData) {
@@ -38,8 +42,8 @@
         return imageSourceObj;
     };
 
-    utility.keyInLocalStorage = function (key) {
-        if (window.localStorage.getItem(key) === null) {
+    utility.keyInLocalStorage = function (key, storageInterface) {
+        if (storageInterface.getItem(key) === null || typeof storageInterface.getItem(key) === 'undefined') {
             return false;
         }
         return true;
@@ -50,26 +54,42 @@
         var months = ['January', 'February', 'March', 'April',
                       'May', 'June', 'July', 'August', 'September',
                       'October', 'November', 'December'];
-        date = date.split('-');
-        if (hasYear) {
-            return  months[parseInt(date[1], 10)] + " " +
-                    parseInt(date[0], 10) +
-                    nth(date[0]) + ", " + date[2];
+        date = date.split(/[.,\/ -]/);
+        if (date[0].length > 2 || date[1].length > 2 || date[2].length !== 4) {
+            //not doing any further processing as the date should be given in this format..
+            throw new Error('Format should be dd-mm-yyyy or dd/mm/yyyy');
         }
-        return  months[parseInt(date[1], 10)] + " " +
-                parseInt(date[0], 10) + nth(date[0]);
+        if (hasYear) {
+            return  months[parseInt(date[1], 10) - 1] + " " +
+                    parseInt(date[0], 10) +
+                    utility.nth(date[0]) + ", " + date[2];
+        }
+        return  months[parseInt(date[1], 10) - 1] + " " +
+                parseInt(date[0], 10) + utility.nth(date[0]);
     };
 
     utility.nameFormatter = function (name, stripLast) {
-        var fullName = name.split(' ');
+        var fullName;
+        var res = '';
+        if (typeof name !== 'string') {
+            throw new Error('Name needs to be a string!');
+        }
+        fullName = name.split(' ');
         if (stripLast) {
-            return fullName[0] + " " + fullName[1].charAt(0) + ".";
+            fullName.forEach(function (currentValue, index) {
+                if (index === 0) {
+                    res = res + currentValue + " ";
+                } else {
+                    res = res + currentValue.charAt(0) + "." + " ";
+                }
+            })
+            return res;
         }
         return fullName;
     };
 
     utility.populateArticleDetails = function (articleData, articleBody) {
-        articleBody.html(articleData.content);
+        articleBody.append(articleData.content);
     };
 
     utility.populateArticleTitle = function (elementsObject, articleContent) {
@@ -187,5 +207,5 @@
     };
 
     THUNDERSTORM.modules.utility = utility;
-
+    window.THUNDERSTORM = THUNDERSTORM;
 }(window, window.THUNDERSTORM, window.jQuery));

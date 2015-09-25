@@ -1,6 +1,6 @@
 /*
 * MIO: This is temporary and not used at this time.
-*/
+*
 function loadMoreLogic($selector) {
     var page = $('.load-more').data('page');
     var lastArticleIndex = $('.article-wrapper').last();
@@ -52,3 +52,4 @@ $(".main--homepage").on("swiperight", '.latest__article, .article-wrapper', func
 
     });
 });
+*/

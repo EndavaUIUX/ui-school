@@ -200,13 +200,6 @@
              scrollTop: articlesParent.offset().top -80
          }, 200);
     });
-    
-  
-  
-   /* $(window).resize(function () {
-        utility.clearArticles();
-        loadMore[0].setAttribute('data-page', 1);
-        init();
-    });*/
+
 }(window, window.jQuery, window.THUNDERSTORM));
 

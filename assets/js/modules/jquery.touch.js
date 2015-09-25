@@ -72,7 +72,7 @@
 		}, threshold);
 	}
 
-})(jQuery);
+})(window.jQuery);
 
 
 /**
@@ -138,4 +138,4 @@
             }
         }
     };
-})(jQuery);
+})(window.jQuery);

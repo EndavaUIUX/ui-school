@@ -198,28 +198,20 @@
             }
         }
         $('html, body').animate({
-             scrollTop: articlesParent.offset().top -80
-         }, 200);
+            scrollTop: articlesParent.offset().top - 80
+        }, 200);
     });
     
     $(window).on('orientationchange', function () {
-            setTimeout(function () {
-                utility.clearArticles();
-                loadMore[0].setAttribute('data-page', 1);
-                init();
-            }, 200);
-            $('html, body').animate({
-                 scrollTop: articlesParent.offset().top +50
-             }, 200);
-    });
-
-   /* window.addEventListener("orientationchange", function() {
-            utility.clearArticles();
+        setTimeout(function () {
+            utility.clearArticles($('.main'));
             loadMore[0].setAttribute('data-page', 1);
             init();
-            alert('test');
-    }, false);*/
+        }, 200);
+        $('html, body').animate({
+            scrollTop: articlesParent.offset().top + 50
+        }, 200);
+    });
 
-   /*$('img').on('dragstart', function (event) { event.preventDefault(); });*/
 
 }(window, window.THUNDERSTORM, window.jQuery));

@@ -1,7 +1,7 @@
 /**
  * Created by icojocaru on 8/5/2015.
  */
-(function() {
+(function($) {
     'use strict';
     var $menuRight = $('.menu-right'),
         $rightMinDiv = $('.rightminidiv'),
@@ -39,5 +39,5 @@
             $rightMenuBackdrop.removeClass("show");
         }
     });
-}());
+}(window.jQuery));
 

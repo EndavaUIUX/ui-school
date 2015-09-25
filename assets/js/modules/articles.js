@@ -26,7 +26,7 @@
      ==================================================================== */
     articles.init = function (options) {
         var key = options.sourceName;
-        if (utility.keyInLocalStorage(key)) {
+        if (utility.keyInLocalStorage(key, window.localStorage)) {
             articles.data = persistence.get(options);
             //if vrem sa generam, facem paginarea si generate
             if (options.shouldGenerate) {
